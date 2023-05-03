@@ -70,3 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+SonyMusicProject/Library/ShaderCache/builtin/unity_builtin_extra0000/00/
+
+SonyMusicProject/Library/
