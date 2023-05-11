@@ -12,20 +12,23 @@ public class PlayerDash : MonoBehaviour {
     private Vector3 _endPosition;
     private Rigidbody2D _rb;
 
-    private float _startX;
+    public float _startY;
 
-    void Start() {
+    void Awake() {
         _rb = GetComponent<Rigidbody2D>();
-        _startX = transform.position.x;
+      //  _startY = transform.position.y;
     }
     
     void Update() {
         if (Input.touchCount > 0) {
 
             Touch touch = Input.GetTouch(0);
-            
-            if (!dashMode) 
-                transform.position = ConvertPoint(new Vector3(_startX,touch.position.y,0));
+
+            if (!dashMode) {
+                Vector3 position = ConvertPoint(new Vector3(touch.position.x, _startY, 0));
+                position.y = _startY;
+                transform.position = position;
+            }
             else {
                 if (touch.phase == TouchPhase.Began) 
                     _startPosition = ConvertPoint(touch.position);
@@ -47,5 +50,9 @@ public class PlayerDash : MonoBehaviour {
         Vector3 screenPosition = new Vector3(point.x, point.y,-Camera.main.transform.position.z);
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         return worldPosition;
+    }
+
+    public void SwitchDashMode() {
+        dashMode = !dashMode;
     }
 }

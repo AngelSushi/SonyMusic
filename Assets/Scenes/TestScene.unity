@@ -396,8 +396,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ee7cf28395a1147983cb4e3bca5b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashMode: 0
+  dashMode: 1
   forceImpulse: 10
+  _startY: -2.5
 --- !u!50 &725770805
 Rigidbody2D:
   serializedVersion: 4
@@ -616,7 +617,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df0f8744398fef4f8dc3693376b3415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenPlateform: 1
+  timeBetweenPlateform: 2
   plateformPrefab: {fileID: 5731069301485045511, guid: f8d2e1c8b6744354fbb2c539412ba5f0, type: 3}
   playerSize: 1
 --- !u!4 &1777668011
