@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CSV2Table/Scripts/CsvParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CSV2Table/Scripts/CsvParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CSV2Table/Scripts/CsvParser2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CSV2Table/Scripts/CsvParser2.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/dialog.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/dialog.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683789919491</updated>
       <workItem from="1683789942473" duration="7052000" />
-      <workItem from="1683876484515" duration="4515000" />
+      <workItem from="1683876484515" duration="7967000" />
     </task>
     <servers />
   </component>

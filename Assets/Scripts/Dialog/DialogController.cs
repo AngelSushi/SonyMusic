@@ -20,7 +20,6 @@ public class DialogController : MonoBehaviour {
         public int speakerID;
         public int dialogID;
         public int lastID;
-        public AudioClip voice;
         public string content;
         public float speed;
         
@@ -52,7 +51,7 @@ public class DialogController : MonoBehaviour {
         
         
         for (int i = 1; i < content.Length; i++) {
-            loadList.Add(new DialogContent(int.Parse(content[i][0]),int.Parse(content[i][1]),int.Parse(content[i][2]),content[i][4],float.Parse(content[i][5])));
+            loadList.Add(new DialogContent(int.Parse(content[i][0]),int.Parse(content[i][1]),int.Parse(content[i][2]),content[i][3],float.Parse(content[i][4])));
         }
         
 
