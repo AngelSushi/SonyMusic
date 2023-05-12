@@ -415,7 +415,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392763e849c8d9a4a9134ab616fc647b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  csvFile: {fileID: 4900000, guid: bb9c073cd3820704dbabe89b70ac77b8, type: 3}
+  speakerFile: {fileID: 4900000, guid: 2dc87687737bafd4e877f5a3d58577dc, type: 3}
+  dialogFile: {fileID: 4900000, guid: bb9c073cd3820704dbabe89b70ac77b8, type: 3}
 --- !u!4 &797059504
 Transform:
   m_ObjectHideFlags: 0

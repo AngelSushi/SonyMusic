@@ -5,7 +5,7 @@ using System.Text;
 
 public class CsvParser2
 {
-    private const char CommaCharacter = ',';
+    private const char CommaCharacter = ';';
     private const char QuoteCharacter = '"';
 
     #region Nested types

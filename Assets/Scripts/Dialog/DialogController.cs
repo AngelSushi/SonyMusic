@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class DialogController : MonoBehaviour {
     public class Speaker {
-        public Sprite speakerSprite;
+        public Texture speakerTex;
         public string name;
         public int id;
 
-        public Speaker(Sprite speakerSprite, string name, int id) {
-            this.speakerSprite = speakerSprite;
+        public Speaker(Texture speakerTex, string name, int id) {
+            this.speakerTex = speakerTex;
             this.name = name;
             this.id = id;
         }
@@ -33,24 +34,42 @@ public class DialogController : MonoBehaviour {
         }
     }
 
-    public TextAsset csvFile;
+    public TextAsset speakerFile;
+    public TextAsset dialogFile;
 
-    public List<DialogContent> contents = new List<DialogContent>();
+    public List<DialogContent> dialogs = new List<DialogContent>();
+    public List<Speaker> speakers = new List<Speaker>();
 
-    public void Start() {
-        Load(csvFile);
+    [ContextMenu("Load")]
+    private void LoadFiles() {
+        Load(speakerFile,speakers);
+        Load(dialogFile,dialogs);
     }
-
-    public void Load(TextAsset file) {
+    
+    public void Load(TextAsset file,List<DialogContent> loadList) {
+        loadList.Clear();
         string[][] content = CsvParser.Parse(file.text);
         
         
         for (int i = 1; i < content.Length; i++) {
-            string[] data = content[i][0].Split(";");
-            contents.Add(new DialogContent(int.Parse(data[0]),int.Parse(data[1]),int.Parse(data[2]),data[4],float.Parse(data[5])));
+            loadList.Add(new DialogContent(int.Parse(content[i][0]),int.Parse(content[i][1]),int.Parse(content[i][2]),content[i][4],float.Parse(content[i][5])));
         }
         
 
-        Debug.Log("length " + contents.Count);
+        Debug.Log("length " + loadList.Count);
+    }
+    
+    public void Load(TextAsset file,List<Speaker> loadList) {
+        loadList.Clear();
+        string[][] content = CsvParser.Parse(file.text);
+        
+        
+        for (int i = 1; i < content.Length; i++) {
+            Texture speakerTex = AssetDatabase.LoadAssetAtPath<Texture>("Assets/Resources/Characters/" + content[i][0] + ".png");
+            speakers.Add(new Speaker(speakerTex,content[i][1],int.Parse(content[i][2])));
+        }
+        
+
+        Debug.Log("length " + loadList.Count);
     }
 }
