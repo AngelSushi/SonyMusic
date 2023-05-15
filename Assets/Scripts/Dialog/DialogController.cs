@@ -1,33 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class DialogController : MonoBehaviour {
-    public class Speaker {
-        public Texture speakerTex;
+[ExecuteAlways]
+public class DialogController : MonoBehaviour 
+{
+    public class Speaker 
+    {
+        public Texture2D speakerTex;
+        public Sprite speakerSprite;
         public string name;
         public int id;
 
-        public Speaker(Texture speakerTex, string name, int id) {
+        public Speaker(Texture2D speakerTex, string name, int id) 
+        {
             this.speakerTex = speakerTex;
+            this.speakerSprite = Sprite.Create(speakerTex,new Rect(0,0,speakerTex.width,speakerTex.height),new Vector2(0.5f,0.5f));
             this.name = name;
             this.id = id;
         }
     }
 
-    public class DialogContent {
+    public class DialogContent 
+    {
         public int speakerID;
         public int dialogID;
-        public int lastID;
+        public int nextID;
         public string content;
         public float speed;
+        public UnityEvent endAction;
         
-        public DialogContent(int speakerID, int dialogID, int lastID, string content, float speed) {
+        public DialogContent(int speakerID, int dialogID, int nextID, string content, float speed) 
+        {
             this.speakerID = speakerID;
             this.dialogID = dialogID;
-            this.lastID = lastID;
-            //this.voice = voice;
+            this.nextID = nextID;
             this.content = content;
             this.speed = speed;
         }
@@ -39,36 +50,67 @@ public class DialogController : MonoBehaviour {
     public List<DialogContent> dialogs = new List<DialogContent>();
     public List<Speaker> speakers = new List<Speaker>();
 
+    public static DialogController instance;
+
+    public void OnEnable() 
+    {
+        if (!Application.isPlaying) 
+        {
+            LoadFiles();
+        }
+    }
+
+    private void Awake() 
+    {
+        if(speakers.Count == 0 && dialogs.Count == 0)
+            LoadFiles();
+        
+        instance = this;
+    }
+    
+    public DialogContent GetDialogById(int dialogID) 
+    {
+        return dialogs.Where(dialog => dialog.dialogID == dialogID).ToList()[0];
+    }
+
+    public Speaker GetSpeakerById(int speakerID) 
+    {
+        return speakers.Where(speaker => speaker.id == speakerID).ToList()[0];
+    }
+
+
     [ContextMenu("Load")]
-    private void LoadFiles() {
+    private void LoadFiles() 
+    {
         Load(speakerFile,speakers);
         Load(dialogFile,dialogs);
+        
     }
     
-    public void Load(TextAsset file,List<DialogContent> loadList) {
+    public void Load(TextAsset file,List<DialogContent> loadList) 
+    {
         loadList.Clear();
         string[][] content = CsvParser.Parse(file.text);
         
-        
-        for (int i = 1; i < content.Length; i++) {
+        for (int i = 1; i < content.Length; i++) 
+        {
             loadList.Add(new DialogContent(int.Parse(content[i][0]),int.Parse(content[i][1]),int.Parse(content[i][2]),content[i][3],float.Parse(content[i][4])));
         }
-        
-
-        Debug.Log("length " + loadList.Count);
     }
     
-    public void Load(TextAsset file,List<Speaker> loadList) {
+    public void Load(TextAsset file,List<Speaker> loadList) 
+    {
         loadList.Clear();
         string[][] content = CsvParser.Parse(file.text);
         
-        
         for (int i = 1; i < content.Length; i++) {
-            Texture speakerTex = AssetDatabase.LoadAssetAtPath<Texture>("Assets/Resources/Characters/" + content[i][0] + ".png");
+            Texture2D speakerTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Characters/" + content[i][0] + ".png");
+
             speakers.Add(new Speaker(speakerTex,content[i][1],int.Parse(content[i][2])));
         }
-        
-
-        Debug.Log("length " + loadList.Count);
     }
+    
+    
+    
+    
 }

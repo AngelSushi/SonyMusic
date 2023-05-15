@@ -257,7 +257,7 @@ public class CsvParser2
 		
 		using (StringReader reader = new StringReader(input))
 		{
-			return parser.Parse(reader);
+            return parser.Parse(reader);
 		}
 	}
 }
