@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/CSV2Table/Scripts/CsvParser2.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/CSV2Table/Scripts/CsvParser2.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/dialog.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/dialog.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/dialog.csv.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/dialog.csv.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/speakers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/speakers.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/speakers.csv.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/speakers.csv.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,17 +29,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Discover.Launch.Via.Unity": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "rider.run.widget.enabled.cache": "false",
-    "settings.editor.selected.configurable": "preferences.sourceCode.C#",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Discover.Launch.Via.Unity&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="D:\unity\2021.3.15f1\Editor\Unity.exe" />
@@ -86,7 +79,7 @@
       <option name="presentableId" value="Default" />
       <updated>1683789919491</updated>
       <workItem from="1683789942473" duration="7052000" />
-      <workItem from="1683876484515" duration="24190000" />
+      <workItem from="1683876484515" duration="25563000" />
     </task>
     <servers />
   </component>
