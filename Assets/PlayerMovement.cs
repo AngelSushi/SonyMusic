@@ -14,41 +14,78 @@ public class PlayerMovement : MonoBehaviour
 
     private float jumpTimeCounter;
     public float jumpTime;
-    private bool isJumping;
+    //private bool isJumping;
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
     }
 
-    void Update()
+    //void Update()
+    //{
+    //    _isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGrounded);
+
+    //    if (_isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+    //    {
+    //        isJumping = true;
+    //        jumpTimeCounter = jumpTime;
+    //        _rb.velocity = Vector2.up * jumpForce;
+    //    }
+
+    //    if (Input.GetKey(KeyCode.Space) && isJumping == true)
+    //    {
+    //        if (jumpTimeCounter > 0)
+    //        {
+    //            _rb.velocity = Vector2.up * jumpForce;
+    //            jumpTimeCounter -= Time.deltaTime;
+    //        }
+    //        else
+    //        {
+    //            isJumping = false;
+    //        }
+    //    }
+
+    //    if (Input.GetKeyUp(KeyCode.Space))
+    //    {
+    //        isJumping = false;
+    //    }
+    //}
+
+    private void Update()
     {
         _isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGrounded);
 
-        if(_isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began && _isGrounded==true)
         {
-            isJumping = true;
+            //isJumping = true;
             jumpTimeCounter = jumpTime;
             _rb.velocity = Vector2.up * jumpForce;
         }
-
-        if (Input.GetKey(KeyCode.Space) && isJumping == true)
-        {
-            if(jumpTimeCounter > 0)
-            {
-                _rb.velocity = Vector2.up * jumpForce;
-                jumpTimeCounter -= Time.deltaTime;
-            }
-            else
-            {
-                isJumping = false;
-            }
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isJumping = false;
-        }
+        
     }
+
+    //public void playerJump()
+    //{
+    //    if (_isGrounded == true)
+    //    {
+    //        isJumping = true;
+    //        jumpTimeCounter = jumpTime;
+    //        _rb.velocity = Vector2.up * jumpForce;
+    //    }
+
+    //    if (isJumping == true)
+    //    {
+    //        if (jumpTimeCounter > 0)
+    //        {
+    //            _rb.velocity = Vector2.up * jumpForce;
+    //            jumpTimeCounter -= Time.deltaTime;
+    //            isJumping = false;
+
+    //        }
+
+    //    }
+
+
+    //} 
 
 
 }
