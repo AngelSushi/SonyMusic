@@ -16,7 +16,7 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private float dashDistance;
     
     private Vector3 _playerPosition;
-    private bool _isDashing;
+    public bool _isDashing;
     
     void Awake() 
     {
@@ -24,8 +24,7 @@ public class PlayerDash : MonoBehaviour {
     }
     
     void Update() {
-        if (Input.touchCount > 0)
-        {
+        if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)
@@ -40,6 +39,7 @@ public class PlayerDash : MonoBehaviour {
                 Vector3 direction = (_endPosition - _startPosition).normalized;
                 _rb.velocity = direction * dashSpeed;
 
+                Debug.Log("dash");
                 _playerPosition = transform.position;
                 _isDashing = true;
                 
