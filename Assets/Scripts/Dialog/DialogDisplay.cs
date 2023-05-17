@@ -42,7 +42,7 @@ public class DialogDisplay : MonoBehaviour {
     {
         for (int i = 1; i < dialogContent.content.Length + 1; i++)
         {
-            yield return new WaitForSeconds(dialogContent.speed);
+            yield return new WaitForSeconds(dialogContent.speed / dialogContent.content.Length);
             _dialogText.text = dialogContent.content.Substring(0, i);
         }
 
