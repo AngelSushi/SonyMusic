@@ -313,8 +313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ee7cf28395a1147983cb4e3bca5b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceImpulse: 20
-  dashHeight: 4
+  dashSpeed: 0
   dashDistance: 4
 --- !u!61 &725770806
 BoxCollider2D:
