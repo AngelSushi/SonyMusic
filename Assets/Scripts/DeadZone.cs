@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class DeadZone : MonoBehaviour
 {
-    public GameObject player;
     private void OnTriggerExit2D(Collider2D collision)
     {
-        player.GetComponent<PlayerDash>()._isDashing = false;
-        Destroy(player);
-        SceneManager.LoadScene("Gameplay");
+        if (collision.gameObject.TryGetComponent<PlayerDash>(out PlayerDash playerDash))
+        {
+            playerDash._isDashing = false;
+            Destroy(playerDash.gameObject);
+            SceneManager.LoadScene("Gameplay");
+        }
     }
 }

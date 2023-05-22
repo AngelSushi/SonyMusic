@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using UnitySpriteCutter;
 
 public class PlayerDash : MonoBehaviour {
 
@@ -64,7 +65,33 @@ public class PlayerDash : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.layer == LayerMask.NameToLayer("Destructible") && _isDashing) 
-            Destroy(col.gameObject);
+        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && _isDashing)
+        {
+            
+            Debug.Log("dash hit trigger ");
+
+            Vector3 localStart = col.transform.position - (Vector3)col.ClosestPoint(transform.position);
+
+            Debug.Log("localStart " + localStart);
+
+            col.gameObject.transform.GetChild(0).position =new Vector3(col.transform.position.x - localStart.x, col.transform.position.y - localStart.y,localStart.z);;
+
+
+            /*   SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
+               {
+                   lineStart = new Vector3(col.transform.position.x -localStart.x, col.transform.position.y -localStart.y,localStart.z),
+                   lineEnd = localStart,
+                   gameObject = col.gameObject,
+                   gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
+               } );
+   
+               if ( output != null && output.secondSideGameObject != null ) 
+               {
+                   Rigidbody2D newRigidbody = output.secondSideGameObject.AddComponent<Rigidbody2D>();
+                   newRigidbody.velocity = output.firstSideGameObject.GetComponent<Rigidbody2D>().velocity;
+               }
+               
+               */
+        }
     }
 }
