@@ -5,6 +5,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MusicSync.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MusicSync.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Music/OrelSan - Civilisation ( Instrumental ).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Sounds/Music/OrelSan - Civilisation ( Instrumental ).mp3.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +15,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2db993bacc484e86a1cabb1c923eae1419f19e9af2ae8f13fabd57154b9068d8/Note.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -36,7 +40,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="E:\Unity\2021.3.15f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\unity\2021.3.15f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\IIM\A2_2022_2023\SonyMusic\SonyMusic -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\IIM\A2_2022_2023\SonyMusic\SonyMusic" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -77,6 +81,7 @@
       <workItem from="1684329713943" duration="1461000" />
       <workItem from="1684579863839" duration="1825000" />
       <workItem from="1684591185817" duration="117000" />
+      <workItem from="1684739913133" duration="9841000" />
     </task>
     <servers />
   </component>
