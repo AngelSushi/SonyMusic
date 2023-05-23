@@ -2,13 +2,36 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_gringe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_orelsan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_orelsan.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_raelsan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_raelsan.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_skread.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_skread.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Ablaye.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Ablaye.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Gringe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Gringe.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Raelsan.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Raelsan.png.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Skread.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Resources/Characters/Skread.png.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/trap 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/trap 1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/trap 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/trap 2.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/trap.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/trap.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MusicSync.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MusicSync.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/AngryBird.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/AngryBird.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_ablaye.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/Evy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/Evy.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_gringe.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Dialogs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Dialogs/dialog.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Dialogs/dialog.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Dialogs/speakers.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/Dialogs/speakers.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/dialog.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/dialog.csv.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/speakers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/speakers.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

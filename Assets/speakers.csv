@@ -1,3 +1,5 @@
-speaker_sprite;name;id
-AngryBird;JM;0
-Evy;Amaury;1
+id;speaker_sprite;background_sprite;name
+1;skread;background_skread;Skread
+2;raelsan;background_raelsan;Raelsan
+3;gringe;background_gringe;Gringe
+4;ablaye;background_ablaye;Ablaye
