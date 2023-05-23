@@ -110,6 +110,12 @@ public class PlayerDash : MonoBehaviour {
             if ( output != null && output.secondSideGameObject != null ) 
             {
                 Rigidbody2D newRigidbody = output.secondSideGameObject.AddComponent<Rigidbody2D>();
+
+                if (output.firstSideGameObject.GetComponent<Rigidbody2D>() == null)
+                {
+                    output.firstSideGameObject.AddComponent<Rigidbody2D>();
+                }
+                
                 newRigidbody.velocity = output.firstSideGameObject.GetComponent<Rigidbody2D>().velocity;
                 AddPoint();
             }
