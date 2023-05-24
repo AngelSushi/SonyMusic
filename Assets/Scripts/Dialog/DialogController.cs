@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -68,12 +69,10 @@ public class DialogController : MonoBehaviour
 
     private void Awake() 
     {
-        if(speakers.Count == 0 && dialogs.Count == 0)
-            LoadFiles();
-        
+        LoadFiles();
         instance = this;
     }
-    
+
     public DialogContent GetDialogById(int dialogID) 
     {
         return dialogs.Where(dialog => dialog.dialogID == dialogID).ToList()[0];
@@ -129,7 +128,10 @@ public class DialogController : MonoBehaviour
             Texture2D speakerTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Characters/" + content[i][1] + ".png");
             Texture2D backgroundTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Backgrounds/" + content[i][2] + ".png");
             
-            speakers.Add(new Speaker(speakerTex,backgroundTex,content[i][3],int.Parse(content[i][0])));
+            loadList.Add(new Speaker(speakerTex,backgroundTex,content[i][3],int.Parse(content[i][0])));
+            
+            
+            Debug.Log("length " + i);
         }
     }
     

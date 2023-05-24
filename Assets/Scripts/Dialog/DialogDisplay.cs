@@ -33,6 +33,7 @@ public class DialogDisplay : MonoBehaviour {
         
         _currentDialog = DialogController.instance.GetDialogById(id);
         displayDialog = true;
+
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
         _dialogAuthor.sprite = dialogSpeaker.speakerSprite;
         _dialogBackground.sprite = dialogSpeaker.backgroundSprite;
