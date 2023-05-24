@@ -106,7 +106,21 @@ public class DialogControllerEditor : Editor
             speaker.name = EditorGUILayout.TextField(speaker.name);
             EditorGUILayout.EndHorizontal();
             
+            
+            EditorGUILayout.Space(10);
+            EditorGUILayout.LabelField("Background",textStyle);
+            
+            EditorGUILayout.Space(10);
+            EditorGUILayout.BeginHorizontal();
+            EditorGUILayout.Space();
+            GUILayout.Box(speaker.backgroundTex,GUILayout.Width(500),GUILayout.Height(100));
+            EditorGUILayout.Space();
+            EditorGUILayout.EndHorizontal();
+
             EditorGUILayout.EndVertical();
+            
+            
+            
         }
         
         EditorGUILayout.EndVertical();
@@ -137,6 +151,8 @@ public class DialogControllerEditor : Editor
         EditorGUILayout.Space(5);
         EditorGUILayout.PropertyField(_dialogFile);
 
+        SerializedProperty dialogs = serializedClass.FindProperty("dialogs");
+
         for (int i = 0; i < classTarget.dialogs.Count; i++) {
             DialogController.DialogContent dialog = classTarget.dialogs[i];
 
@@ -147,7 +163,7 @@ public class DialogControllerEditor : Editor
             
             if (GUILayout.Button("X",GUILayout.Width(25))) 
             {
-                if (EditorUtility.DisplayDialog("Supprimer  Dialogue " + i,"Êtes vous sur de vouloir supprimer le dialogue n°" + i,"Oui","Non")) 
+                if (EditorUtility.DisplayDialog("Supprimer  Dialogue " + dialog.dialogID,"Êtes vous sur de vouloir supprimer le dialogue n°" + i,"Oui","Non")) 
                 {
                     classTarget.dialogs.RemoveAt(i);
                     Debug.Log("Le dialogue n°" + i + " a été supprimé avec succès");
@@ -157,7 +173,7 @@ public class DialogControllerEditor : Editor
             EditorGUILayout.EndHorizontal();
 
             EditorGUILayout.Space(10);
-            EditorGUILayout.LabelField("Id : " + i);
+            EditorGUILayout.LabelField("Id : " + dialog.dialogID);
 
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField("Speaker");
@@ -214,6 +230,12 @@ public class DialogControllerEditor : Editor
             EditorGUILayout.LabelField("Speed");
             dialog.speed = EditorGUILayout.FloatField(dialog.speed);
             EditorGUILayout.EndHorizontal();
+            
+            EditorGUILayout.Space(10);
+            EditorGUILayout.PropertyField(dialogs.GetArrayElementAtIndex(i).FindPropertyRelative("beginAction"));
+            EditorGUILayout.Space(10);
+            EditorGUILayout.PropertyField(dialogs.GetArrayElementAtIndex(i).FindPropertyRelative("endAction"));
+            
             
             EditorGUILayout.EndVertical();
         }
