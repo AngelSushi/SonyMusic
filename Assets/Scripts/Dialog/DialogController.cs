@@ -29,6 +29,7 @@ public class DialogController : MonoBehaviour
         }
     }
 
+    [System.Serializable]
     public class DialogContent 
     {
         public int speakerID;
@@ -36,6 +37,7 @@ public class DialogController : MonoBehaviour
         public int nextID;
         public string content;
         public float speed;
+        public UnityEvent beginAction;
         public UnityEvent endAction;
         
         public DialogContent(int speakerID, int dialogID, int nextID, string content, float speed) 
@@ -123,6 +125,7 @@ public class DialogController : MonoBehaviour
         string[][] content = CsvParser.Parse(file.text);
         
         for (int i = 1; i < content.Length; i++) {
+
             Texture2D speakerTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Characters/" + content[i][1] + ".png");
             Texture2D backgroundTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Backgrounds/" + content[i][2] + ".png");
             
