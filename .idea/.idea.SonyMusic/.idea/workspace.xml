@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_ablaye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Backgrounds/background_ablaye.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/Ablaye.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/Ablaye.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Characters/orelsan.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Characters/orelsan.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/speakers.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/speakers.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +90,7 @@
       <workItem from="1684591185817" duration="117000" />
       <workItem from="1684739913133" duration="9841000" />
       <workItem from="1684914915968" duration="5162000" />
-      <workItem from="1684922102902" duration="1471000" />
+      <workItem from="1684922102902" duration="3205000" />
     </task>
     <servers />
   </component>

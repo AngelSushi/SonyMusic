@@ -20,8 +20,8 @@ public class DialogDisplay : MonoBehaviour {
     private void Start() 
     {
         inputAsset.FindAction("Player/TouchScreen").started += OnTouchScreen;
-        _dialogText = dialogParent.transform.GetChild(0).GetComponent<Text>();
-        _dialogAuthor = dialogParent.transform.GetChild(1).GetComponent<Image>();
+        _dialogText = dialogParent.transform.GetChild(1).GetComponent<Text>();
+        _dialogAuthor = dialogParent.transform.GetChild(2).GetComponent<Image>();
         _dialogBackground = dialogParent.GetComponent<Image>();
         StartDialog(1);
     }
@@ -35,6 +35,9 @@ public class DialogDisplay : MonoBehaviour {
         displayDialog = true;
 
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
+        
+        Debug.Log("speaker " + dialogSpeaker.speakerSprite);
+        
         _dialogAuthor.sprite = dialogSpeaker.speakerSprite;
         _dialogBackground.sprite = dialogSpeaker.backgroundSprite;
         _isDisplayFinished = false;
