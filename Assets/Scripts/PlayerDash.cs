@@ -29,6 +29,14 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private float pointPerDash;
     [SerializeField] private float maxDashPoint;
     [SerializeField] private Slider dashSlider;
+
+    [SerializeField] private Vector2[] directionsModel;
+    [Range(0,1)]
+    [SerializeField] private float directionOffset;
+
+
+    private Vector3 _currentDashDirection;
+    private Vector3 _lastDashDirection;
     
     void Awake() 
     {
@@ -48,13 +56,16 @@ public class PlayerDash : MonoBehaviour {
             {
                 _endPosition = ConvertPoint(touch.position);
 
-                Vector3 direction = (_endPosition - _startPosition).normalized;
-                _rb.velocity = direction * dashSpeed;
+                if (_currentDashDirection != Vector3.zero)
+                    _lastDashDirection = _currentDashDirection;
 
-                Debug.Log("dash");
+                _currentDashDirection = (_endPosition - _startPosition).normalized;
+                _rb.velocity = _currentDashDirection * dashSpeed;
+
+                Debug.Log("currentDirection " + _currentDashDirection + " lastDirection " + _lastDashDirection);
                 _playerPosition = transform.position;
                 _isDashing = true;
-                
+
             }
         }
 
@@ -65,6 +76,13 @@ public class PlayerDash : MonoBehaviour {
             _isDashing = false;
         }
     }
+    
+    
+    
+    // a chaque nouveau dash on récupérer sa direction 
+    
+    
+    
 
     private Vector3 ConvertPoint(Vector3 point) 
     {
@@ -98,7 +116,17 @@ public class PlayerDash : MonoBehaviour {
                 col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
                 col.gameObject.transform.GetChild(1).position = transform.position;
             }
-            
+
+
+            foreach (Vector2 direction in directionsModel)
+            {
+                if (direction.x - directionOffset <= _currentDashDirection.x && direction.x + directionOffset >= _currentDashDirection.x)
+                {
+                    
+                }
+            }
+
+
             SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
             {
                 lineStart = _startObstaclePosition,
