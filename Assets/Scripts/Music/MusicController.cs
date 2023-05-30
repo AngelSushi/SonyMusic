@@ -38,7 +38,7 @@ public class MusicController : MonoBehaviour
 
         if (obstacles.Count != allNotes.Count)
         {
-            Debug.LogError("le nombre d'obstacles pré-défini est incorrect");
+            Debug.LogError("Le nombre d'obstacles pré-défini est incorrect. La taille est de " + allNotes.Count);
             
         }
         

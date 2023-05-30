@@ -2,22 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/DashDirectionEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/DashDirectionEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Destruction.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Destruction.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DeadZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DeadZone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DashDirection.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DashDirection.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tiles.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tiles.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TilesRenderer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TilesRenderer.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MusicSync_Spawn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MusicSync_Spawn.unity" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +87,7 @@
       <workItem from="1684914915968" duration="5162000" />
       <workItem from="1684922102902" duration="3205000" />
       <workItem from="1685094010254" duration="5937000" />
-      <workItem from="1685432564604" duration="5056000" />
+      <workItem from="1685432564604" duration="6244000" />
     </task>
     <servers />
   </component>
