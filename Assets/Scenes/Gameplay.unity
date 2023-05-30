@@ -2786,11 +2786,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 20
   dashDistance: 4
-  angleOffset: 0
-  diagonalAngleOffset: 0
+  angleOffset: 7
+  diagonalAngleOffset: 12
   pointPerDash: 20
   maxDashPoint: 100
-  dashSlider: {fileID: 1923066065}
+  dashSlider: {fileID: 0}
   debugDash: 0
   isDashing: 0
 --- !u!1 &1765750110
