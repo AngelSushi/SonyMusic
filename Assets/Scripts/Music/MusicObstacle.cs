@@ -20,6 +20,11 @@ public class MusicObstacle : DestroyableObject
 
     public void Update()
     {
+        if (_speed == 0)
+        {
+            _speed = currentLane.speed;    
+        }
+        
         transform.Translate(-_speed * Time.deltaTime,0,0);
     }
     

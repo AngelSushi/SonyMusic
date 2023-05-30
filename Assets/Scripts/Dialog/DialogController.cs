@@ -125,8 +125,8 @@ public class DialogController : MonoBehaviour
         
         for (int i = 1; i < content.Length; i++) {
 
-            Texture2D speakerTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Characters/" + content[i][1] + ".png");
-            Texture2D backgroundTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Backgrounds/" + content[i][2] + ".png");
+            Texture2D speakerTex = Resources.Load<Texture2D>("Characters/" + content[i][1] + "");
+            Texture2D backgroundTex = Resources.Load<Texture2D>("Backgrounds/" + content[i][2] + "");
             
             Debug.Log("speakerTex " + content[i][1] + " backgroundTex " +  content[i][2]);
             Debug.Log("tex " + speakerTex + " btex " + backgroundTex);

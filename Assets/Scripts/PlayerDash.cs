@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UIElements;
@@ -93,13 +94,6 @@ public class PlayerDash : MonoBehaviour {
             isDashing = false;
         }
     }
-    
-    
-    
-    // a chaque nouveau dash on récupérer sa direction 
-    
-    
-    
 
     private Vector3 ConvertPoint(Vector3 point) 
     {
@@ -111,8 +105,6 @@ public class PlayerDash : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("name " + col.gameObject.name + " isDashing " + isDashing + " velocity  " + _rb.velocity);
-        
         if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
             if (debugDash)
@@ -122,8 +114,6 @@ public class PlayerDash : MonoBehaviour {
             }
             
             _startObstaclePosition = transform.position;
-            
-            Debug.Log("startPosition " + _startObstaclePosition);
 
         }
     }
@@ -139,8 +129,6 @@ public class PlayerDash : MonoBehaviour {
             }
             
             _startObstaclePosition = transform.position;
-            
-            Debug.Log("startPosition " + _startObstaclePosition);
         }
     }
 
@@ -151,7 +139,6 @@ public class PlayerDash : MonoBehaviour {
             if (debugDash)
             {
                 col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                Debug.Log("secondPos " + transform.position + "isDashing " + isDashing);
                 col.gameObject.transform.GetChild(1).position = transform.position;
             }
 
@@ -215,9 +202,20 @@ public class PlayerDash : MonoBehaviour {
                     gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
                 } );
   
+                Debug.Log("output " + output + " second " + output.secondSideGameObject);
+                
                 if ( output != null && output.secondSideGameObject != null ) 
                 { 
                     Rigidbody2D newRigidbody = output.firstSideGameObject.AddComponent<Rigidbody2D>();
+
+                    output.secondSideGameObject.GetComponent<MeshRenderer>().material.color = Color.black;
+                    
+                    if (output.secondSideGameObject.GetComponent<Rigidbody2D>() == null)
+                    {
+                        output.secondSideGameObject.AddComponent<Rigidbody2D>();
+                       // output.secondSideGameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+                    }
+                    
                     newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
 
                    _startObstaclePosition = Vector3.zero;
