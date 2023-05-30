@@ -13,8 +13,7 @@ public class MusicLane : MonoBehaviour
     private List<double> _timeNotes = new List<double>();
     private List<double> _endNotes = new List<double>();
     
-    [SerializeField] private NoteName restriction;
-    [SerializeField] private GameObject obstaclePrefab; 
+    [SerializeField] private NoteName restriction; 
     public float speed;
     private Transform[] _positions;
     
@@ -22,7 +21,7 @@ public class MusicLane : MonoBehaviour
     
     [SerializeField] [Tooltip("The minimum length of an obstacle to be resize ")]private float minLengthTime;
 
-
+    private MusicController _controller;
     private void Start()
     {
         _positions = new Transform[transform.childCount];
@@ -31,6 +30,8 @@ public class MusicLane : MonoBehaviour
         {
             _positions[i] = transform.GetChild(i);
         }
+        
+        _controller = MusicController.instance;
     }
 
     private void Update()
@@ -40,8 +41,12 @@ public class MusicLane : MonoBehaviour
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
+            
+            
             Debug.Log("restriction " + restriction + " pos " + _positions[0].position);
-            GameObject obstacle = Instantiate(obstaclePrefab, _positions[0].position, Quaternion.identity);
+            
+            
+            GameObject obstacle = Instantiate(_controller.obstacles[_controller.currentAllIndex], _positions[0].position, Quaternion.identity);
 
             Debug.Log("length " + _endNotes[_index]);
             
@@ -64,6 +69,7 @@ public class MusicLane : MonoBehaviour
             
             obstacle.GetComponent<MusicObstacle>().currentLane = this;
             _index++;
+            _controller.currentAllIndex++;
         }
         
     }

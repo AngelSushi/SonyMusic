@@ -3,14 +3,21 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inputs/Fonts.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/chesnagrotesk-medium SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inputs/Fonts/chesnagrotesk-medium SDF.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/chesnagrotesk-medium SDF.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inputs/Fonts/chesnagrotesk-medium SDF.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/chesnagrotesk-medium.otf" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inputs/Fonts/chesnagrotesk-medium.otf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Fonts/chesnagrotesk-medium.otf.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Inputs/Fonts/chesnagrotesk-medium.otf.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/DashDirectionEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/DashDirectionEditor.cs.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Destruction.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Destruction.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DeadZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DeadZone.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DashDirection.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DashDirection.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tiles.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/Tiles.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TilesRenderer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tiles/TilesRenderer.cs.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,16 +25,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/6c/32f889dc/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/c9/cf38c942/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2db993bacc484e86a1cabb1c923eae1419f19e9af2ae8f13fabd57154b9068d8/Note.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Editor/DashDirectionEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialog/DashDirection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DashDirection.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyableObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialog/DialogDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/Tiles.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tiles/TilesRenderer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnitySpriteCutterExample/LinecastCutter.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -96,6 +102,7 @@
       <workItem from="1684914915968" duration="5162000" />
       <workItem from="1684922102902" duration="3205000" />
       <workItem from="1685094010254" duration="5937000" />
+      <workItem from="1685432564604" duration="5056000" />
     </task>
     <servers />
   </component>

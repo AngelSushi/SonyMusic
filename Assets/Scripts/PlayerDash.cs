@@ -9,34 +9,31 @@ using Slider = UnityEngine.UI.Slider;
 
 public class PlayerDash : MonoBehaviour {
 
+    [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
-
-    private Vector3 _startPosition;
-    private Vector3 _endPosition;
-    private Rigidbody2D _rb;
-
-
     [SerializeField] private float dashDistance;
-    
-    private Vector3 _playerPosition;
-    public bool _isDashing;
+    [SerializeField] private int angleOffset;
+    [SerializeField] private int diagonalAngleOffset;
 
-    private Vector3 _startObstaclePosition;
-
-    [SerializeField] private bool debugDash;
-
-    private float _dashPoint;
+    [Header("Score")]
     [SerializeField] private float pointPerDash;
     [SerializeField] private float maxDashPoint;
     [SerializeField] private Slider dashSlider;
-
-    [SerializeField] private Vector2[] directionsModel;
-    [Range(0,1)]
-    [SerializeField] private float directionOffset;
-
-
-    private Vector3 _currentDashDirection;
-    private Vector3 _lastDashDirection;
+    
+    [Header("Debug")]
+    [SerializeField] private bool debugDash;
+    
+    [HideInInspector] public bool isDashing;
+    
+    
+    
+    private Vector3 _startPosition;
+    private Vector3 _endPosition;
+    private Rigidbody2D _rb;
+    private Vector3 _playerPosition;
+    private Vector3 _startObstaclePosition;
+    private Vector3 _dashDirection;
+    private float _dashPoint;
     
     void Awake() 
     {
@@ -56,24 +53,20 @@ public class PlayerDash : MonoBehaviour {
             {
                 _endPosition = ConvertPoint(touch.position);
 
-                if (_currentDashDirection != Vector3.zero)
-                    _lastDashDirection = _currentDashDirection;
+                _dashDirection = (_endPosition - _startPosition).normalized;
+                _rb.velocity = _dashDirection * dashSpeed;
 
-                _currentDashDirection = (_endPosition - _startPosition).normalized;
-                _rb.velocity = _currentDashDirection * dashSpeed;
-
-                Debug.Log("currentDirection " + _currentDashDirection + " lastDirection " + _lastDashDirection);
                 _playerPosition = transform.position;
-                _isDashing = true;
+                isDashing = true;
 
             }
         }
 
 
-        if (Vector3.Distance(_playerPosition, transform.position) > dashDistance && _isDashing)
+        if (Vector3.Distance(_playerPosition, transform.position) > dashDistance && isDashing)
         {
             _rb.velocity = Vector2.zero;
-            _isDashing = false;
+            isDashing = false;
         }
     }
     
@@ -94,7 +87,9 @@ public class PlayerDash : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && _isDashing)
+        Debug.Log("name " + col.gameObject.name + " isDashing " + isDashing + " velocity  " + _rb.velocity);
+        
+        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
             if (debugDash)
             {
@@ -103,49 +98,107 @@ public class PlayerDash : MonoBehaviour {
             }
             
             _startObstaclePosition = transform.position;
+            
+            Debug.Log("startPosition " + _startObstaclePosition);
 
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing && _startObstaclePosition == Vector3.zero)
+        {
+            if (debugDash)
+            {
+                col.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                col.gameObject.transform.GetChild(0).position = transform.position;
+            }
+            
+            _startObstaclePosition = transform.position;
+            
+            Debug.Log("startPosition " + _startObstaclePosition);
         }
     }
 
     private void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && _isDashing)
+        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
             if (debugDash)
             {
                 col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+                Debug.Log("secondPos " + transform.position + "isDashing " + isDashing);
                 col.gameObject.transform.GetChild(1).position = transform.position;
             }
 
 
-            foreach (Vector2 direction in directionsModel)
+            DestroyableObject dObj = col.GetComponent<DestroyableObject>();
+
+            Vector3 dir = Vector3.zero;
+            float targetAngle = angleOffset;
+            
+            switch (dObj.dashDirection)
             {
-                if (direction.x - directionOffset <= _currentDashDirection.x && direction.x + directionOffset >= _currentDashDirection.x)
-                {
-                    
-                }
-            }
-
-
-            SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
-            {
-                lineStart = _startObstaclePosition,
-                lineEnd = transform.position,
-                gameObject = col.gameObject,
-                gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
-            } );
-
-            if ( output != null && output.secondSideGameObject != null ) 
-            {
-                Rigidbody2D newRigidbody = output.secondSideGameObject.AddComponent<Rigidbody2D>();
-
-                if (output.firstSideGameObject.GetComponent<Rigidbody2D>() == null)
-                {
-                    output.firstSideGameObject.AddComponent<Rigidbody2D>();
-                }
+                case DashDirection.UP:
+                    dir = col.transform.up;
+                    break;
                 
-                newRigidbody.velocity = output.firstSideGameObject.GetComponent<Rigidbody2D>().velocity;
-                AddPoint();
+                case DashDirection.DOWN:
+                    dir = col.transform.up * -1;
+                    break;
+                
+                case DashDirection.LEFT:
+                    dir = col.transform.right;
+                    break;
+                
+                case DashDirection.RIGHT:
+                    dir = col.transform.right * -1;
+                    break;
+                
+                case DashDirection.DIAGONAL_LUP:
+                    dir = col.transform.right + col.transform.up * -1;
+                    targetAngle = diagonalAngleOffset;
+                    break;
+                
+                case DashDirection.DIAGONAL_RUP:
+                    dir = col.transform.right * -1 + col.transform.up * -1;
+                    targetAngle = diagonalAngleOffset;
+                    break;
+                
+                case DashDirection.DIAGONAL_LDOWN:
+                    dir = col.transform.right + col.transform.up;
+                    targetAngle = diagonalAngleOffset;
+                    break;
+                
+                case DashDirection.DIAGONAL_RDOWN:
+                    dir = col.transform.right * -1 + col.transform.up;
+                    targetAngle = diagonalAngleOffset;
+                    break;
+            }
+            
+            
+            float angle = Vector3.Angle(_dashDirection,dir);
+            Debug.Log("angle " + (int)angle + " " + targetAngle);
+
+
+            if ((int)angle <= targetAngle)
+            {
+                SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
+                {
+                    lineStart = _startObstaclePosition,
+                    lineEnd = transform.position,
+                    gameObject = col.gameObject,
+                    gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
+                } );
+  
+                if ( output != null && output.secondSideGameObject != null ) 
+                { 
+                    Rigidbody2D newRigidbody = output.firstSideGameObject.AddComponent<Rigidbody2D>();
+                    newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
+
+                   _startObstaclePosition = Vector3.zero;
+                    AddPoint();
+                }
             }
         }
     }
