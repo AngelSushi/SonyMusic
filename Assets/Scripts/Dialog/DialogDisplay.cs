@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -9,8 +7,9 @@ using UnityEngine.UI;
 public class DialogDisplay : MonoBehaviour {
 
     public GameObject dialogParent;
-    private TextMeshProUGUI _dialogText;
+    private Text _dialogText;
     private Image _dialogAuthor;
+    private Image _dialogBackground;
     public InputActionAsset inputAsset;
     private DialogController.DialogContent _currentDialog;
 
@@ -21,20 +20,28 @@ public class DialogDisplay : MonoBehaviour {
     private void Start() 
     {
         inputAsset.FindAction("Player/TouchScreen").started += OnTouchScreen;
-        _dialogText = dialogParent.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-        _dialogAuthor = dialogParent.transform.GetChild(1).GetComponent<Image>();
-        StartDialog(0);
+        _dialogText = dialogParent.transform.GetChild(1).GetComponent<Text>();
+        _dialogAuthor = dialogParent.transform.GetChild(2).GetComponent<Image>();
+        _dialogBackground = dialogParent.GetComponent<Image>();
+        StartDialog(1);
     }
 
 
     public void StartDialog(int id) 
     {
         dialogParent.SetActive(true);
+        
         _currentDialog = DialogController.instance.GetDialogById(id);
         displayDialog = true;
+
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
+        
+        Debug.Log("speaker " + dialogSpeaker.speakerSprite);
+        
         _dialogAuthor.sprite = dialogSpeaker.speakerSprite;
+        _dialogBackground.sprite = dialogSpeaker.backgroundSprite;
         _isDisplayFinished = false;
+        _currentDialog.beginAction?.Invoke();
         StartCoroutine(ShowText(_currentDialog));
     }
     
@@ -57,6 +64,7 @@ public class DialogDisplay : MonoBehaviour {
         {
             if (displayDialog && _isDisplayFinished) 
             {
+                _currentDialog.endAction?.Invoke();
                 if (_currentDialog.nextID >= 0) 
                     StartDialog(_currentDialog.nextID);
                 else 
