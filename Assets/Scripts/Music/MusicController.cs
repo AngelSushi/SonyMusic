@@ -13,6 +13,10 @@ public class MusicController : MonoBehaviour
     [SerializeField] private string fileLocation;
     [SerializeField] private MusicLane[] lanes;
     [SerializeField] private AudioSource mainAudio;
+
+    public List<GameObject> obstacles = new List<GameObject>();
+    public int currentAllIndex;
+    
     
     public static MidiFile midiFile;
 
@@ -26,9 +30,18 @@ public class MusicController : MonoBehaviour
     
     private void Start()
     {
+        
+        
         midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileLocation);
         allNotes = midiFile.GetNotes().ToList();
 
+
+        if (obstacles.Count != allNotes.Count)
+        {
+            Debug.LogError("le nombre d'obstacles pré-défini est incorrect");
+            
+        }
+        
         foreach (MusicLane lane in lanes)
         {
             lane.SetTimeStamps(allNotes);
