@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -13,18 +14,23 @@ public class DialogController : MonoBehaviour
     {
         public Texture2D speakerTex;
         public Sprite speakerSprite;
+        public Texture2D backgroundTex;
+        public Sprite backgroundSprite;
         public string name;
         public int id;
 
-        public Speaker(Texture2D speakerTex, string name, int id) 
+        public Speaker(Texture2D speakerTex,Texture2D backgroundTex, string name, int id) 
         {
             this.speakerTex = speakerTex;
-            this.speakerSprite = Sprite.Create(speakerTex,new Rect(0,0,speakerTex.width,speakerTex.height),new Vector2(0.5f,0.5f));
+            speakerSprite = Sprite.Create(speakerTex,new Rect(0,0,speakerTex.width,speakerTex.height),new Vector2(0.5f,0.5f));
+            this.backgroundTex = backgroundTex;
+            backgroundSprite = Sprite.Create(backgroundTex,new Rect(0,0,backgroundTex.width,backgroundTex.height),new Vector2(0.5f,0.5f));
             this.name = name;
             this.id = id;
         }
     }
 
+    [System.Serializable]
     public class DialogContent 
     {
         public int speakerID;
@@ -32,6 +38,7 @@ public class DialogController : MonoBehaviour
         public int nextID;
         public string content;
         public float speed;
+        public UnityEvent beginAction;
         public UnityEvent endAction;
         
         public DialogContent(int speakerID, int dialogID, int nextID, string content, float speed) 
@@ -62,12 +69,10 @@ public class DialogController : MonoBehaviour
 
     private void Awake() 
     {
-        if(speakers.Count == 0 && dialogs.Count == 0)
-            LoadFiles();
-        
+        LoadFiles();
         instance = this;
     }
-    
+
     public DialogContent GetDialogById(int dialogID) 
     {
         return dialogs.Where(dialog => dialog.dialogID == dialogID).ToList()[0];
@@ -82,8 +87,23 @@ public class DialogController : MonoBehaviour
     [ContextMenu("Load")]
     private void LoadFiles() 
     {
-        Load(speakerFile,speakers);
-        Load(dialogFile,dialogs);
+        if (speakerFile != null)
+        {
+            Load(speakerFile,speakers);   
+        }
+        else
+        {
+            Debug.Log("speaker file is null");
+        }
+
+        if (dialogFile != null)
+        {
+            Load(dialogFile,dialogs);   
+        }
+        else
+        {
+            Debug.Log("dialog file is null");
+        }
         
     }
     
@@ -104,9 +124,17 @@ public class DialogController : MonoBehaviour
         string[][] content = CsvParser.Parse(file.text);
         
         for (int i = 1; i < content.Length; i++) {
-            Texture2D speakerTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Characters/" + content[i][0] + ".png");
 
-            speakers.Add(new Speaker(speakerTex,content[i][1],int.Parse(content[i][2])));
+            Texture2D speakerTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Characters/" + content[i][1] + ".png");
+            Texture2D backgroundTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Resources/Backgrounds/" + content[i][2] + ".png");
+            
+            Debug.Log("speakerTex " + content[i][1] + " backgroundTex " +  content[i][2]);
+            Debug.Log("tex " + speakerTex + " btex " + backgroundTex);
+            
+            loadList.Add(new Speaker(speakerTex,backgroundTex,content[i][3],int.Parse(content[i][0])));
+            
+            
+            Debug.Log("length " + i);
         }
     }
     

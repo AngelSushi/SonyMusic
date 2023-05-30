@@ -21,7 +21,7 @@ public class LinecastCutter : MonoBehaviour
 
 		if ( Input.GetMouseButtonUp( 0 ) ) 
 		{
-			LinecastCut( mouseStart, mouseEnd, layerMask.value );
+			//	LinecastCut( mouseStart, mouseEnd, layerMask.value );
 		}
 	}
 	

@@ -42,11 +42,15 @@ namespace UnitySpriteCutter {
 		public GameObject secondSideGameObject;
 	}
 
-	public static class SpriteCutter {
+	public static class SpriteCutter
+	{
 
 		/// <summary>
 		/// Returns null, if cutting didn't took place.
 		/// </summary>
+		///
+		///
+		
 		public static SpriteCutterOutput Cut( SpriteCutterInput input ) {
 
 			if ( input.gameObject == null ) {
@@ -60,6 +64,7 @@ namespace UnitySpriteCutter {
 			SpriteRenderer spriteRenderer = input.gameObject.GetComponent<SpriteRenderer>();
 			MeshRenderer meshRenderer = input.gameObject.GetComponent<MeshRenderer>();
 
+			Color spriteColor = spriteRenderer.color;
 			FlatConvexPolygonMeshCutter.CutResult meshCutResult =
 				CutSpriteOrMeshRenderer( localLineStart, localLineEnd, spriteRenderer, meshRenderer );
 			if ( meshCutResult.DidNotCut() ) {
@@ -95,7 +100,7 @@ namespace UnitySpriteCutter {
 					tempParameters.CopyFrom( spriteRenderer );
 					SafeSpriteRendererRemoverBehaviour.get.RemoveAndWaitOneFrame( spriteRenderer, onFinish: () => {
 						PrepareResultGameObject( firstSideResult, tempParameters,
-						                         meshCutResult.firstSideMesh, collidersCutResults.firstSideColliderRepresentations );
+						                         meshCutResult.firstSideMesh, collidersCutResults.firstSideColliderRepresentations,spriteColor );
 					} );
 
 				} else {
@@ -132,21 +137,31 @@ namespace UnitySpriteCutter {
 			resultGameObject.AssignMeshFilter( mesh );
 			if ( spriteRenderer != null ) {
 				resultGameObject.AssignMeshRendererFrom( spriteRenderer );
+
+				resultGameObject.gameObject.GetComponent<MeshRenderer>().material.color = spriteRenderer.color;
+
 			} else {
 				resultGameObject.AssignMeshRendererFrom( meshRenderer );
+				
 			}
 
 			if ( colliderRepresentations != null ) {
 				resultGameObject.BuildCollidersFrom( colliderRepresentations );
 			}
+			
+			Debug.Log("sprite " + spriteRenderer.name + " result " + resultGameObject.gameObject.name);
 		}
 		
 		static void PrepareResultGameObject( SpriteCutterGameObject resultGameObject, RendererParametersRepresentation tempParameters,
-		                                            Mesh mesh, List<PolygonColliderParametersRepresentation> colliderRepresentations ) {
+		                                            Mesh mesh, List<PolygonColliderParametersRepresentation> colliderRepresentations
+		                                            ,Color spriteColor ) {
 			resultGameObject.AssignMeshFilter( mesh );
 			resultGameObject.AssignMeshRendererFrom( tempParameters );
+
+			resultGameObject.gameObject.GetComponent<MeshRenderer>().material.color = spriteColor;
 			
-			if ( colliderRepresentations != null ) {
+			if ( colliderRepresentations != null ) 
+			{
 				resultGameObject.BuildCollidersFrom( colliderRepresentations );
 			}
 		}
