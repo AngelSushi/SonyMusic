@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MusicSync_Spawn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MusicSync_Spawn.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +88,7 @@
       <workItem from="1684914915968" duration="5162000" />
       <workItem from="1684922102902" duration="3205000" />
       <workItem from="1685094010254" duration="5937000" />
-      <workItem from="1685432564604" duration="6244000" />
+      <workItem from="1685432564604" duration="6724000" />
     </task>
     <servers />
   </component>
