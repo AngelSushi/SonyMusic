@@ -9,7 +9,7 @@ public class DeadZone : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<PlayerDash>(out PlayerDash playerDash))
         {
-            playerDash._isDashing = false;
+            playerDash.isDashing = false;
             Destroy(playerDash.gameObject);
             SceneManager.LoadScene("Gameplay");
         }
