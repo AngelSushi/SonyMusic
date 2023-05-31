@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MusicSync_Spawn.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MusicSync_Spawn.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/MusicSynchronizer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/MusicSynchronizer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/Popups/DirectionPopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/Popups/DirectionPopup.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,12 +11,15 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/6c/32f889dc/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/c9/cf38c942/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5d16470ce3bd47028b26ad1771a0de8829400/bd/ceecf187/GUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5d16470ce3bd47028b26ad1771a0de8829400/d0/2117eba9/GUILayout.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63965ae56af7489797f355b7c1211ab281aa00/9f/311847bb/EditorGUILayout.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/63965ae56af7489797f355b7c1211ab281aa00/f0/2a3f2800/AssetDatabase.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/6a/0f4d0021/Color.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2db993bacc484e86a1cabb1c923eae1419f19e9af2ae8f13fabd57154b9068d8/Note.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DashDirection.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyableObject.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/Popups/DirectionPopup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/Popups/TypePopup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialog/DialogDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" root0="FORCE_HIGHLIGHTING" />
@@ -42,7 +46,7 @@
 }</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\unity\2021.3.15f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="E:\Unity\2021.3.15f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\IIM\A2_2022_2023\SonyMusic\SonyMusic -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\IIM\A2_2022_2023\SonyMusic\SonyMusic" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -87,7 +91,9 @@
       <workItem from="1684914915968" duration="5162000" />
       <workItem from="1684922102902" duration="3205000" />
       <workItem from="1685094010254" duration="5937000" />
-      <workItem from="1685432564604" duration="6244000" />
+      <workItem from="1685432564604" duration="21718000" />
+      <workItem from="1685532754927" duration="7802000" />
+      <workItem from="1685554349665" duration="16967000" />
     </task>
     <servers />
   </component>

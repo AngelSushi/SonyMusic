@@ -5,16 +5,28 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: 1b8b840302d9e024394556e3f7f4955c
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/camMovement.unity
-    guid: e3fbac2e0715b1e4e8f98085f45d4210
+  - enabled: 0
+    path: Assets/BSA_TestScene.unity
+    guid: 2bef88fd675ce3f4fa61ff5f18aa8242
+  - enabled: 0
+    path: Assets/Melanchall/DryWetMIDI/Demo/DemoScene.unity
+    guid: df76419175a5d72429f0f1c8e5283a04
   - enabled: 1
     path: Assets/Scenes/Gameplay.unity
     guid: bd55ad60cbd060b48a4174bf68bd9215
+  - enabled: 0
+    path: Assets/Scenes/MainMenu.unity
+    guid: 1b8b840302d9e024394556e3f7f4955c
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 0
+    path: Assets/Scenes/camMovement.unity
+    guid: e3fbac2e0715b1e4e8f98085f45d4210
+  - enabled: 1
+    path: Assets/Scenes/TimeLine.unity
+    guid: 31f73b8708d55c24098b2bd74896446a
+  - enabled: 1
+    path: Assets/Scenes/PlayerSelection.unity
+    guid: c29eb801f6c8d904d995cc699044e8e1
   m_configObjects: {}

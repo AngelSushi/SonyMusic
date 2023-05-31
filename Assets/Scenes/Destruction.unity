@@ -1421,7 +1421,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147783255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
@@ -1785,7 +1785,7 @@ GameObject:
   - component: {fileID: 1754378697}
   - component: {fileID: 1754378696}
   - component: {fileID: 1754378700}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1919,6 +1919,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ee7cf28395a1147983cb4e3bca5b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDashing: 0
+  beginFromPlayer: 0
+  playerDragAngle: 10
   dashSpeed: 20
   dashDistance: 4
   angleOffset: 7
@@ -1927,7 +1930,6 @@ MonoBehaviour:
   maxDashPoint: 100
   dashSlider: {fileID: 1846414505}
   debugDash: 0
-  isDashing: 0
 --- !u!1 &1773538639
 GameObject:
   m_ObjectHideFlags: 0

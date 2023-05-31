@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UIElements;
@@ -9,6 +10,11 @@ using Slider = UnityEngine.UI.Slider;
 
 public class PlayerDash : MonoBehaviour {
 
+    [Header("Dash")]
+    public bool isDashing;
+    [SerializeField] private bool beginFromPlayer;
+    [SerializeField] private int playerDragAngle;
+    
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDistance;
@@ -23,7 +29,6 @@ public class PlayerDash : MonoBehaviour {
     [Header("Debug")]
     [SerializeField] private bool debugDash;
     
-    [HideInInspector] public bool isDashing;
     
     
     
@@ -34,6 +39,8 @@ public class PlayerDash : MonoBehaviour {
     private Vector3 _startObstaclePosition;
     private Vector3 _dashDirection;
     private float _dashPoint;
+
+    private bool _beginFromPlayer;
     
     void Awake() 
     {
@@ -51,14 +58,32 @@ public class PlayerDash : MonoBehaviour {
 
             if (touch.phase == TouchPhase.Ended)
             {
-                _endPosition = ConvertPoint(touch.position);
+                if (beginFromPlayer)
+                {
+                    foreach (Collider2D col2D in Physics2D.OverlapCircleAll(ConvertPoint(touch.position), playerDragAngle))
+                    {
+                        if (col2D.gameObject.layer == LayerMask.NameToLayer("Player"))
+                        {
+                            _endPosition = ConvertPoint(touch.position);
 
-                _dashDirection = (_endPosition - _startPosition).normalized;
-                _rb.velocity = _dashDirection * dashSpeed;
+                            _dashDirection = (_endPosition - _startPosition).normalized;
+                            _rb.velocity = _dashDirection * dashSpeed;
 
-                _playerPosition = transform.position;
-                isDashing = true;
+                            _playerPosition = transform.position;
+                            isDashing = true;
+                        }
+                    }
+                }
+                else
+                {
+                    _endPosition = ConvertPoint(touch.position);
 
+                    _dashDirection = (_endPosition - _startPosition).normalized;
+                    _rb.velocity = _dashDirection * dashSpeed;
+
+                    _playerPosition = transform.position;
+                    isDashing = true;
+                }
             }
         }
 
@@ -69,13 +94,6 @@ public class PlayerDash : MonoBehaviour {
             isDashing = false;
         }
     }
-    
-    
-    
-    // a chaque nouveau dash on récupérer sa direction 
-    
-    
-    
 
     private Vector3 ConvertPoint(Vector3 point) 
     {
@@ -87,8 +105,6 @@ public class PlayerDash : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        Debug.Log("name " + col.gameObject.name + " isDashing " + isDashing + " velocity  " + _rb.velocity);
-        
         if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
             if (debugDash)
@@ -98,8 +114,6 @@ public class PlayerDash : MonoBehaviour {
             }
             
             _startObstaclePosition = transform.position;
-            
-            Debug.Log("startPosition " + _startObstaclePosition);
 
         }
     }
@@ -115,8 +129,6 @@ public class PlayerDash : MonoBehaviour {
             }
             
             _startObstaclePosition = transform.position;
-            
-            Debug.Log("startPosition " + _startObstaclePosition);
         }
     }
 
@@ -127,7 +139,6 @@ public class PlayerDash : MonoBehaviour {
             if (debugDash)
             {
                 col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                Debug.Log("secondPos " + transform.position + "isDashing " + isDashing);
                 col.gameObject.transform.GetChild(1).position = transform.position;
             }
 
@@ -191,9 +202,20 @@ public class PlayerDash : MonoBehaviour {
                     gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
                 } );
   
+                Debug.Log("output " + output + " second " + output.secondSideGameObject);
+                
                 if ( output != null && output.secondSideGameObject != null ) 
                 { 
                     Rigidbody2D newRigidbody = output.firstSideGameObject.AddComponent<Rigidbody2D>();
+
+                    output.secondSideGameObject.GetComponent<MeshRenderer>().material.color = Color.black;
+                    
+                    if (output.secondSideGameObject.GetComponent<Rigidbody2D>() == null)
+                    {
+                        output.secondSideGameObject.AddComponent<Rigidbody2D>();
+                       // output.secondSideGameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+                    }
+                    
                     newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
 
                    _startObstaclePosition = Vector3.zero;
