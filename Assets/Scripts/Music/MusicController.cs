@@ -13,11 +13,19 @@ using UnityEngine.Networking;
 using MidiEvent = SmfLite.MidiEvent;
 
 
-public static class StringExtension
+[System.Serializable]
+public class Obstacle
 {
-    public static Stream ToStream(this string value, Encoding encoding)
-        => new MemoryStream(encoding.GetBytes(value ?? string.Empty));
+    public Sprite sprite;
+    public Color color;
+    public DashDirection direction;
 
+    public Obstacle(Sprite sprite, Color color, DashDirection direction)
+    {
+        this.sprite = sprite;
+        this.color = color;
+        this.direction = direction;
+    }
 }
 
 
@@ -26,22 +34,16 @@ public class MusicController : MonoBehaviour
 
     public static MusicController instance;
     [SerializeField] private string fileLocation;
-    [SerializeField] private MusicLane[] lanes;
-    [SerializeField] private AudioSource mainAudio;
-    [SerializeField] private int bpm;
+    public MusicLane[] lanes;
+    public AudioSource mainAudio;
 
-    public List<GameObject> obstacles = new List<GameObject>();
+    public List<Obstacle> obstacles = new List<Obstacle>();
     public int currentAllIndex;
 
 
     public static MidiFile midiFile;
 
-    private List<Note> allNotes;
-
-    public MidiTrackSequencer _trackSequencer;
-
-    [Range(0,2)]
-    public int index;
+    public List<Note> allNotes;
 
 
     private void Awake()
@@ -76,20 +78,7 @@ public class MusicController : MonoBehaviour
 
                 if (www.result == UnityWebRequest.Result.Success)
                 {
-                    midiFile = MidiFile.Read(new MemoryStream(www.downloadHandler.data));
-                    allNotes = midiFile.GetNotes().ToList();
-
-                    if (obstacles.Count != allNotes.Count)
-                    {
-                        Debug.LogError("Le nombre d'obstacles pré-défini est incorrect. La taille est de " + allNotes.Count);
-                    }
-
-                
-                    Debug.Log("size " + allNotes.Count);
-                    foreach (MusicLane lane in lanes)
-                    {
-                        lane.SetTimeStamps(allNotes);
-                    }
+                    LoadAndroid(www);
                 }
                 else
                 {
@@ -99,84 +88,47 @@ public class MusicController : MonoBehaviour
         }
         else
         {
-            midiFile = MidiFile.Read(fullPath);
-            
+            LoadWindows();
         }
         
-        Debug.Log("testeee");
     }
-    
-    
-    
-    /* private void Start()
+
+
+
+    public void LoadWindows()
     {
-        Debug.Log("loo " + Application.persistentDataPath);
-        string fullPath = Path.Combine(Application.streamingAssetsPath, fileLocation);
+        midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileLocation);
+        allNotes = midiFile.GetNotes().ToList();
 
-        // Charger le fichier MIDI
-        Debug.Log("fullPath " + fullPath);
-        midiFile = MidiFile.Read(fullPath);
-        
-        
-        */
-       // midiFile = MidiFile.Read( Application.persistentDataPath + "/Assets/" + fileLocation);
-        //    allNotes = midiFile.GetNotes().ToList();
-
-        //    if (obstacles.Count != allNotes.Count)
-        //    {
-        //        Debug.LogError("Le nombre d'obstacles pré-défini est incorrect. La taille est de " + allNotes.Count);
-        //    }
-
-        //    foreach (MusicLane lane in lanes)
-        //    {
-        //        lane.SetTimeStamps(allNotes);
-        //    }
-        
-        
-        
-       /* var loadingRequest = UnityWebRequest.Get(Path.Combine(Application.streamingAssetsPath, fileLocation));
-        loadingRequest.SendWebRequest();
-        while (!loadingRequest.isDone)
+        if (obstacles.Count != allNotes.Count)
         {
-            if (loadingRequest.isNetworkError || loadingRequest.isHttpError)
-            {
-                break;
-            }
-            yield return null;
+            Debug.LogError("Le nombre d'obstacles pré-défini est incorrect. La taille est de " + allNotes.Count);
         }
-        
-        
-        MidiFileContainer song = MidiFileLoader.Load (loadingRequest.downloadHandler.data);
- 
-        Debug.Log("here");
-       // yield return new WaitForSeconds(1f);
-       
-       Debug.Log("tracks length " + song.tracks.Count);
 
-       _trackSequencer = new MidiTrackSequencer(song.tracks[1], song.division,bpm);
+                
+        Debug.Log("size " + allNotes.Count);
+        foreach (MusicLane lane in lanes)
+        {
+            lane.SetTimeStamps(allNotes);
+        }
+    }
 
-        _trackSequencer.Start();
-        
-        */
-
-   // }
-
-    private void Update()
+    private void LoadAndroid(UnityWebRequest www)
     {
-       /* if (_trackSequencer != null && _trackSequencer.Playing)
-        {
-            Debug.Log("c " + " track" + _trackSequencer);
-            Debug.Log("Length " + _trackSequencer.Advance(Time.deltaTime).Count);
+        midiFile = MidiFile.Read(new MemoryStream(www.downloadHandler.data));
+        allNotes = midiFile.GetNotes().ToList();
 
-            foreach (MidiEvent e in _trackSequencer.Advance(0))
-            {
-                if (e.status != null)
-                {
-                    Debug.Log("e " + (int)e.data1 );
-                }
-            }
+        if (obstacles.Count != allNotes.Count)
+        {
+            Debug.LogError("Le nombre d'obstacles pré-défini est incorrect. La taille est de " + allNotes.Count);
         }
-        */
+
+                
+        Debug.Log("size " + allNotes.Count);
+        foreach (MusicLane lane in lanes)
+        {
+            lane.SetTimeStamps(allNotes);
+        }
     }
 
     public static double GetAudioSourceTime()
