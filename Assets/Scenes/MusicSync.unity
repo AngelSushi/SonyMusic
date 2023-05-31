@@ -345,7 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 5
-  speed: 15
+  speed: 12
   minLengthTime: 0.5
 --- !u!4 &39481808
 Transform:
@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 4
-  speed: 15
+  speed: 12
   minLengthTime: 0.5
 --- !u!4 &1261593541
 Transform:
