@@ -16,8 +16,6 @@ public class DirectionPopup : PopupWindowContent
     
     public DirectionPopup(int index,MusicController musicController)
     {
-        
-        Debug.Log("inside id " + index);
         this._index = index;
         this._musicController = musicController;
     }

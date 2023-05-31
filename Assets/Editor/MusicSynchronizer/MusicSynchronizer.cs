@@ -46,7 +46,7 @@ public class MusicSynchronizer : EditorWindow
         }
     }
 
-    [MenuItem("Window/MusicSynchronizer")]
+    [MenuItem("Window/Audio/MusicSynchronizer")]
     public static void ShowWindow()
     {
         EditorWindow.GetWindow(typeof(MusicSynchronizer));
@@ -168,10 +168,8 @@ public class MusicSynchronizer : EditorWindow
         {
             if (mousePos.x >= obstacleUI.position.x && mousePos.x <= obstacleUI.position.x + obstacleUI.position.width)
             {
-                if (mousePos.y >= obstacleUI.position.y &&
-                    mousePos.y <= obstacleUI.position.y + obstacleUI.position.height)
+                if (mousePos.y >= obstacleUI.position.y && mousePos.y <= obstacleUI.position.y + obstacleUI.position.height)
                 {
-                    Debug.Log("good id " + obstacleUI.obstacleIndex);
                     return obstacleUI;
                 }
             }
