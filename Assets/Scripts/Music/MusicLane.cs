@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Melanchall.DryWetMidi.Interaction;
 using Melanchall.DryWetMidi.MusicTheory;
+using SmfLite;
 using Unity.VisualScripting;
 using UnityEngine;
 using Note = Melanchall.DryWetMidi.Interaction.Note;
@@ -41,8 +42,6 @@ public class MusicLane : MonoBehaviour
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
-            
-            
             Debug.Log("restriction " + restriction + " pos " + _positions[0].position);
             
             
@@ -71,7 +70,6 @@ public class MusicLane : MonoBehaviour
             _index++;
             _controller.currentAllIndex++;
         }
-        
     }
 
     public void SetTimeStamps(List<Note> notes) 
@@ -79,6 +77,8 @@ public class MusicLane : MonoBehaviour
         foreach (Note note in notes) 
         {
             Debug.Log("restriction " + note.NoteName);
+            Debug.Log("file " + MusicController.midiFile.GetTempoMap());
+            
             if (note.NoteName == restriction) 
             {
                 var convertTime = TimeConverter.ConvertTo<MetricTimeSpan>(note.Time, MusicController.midiFile.GetTempoMap());
@@ -95,4 +95,5 @@ public class MusicLane : MonoBehaviour
         }
         
     }
+    
 }

@@ -3,11 +3,31 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/trap 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/trap 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Melanchall.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Demo.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Demo/DemoScene.unity" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Demo/DemoScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Demo/DemoScript.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Demo/DemoScript.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall.DryWetMidi.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall.DryWetMidi.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall.DryWetMidi.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall.DryWetMidi.xml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall_DryWetMidi_Native32.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall_DryWetMidi_Native32.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall_DryWetMidi_Native64.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall_DryWetMidi_Native64.dll.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall_DryWetMidi_Native64.dylib" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/Melanchall_DryWetMidi_Native64.dylib.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Melanchall/DryWetMIDI/README.txt.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,7 +37,11 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/6c/32f889dc/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/685c48cf8f0b48abb797275c046dda6a158a00/c9/cf38c942/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f5a6e3e1453341eea585c098f3d5b876be00/0b/d8035051/DownloadHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/28547db5a428bc550e4413ee3e2c9b7af81fcca4be6a5f599e98186943/MidiFile.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2db993bacc484e86a1cabb1c923eae1419f19e9af2ae8f13fabd57154b9068d8/Note.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4c7fcc068e2197f2e2322b407dcc6e24a932e279eb9a1c9f7a31daeca98e4d/TempoMapManagingUtilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DashDirection.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DestroyableObject.cs" root0="FORCE_HIGHLIGHTING" />
@@ -92,7 +116,8 @@
       <workItem from="1684914915968" duration="5162000" />
       <workItem from="1684922102902" duration="3205000" />
       <workItem from="1685094010254" duration="5937000" />
-      <workItem from="1685432564604" duration="10651000" />
+      <workItem from="1685432564604" duration="21718000" />
+      <workItem from="1685532754927" duration="7802000" />
     </task>
     <servers />
   </component>
