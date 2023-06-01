@@ -658,12 +658,14 @@ MonoBehaviour:
   playerDragAngle: 0
   dashSpeed: 20
   dashDistance: 4
+  minDistance: 0
   angleOffset: 0
   diagonalAngleOffset: 0
   pointPerDash: 0
   maxDashPoint: 0
   dashSlider: {fileID: 0}
   debugDash: 0
+  dashDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &381797606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,7 +2288,7 @@ MonoBehaviour:
     direction: 4
   - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    direction: 5
+    direction: 4
   - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     direction: 5
@@ -2298,10 +2300,10 @@ MonoBehaviour:
     direction: 4
   - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    direction: 7
+    direction: 4
   - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    direction: 5
+    direction: 4
   - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     direction: 5
@@ -2420,7 +2422,7 @@ MonoBehaviour:
     color: {r: 1, g: 1, b: 1, a: 1}
     direction: 0
   currentAllIndex: 0
-  emptyObstacle: {fileID: 0}
+  emptyObstacle: {fileID: 5284593131069099802, guid: 33e82ae31b14c8b4f9ad379389a965e5, type: 3}
 --- !u!4 &1847479225
 Transform:
   m_ObjectHideFlags: 0
