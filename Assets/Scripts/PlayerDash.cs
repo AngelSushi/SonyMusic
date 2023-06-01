@@ -37,7 +37,7 @@ public class PlayerDash : MonoBehaviour {
     private Rigidbody2D _rb;
     private Vector3 _playerPosition;
     private Vector3 _startObstaclePosition;
-    private Vector3 _dashDirection;
+    [HideInInspector] public Vector3 dashDirection;
     private float _dashPoint;
 
     private bool _beginFromPlayer;
@@ -66,8 +66,8 @@ public class PlayerDash : MonoBehaviour {
                         {
                             _endPosition = ConvertPoint(touch.position);
 
-                            _dashDirection = (_endPosition - _startPosition).normalized;
-                            _rb.velocity = _dashDirection * dashSpeed;
+                            dashDirection = (_endPosition - _startPosition).normalized;
+                            _rb.velocity = dashDirection * dashSpeed;
 
                             _playerPosition = transform.position;
                             isDashing = true;
@@ -78,8 +78,8 @@ public class PlayerDash : MonoBehaviour {
                 {
                     _endPosition = ConvertPoint(touch.position);
 
-                    _dashDirection = (_endPosition - _startPosition).normalized;
-                    _rb.velocity = _dashDirection * dashSpeed;
+                    dashDirection = (_endPosition - _startPosition).normalized;
+                    _rb.velocity = dashDirection * dashSpeed;
 
                     _playerPosition = transform.position;
                     isDashing = true;
@@ -188,7 +188,7 @@ public class PlayerDash : MonoBehaviour {
             }
             
             
-            float angle = Vector3.Angle(_dashDirection,dir);
+            float angle = Vector3.Angle(dashDirection,dir);
             Debug.Log("angle " + (int)angle + " " + targetAngle);
 
 
