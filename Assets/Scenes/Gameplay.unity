@@ -1959,7 +1959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1073389213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3482,6 +3482,7 @@ MonoBehaviour:
   playerDragAngle: 10
   dashSpeed: 20
   dashDistance: 4
+  minDistance: 3
   angleOffset: 7
   diagonalAngleOffset: 12
   pointPerDash: 20

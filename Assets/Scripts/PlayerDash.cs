@@ -18,6 +18,7 @@ public class PlayerDash : MonoBehaviour {
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDistance;
+    [SerializeField] private float minDistance;
     [SerializeField] private int angleOffset;
     [SerializeField] private int diagonalAngleOffset;
 
@@ -66,23 +67,33 @@ public class PlayerDash : MonoBehaviour {
                         {
                             _endPosition = ConvertPoint(touch.position);
 
-                            dashDirection = (_endPosition - _startPosition).normalized;
-                            _rb.velocity = dashDirection * dashSpeed;
+                            float distance = Vector3.Distance(_startPosition, _endPosition);
+                            
+                            if (distance >= minDistance)
+                            {
+                                dashDirection = (_endPosition - _startPosition).normalized;
+                                _rb.velocity = dashDirection * dashSpeed;
 
-                            _playerPosition = transform.position;
-                            isDashing = true;
+                                _playerPosition = transform.position;
+                                isDashing = true;
+                            }
+                            ;
                         }
                     }
                 }
                 else
                 {
                     _endPosition = ConvertPoint(touch.position);
+                    float distance = Vector3.Distance(_startPosition, _endPosition);
+                            
+                    if (distance >= minDistance)
+                    {
+                        dashDirection = (_endPosition - _startPosition).normalized;
+                        _rb.velocity = dashDirection * dashSpeed;
 
-                    dashDirection = (_endPosition - _startPosition).normalized;
-                    _rb.velocity = dashDirection * dashSpeed;
-
-                    _playerPosition = transform.position;
-                    isDashing = true;
+                        _playerPosition = transform.position;
+                        isDashing = true;
+                    }
                 }
             }
         }
