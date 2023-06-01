@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum DashDirection
 {
+    ALL,
     UP,
     DOWN,
     LEFT,

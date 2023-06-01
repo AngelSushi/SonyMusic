@@ -192,7 +192,7 @@ public class PlayerDash : MonoBehaviour {
             Debug.Log("angle " + (int)angle + " " + targetAngle);
 
 
-            if ((int)angle <= targetAngle)
+            if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
             {
                 SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
                 {
