@@ -36,7 +36,9 @@ public class DirectionPopup : PopupWindowContent
 
         int assetsLength = AssetDatabase.FindAssets("t:texture2D", new string[] { "Assets/Resources/Arrows" }).Length;
         
-        _scrollPosition =GUI.BeginScrollView(new Rect(10, 10, _popupSize.x - 1, _popupSize.y - 13), _scrollPosition, new Rect(0, 0, _popupSize.x + 50 *  (assetsLength - 2), _popupSize.y - 13));
+        Debug.Log("length " + assetsLength);
+        
+        _scrollPosition =GUI.BeginScrollView(new Rect(10, 10, _popupSize.x - 1, _popupSize.y - 13), _scrollPosition, new Rect(0, 0, _popupSize.x + 50 *  (assetsLength), _popupSize.y - 13));
         int index = 0;
 
         foreach (string objStr in AssetDatabase.FindAssets("t:texture2D", new string[] {"Assets/Resources/Arrows"}))
@@ -97,6 +99,8 @@ public class DirectionPopup : PopupWindowContent
             case "DIAGONAL_RDOWN":
                 return DashDirection.DIAGONAL_RDOWN;
             
+            case "ALL":
+                return DashDirection.ALL;
         }
 
         return DashDirection.UP;
