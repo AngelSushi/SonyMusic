@@ -38,6 +38,11 @@ public class MusicLane : MonoBehaviour
     {
         float distance = Vector2.Distance(_positions[0].position, _positions[1].position);
         float time = distance / speed;
+        
+        Debug.Log("length " + _controller.allNotes.Count + " length2 " + _timeNotes.Count);
+        
+        Debug.Log("0 " + _controller.obstacles[0].color);
+        Debug.Log("1 " + _controller.obstacles[1].color);
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
