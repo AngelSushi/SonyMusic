@@ -9,13 +9,13 @@ public class ChooseCharacter : MonoBehaviour
     {
         GameManager.instance.isMen = true;
         GameManager.instance.isWomen = false;
-        SceneManager.LoadScene("TimeLine");
+        SceneManager.LoadScene("NameSelection");
     }
     public void WomenButton()
     {
         GameManager.instance.isWomen = true;
         GameManager.instance.isMen = false;
-        SceneManager.LoadScene("TimeLine");
+        SceneManager.LoadScene("NameSelection");
 
     }
 
