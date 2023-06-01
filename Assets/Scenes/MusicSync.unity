@@ -653,6 +653,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ee7cf28395a1147983cb4e3bca5b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDashing: 0
+  beginFromPlayer: 0
+  playerDragAngle: 0
   dashSpeed: 20
   dashDistance: 4
   angleOffset: 0
@@ -661,7 +664,6 @@ MonoBehaviour:
   maxDashPoint: 0
   dashSlider: {fileID: 0}
   debugDash: 0
-  isDashing: 0
 --- !u!1 &381797606
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,143 +2056,369 @@ MonoBehaviour:
   - {fileID: 812730175}
   mainAudio: {fileID: 671223541}
   obstacles:
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
-  - {fileID: 5241522830609902832, guid: aecaf96487726a84bac66141f1e879eb, type: 3}
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
+  - sprite: {fileID: 0}
+    color: {r: 0, g: 0, b: 0, a: 0}
+    direction: 0
   currentAllIndex: 0
 --- !u!4 &1847479225
 Transform:
