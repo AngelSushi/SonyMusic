@@ -2056,370 +2056,371 @@ MonoBehaviour:
   - {fileID: 812730175}
   mainAudio: {fileID: 671223541}
   obstacles:
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
-  - sprite: {fileID: 0}
-    color: {r: 0, g: 0, b: 0, a: 0}
-    direction: 0
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 5
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 4
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 0
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
   currentAllIndex: 0
+  emptyObstacle: {fileID: 0}
 --- !u!4 &1847479225
 Transform:
   m_ObjectHideFlags: 0
