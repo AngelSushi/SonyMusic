@@ -41,7 +41,7 @@ public class MusicLane : MonoBehaviour
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
-            Debug.Log("restriction " + restriction + " pos " + _positions[0].position);
+            Debug.Log("spawn obstacle");
 
             GameObject obstacle = Instantiate(_controller.emptyObstacle, _positions[0].position, Quaternion.identity);
             
@@ -65,6 +65,8 @@ public class MusicLane : MonoBehaviour
             obstacle.GetComponent<MusicObstacle>().currentLane = this;
             _index++;
             _controller.currentAllIndex++;
+            
+            Debug.Log(" " + _controller.currentAllIndex);
             
         }
     }
