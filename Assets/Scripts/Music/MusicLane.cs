@@ -39,19 +39,12 @@ public class MusicLane : MonoBehaviour
         float distance = Vector2.Distance(_positions[0].position, _positions[1].position);
         float time = distance / speed;
         
-        Debug.Log("length " + _controller.allNotes.Count + " length2 " + _timeNotes.Count);
-        
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
-            
-            Debug.Log("time " + _timeNotes[_index] + "lane on " + transform.name);
-            
-            Debug.Log("spawn obstacle");
-            
-
             GameObject obstacle = Instantiate(_controller.emptyObstacle, _positions[0].position, Quaternion.identity);
-            
+
+            obstacle.transform.parent = transform;
             obstacle.GetComponent<SpriteRenderer>().sprite = _controller.obstacles[_controller.currentAllIndex].sprite;
             obstacle.GetComponent<SpriteRenderer>().color = _controller.obstacles[_controller.currentAllIndex].color;
             obstacle.GetComponent<MusicObstacle>().dashDirection = _controller.obstacles[_controller.currentAllIndex].direction;
@@ -77,7 +70,6 @@ public class MusicLane : MonoBehaviour
 
     public void SetTimeStamps(List<Note> notes) 
     {
-        Debug.Log("notes " + notes.Count);
         
         foreach (Note note in notes) 
         {

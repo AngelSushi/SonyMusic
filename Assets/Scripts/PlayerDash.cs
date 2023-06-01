@@ -18,6 +18,7 @@ public class PlayerDash : MonoBehaviour {
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashDistance;
+    [SerializeField] private float minDistance;
     [SerializeField] private int angleOffset;
     [SerializeField] private int diagonalAngleOffset;
 
@@ -37,7 +38,7 @@ public class PlayerDash : MonoBehaviour {
     private Rigidbody2D _rb;
     private Vector3 _playerPosition;
     private Vector3 _startObstaclePosition;
-    private Vector3 _dashDirection;
+    [HideInInspector] public Vector3 dashDirection;
     private float _dashPoint;
 
     private bool _beginFromPlayer;
@@ -66,23 +67,33 @@ public class PlayerDash : MonoBehaviour {
                         {
                             _endPosition = ConvertPoint(touch.position);
 
-                            _dashDirection = (_endPosition - _startPosition).normalized;
-                            _rb.velocity = _dashDirection * dashSpeed;
+                            float distance = Vector3.Distance(_startPosition, _endPosition);
+                            
+                            if (distance >= minDistance)
+                            {
+                                dashDirection = (_endPosition - _startPosition).normalized;
+                                _rb.velocity = dashDirection * dashSpeed;
 
-                            _playerPosition = transform.position;
-                            isDashing = true;
+                                _playerPosition = transform.position;
+                                isDashing = true;
+                            }
+                            ;
                         }
                     }
                 }
                 else
                 {
                     _endPosition = ConvertPoint(touch.position);
+                    float distance = Vector3.Distance(_startPosition, _endPosition);
+                            
+                    if (distance >= minDistance)
+                    {
+                        dashDirection = (_endPosition - _startPosition).normalized;
+                        _rb.velocity = dashDirection * dashSpeed;
 
-                    _dashDirection = (_endPosition - _startPosition).normalized;
-                    _rb.velocity = _dashDirection * dashSpeed;
-
-                    _playerPosition = transform.position;
-                    isDashing = true;
+                        _playerPosition = transform.position;
+                        isDashing = true;
+                    }
                 }
             }
         }
@@ -188,7 +199,7 @@ public class PlayerDash : MonoBehaviour {
             }
             
             
-            float angle = Vector3.Angle(_dashDirection,dir);
+            float angle = Vector3.Angle(dashDirection,dir);
             Debug.Log("angle " + (int)angle + " " + targetAngle);
 
 
