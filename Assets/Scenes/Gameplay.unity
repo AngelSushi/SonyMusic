@@ -1713,8 +1713,258 @@ MonoBehaviour:
   - {fileID: 1673173590}
   - {fileID: 716933178}
   mainAudio: {fileID: 1073389213}
-  obstacles: []
+  obstacles:
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 2
+  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 1
   currentAllIndex: 0
+  emptyObstacle: {fileID: 5284593131069099802, guid: 33e82ae31b14c8b4f9ad379389a965e5, type: 3}
 --- !u!4 &1073389215
 Transform:
   m_ObjectHideFlags: 0
