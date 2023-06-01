@@ -41,18 +41,20 @@ public class MusicLane : MonoBehaviour
         
         Debug.Log("length " + _controller.allNotes.Count + " length2 " + _timeNotes.Count);
         
-        Debug.Log("0 " + _controller.obstacles[0].color);
-        Debug.Log("1 " + _controller.obstacles[1].color);
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
+            
+            Debug.Log("time " + _timeNotes[_index] + "lane on " + transform.name);
+            
             Debug.Log("spawn obstacle");
+            
 
             GameObject obstacle = Instantiate(_controller.emptyObstacle, _positions[0].position, Quaternion.identity);
             
-            obstacle.GetComponent<SpriteRenderer>().sprite = _controller.obstacles[_index].sprite;
-            obstacle.GetComponent<SpriteRenderer>().color = _controller.obstacles[_index].color;
-            obstacle.GetComponent<MusicObstacle>().dashDirection = _controller.obstacles[_index].direction;
+            obstacle.GetComponent<SpriteRenderer>().sprite = _controller.obstacles[_controller.currentAllIndex].sprite;
+            obstacle.GetComponent<SpriteRenderer>().color = _controller.obstacles[_controller.currentAllIndex].color;
+            obstacle.GetComponent<MusicObstacle>().dashDirection = _controller.obstacles[_controller.currentAllIndex].direction;
 
             if (_endNotes[_index] > minLengthTime)
             {
@@ -70,18 +72,16 @@ public class MusicLane : MonoBehaviour
             obstacle.GetComponent<MusicObstacle>().currentLane = this;
             _index++;
             _controller.currentAllIndex++;
-            
-            Debug.Log(" " + _controller.currentAllIndex);
-            
         }
     }
 
     public void SetTimeStamps(List<Note> notes) 
     {
+        Debug.Log("notes " + notes.Count);
+        
         foreach (Note note in notes) 
         {
             Debug.Log("restriction " + note.NoteName);
-            Debug.Log("file " + MusicController.midiFile.GetTempoMap());
             
             if (note.NoteName == restriction) 
             {
