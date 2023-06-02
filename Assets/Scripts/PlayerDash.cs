@@ -102,6 +102,7 @@ public class PlayerDash : MonoBehaviour {
         if (Vector3.Distance(_playerPosition, transform.position) > dashDistance && isDashing)
         {
             _rb.velocity = Vector2.zero;
+            dashDirection = Vector2.zero;
             isDashing = false;
         }
     }

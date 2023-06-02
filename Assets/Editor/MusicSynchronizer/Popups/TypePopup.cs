@@ -64,9 +64,9 @@ public class TypePopup : PopupWindowContent
                     {
                         if (mousePosition.y >= obstacleRect.y && mousePosition.y <= obstacleRect.y + obstacleRect.height)
                         {
+                            Sprite modelSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/Square.png");
+                            Sprite newSprite = modelSprite;
                             
-                            Sprite newSprite = Sprite.Create(obstacleTexture, new Rect(0, 0, obstacleTexture.width, obstacleRect.height), new Vector2(0.5f, 0.5f));
-                            newSprite.name = renderer.sprite.name;
                             _musicController.obstacles[_targetObstacle.obstacleIndex].sprite = newSprite;
                             _musicController.obstacles[_targetObstacle.obstacleIndex].color = renderer.color;
                         }

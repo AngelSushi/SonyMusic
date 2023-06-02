@@ -35,9 +35,7 @@ public class DialogDisplay : MonoBehaviour {
         displayDialog = true;
 
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
-        
-        Debug.Log("speaker " + dialogSpeaker.speakerSprite);
-        
+
         _dialogAuthor.sprite = dialogSpeaker.speakerSprite;
         _dialogBackground.sprite = dialogSpeaker.backgroundSprite;
         _isDisplayFinished = false;
