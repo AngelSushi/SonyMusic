@@ -3,8 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/Popups/TypePopup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/Popups/TypePopup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Obstacles/trap 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Obstacles/trap 2.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Plateform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Plateform.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerDash.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,6 +108,7 @@
       <workItem from="1685432564604" duration="21718000" />
       <workItem from="1685532754927" duration="7802000" />
       <workItem from="1685554349665" duration="16967000" />
+      <workItem from="1685690605851" duration="3364000" />
     </task>
     <servers />
   </component>
