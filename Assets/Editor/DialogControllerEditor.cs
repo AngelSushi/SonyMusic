@@ -249,6 +249,9 @@ public class DialogControllerEditor : Editor
         {
             RegenerateFiles();
         }
+        
+        
+        EditorUtility.SetDirty(classTarget);
     }
 
     private void RegenerateFiles()

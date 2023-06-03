@@ -3,19 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/NameSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/NameSelection.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerSelection.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DisplayText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DisplayText.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayGame.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayGame.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/dialogs.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/dialogs.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +96,7 @@
       <workItem from="1685532754927" duration="7802000" />
       <workItem from="1685554349665" duration="16967000" />
       <workItem from="1685690605851" duration="5173000" />
-      <workItem from="1685789250204" duration="5139000" />
+      <workItem from="1685789250204" duration="6816000" />
     </task>
     <servers />
   </component>

@@ -6,8 +6,17 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isMen;
-    public bool isWomen;
+    public bool isMen
+    {
+        get;
+        set;
+    }
+
+    public bool isWomen
+    {
+        get;
+        set;
+    }
 
     public static GameManager instance;
 
