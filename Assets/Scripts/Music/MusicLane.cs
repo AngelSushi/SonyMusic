@@ -45,30 +45,15 @@ public class MusicLane : MonoBehaviour
             GameObject obstacle = Instantiate(_controller.emptyObstacle, _positions[0].position, Quaternion.identity);
 
             obstacle.transform.parent = transform;
-
             
             obstacle.GetComponent<SpriteRenderer>().sprite = _controller.obstacles[_controller.currentAllIndex].sprite;
             obstacle.GetComponent<SpriteRenderer>().color = _controller.obstacles[_controller.currentAllIndex].color;
             obstacle.GetComponent<MusicObstacle>().dashDirection = _controller.obstacles[_controller.currentAllIndex].direction;
-
-            Debug.Log("empty " + _controller.emptyObstacle + " scale " + obstacle.transform.localScale);
-            
-            Debug.Log("modelRect " + _controller.emptyObstacle.GetComponent<SpriteRenderer>().sprite.rect + " obstacle " + obstacle.GetComponent<SpriteRenderer>().sprite.rect);
-            Debug.Log("modelBounds " + _controller.emptyObstacle.GetComponent<SpriteRenderer>().sprite.bounds + " bounds " + obstacle.GetComponent<SpriteRenderer>().sprite.bounds);
-
-            
-            // Pending
-            if (_controller.emptyObstacle.GetComponent<SpriteRenderer>().sprite.rect != obstacle.GetComponent<SpriteRenderer>().sprite.rect)
-            {
-               // obstacle.GetComponent<SpriteRenderer>().sprite.rect = _controller.emptyObstacle.GetComponent<SpriteRenderer>().sprite.rect;
-            }
             
             if (_endNotes[_index] > minLengthTime)
             {
                 // ON sait que l'objet doit spawn a x secondes
                 // on sait que l'objet a une vitesse de y 
-                
-                
                 // v = d/t 
                 // d = v * t
                 
@@ -84,7 +69,6 @@ public class MusicLane : MonoBehaviour
 
     public void SetTimeStamps(List<Note> notes) 
     {
-        
         foreach (Note note in notes) 
         {
             Debug.Log("restriction " + note.NoteName);

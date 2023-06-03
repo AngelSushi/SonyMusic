@@ -1197,6 +1197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b1495346adb634f984eb858b171dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downMin: 0
 --- !u!1 &716933177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,10 +1866,10 @@ MonoBehaviour:
   - {fileID: 716933178}
   mainAudio: {fileID: 1073389213}
   obstacles:
-  - sprite: {fileID: 7482667652216324306, guid: 73ac841adb93b66479ae45152f1e98fa, type: 3}
-    color: {r: 1, g: 0, b: 0, a: 1}
+  - sprite: {fileID: 21300000, guid: d3da5a38ab962e24bb293ee5991cdaed, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
     direction: 2
-  - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  - sprite: {fileID: 21300000, guid: f9455874a66bbbf4295e60d6850f2823, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     direction: 3
   - sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
@@ -2671,6 +2672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b1495346adb634f984eb858b171dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  downMin: 0
 --- !u!251 &1523417739
 PlatformEffector2D:
   m_ObjectHideFlags: 0
