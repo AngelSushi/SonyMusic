@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class DisplayText : MonoBehaviour
 {
-    public Text playerTexte;
     public InputField display;
 
     private void Start()
     {
-        playerTexte.text = PlayerPrefs.GetString("user_name");
+        FindObjectOfType<Button>().onClick.AddListener(SwitchScene);
     }
 
     public void Create()
     {
-        playerTexte.text = display.text;
-        PlayerPrefs.SetString("user_name", playerTexte.text);
+        PlayerPrefs.SetString("user_name", display.text);
         PlayerPrefs.Save();
+    }
+
+    private void SwitchScene()
+    {
+        GameManager.instance.ChangeScene("VisualNovel");
     }
 }

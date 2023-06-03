@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isMen = false;
-    public bool isWomen = false;
+    public bool isMen;
+    public bool isWomen;
 
     public static GameManager instance;
 
@@ -23,8 +24,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGameplayScene()
+
+    public void ChangeScene(string sceneName)
     {
-        SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneName);
     }
 }
