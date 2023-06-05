@@ -21,6 +21,7 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private float minDistance;
     [SerializeField] private int angleOffset;
     [SerializeField] private int diagonalAngleOffset;
+    [SerializeField] private int descentGravity;
 
     [Header("Score")]
     [SerializeField] private float pointPerDash;
@@ -29,10 +30,9 @@ public class PlayerDash : MonoBehaviour {
     
     [Header("Debug")]
     [SerializeField] private bool debugDash;
-    
-    
-    
-    
+    [SerializeField] private bool smoothDash;
+
+
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     private Rigidbody2D _rb;
@@ -40,12 +40,15 @@ public class PlayerDash : MonoBehaviour {
     private Vector3 _startObstaclePosition;
     [HideInInspector] public Vector3 dashDirection;
     private float _dashPoint;
-
+    private Vector2 _lastVelocity;
     private bool _beginFromPlayer;
-    
+
+    private Vector2 _startVelocity;
+    private float startTime;
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
+        _playerPosition = transform.localPosition;
     }
     
     void Update() {
@@ -71,11 +74,11 @@ public class PlayerDash : MonoBehaviour {
                             
                             if (distance >= minDistance)
                             {
+                                _startVelocity = _rb.velocity;
                                 dashDirection = (_endPosition - _startPosition).normalized;
-                                _rb.velocity = dashDirection * dashSpeed;
-
-                                _playerPosition = transform.position;
                                 isDashing = true;
+                                _playerPosition = transform.localPosition;
+                                startTime = Time.time;
                             }
                             ;
                         }
@@ -88,23 +91,49 @@ public class PlayerDash : MonoBehaviour {
                             
                     if (distance >= minDistance)
                     {
+                        _startVelocity = _rb.velocity;
                         dashDirection = (_endPosition - _startPosition).normalized;
-                        _rb.velocity = dashDirection * dashSpeed;
-
-                        _playerPosition = transform.position;
+                        _playerPosition = transform.localPosition;
                         isDashing = true;
+                        startTime = Time.time;
+
+                        if (dashDirection.y < 0f)
+                        {
+                            
+                        }
                     }
                 }
             }
         }
+    }
 
+    private void LateUpdate()
+    {
+        
+        // Adapter la distance si on va vers le bas ca va vers l'objet le plus proche vers le  bas 
 
-        if (Vector3.Distance(_playerPosition, transform.position) > dashDistance && isDashing)
+        float checkDistance = Vector3.Distance(_playerPosition, transform.localPosition);
+
+        if (checkDistance > dashDistance && isDashing)
         {
             _rb.velocity = Vector2.zero;
             dashDirection = Vector2.zero;
             isDashing = false;
         }
+        else if (isDashing)
+        {
+            float t = (Time.time - startTime) / (dashDistance / dashSpeed);
+            _rb.velocity = Vector2.Lerp(_startVelocity, dashDirection * dashSpeed, t);
+        }
+        
+        if (_rb.velocity.y < 0 && smoothDash)
+        {
+            _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
+        }
+        
+        
+        //Debug.Log("velocity " + _rb.velocity);
+
     }
 
     private Vector3 ConvertPoint(Vector3 point) 

@@ -617,7 +617,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203943822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a283c3484b393f646afa0da8dca21b02, type: 3}
   m_Name: 
@@ -1072,7 +1072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!251 &663331504
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -1179,7 +1179,7 @@ Transform:
   m_GameObject: {fileID: 663331503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.21614, y: -0.61, z: 22.853363}
-  m_LocalScale: {x: 25.882502, y: 0.25, z: 1}
+  m_LocalScale: {x: 25.882502, y: 0.496875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
@@ -1231,7 +1231,6 @@ MonoBehaviour:
   restriction: 11
   speed: 10
   lanePool: {fileID: 0}
-  usePool: 1
 --- !u!4 &716933179
 Transform:
   m_ObjectHideFlags: 0
@@ -1765,7 +1764,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1073389213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2186,7 +2185,6 @@ MonoBehaviour:
   restriction: 5
   speed: 10
   lanePool: {fileID: 0}
-  usePool: 1
 --- !u!4 &1194914019
 Transform:
   m_ObjectHideFlags: 0
@@ -2658,7 +2656,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1523417738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2778,7 +2776,7 @@ Transform:
   m_GameObject: {fileID: 1523417737}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.21614, y: 1.4100001, z: 22.853363}
-  m_LocalScale: {x: 25.882502, y: 0.25, z: 1}
+  m_LocalScale: {x: 25.882502, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
@@ -2982,7 +2980,6 @@ MonoBehaviour:
   restriction: 0
   speed: 10
   lanePool: {fileID: 0}
-  usePool: 1
 --- !u!4 &1673173591
 Transform:
   m_ObjectHideFlags: 0
@@ -3252,7 +3249,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 2027349924, guid: 041724a23714626499d10984bfac9b4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -3291,15 +3288,17 @@ MonoBehaviour:
   isDashing: 0
   beginFromPlayer: 0
   playerDragAngle: 10
-  dashSpeed: 20
+  dashSpeed: 15
   dashDistance: 4
   minDistance: 1
   angleOffset: 7
   diagonalAngleOffset: 12
+  descentGravity: 15
   pointPerDash: 20
   maxDashPoint: 100
   dashSlider: {fileID: 0}
   debugDash: 0
+  smoothDash: 1
   dashDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1765750110
 GameObject:
