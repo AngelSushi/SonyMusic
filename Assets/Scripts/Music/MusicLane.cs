@@ -18,12 +18,11 @@ public class MusicLane : MonoBehaviour
     private Transform[] _positions;
     
     private int _index;
-    
-    [SerializeField] [Tooltip("The minimum length of an obstacle to be resize ")]private float minLengthTime;
 
     private MusicController _controller;
-    public ObstaclePool lanePool;
+    [HideInInspector] public ObstaclePool lanePool;
     
+    public bool usePool;
     
     private void Start()
     {
@@ -46,8 +45,23 @@ public class MusicLane : MonoBehaviour
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
-            GameObject obstacle = lanePool.pool.Get();
+            //GameObject obstacle = !usePool ? Instantiate(_controller.emptyObstacle): lanePool.pool.Get();
+
+            GameObject obstacle = null;
+
+            if (usePool)
+            {
+                Debug.Log("use pool");
+                obstacle = lanePool.pool.Get();
+            }
+            else
+            {
+                Debug.Log("use no pool");
+                Instantiate(_controller.emptyObstacle);
+            }
+            
             obstacle.transform.parent = transform;
+            obstacle.transform.position = _positions[0].position;
             
             obstacle.GetComponent<SpriteRenderer>().sprite = _controller.obstacles[_controller.currentAllIndex].sprite;
             obstacle.GetComponent<SpriteRenderer>().color = _controller.obstacles[_controller.currentAllIndex].color;

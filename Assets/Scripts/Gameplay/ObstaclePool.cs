@@ -7,11 +7,19 @@ public class ObstaclePool : MonoBehaviour
 {
 
     public GameObject emptyPrefab;
-    public IObjectPool<GameObject> pool;
 
-    void Start()
+    private ObjectPool<GameObject> _pool;
+    public ObjectPool<GameObject> pool
     {
-        pool = new LinkedPool<GameObject>(CreateObstacle, OnTakeFromPool, OnReturnToPool, OnObjectDestroy,true,10);
+        get
+        {
+            _pool = new ObjectPool<GameObject>(CreateObstacle, OnTakeFromPool, OnReturnToPool, OnObjectDestroy, true, 5,
+                5);
+
+            return _pool;
+        }
+        
+        
     }
 
     private GameObject CreateObstacle()
