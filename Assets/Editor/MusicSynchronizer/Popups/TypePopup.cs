@@ -33,49 +33,36 @@ public class TypePopup : PopupWindowContent
         
         GUILayout.Label("Type Popup",style);
 
-        int assetsLength = AssetDatabase.FindAssets("t:prefab", new string[] { "Assets/Prefab/Obstacles" }).Length;
+        int assetsLength = AssetDatabase.FindAssets("t:texture2D", new string[] { "Assets/Resources/Obstacles" }).Length;
         
         _scrollPosition =GUI.BeginScrollView(new Rect(10, 10, _popupSize.x - 1, _popupSize.y - 13), _scrollPosition, new Rect(0, 0, _popupSize.x + 50 *  (assetsLength - 2), _popupSize.y - 13));
         int index = 0;
         
-        foreach (string objStr in AssetDatabase.FindAssets("t:prefab", new string[] {"Assets/Prefab/Obstacles"}))
+        foreach (string objStr in AssetDatabase.FindAssets("t:texture2D", new string[] {"Assets/Resources/Obstacles"}))
         {
             var path = AssetDatabase.GUIDToAssetPath( objStr );
-            GameObject go = AssetDatabase.LoadAssetAtPath<GameObject>( path );
-
-            if (go.name == "Empty")
-            {
-                continue;
-            }
+            Texture2D tex = AssetDatabase.LoadAssetAtPath<Texture2D>( path);
             
-            SpriteRenderer renderer = go.GetComponent<SpriteRenderer>();
+            Texture2D obstacleTexture = tex;
+            Rect obstacleRect = new Rect(20 + index * 70, 20, 50, 50);
+            GUI.DrawTexture(obstacleRect,obstacleTexture/*, ScaleMode.StretchToFill, true, 0, renderer.color, 0, 0*/);
 
-            if (renderer != null)
+            if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
             {
-                Texture2D obstacleTexture = renderer.sprite.texture;
-                Rect obstacleRect = new Rect(20 + index * 70, 20, 50, 50);
-                GUI.DrawTexture(obstacleRect,obstacleTexture, ScaleMode.StretchToFill, true, 0, renderer.color, 0, 0);
+                Vector2 mousePosition = Event.current.mousePosition;
 
-                if (Event.current.type == EventType.MouseDown && Event.current.button == 0)
+                if (mousePosition.x >= obstacleRect.x && mousePosition.x <= obstacleRect.x + obstacleRect.width)
                 {
-                    Vector2 mousePosition = Event.current.mousePosition;
-
-                    if (mousePosition.x >= obstacleRect.x && mousePosition.x <= obstacleRect.x + obstacleRect.width)
+                    if (mousePosition.y >= obstacleRect.y && mousePosition.y <= obstacleRect.y + obstacleRect.height)
                     {
-                        if (mousePosition.y >= obstacleRect.y && mousePosition.y <= obstacleRect.y + obstacleRect.height)
-                        {
-                            
-                            Sprite newSprite = Sprite.Create(obstacleTexture, new Rect(0, 0, obstacleTexture.width, obstacleRect.height), new Vector2(0.5f, 0.5f));
-                            newSprite.name = renderer.sprite.name;
-                            _musicController.obstacles[_targetObstacle.obstacleIndex].sprite = newSprite;
-                            _musicController.obstacles[_targetObstacle.obstacleIndex].color = renderer.color;
-                        }
+                        Sprite modelSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Resources/Obstacles/" + tex.name + ".png");
+                        _musicController.obstacles[_targetObstacle.obstacleIndex].sprite = modelSprite;
+                        _musicController.obstacles[_targetObstacle.obstacleIndex].color = Color.white;
                     }
                 }
-                
-                index++;
             }
-        
+            
+            index++;
 
         }
         

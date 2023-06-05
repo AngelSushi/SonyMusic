@@ -153,13 +153,23 @@ public class MusicSynchronizer : EditorWindow
                     }
                 }
             }
+            
+            EditorUtility.SetDirty(_musicController);
         }
         
         
         
         GUI.EndScrollView();
 
+        
+        
+        
 
+    }
+
+    public override void SaveChanges()
+    {
+        base.SaveChanges();
     }
 
     private ObstacleUI ObstacleOnMousePosition(List<ObstacleUI> checkList,Vector2 mousePos)

@@ -33,15 +33,19 @@ public class DialogDisplay : MonoBehaviour {
         
         _currentDialog = DialogController.instance.GetDialogById(id);
         displayDialog = true;
-
+        
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
-        
-        Debug.Log("speaker " + dialogSpeaker.speakerSprite);
-        
+
         _dialogAuthor.sprite = dialogSpeaker.speakerSprite;
         _dialogBackground.sprite = dialogSpeaker.backgroundSprite;
         _isDisplayFinished = false;
         _currentDialog.beginAction?.Invoke();
+
+        if (_currentDialog.content.Contains("%name%"))
+        {
+            _currentDialog.content = _currentDialog.content.Replace("%name%", PlayerPrefs.GetString("user_name"));
+        }
+        
         StartCoroutine(ShowText(_currentDialog));
     }
     
@@ -50,7 +54,7 @@ public class DialogDisplay : MonoBehaviour {
         for (int i = 1; i < dialogContent.content.Length + 1; i++)
         {
             yield return new WaitForSeconds(dialogContent.speed / dialogContent.content.Length);
-            _dialogText.text = dialogContent.content.Substring(0, i);
+            _dialogText.text = dialogContent.content.Substring(0,i);
         }
 
         _isDisplayFinished = true;

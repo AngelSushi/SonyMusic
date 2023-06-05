@@ -1,11 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public bool isMen = false;
-    public bool isWomen = false;
+    public bool isMen
+    {
+        get;
+        set;
+    }
+
+    public bool isWomen
+    {
+        get;
+        set;
+    }
 
     public static GameManager instance;
 
@@ -20,5 +31,11 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 }

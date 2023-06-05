@@ -7,10 +7,8 @@ using System.Linq;
 using System.Text;
 using Melanchall.DryWetMidi.Core;
 using Melanchall.DryWetMidi.Interaction;
-using SmfLite;
 using UnityEngine;
 using UnityEngine.Networking;
-using MidiEvent = SmfLite.MidiEvent;
 
 
 [System.Serializable]
@@ -38,9 +36,10 @@ public class MusicController : MonoBehaviour
     public AudioSource mainAudio;
 
     public List<Obstacle> obstacles = new List<Obstacle>();
-    public int currentAllIndex;
+    [HideInInspector] public int currentAllIndex;
 
 
+    public GameObject emptyObstacle;
     public static MidiFile midiFile;
 
     public List<Note> allNotes;
@@ -64,7 +63,6 @@ public class MusicController : MonoBehaviour
             fullPath = Path.Combine("file://" + Application.streamingAssetsPath, fileLocation);
         }
 
-        Debug.Log("start");
         StartCoroutine(LoadMidiFile(fullPath));
     }
 
@@ -124,7 +122,6 @@ public class MusicController : MonoBehaviour
         }
 
                 
-        Debug.Log("size " + allNotes.Count);
         foreach (MusicLane lane in lanes)
         {
             lane.SetTimeStamps(allNotes);
