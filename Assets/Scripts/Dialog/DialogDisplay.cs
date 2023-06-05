@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
@@ -15,8 +16,10 @@ public class DialogDisplay : MonoBehaviour {
 
     public bool displayDialog;
     private bool _isDisplayFinished;
-    
 
+    public event UnityAction<int> OnDialogStart;
+    public event UnityAction<int> OnDialogEnd;
+    
     private void Start() 
     {
         inputAsset.FindAction("Player/TouchScreen").started += OnTouchScreen;
@@ -39,8 +42,9 @@ public class DialogDisplay : MonoBehaviour {
         _dialogAuthor.sprite = dialogSpeaker.speakerSprite;
         _dialogBackground.sprite = dialogSpeaker.backgroundSprite;
         _isDisplayFinished = false;
-        _currentDialog.beginAction?.Invoke();
-
+        
+        OnDialogStart?.Invoke(_currentDialog.dialogID);
+        
         if (_currentDialog.content.Contains("%name%"))
         {
             _currentDialog.content = _currentDialog.content.Replace("%name%", PlayerPrefs.GetString("user_name"));
@@ -68,7 +72,8 @@ public class DialogDisplay : MonoBehaviour {
         {
             if (displayDialog && _isDisplayFinished) 
             {
-                _currentDialog.endAction?.Invoke();
+                OnDialogEnd?.Invoke(_currentDialog.dialogID);
+                
                 if (_currentDialog.nextID >= 0) 
                     StartDialog(_currentDialog.nextID);
                 else 
