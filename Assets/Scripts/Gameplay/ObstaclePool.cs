@@ -13,8 +13,8 @@ public class ObstaclePool : MonoBehaviour
     {
         get
         {
-            _pool = new ObjectPool<GameObject>(CreateObstacle, OnTakeFromPool, OnReturnToPool, OnObjectDestroy, true, 5,
-                5);
+            _pool ??= new ObjectPool<GameObject>(CreateObstacle, OnTakeFromPool, OnReturnToPool, OnObjectDestroy, true, 4,
+                10);
 
             return _pool;
         }
@@ -27,27 +27,14 @@ public class ObstaclePool : MonoBehaviour
         GameObject instancePrefab = Instantiate(emptyPrefab, transform);
         MusicObstacle obstacle = instancePrefab.AddComponent<MusicObstacle>();
         obstacle.currentLane = GetComponent<MusicLane>();
-
-
+        instancePrefab.transform.parent = transform;
+        
         return instancePrefab;
     }
 
-    private void OnTakeFromPool(GameObject go)
-    {
-        Debug.Log("set to true");
-        go.SetActive(true);
-    }
-
-    private void OnReturnToPool(GameObject go)
-    {
-        Debug.Log("set to false");
-        go.SetActive(false);
-    }
-
-    private void OnObjectDestroy(GameObject go) 
-    {
-        Debug.Log("on destroy");
-        Destroy(go);
-    }
+    private void OnTakeFromPool(GameObject go) => go.SetActive(true);
+    private void OnReturnToPool(GameObject go) =>go.SetActive(false);
+    private void OnObjectDestroy(GameObject go) => Destroy(go);
+    
 
 }

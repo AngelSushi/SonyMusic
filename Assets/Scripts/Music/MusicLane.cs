@@ -21,9 +21,7 @@ public class MusicLane : MonoBehaviour
 
     private MusicController _controller;
     [HideInInspector] public ObstaclePool lanePool;
-    
-    public bool usePool;
-    
+
     private void Start()
     {
         _positions = new Transform[transform.childCount];
@@ -45,21 +43,8 @@ public class MusicLane : MonoBehaviour
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
-            //GameObject obstacle = !usePool ? Instantiate(_controller.emptyObstacle): lanePool.pool.Get();
+            GameObject obstacle = lanePool.pool.Get();
 
-            GameObject obstacle = null;
-
-            if (usePool)
-            {
-                Debug.Log("use pool");
-                obstacle = lanePool.pool.Get();
-            }
-            else
-            {
-                Debug.Log("use no pool");
-                Instantiate(_controller.emptyObstacle);
-            }
-            
             obstacle.transform.parent = transform;
             obstacle.transform.position = _positions[0].position;
             

@@ -1230,7 +1230,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 11
   speed: 10
-  minLengthTime: 0.5
+  lanePool: {fileID: 0}
+  usePool: 1
 --- !u!4 &716933179
 Transform:
   m_ObjectHideFlags: 0
@@ -2184,7 +2185,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 5
   speed: 10
-  minLengthTime: 0.5
+  lanePool: {fileID: 0}
+  usePool: 1
 --- !u!4 &1194914019
 Transform:
   m_ObjectHideFlags: 0
@@ -2979,7 +2981,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 0
   speed: 10
-  minLengthTime: 0.5
+  lanePool: {fileID: 0}
+  usePool: 1
 --- !u!4 &1673173591
 Transform:
   m_ObjectHideFlags: 0
