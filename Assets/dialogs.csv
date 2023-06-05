@@ -1,11 +1,14 @@
 ﻿speaker_id ;dialog_id;next_id ;content ;speed
 1;1;2;Ici Magnitude α pour Magnitude β. Cette mission représente notre dernière chance de prévenir la destruction de la société humaine.;5
-2;2;3;"""nom du joueur"" grâce à vous nous avons modifié le cours de l'Histoire dès le moment où vous avez battu Orel au rap battle Uncut de Booba. C'est ce a qui donné l'occasion aux forces du mal de corrompre Orelsan  victime de son succès, mais vous ne les avez pas laissé faire !";8
-1;3;4;Quelques années plus tard, vous êtes allés aidé Orel en mettant de l'ordre dans ses idées... Mais cette fois-ci c'est carrément une autre version de lui-même qui vient directement d'un mauvais futur.;5
-2;4;5;Realsan est devenu plus puissant et détruit tout ! L'heure est grave Orelsan doit se rendre le plus vite possible à Bercy.;5
-3;5;6;On peut pas laisser faire ce type, on peut pas laisser son défaitisme l'emporter, on a le même slip mais pas du tout les mêmes idées....Jvais lui montrer par a + b que tout va s'arranger.;5
-4;6;7;Vazy Orel, prépare toi, pose tes lignes et prend des forces avant Bercy., nous on s'occupe du reste !;5
-2;7;8;Malheureusement nous venons d'avoir l'information que Paris est en train de glitcher sur le continium espace-temps, et commence à fusionner à le Paris de la mauvaise timeline ! la route sera plein d'ennemis et d'obstacles !;5
-1;8;9;"Ok ""nom du joueur"" ton rôle va être de nous frayer un chemin à travers ce bourbier. Gringe [...], Abblaye et moi on reste aux aguets et on te donne les infos qu'on peut trouver !";5
-3;9;10;Merci les gars, sans chaque personne de cette équipe on en serait pas là aujourd'hui, mais maintenant faut se battre pour proteger ce qu'on a construit, pour notre Civilisation;5
-2;10;11;Aller je crois en vous l'équipe... Attention danger en approche !;5
+2;2;3;%name% grâce à vous nous avons modifié le cours de l'Histoire dès le moment où vous avez battu Orel au rap battle Uncut de Booba.;8
+2;3;4;C'est ce a qui donné l'occasion aux forces du mal de corrompre Orelsan, victime de son succès, mais vous ne les avez pas laissé faire !;8
+1;4;5;Quelques années plus tard, vous êtes allés aider Orel en mettant de l'ordre dans ses notes, ses idées...;5
+1;5;6;Mais cette fois-ci c'est carrément une autre version de lui-même qui vient directement d'un mauvais futur.;5
+2;6;7;Realsan est devenu plus puissant et détruit tout ! L'heure est grave Orelsan doit se rendre le plus vite possible à Bercy.;5
+3;7;8;On peut pas laisser faire ce type, on peut pas laisser son défaitisme l'emporter. Jvais lui montrer par a + b que tout va s'arranger.;5
+4;8;9;Vazy Orel, prépare toi, pose tes lignes et prend des forces avant Bercy., nous on s'occupe du reste !;5
+2;9;10;Malheureusement nous venons d'avoir l'information que Paris est en train de glitcher sur le continium espace-temps !;5
+2;10;11;Et commence donc à fusionner à le Paris de la mauvaise timeline ! La route sera plein d'ennemis et d'obstacles !;5
+1;11;12;Ok %name% ton rôle va être de nous frayer un chemin à travers ce bourbier. Nous, on reste aux aguets et on te donne les infos qu'on peut trouver !;5
+3;12;13;Merci les gars, sans chaque personne de cette équipe on en serait pas là aujourd'hui, mais maintenant faut se battre pour proteger ce qu'on a construit, pour notre Civilisation;5
+2;13;-1;Aller je crois en vous l'équipe... Attention danger en approche !;5
