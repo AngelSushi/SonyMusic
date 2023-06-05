@@ -18,10 +18,10 @@ public class MusicLane : MonoBehaviour
     private Transform[] _positions;
     
     private int _index;
-    
-    [SerializeField] [Tooltip("The minimum length of an obstacle to be resize ")]private float minLengthTime;
 
     private MusicController _controller;
+    [HideInInspector] public ObstaclePool lanePool;
+
     private void Start()
     {
         _positions = new Transform[transform.childCount];
@@ -32,6 +32,7 @@ public class MusicLane : MonoBehaviour
         }
         
         _controller = MusicController.instance;
+        lanePool = GetComponent<ObstaclePool>();
     }
 
     private void Update()
@@ -42,26 +43,17 @@ public class MusicLane : MonoBehaviour
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
-            GameObject obstacle = Instantiate(_controller.emptyObstacle, _positions[0].position, Quaternion.identity);
+            GameObject obstacle = lanePool.pool.Get();
 
             obstacle.transform.parent = transform;
+            obstacle.transform.position = _positions[0].position;
             
             obstacle.GetComponent<SpriteRenderer>().sprite = _controller.obstacles[_controller.currentAllIndex].sprite;
             obstacle.GetComponent<SpriteRenderer>().color = _controller.obstacles[_controller.currentAllIndex].color;
+            
             obstacle.GetComponent<MusicObstacle>().dashDirection = _controller.obstacles[_controller.currentAllIndex].direction;
-            
-            if (_endNotes[_index] > minLengthTime)
-            {
-                // ON sait que l'objet doit spawn a x secondes
-                // on sait que l'objet a une vitesse de y 
-                // v = d/t 
-                // d = v * t
-                
-                float distanceToReach = (float)_endNotes[_index] * speed;
-               // obstacle.transform.localScale = new Vector3(distanceToReach, obstacle.transform.localScale.y, obstacle.transform.localScale.z);
-            }
-            
             obstacle.GetComponent<MusicObstacle>().currentLane = this;
+            
             _index++;
             _controller.currentAllIndex++;
         }

@@ -251,7 +251,7 @@ public class DialogControllerEditor : Editor
         }
         
         
-        EditorUtility.SetDirty(classTarget);
+       // EditorUtility.SetDirty(classTarget);
     }
 
     private void RegenerateFiles()
