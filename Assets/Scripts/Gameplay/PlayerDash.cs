@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -33,6 +34,7 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private bool smoothDash;
 
 
+    private float _initialDashDistance;
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     private Rigidbody2D _rb;
@@ -43,14 +45,21 @@ public class PlayerDash : MonoBehaviour {
     private Vector2 _lastVelocity;
     private bool _beginFromPlayer;
 
-    private Vector2 _startVelocity;
-    private float startTime;
+    private List<Plateform> _plateforms;
+    
+    
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerPosition = transform.localPosition;
     }
-    
+
+    private void Start()
+    {
+        _plateforms = FindObjectsOfType<Plateform>().ToList();
+        _initialDashDistance = dashDistance;
+    }
+
     void Update() {
         if (Input.touchCount > 0) {
             Touch touch = Input.GetTouch(0);
@@ -69,16 +78,30 @@ public class PlayerDash : MonoBehaviour {
                         if (col2D.gameObject.layer == LayerMask.NameToLayer("Player"))
                         {
                             _endPosition = ConvertPoint(touch.position);
-
                             float distance = Vector3.Distance(_startPosition, _endPosition);
                             
                             if (distance >= minDistance)
                             {
-                                _startVelocity = _rb.velocity;
+                                dashDistance = _initialDashDistance;
                                 dashDirection = (_endPosition - _startPosition).normalized;
-                                isDashing = true;
                                 _playerPosition = transform.localPosition;
-                                startTime = Time.time;
+                                isDashing = true;
+
+                                if (dashDirection.y < 0f)
+                                {
+                                    float minDistance = 0;
+                                    foreach (Plateform plateform in _plateforms)
+                                    {
+                                        float calculateDistance = Vector3.Distance(plateform.transform.position, transform.position);
+
+                                        if (calculateDistance == 0 || calculateDistance < minDistance)
+                                        {
+                                            minDistance = calculateDistance;
+                                        }
+                                    }
+
+                                    dashDistance = minDistance;
+                                }
                             }
                             ;
                         }
@@ -87,53 +110,71 @@ public class PlayerDash : MonoBehaviour {
                 else
                 {
                     _endPosition = ConvertPoint(touch.position);
-                    float distance = Vector3.Distance(_startPosition, _endPosition);
+                    float distance = Vector2.Distance(_startPosition, _endPosition);
                             
                     if (distance >= minDistance)
                     {
-                        _startVelocity = _rb.velocity;
+                        dashDistance = _initialDashDistance;
                         dashDirection = (_endPosition - _startPosition).normalized;
                         _playerPosition = transform.localPosition;
                         isDashing = true;
-                        startTime = Time.time;
 
                         if (dashDirection.y < 0f)
                         {
+                            float minDistance = 0;
+                            Plateform minPlateform = null;
                             
+                            foreach (Plateform plateform in _plateforms)
+                            {
+                                
+                                // Calculer la distance dans une direction 
+                                float calculateDistance = Vector2.Distance(transform.position, plateform.transform.position);
+                                if (minDistance == 0 || calculateDistance < minDistance)
+                                {
+                                    minDistance = calculateDistance;
+                                    minPlateform = plateform;
+                                }
+                            }
+
+                            float angle = Vector2.Angle(transform.up * -1, dashDirection);
+
+                            float distanceY = minPlateform.transform.position.y - transform.position.y + minPlateform.transform.localScale.y / 2 ;
+
+                            float ac = distanceY / Mathf.Cos(angle);
+                            
+                            Debug.Log("distanceY " + distanceY);
+                            Debug.Log("distanceY " + angle);
+                            Debug.Log("ac " + ac);
+                            
+                            Debug.Break();
+                            dashDistance = minDistance;
                         }
                     }
                 }
             }
         }
+        
+        Debug.DrawLine(transform.localPosition,transform.localPosition + transform.up * -1 * 20,Color.yellow);
     }
 
     private void LateUpdate()
     {
-        
-        // Adapter la distance si on va vers le bas ca va vers l'objet le plus proche vers le  bas 
-
-        float checkDistance = Vector3.Distance(_playerPosition, transform.localPosition);
+        float checkDistance = Vector2.Distance(_playerPosition, transform.localPosition);
 
         if (checkDistance > dashDistance && isDashing)
         {
-            _rb.velocity = Vector2.zero;
-            dashDirection = Vector2.zero;
-            isDashing = false;
+            ResetDash();
         }
         else if (isDashing)
         {
-            float t = (Time.time - startTime) / (dashDistance / dashSpeed);
-            _rb.velocity = Vector2.Lerp(_startVelocity, dashDirection * dashSpeed, t);
+            _rb.velocity = dashDirection * dashSpeed;
         }
-        
+
         if (_rb.velocity.y < 0 && smoothDash)
         {
             _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
         }
         
-        
-        //Debug.Log("velocity " + _rb.velocity);
-
     }
 
     private Vector3 ConvertPoint(Vector3 point) 
@@ -156,6 +197,19 @@ public class PlayerDash : MonoBehaviour {
             
             _startObstaclePosition = transform.position;
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.GetComponent<Plateform>() != null)
+        {
+            if ((int)dashDistance != (int)_initialDashDistance)
+            {
+                ResetDash();
+            }
+
+            isDashing = false;
         }
     }
 
@@ -242,9 +296,7 @@ public class PlayerDash : MonoBehaviour {
                     gameObject = col.gameObject,
                     gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
                 } );
-  
-                Debug.Log("output " + output + " second " + output.secondSideGameObject);
-                
+
                 if ( output != null && output.secondSideGameObject != null ) 
                 { 
                     Rigidbody2D newRigidbody = output.firstSideGameObject.AddComponent<Rigidbody2D>();
@@ -266,6 +318,14 @@ public class PlayerDash : MonoBehaviour {
         }
     }
 
+
+    private void ResetDash()
+    {
+        isDashing = false;
+        _rb.velocity = Vector2.zero;
+        dashDirection = Vector3.zero;
+    }
+    
     private void AddPoint() {
         _dashPoint += pointPerDash;
         _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
