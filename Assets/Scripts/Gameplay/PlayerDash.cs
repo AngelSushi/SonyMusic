@@ -26,6 +26,11 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private float pointPerDash;
     [SerializeField] private float maxDashPoint;
     [SerializeField] private Slider dashSlider;
+    [SerializeField] private Transform limit;
+    [SerializeField] private Transform distanceCombo;
+    [SerializeField] private float comboPoint;
+    [SerializeField] private float pointNotCombo;
+
     
     [Header("Debug")]
     [SerializeField] private bool debugDash;
@@ -237,9 +242,21 @@ public class PlayerDash : MonoBehaviour {
         }
     }
 
-    private void AddPoint() {
-        _dashPoint += pointPerDash;
-        _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
-        dashSlider.value = _dashPoint / maxDashPoint;
+    private void AddPoint() 
+    {       
+
+        if(limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)
+        {
+            _dashPoint += pointPerDash * comboPoint;
+            _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
+            dashSlider.value = _dashPoint / maxDashPoint;
+        }
+        else 
+        {
+            _dashPoint += pointPerDash * pointNotCombo;
+            _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
+            dashSlider.value = _dashPoint / maxDashPoint;
+        }
+        Debug.Log(_dashPoint);
     }
 }

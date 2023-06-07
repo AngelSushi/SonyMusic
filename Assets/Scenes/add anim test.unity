@@ -694,6 +694,7 @@ Transform:
   - {fileID: 406506445}
   - {fileID: 663331507}
   - {fileID: 1523417742}
+  - {fileID: 1627224863}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2916,6 +2917,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568586746}
   m_CullTransparentMesh: 1
+--- !u!1 &1627224862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1627224863}
+  m_Layer: 0
+  m_Name: CombotDistance
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1627224863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1627224862}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07, y: -2.8, z: 0.5611143}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 203943826}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1669714235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3296,7 +3328,11 @@ MonoBehaviour:
   diagonalAngleOffset: 12
   pointPerDash: 20
   maxDashPoint: 100
-  dashSlider: {fileID: 0}
+  dashSlider: {fileID: 1923066065}
+  limit: {fileID: 973044816}
+  distanceCombo: {fileID: 1627224863}
+  comboPoint: 2
+  pointNotCombo: 0
   debugDash: 0
   dashDirection: {x: 0, y: 0, z: 0}
 --- !u!95 &1754378701
