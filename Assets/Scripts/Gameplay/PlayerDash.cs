@@ -112,14 +112,16 @@ public class PlayerDash : MonoBehaviour {
                     _endPosition = ConvertPoint(touch.position);
                     float distance = Vector2.Distance(_startPosition, _endPosition);
                             
-                    if (distance >= minDistance)
+                    if (distance >= minDistance && (_endPosition - _startPosition).normalized.x >= 0)
                     {
                         dashDistance = _initialDashDistance;
                         dashDirection = (_endPosition - _startPosition).normalized;
                         _playerPosition = transform.localPosition;
                         isDashing = true;
-
-                        if (dashDirection.y < 0f)
+                        Debug.Log("dashDirection " + dashDirection);
+                        
+                        
+                        /*if (dashDirection.y < 0f)
                         {
                             float minDistance = 0;
                             Plateform minPlateform = null;
@@ -135,26 +137,24 @@ public class PlayerDash : MonoBehaviour {
                                     minPlateform = plateform;
                                 }
                             }
-
-                            float angle = Vector2.Angle(transform.up * -1, dashDirection);
-
-                            float distanceY = minPlateform.transform.position.y - transform.position.y + minPlateform.transform.localScale.y / 2 ;
-
-                            float ac = distanceY / Mathf.Cos(angle);
                             
-                            Debug.Log("distanceY " + distanceY);
-                            Debug.Log("distanceY " + angle);
-                            Debug.Log("ac " + ac);
+                            float distanceY = Vector2.Distance(new Vector2(0, transform.position.y), new Vector2(0, minPlateform.transform.position.y)) - minPlateform.transform.localScale.y;
                             
-                            Debug.Break();
-                            dashDistance = minDistance;
+                            Vector2 result = dashDirection * distanceY;
+                           // dashDistance = Vector2.Distance(result,transform.position);
+                            
+                           // Debug.Break();
                         }
+                        */
+                        
+                        
                     }
                 }
             }
         }
         
         Debug.DrawLine(transform.localPosition,transform.localPosition + transform.up * -1 * 20,Color.yellow);
+        Debug.DrawLine(transform.position,transform.position + dashDirection * 30,Color.red);
     }
 
     private void LateUpdate()
