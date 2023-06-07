@@ -59,6 +59,8 @@ public class DialogController : MonoBehaviour
 
     public static DialogController instance;
 
+    
+    
     public void OnEnable() 
     {
         if (!Application.isPlaying) 
