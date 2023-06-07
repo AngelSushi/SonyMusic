@@ -38,8 +38,6 @@ public class DialogController : MonoBehaviour
         public int nextID;
         public string content;
         public float speed;
-        public UnityEvent beginAction;
-        public UnityEvent endAction;
         
         public DialogContent(int speakerID, int dialogID, int nextID, string content, float speed) 
         {
@@ -59,6 +57,8 @@ public class DialogController : MonoBehaviour
 
     public static DialogController instance;
 
+    
+    
     public void OnEnable() 
     {
         if (!Application.isPlaying) 
