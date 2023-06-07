@@ -129,9 +129,7 @@ public class DialogController : MonoBehaviour
             Texture2D backgroundTex = Resources.Load<Texture2D>("Backgrounds/" + content[i][2] + "");
 
             loadList.Add(new Speaker(speakerTex,backgroundTex,content[i][3],int.Parse(content[i][0])));
-            
-            
-            Debug.Log("length " + i);
+        
         }
     }
     
