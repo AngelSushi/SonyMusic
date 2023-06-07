@@ -975,6 +975,14 @@ MonoBehaviour:
     audioMixer: {fileID: 1688584925685981135, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
     source: {fileID: 0}
     actualSound: 0
+  - name: GameMusic
+    clip: {fileID: 8300000, guid: ff9dc90641c310243b83207921b256d5, type: 3}
+    volume: 0.109
+    pitch: 1
+    loop: 1
+    audioMixer: {fileID: 1688584925685981135, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
+    source: {fileID: 0}
+    actualSound: 1
 --- !u!1 &467926659
 GameObject:
   m_ObjectHideFlags: 0

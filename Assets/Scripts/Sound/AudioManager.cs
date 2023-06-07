@@ -109,4 +109,25 @@ public class AudioManager : MonoBehaviour
             Debug.LogWarning("PB de son");
         }
     }
+
+    public void PauseSound(SoundState soundState)
+    {
+        if (DicoActualSound.ContainsKey(soundState))
+        {
+            int i = Random.Range(0, DicoActualSound[soundState].Count);
+
+            Sound s = DicoActualSound[soundState][i];
+            if (s == null)
+            {
+                Debug.LogWarning("Sound: " + name + " not found (surement mal ecrit entre le script et sur Unity)");
+                return;
+            }
+            s.source.Pause();
+
+        }
+        else
+        {
+            Debug.LogWarning("PB de son");
+        }
+    }
 }
