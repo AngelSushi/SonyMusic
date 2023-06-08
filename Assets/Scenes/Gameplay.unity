@@ -709,6 +709,7 @@ Transform:
   - {fileID: 1523417742}
   - {fileID: 973044816}
   - {fileID: 1754378699}
+  - {fileID: 1515516541}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1245,7 +1246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 11
-  speed: 10
+  speed: 5
   positions: []
   lanePool: {fileID: 0}
 --- !u!4 &716933179
@@ -1781,7 +1782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1073389213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2200,7 +2201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 5
-  speed: 10
+  speed: 5
   positions: []
   lanePool: {fileID: 0}
 --- !u!4 &1194914019
@@ -2363,12 +2364,6 @@ MonoBehaviour:
       notre derni\xE8re chance de pr\xE9venir la destruction de la soci\xE9t\xE9
       humaine."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 2
     nextID: 3
@@ -2378,12 +2373,6 @@ MonoBehaviour:
       Orelsan  victime de son succ\xE8s, mais vous ne les avez pas laiss\xE9 faire
       !"
     speed: 8
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 1
     dialogID: 3
     nextID: 4
@@ -2391,24 +2380,12 @@ MonoBehaviour:
       mettant de l'ordre dans ses id\xE9es... Mais cette fois-ci c'est carr\xE9ment
       une autre version de lui-m\xEAme qui vient directement d'un mauvais futur."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 4
     nextID: 5
     content: "Realsan est devenu plus puissant et d\xE9truit tout ! L'heure est grave
       Orelsan doit se rendre le plus vite possible \xE0 Bercy."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 3
     dialogID: 5
     nextID: 6
@@ -2416,24 +2393,12 @@ MonoBehaviour:
       l'emporter, on a le m\xEAme slip mais pas du tout les m\xEAmes id\xE9es....Jvais
       lui montrer par a + b que tout va s'arranger."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 4
     dialogID: 6
     nextID: 7
     content: "Vazy Orel, pr\xE9pare toi, pose tes lignes et prend des forces avant
       Bercy., nous on s'occupe du reste !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 7
     nextID: 8
@@ -2442,12 +2407,6 @@ MonoBehaviour:
       \xE0 le Paris de la mauvaise timeline ! la route sera plein d'ennemis et d'obstacles
       !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 1
     dialogID: 8
     nextID: 9
@@ -2455,12 +2414,6 @@ MonoBehaviour:
       \xE0 travers ce bourbier. Gringe [...], Abblaye et moi on reste aux aguets
       et on te donne les infos qu'on peut trouver !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 3
     dialogID: 9
     nextID: 10
@@ -2468,24 +2421,12 @@ MonoBehaviour:
       pas l\xE0 aujourd'hui, mais maintenant faut se battre pour proteger ce qu'on
       a construit, pour notre Civilisation"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 10
     nextID: 11
     content: "Aller je crois en vous l'\xE9quipe... Attention danger en approche
       !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!114 &1405765490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2699,6 +2640,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511418140}
   m_CullTransparentMesh: 1
+--- !u!1 &1515516540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515516541}
+  m_Layer: 0
+  m_Name: CombotDistance
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1515516541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515516540}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07, y: -2.8, z: 0.5611143}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 203943826}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1523417737
 GameObject:
   m_ObjectHideFlags: 0
@@ -3041,7 +3013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 0
-  speed: 10
+  speed: 5
   positions: []
   lanePool: {fileID: 0}
 --- !u!4 &1673173591
@@ -3350,7 +3322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  limit: {fileID: 973044814}
   isDashing: 0
   beginFromPlayer: 0
   playerDragAngle: 10
@@ -3362,7 +3333,9 @@ MonoBehaviour:
   descentGravity: 15
   pointPerDash: 20
   maxDashPoint: 100
-  dashSlider: {fileID: 0}
+  dashSlider: {fileID: 1923066065}
+  limit: {fileID: 973044816}
+  distanceCombo: {fileID: 0}
   debugDash: 0
   smoothDash: 1
   dashDirection: {x: 0, y: 0, z: 0}

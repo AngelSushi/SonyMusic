@@ -8,8 +8,12 @@ using UnityEngine.UIElements;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
 
-public class PlayerDash : MonoBehaviour {
+public class PlayerDash : MonoBehaviour
+{
 
+
+    [Header("Movement")] [SerializeField] private float speed;
+    
     [Header("Dash")]
     public bool isDashing;
     [SerializeField] private bool beginFromPlayer;
@@ -21,6 +25,7 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private float minDistance;
     [SerializeField] private int angleOffset;
     [SerializeField] private int diagonalAngleOffset;
+    [SerializeField] private float descentGravity;
 
     [Header("Score")]
     [SerializeField] private float pointPerDash;
@@ -33,6 +38,8 @@ public class PlayerDash : MonoBehaviour {
     
     [Header("Debug")]
     [SerializeField] private bool debugDash;
+
+    [SerializeField] private bool smoothDash;
     
     
     
