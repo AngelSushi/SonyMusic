@@ -7,7 +7,9 @@ using UnityEngine;
 public enum SoundState
 {
     MainMenuTheme,
+    GameTheme,
     Slash,
+    PauseSong,
 }
 
 

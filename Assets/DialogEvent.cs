@@ -26,7 +26,6 @@ public class DialogEvent : MonoBehaviour
         set => _events = value;
     }
 
-
     private void Reset()
     {
         _controller = GetComponent<DialogDisplay>() ?? GetComponentInChildren<DialogDisplay>();
@@ -52,9 +51,12 @@ public class DialogEvent : MonoBehaviour
         _controller.OnDialogEnd -= ControllerOnOnDialogEnd;
     }
 
-    private DEvent FindEventByID(int id) => _events.First(d => d.id == id);
-    private void ControllerOnOnDialogStart(int id) => FindEventByID(id).startEvent?.Invoke();
-    private void ControllerOnOnDialogEnd(int id) => FindEventByID(id).endEvent?.Invoke();
+    private DEvent FindEventByID(int id) => _events.FirstOrDefault(d => d.id == id);
+    private void ControllerOnOnDialogStart(int id)
+    {
+        FindEventByID(id).startEvent?.Invoke();
+    }
+        private void ControllerOnOnDialogEnd(int id) => FindEventByID(id).endEvent?.Invoke();
 
 
     

@@ -38,8 +38,6 @@ public class DialogController : MonoBehaviour
         public int nextID;
         public string content;
         public float speed;
-        public UnityEvent beginAction;
-        public UnityEvent endAction;
         
         public DialogContent(int speakerID, int dialogID, int nextID, string content, float speed) 
         {
@@ -131,9 +129,7 @@ public class DialogController : MonoBehaviour
             Texture2D backgroundTex = Resources.Load<Texture2D>("Backgrounds/" + content[i][2] + "");
 
             loadList.Add(new Speaker(speakerTex,backgroundTex,content[i][3],int.Parse(content[i][0])));
-            
-            
-            Debug.Log("length " + i);
+        
         }
     }
     

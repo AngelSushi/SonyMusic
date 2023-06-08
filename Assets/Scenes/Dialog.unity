@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -486,6 +486,7 @@ GameObject:
   - component: {fileID: 797059504}
   - component: {fileID: 797059505}
   - component: {fileID: 797059506}
+  - component: {fileID: 797059507}
   m_Layer: 0
   m_Name: DialogController
   m_TagString: Untagged
@@ -545,135 +546,67 @@ MonoBehaviour:
       notre derni\xE8re chance de pr\xE9venir la destruction de la soci\xE9t\xE9
       humaine."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 2
     nextID: 3
-    content: "\"nom du joueur\" gr\xE2ce \xE0 vous nous avons modifi\xE9 le cours
-      de l'Histoire d\xE8s le moment o\xF9 vous avez battu Orel au rap battle Uncut
-      de Booba."
+    content: "%name% gr\xE2ce \xE0 vous nous avons modifi\xE9 le cours de l'Histoire
+      d\xE8s le moment o\xF9 vous avez battu Orel au rap battle Uncut de Booba."
     speed: 8
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 3
     nextID: 4
     content: "C'est ce a qui donn\xE9 l'occasion aux forces du mal de corrompre Orelsan,
       victime de son succ\xE8s, mais vous ne les avez pas laiss\xE9 faire !"
     speed: 8
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 1
     dialogID: 4
     nextID: 5
     content: "Quelques ann\xE9es plus tard, vous \xEAtes all\xE9s aider Orel en mettant
       de l'ordre dans ses notes, ses id\xE9es..."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 1
     dialogID: 5
     nextID: 6
     content: "Mais cette fois-ci c'est carr\xE9ment une autre version de lui-m\xEAme
       qui vient directement d'un mauvais futur."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 6
     nextID: 7
     content: "Realsan est devenu plus puissant et d\xE9truit tout ! L'heure est grave
       Orelsan doit se rendre le plus vite possible \xE0 Bercy."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 3
     dialogID: 7
     nextID: 8
     content: "On peut pas laisser faire ce type, on peut pas laisser son d\xE9faitisme
-      l'emporter, on a le m\xEAme slip mais pas du tout les m\xEAmes id\xE9es....Jvais
-      lui montrer par a + b que tout va s'arranger."
+      l'emporter. Jvais lui montrer par a + b que tout va s'arranger."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 4
     dialogID: 8
     nextID: 9
     content: "Vazy Orel, pr\xE9pare toi, pose tes lignes et prend des forces avant
       Bercy., nous on s'occupe du reste !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 9
     nextID: 10
     content: Malheureusement nous venons d'avoir l'information que Paris est en train
       de glitcher sur le continium espace-temps !
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 10
     nextID: 11
     content: "Et commence donc \xE0 fusionner \xE0 le Paris de la mauvaise timeline
       ! La route sera plein d'ennemis et d'obstacles !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 1
     dialogID: 11
     nextID: 12
-    content: "Ok \"nom du joueur\" ton r\xF4le va \xEAtre de nous frayer un chemin
-      \xE0 travers ce bourbier. Gringe [...], Abblaye et moi on reste aux aguets
-      et on te donne les infos qu'on peut trouver !"
+    content: "Ok %name% ton r\xF4le va \xEAtre de nous frayer un chemin \xE0 travers
+      ce bourbier. Nous, on reste aux aguets et on te donne les infos qu'on peut
+      trouver !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 3
     dialogID: 12
     nextID: 13
@@ -681,36 +614,58 @@ MonoBehaviour:
       pas l\xE0 aujourd'hui, mais maintenant faut se battre pour proteger ce qu'on
       a construit, pour notre Civilisation"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 13
     nextID: -1
     content: "Aller je crois en vous l'\xE9quipe... Attention danger en approche
       !"
     speed: 5
-    beginAction:
+--- !u!114 &797059507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797059502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d7be752826a8743956d8a5ed0216f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _events:
+  - name: 1
+    id: 1
+    startEvent:
       m_PersistentCalls:
         m_Calls: []
-    endAction:
+    endEvent:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1035571623}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: StartGameplayScene
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
+  - name: 2
+    id: 2
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: 3
+    id: 3
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: 4
+    id: 4
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  _controller: {fileID: 797059505}
 --- !u!1 &923105381
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,8 +890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90587d17b1a18b94885e4c05d0df3018, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMen: 0
-  isWomen: 0
 --- !u!4 &1035571624
 Transform:
   m_ObjectHideFlags: 0
