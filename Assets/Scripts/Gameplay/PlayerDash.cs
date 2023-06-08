@@ -9,8 +9,14 @@ using UnityEngine.UIElements;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
 
-public class PlayerDash : MonoBehaviour {
+public class PlayerDash : MonoBehaviour
+{
 
+    [Header("Movement")] 
+    [SerializeField,Tooltip("The speed use when the player is not dashing and is on plateform")] private float speed;
+    [SerializeField] private GameObject limit;
+    
+    
     [Header("Dash")]
     public bool isDashing;
     [SerializeField] private bool beginFromPlayer;
@@ -174,7 +180,28 @@ public class PlayerDash : MonoBehaviour {
         {
             _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
         }
+
+        if (IsGrounded() && dashDirection == Vector3.zero)
+        { 
+            
+           // _rb.velocity = Vector2.left * speed;
+           Debug.Log("GetSideValue " + GetSideValue());
+        }
         
+    }
+
+
+    public float GetSideValue()
+    {
+        Vector3 delta = (transform.position - limit.transform.position).normalized;
+        Vector3 cross = Vector3.Cross(delta, limit.transform.forward);
+        
+        return cross.y;
+    }
+    
+    private bool IsGrounded()
+    {
+        return Physics2D.Raycast(transform.position, -Vector2.up, 1.5f, 1 << 6);
     }
 
     private Vector3 ConvertPoint(Vector3 point) 
