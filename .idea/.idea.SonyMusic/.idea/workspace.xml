@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicLane.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Music/MusicObstacle.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +107,7 @@
       <workItem from="1685789250204" duration="10834000" />
       <workItem from="1685913401331" duration="2808000" />
       <workItem from="1686036581333" duration="10233000" />
-      <workItem from="1686213567135" duration="4270000" />
+      <workItem from="1686213567135" duration="5494000" />
     </task>
     <servers />
   </component>

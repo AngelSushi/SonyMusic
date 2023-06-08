@@ -183,18 +183,23 @@ public class PlayerDash : MonoBehaviour
         }
 
         if (IsGrounded() && dashDirection == Vector3.zero)
-        { 
-            
-           // Debug.Log("gameManager " + _gameManager );
-           // _rb.velocity = Vector2.left * speed;
-           //Debug.Log("GetSideValue " + _gameManager.GetSideValueBetweenTwoPoints(transform.position,limit.transform.position,limit.transform.forward));
+        {
+            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0)
+            {
+            //    _rb.velocity = new Vector2(0, -1) * speed;
+                _rb.velocity = Vector2.left * speed;
+            }
+            else
+            {
+                _rb.velocity = Vector2.zero;
+            }
         }
         
     }
 
     private bool IsGrounded()
     {
-        return Physics2D.Raycast(transform.position, -Vector2.up, 1.5f, 1 << 6);
+        return Physics2D.Raycast(transform.position, -Vector2.up, 1.25f, 1 << 6);
     }
 
     private Vector3 ConvertPoint(Vector3 point) 
