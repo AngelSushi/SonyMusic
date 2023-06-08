@@ -38,4 +38,12 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
+
+    public float GetSideValueBetweenTwoPoints(Vector3 first, Vector3 second,Vector3 forward)
+    {
+        Vector3 delta = (first - second).normalized;
+        Vector3 cross = Vector3.Cross(delta, forward);
+        
+        return cross.y;
+    }
 }
