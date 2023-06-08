@@ -11,12 +11,13 @@ public class MusicObstacle : DestroyableObject
     [HideInInspector] public MusicLane currentLane;
     private float _speed;
 
-    private Camera _mainCamera;
+    private GameManager _gameManager;
+    
     
     private void Start()
     {
         _speed = currentLane.speed;
-        _mainCamera = Camera.main;
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     public void Update()
@@ -28,21 +29,10 @@ public class MusicObstacle : DestroyableObject
         
         transform.Translate(-_speed * Time.deltaTime,0,0);
         
-        float borderX = (_mainCamera.transform.position.x - OrthographicBounds(_mainCamera).size.x / 2) - 1;
-        if (transform.position.x <= borderX)
+        if (_gameManager.GetSideValueBetweenTwoPoints(transform.position,currentLane.positions[1].transform.position,currentLane.positions[1].transform.forward) > 0)
         {
             currentLane.lanePool.pool.Release(transform.gameObject);
         }
     }
-    
-    public static Bounds OrthographicBounds(Camera camera)
-    {
-        float screenAspect = (float)Screen.width / (float)Screen.height;
-        float cameraHeight = camera.orthographicSize * 2;
-        Bounds bounds = new Bounds(
-            camera.transform.position,
-            new Vector3(cameraHeight * screenAspect, cameraHeight, 0));
-        return bounds;
-    }
-    
+
 }

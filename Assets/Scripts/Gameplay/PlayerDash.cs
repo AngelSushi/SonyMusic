@@ -8,8 +8,12 @@ using UnityEngine.UIElements;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
 
-public class PlayerDash : MonoBehaviour {
+public class PlayerDash : MonoBehaviour
+{
 
+
+    [Header("Movement")] [SerializeField] private float speed;
+    
     [Header("Dash")]
     public bool isDashing;
     [SerializeField] private bool beginFromPlayer;
@@ -21,6 +25,7 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private float minDistance;
     [SerializeField] private int angleOffset;
     [SerializeField] private int diagonalAngleOffset;
+    [SerializeField] private float descentGravity;
 
     [Header("Score")]
     [SerializeField] private float pointPerDash;
@@ -37,6 +42,8 @@ public class PlayerDash : MonoBehaviour {
     
     [Header("Debug")]
     [SerializeField] private bool debugDash;
+
+    [SerializeField] private bool smoothDash;
     
     
     
@@ -49,11 +56,14 @@ public class PlayerDash : MonoBehaviour {
     [HideInInspector] public Vector3 dashDirection;
     private float _dashPoint;
 
-    private bool _beginFromPlayer;
+    private List<Plateform> _plateforms;
+    private GameManager _gameManager;
     
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
+        _playerPosition = transform.localPosition;
+        _gameManager = FindObjectOfType<GameManager>();
     }
     
     void Update() 
@@ -121,6 +131,34 @@ public class PlayerDash : MonoBehaviour {
             //ici la 
 
         }
+        else if (isDashing)
+        {
+            _rb.velocity = dashDirection * dashSpeed;
+        }
+
+        if (_rb.velocity.y < 0 && smoothDash)
+        {
+            _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
+        }
+
+        if (IsGrounded() && dashDirection == Vector3.zero)
+        {
+            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0)
+            {
+            //    _rb.velocity = new Vector2(0, -1) * speed;
+                _rb.velocity = Vector2.left * speed;
+            }
+            else
+            {
+                _rb.velocity = Vector2.zero;
+            }
+        }
+        
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.Raycast(transform.position, -Vector2.up, 1.25f, 1 << 6);
     }
 
     private Vector3 ConvertPoint(Vector3 point) 

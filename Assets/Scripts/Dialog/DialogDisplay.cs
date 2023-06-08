@@ -16,6 +16,7 @@ public class DialogDisplay : MonoBehaviour {
 
     public bool displayDialog;
     private bool _isDisplayFinished;
+    private float _originalSpeed;
 
     public event UnityAction<int> OnDialogStart;
     public event UnityAction<int> OnDialogEnd;
@@ -27,6 +28,8 @@ public class DialogDisplay : MonoBehaviour {
         _dialogAuthor = dialogParent.transform.GetChild(2).GetComponent<Image>();
         _dialogBackground = dialogParent.GetComponent<Image>();
         StartDialog(1);
+        
+        Debug.Log("on start ");
     }
 
 
@@ -57,6 +60,7 @@ public class DialogDisplay : MonoBehaviour {
     {
         for (int i = 1; i < dialogContent.content.Length + 1; i++)
         {
+            Debug.Log("speeed " + dialogContent.speed);
             yield return new WaitForSeconds(dialogContent.speed / dialogContent.content.Length);
             _dialogText.text = dialogContent.content.Substring(0,i);
         }
@@ -70,9 +74,13 @@ public class DialogDisplay : MonoBehaviour {
     {
         if (e.started) 
         {
+            Debug.Log("started");
             if (displayDialog && _isDisplayFinished) 
             {
                 OnDialogEnd?.Invoke(_currentDialog.dialogID);
+                
+                _currentDialog.speed = _originalSpeed;
+                _originalSpeed = 0f;
                 
                 if (_currentDialog.nextID >= 0) 
                     StartDialog(_currentDialog.nextID);
@@ -80,10 +88,16 @@ public class DialogDisplay : MonoBehaviour {
                     EndDialog();
                 
             }
+            else if (displayDialog && _originalSpeed == 0f)
+            {
+                _originalSpeed = _currentDialog.speed;
+                _currentDialog.speed = 0.01f;
+                Debug.Log("new speed " + _currentDialog.speed);
+            }
         }
     }
 
-    private void EndDialog() 
+    private void EndDialog()
     {
         dialogParent.SetActive(false);
         displayDialog = false;

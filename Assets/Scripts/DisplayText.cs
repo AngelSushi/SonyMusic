@@ -20,9 +20,9 @@ public class DisplayText : MonoBehaviour
 
     private void SwitchScene()
     {
-        GameManager.instance.ChangeScene("VisualNovel");
+        GameManager.instance.ChangeScene("Dialog");
         AudioManager.instance.Stop(SoundState.MainMenuTheme);
         //GameManager.instance.ChangeScene("add anim test");
-        AudioManager.instance.PlayRandom(SoundState.GameTheme);
+       // AudioManager.instance.PlayRandom(SoundState.GameTheme);
     }
 }

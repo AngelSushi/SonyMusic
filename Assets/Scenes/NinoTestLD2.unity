@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -462,6 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 5
   speed: 5
+  positions: []
   lanePool: {fileID: 0}
 --- !u!4 &39481808
 Transform:
@@ -903,6 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ee7cf28395a1147983cb4e3bca5b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
   isDashing: 0
   beginFromPlayer: 0
   playerDragAngle: 0
@@ -911,10 +913,14 @@ MonoBehaviour:
   minDistance: 0
   angleOffset: 15
   diagonalAngleOffset: 0
+  descentGravity: 0
   pointPerDash: 10
   maxDashPoint: 5
   dashSlider: {fileID: 0}
+  limit: {fileID: 0}
+  distanceCombo: {fileID: 0}
   debugDash: 0
+  smoothDash: 0
   dashDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &195645791
 GameObject:
@@ -2143,6 +2149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downMin: 0
+  passThrough: 0
 --- !u!251 &599543162
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -2879,6 +2886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 11
   speed: 5
+  positions: []
   lanePool: {fileID: 0}
 --- !u!4 &1084151491
 Transform:
@@ -3177,9 +3185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fileLocation: RaelsanV2.mid
   lanes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1084151490}
+  - {fileID: 39481807}
+  - {fileID: 1261593540}
   mainAudio: {fileID: 1187071632}
   obstacles:
   - sprite: {fileID: 21300000, guid: d3da5a38ab962e24bb293ee5991cdaed, type: 3}
@@ -3700,6 +3708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 0
   speed: 5
+  positions: []
   lanePool: {fileID: 0}
 --- !u!4 &1261593541
 Transform:
@@ -4200,6 +4209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downMin: 0
+  passThrough: 0
 --- !u!251 &1379283056
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -4682,7 +4692,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

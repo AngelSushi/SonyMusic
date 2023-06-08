@@ -700,7 +700,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1754378699}
   - {fileID: 730478803}
   - {fileID: 1673173591}
   - {fileID: 1194914019}
@@ -708,6 +707,9 @@ Transform:
   - {fileID: 406506445}
   - {fileID: 663331507}
   - {fileID: 1523417742}
+  - {fileID: 973044816}
+  - {fileID: 1754378699}
+  - {fileID: 1515516541}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -793,7 +795,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &494936600
 GameObject:
@@ -1197,7 +1199,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &663331508
 MonoBehaviour:
@@ -1244,7 +1246,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 11
-  speed: 10
+  speed: 5
+  positions: []
   lanePool: {fileID: 0}
 --- !u!4 &716933179
 Transform:
@@ -1261,7 +1264,7 @@ Transform:
   - {fileID: 508373170}
   - {fileID: 1410203772}
   m_Father: {fileID: 203943826}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716933180
 MonoBehaviour:
@@ -1307,7 +1310,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &730478804
 MonoBehaviour:
@@ -1755,11 +1758,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973044814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.5, y: 1.54, z: 0}
+  m_LocalPosition: {x: -6.5, y: 0.53999996, z: 10}
   m_LocalScale: {x: 0.33124337, y: 11.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 203943826}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1073389212
@@ -1779,7 +1782,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1073389213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2198,7 +2201,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 5
-  speed: 10
+  speed: 5
+  positions: []
   lanePool: {fileID: 0}
 --- !u!4 &1194914019
 Transform:
@@ -2215,7 +2219,7 @@ Transform:
   - {fileID: 568692524}
   - {fileID: 1685079275}
   m_Father: {fileID: 203943826}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1194914020
 MonoBehaviour:
@@ -2230,6 +2234,50 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emptyPrefab: {fileID: 5284593131069099802, guid: 33e82ae31b14c8b4f9ad379389a965e5, type: 3}
+--- !u!1 &1213024889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1213024891}
+  - component: {fileID: 1213024890}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1213024890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213024889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90587d17b1a18b94885e4c05d0df3018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1213024891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213024889}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.63734317, y: 1.7334732, z: 0.052943207}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1251160277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,12 +2364,6 @@ MonoBehaviour:
       notre derni\xE8re chance de pr\xE9venir la destruction de la soci\xE9t\xE9
       humaine."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 2
     nextID: 3
@@ -2331,12 +2373,6 @@ MonoBehaviour:
       Orelsan  victime de son succ\xE8s, mais vous ne les avez pas laiss\xE9 faire
       !"
     speed: 8
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 1
     dialogID: 3
     nextID: 4
@@ -2344,24 +2380,12 @@ MonoBehaviour:
       mettant de l'ordre dans ses id\xE9es... Mais cette fois-ci c'est carr\xE9ment
       une autre version de lui-m\xEAme qui vient directement d'un mauvais futur."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 4
     nextID: 5
     content: "Realsan est devenu plus puissant et d\xE9truit tout ! L'heure est grave
       Orelsan doit se rendre le plus vite possible \xE0 Bercy."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 3
     dialogID: 5
     nextID: 6
@@ -2369,24 +2393,12 @@ MonoBehaviour:
       l'emporter, on a le m\xEAme slip mais pas du tout les m\xEAmes id\xE9es....Jvais
       lui montrer par a + b que tout va s'arranger."
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 4
     dialogID: 6
     nextID: 7
     content: "Vazy Orel, pr\xE9pare toi, pose tes lignes et prend des forces avant
       Bercy., nous on s'occupe du reste !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 7
     nextID: 8
@@ -2395,12 +2407,6 @@ MonoBehaviour:
       \xE0 le Paris de la mauvaise timeline ! la route sera plein d'ennemis et d'obstacles
       !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 1
     dialogID: 8
     nextID: 9
@@ -2408,12 +2414,6 @@ MonoBehaviour:
       \xE0 travers ce bourbier. Gringe [...], Abblaye et moi on reste aux aguets
       et on te donne les infos qu'on peut trouver !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 3
     dialogID: 9
     nextID: 10
@@ -2421,24 +2421,12 @@ MonoBehaviour:
       pas l\xE0 aujourd'hui, mais maintenant faut se battre pour proteger ce qu'on
       a construit, pour notre Civilisation"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
   - speakerID: 2
     dialogID: 10
     nextID: 11
     content: "Aller je crois en vous l'\xE9quipe... Attention danger en approche
       !"
     speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
 --- !u!114 &1405765490
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2652,6 +2640,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511418140}
   m_CullTransparentMesh: 1
+--- !u!1 &1515516540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1515516541}
+  m_Layer: 0
+  m_Name: CombotDistance
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1515516541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515516540}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.07, y: -2.8, z: 0.5611143}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 203943826}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1523417737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,7 +2815,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1568586746
 GameObject:
@@ -2994,7 +3013,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 0
-  speed: 10
+  speed: 5
+  positions: []
   lanePool: {fileID: 0}
 --- !u!4 &1673173591
 Transform:
@@ -3011,7 +3031,7 @@ Transform:
   - {fileID: 95719094}
   - {fileID: 1669714236}
   m_Father: {fileID: 203943826}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1673173592
 MonoBehaviour:
@@ -3282,12 +3302,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754378694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.932, y: -2.722, z: 10}
+  m_LocalPosition: {x: -1.38, y: -2.722, z: 10}
   m_LocalScale: {x: 0.7516832, y: 0.7516832, z: 0.7516832}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
-  m_RootOrder: 0
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1754378700
 MonoBehaviour:
@@ -3302,7 +3322,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  limit: {fileID: 973044814}
   isDashing: 0
   beginFromPlayer: 0
   playerDragAngle: 10
@@ -3314,7 +3333,9 @@ MonoBehaviour:
   descentGravity: 15
   pointPerDash: 20
   maxDashPoint: 100
-  dashSlider: {fileID: 0}
+  dashSlider: {fileID: 1923066065}
+  limit: {fileID: 973044816}
+  distanceCombo: {fileID: 0}
   debugDash: 0
   smoothDash: 1
   dashDirection: {x: 0, y: 0, z: 0}
