@@ -117,6 +117,7 @@ public class PlayerDash : MonoBehaviour {
        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
        return worldPosition;
     }
+    
 
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -240,7 +241,12 @@ public class PlayerDash : MonoBehaviour {
             }
         }
     }
-
+    private void ResetDash()
+    {
+        isDashing = false;
+        _rb.velocity = Vector2.zero;
+        dashDirection = Vector3.zero;
+    }
     private void AddPoint() 
     {
         if (limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)

@@ -681,7 +681,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203943822}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: -83.4, y: 1, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1266,6 +1266,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downMin: 0
+  passThrough: 0
 --- !u!1 &716933177
 GameObject:
   m_ObjectHideFlags: 0
@@ -2813,6 +2814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downMin: 0
+  passThrough: 0
 --- !u!251 &1523417739
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -3535,7 +3537,6 @@ MonoBehaviour:
   dashSlider: {fileID: 1923066065}
   limit: {fileID: 973044816}
   distanceCombo: {fileID: 1627224863}
-  comboPoint: 1
   debugDash: 0
   dashDirection: {x: 0, y: 0, z: 0}
 --- !u!95 &1754378701
