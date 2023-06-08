@@ -8,8 +8,12 @@ using UnityEngine.UIElements;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
 
-public class PlayerDash : MonoBehaviour {
+public class PlayerDash : MonoBehaviour
+{
 
+
+    [Header("Movement")] [SerializeField] private float speed;
+    
     [Header("Dash")]
     public bool isDashing;
     [SerializeField] private bool beginFromPlayer;
@@ -21,6 +25,7 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private float minDistance;
     [SerializeField] private int angleOffset;
     [SerializeField] private int diagonalAngleOffset;
+    [SerializeField] private float descentGravity;
 
     [Header("Score")]
     [SerializeField] private float pointPerDash;
@@ -28,12 +33,13 @@ public class PlayerDash : MonoBehaviour {
     [SerializeField] private Slider dashSlider;
     [SerializeField] private Transform limit;
     [SerializeField] private Transform distanceCombo;
-    [SerializeField] private float comboPoint;
-    [SerializeField] private float pointNotCombo;
+    private float comboPoint = 0;
 
     
     [Header("Debug")]
     [SerializeField] private bool debugDash;
+
+    [SerializeField] private bool smoothDash;
     
     
     
@@ -46,11 +52,14 @@ public class PlayerDash : MonoBehaviour {
     [HideInInspector] public Vector3 dashDirection;
     private float _dashPoint;
 
-    private bool _beginFromPlayer;
+    private List<Plateform> _plateforms;
+    private GameManager _gameManager;
     
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
+        _playerPosition = transform.localPosition;
+        _gameManager = FindObjectOfType<GameManager>();
     }
     
     void Update() {
@@ -110,6 +119,34 @@ public class PlayerDash : MonoBehaviour {
             dashDirection = Vector2.zero;
             isDashing = false;
         }
+        else if (isDashing)
+        {
+            _rb.velocity = dashDirection * dashSpeed;
+        }
+
+        if (_rb.velocity.y < 0 && smoothDash)
+        {
+            _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
+        }
+
+        if (IsGrounded() && dashDirection == Vector3.zero)
+        {
+            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0)
+            {
+            //    _rb.velocity = new Vector2(0, -1) * speed;
+                _rb.velocity = Vector2.left * speed;
+            }
+            else
+            {
+                _rb.velocity = Vector2.zero;
+            }
+        }
+        
+    }
+
+    private bool IsGrounded()
+    {
+        return Physics2D.Raycast(transform.position, -Vector2.up, 1.25f, 1 << 6);
     }
 
     private Vector3 ConvertPoint(Vector3 point) 
@@ -118,6 +155,7 @@ public class PlayerDash : MonoBehaviour {
        Vector3 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
        return worldPosition;
     }
+    
 
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -241,22 +279,30 @@ public class PlayerDash : MonoBehaviour {
             }
         }
     }
-
+    private void ResetDash()
+    {
+        isDashing = false;
+        _rb.velocity = Vector2.zero;
+        dashDirection = Vector3.zero;
+    }
     private void AddPoint() 
-    {       
-
-        if(limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)
+    {
+        if (limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)
         {
+            comboPoint = comboPoint + 1;
             _dashPoint += pointPerDash * comboPoint;
             _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
             dashSlider.value = _dashPoint / maxDashPoint;
         }
-        else 
+        else
         {
-            _dashPoint += pointPerDash * pointNotCombo;
+            comboPoint = 1;
+            _dashPoint += pointPerDash * comboPoint;
             _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
             dashSlider.value = _dashPoint / maxDashPoint;
         }
-        Debug.Log(_dashPoint);
+        Debug.Log("Les points totaux" + _dashPoint);
+        Debug.Log("le combot point est de " + comboPoint);
+
     }
 }
