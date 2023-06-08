@@ -69,7 +69,11 @@ public class PlayerDash : MonoBehaviour
     void Update() 
     {
 
-        playerAnimator.SetBool("Dash", isDashing);
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("Dash", isDashing);    
+        }
+        
 
         if (Input.touchCount > 0) 
         {
@@ -302,12 +306,8 @@ public class PlayerDash : MonoBehaviour
         myNewSmoke.transform.parent = gameObject.transform;
         yield return new WaitForSeconds(0.389f);
     }
-    private void ResetDash()
-    {
-        isDashing = false;
-        _rb.velocity = Vector2.zero;
-        dashDirection = Vector3.zero;
-    }
+
+    
     private void AddPoint() 
     {
         if (limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)
