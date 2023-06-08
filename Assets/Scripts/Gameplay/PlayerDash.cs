@@ -52,12 +52,13 @@ public class PlayerDash : MonoBehaviour
     private bool _beginFromPlayer;
 
     private List<Plateform> _plateforms;
-    
+    private GameManager _gameManager;
     
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerPosition = transform.localPosition;
+        _gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Start()
@@ -184,21 +185,13 @@ public class PlayerDash : MonoBehaviour
         if (IsGrounded() && dashDirection == Vector3.zero)
         { 
             
+           // Debug.Log("gameManager " + _gameManager );
            // _rb.velocity = Vector2.left * speed;
-           Debug.Log("GetSideValue " + GetSideValue());
+           //Debug.Log("GetSideValue " + _gameManager.GetSideValueBetweenTwoPoints(transform.position,limit.transform.position,limit.transform.forward));
         }
         
     }
 
-
-    public float GetSideValue()
-    {
-        Vector3 delta = (transform.position - limit.transform.position).normalized;
-        Vector3 cross = Vector3.Cross(delta, limit.transform.forward);
-        
-        return cross.y;
-    }
-    
     private bool IsGrounded()
     {
         return Physics2D.Raycast(transform.position, -Vector2.up, 1.5f, 1 << 6);

@@ -15,7 +15,8 @@ public class MusicLane : MonoBehaviour
     
     [SerializeField] private NoteName restriction; 
     public float speed;
-    private Transform[] _positions;
+    
+    [HideInInspector] public Transform[] positions;
     
     private int _index;
 
@@ -24,11 +25,11 @@ public class MusicLane : MonoBehaviour
 
     private void Start()
     {
-        _positions = new Transform[transform.childCount];
+        positions = new Transform[transform.childCount];
         
         for (int i = 0; i < transform.childCount; i++)
         {
-            _positions[i] = transform.GetChild(i);
+            positions[i] = transform.GetChild(i);
         }
         
         _controller = MusicController.instance;
@@ -37,7 +38,7 @@ public class MusicLane : MonoBehaviour
 
     private void Update()
     {
-        float distance = Vector2.Distance(_positions[0].position, _positions[1].position);
+        float distance = Vector2.Distance(positions[0].position, positions[1].position);
         float time = distance / speed;
         
 
@@ -46,7 +47,7 @@ public class MusicLane : MonoBehaviour
             GameObject obstacle = lanePool.pool.Get();
 
             obstacle.transform.parent = transform;
-            obstacle.transform.position = _positions[0].position;
+            obstacle.transform.position = positions[0].position;
             
             obstacle.GetComponent<SpriteRenderer>().sprite = _controller.obstacles[_controller.currentAllIndex].sprite;
             obstacle.GetComponent<SpriteRenderer>().color = _controller.obstacles[_controller.currentAllIndex].color;
