@@ -615,7 +615,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797059502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 392763e849c8d9a4a9134ab616fc647b, type: 3}
   m_Name: 
@@ -629,81 +629,85 @@ MonoBehaviour:
     content: "Ici Magnitude \u03B1 pour Magnitude \u03B2. Cette mission repr\xE9sente
       notre derni\xE8re chance de pr\xE9venir la destruction de la soci\xE9t\xE9
       humaine."
-    speed: 5
+    speed: 2
   - speakerID: 2
     dialogID: 2
     nextID: 3
-    content: "%name% gr\xE2ce \xE0 vous nous avons modifi\xE9 le cours de l'Histoire
-      d\xE8s le moment o\xF9 vous avez battu Orel au rap battle Uncut de Booba."
-    speed: 8
+    content: "%name% gr\xE2ce \xE0 toi nous avons modifi\xE9 le cours de l'Histoire
+      d\xE8s le moment o\xF9 tu as battu Orel au rap battle Uncut de Booba."
+    speed: 2
   - speakerID: 2
     dialogID: 3
     nextID: 4
     content: "C'est ce a qui donn\xE9 l'occasion aux forces du mal de corrompre Orelsan,
-      victime de son succ\xE8s, mais vous ne les avez pas laiss\xE9 faire !"
-    speed: 8
-  - speakerID: 1
+      d\xE9pit\xE9 par sa d\xE9faite. Mais tu ne les as pas laiss\xE9 faire !"
+    speed: 2
+  - speakerID: 4
     dialogID: 4
     nextID: 5
-    content: "Quelques ann\xE9es plus tard, vous \xEAtes all\xE9s aider Orel en mettant
-      de l'ordre dans ses notes, ses id\xE9es..."
-    speed: 5
+    content: "Et quelques ann\xE9es plus tard, on a gal\xE9r\xE9 quand il a voulu
+      faire son 3e album, il a fallu ranger ses notes et ses id\xE9es !"
+    speed: 2
   - speakerID: 1
     dialogID: 5
     nextID: 6
-    content: "Mais cette fois-ci c'est carr\xE9ment une autre version de lui-m\xEAme
-      qui vient directement d'un mauvais futur."
-    speed: 5
+    content: "Mais cette fois-ci c'est carr\xE9ment la version mal\xE9fique de lui-m\xEAme,
+      celui venant de notre futur, qui cherche \xE0 nous contrer."
+    speed: 2
   - speakerID: 2
     dialogID: 6
     nextID: 7
-    content: "Realsan est devenu plus puissant et d\xE9truit tout ! L'heure est grave
-      Orelsan doit se rendre le plus vite possible \xE0 Bercy."
-    speed: 5
+    content: "Realsan est devenu plus puissant et d\xE9truit tout ! L'heure est grave,
+      Orel doit se rendre le plus vite possible \xE0 Bercy."
+    speed: 2
   - speakerID: 3
     dialogID: 7
     nextID: 8
     content: "On peut pas laisser faire ce type, on peut pas laisser son d\xE9faitisme
       l'emporter. Jvais lui montrer par a + b que tout va s'arranger."
-    speed: 5
+    speed: 2
   - speakerID: 4
     dialogID: 8
     nextID: 9
     content: "Vazy Orel, pr\xE9pare toi, pose tes lignes et prend des forces avant
-      Bercy., nous on s'occupe du reste !"
-    speed: 5
+      Bercy, on s'occupe du reste !"
+    speed: 2
   - speakerID: 2
     dialogID: 9
     nextID: 10
-    content: Malheureusement nous venons d'avoir l'information que Paris est en train
-      de glitcher sur le continium espace-temps !
-    speed: 5
+    content: "Malheureusement nous venons d'avoir l'information que Paris est en
+      train de glitcher \xE0 travers le continuum espace-temps !"
+    speed: 2
   - speakerID: 2
     dialogID: 10
     nextID: 11
-    content: "Et commence donc \xE0 fusionner \xE0 le Paris de la mauvaise timeline
-      ! La route sera plein d'ennemis et d'obstacles !"
-    speed: 5
+    content: "Et commence donc \xE0 fusionner avec le Paris du mauvais futur ! \xC7a
+      va \xEAtre gal\xE8re de rejoindre la sc\xE8ne avec tous ces nouveaux obstacles."
+    speed: 2
   - speakerID: 1
     dialogID: 11
     nextID: 12
-    content: "Ok %name% ton r\xF4le va \xEAtre de nous frayer un chemin \xE0 travers
-      ce bourbier. Nous, on reste aux aguets et on te donne les infos qu'on peut
-      trouver !"
-    speed: 5
+    content: "Ok %name% fraye-nous un chemin \xE0 travers ce bourbier. Nous, on reste
+      pr\xEAts et on te donne les infos qu'on peut trouver !"
+    speed: 2
   - speakerID: 3
     dialogID: 12
     nextID: 13
-    content: "Merci les gars, sans chaque personne de cette \xE9quipe on en serait
-      pas l\xE0 aujourd'hui, mais maintenant faut se battre pour proteger ce qu'on
-      a construit, pour notre Civilisation"
-    speed: 5
-  - speakerID: 2
+    content: "Merci les gars, sans chacune des personnes de cette \xE9quipe on en
+      serait pas l\xE0 aujourd'hui,"
+    speed: 2
+  - speakerID: 4
     dialogID: 13
+    nextID: 14
+    content: "Maintenant faut se battre pour proteger ce qu'on a construit, pour
+      d\xE9fendre notre Civilisation"
+    speed: 2
+  - speakerID: 2
+    dialogID: 14
     nextID: -1
-    content: "Aller je crois en vous l'\xE9quipe... Attention danger en approche
+    content: "Allez je crois en vous l'\xE9quipe... Attention danger en approche
       !"
-    speed: 5
+    speed: 2
 --- !u!114 &797059507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,6 +732,166 @@ MonoBehaviour:
           m_Mode: 2
           m_Arguments:
             m_ObjectArgument: {fileID: 21300000, guid: 8e49db1c761dd5b46883c9d18b2f7f4a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: 4
+    id: 4
+    startEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 8e49db1c761dd5b46883c9d18b2f7f4a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: 6
+    id: 6
+    startEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 9f7fb8b1059fb724b9caacb46aff7bb6, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: 9
+    id: 9
+    startEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 1f28563f49dd2da44b3211efa5670d08, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: 10
+    id: 10
+    startEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 1f28563f49dd2da44b3211efa5670d08, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: 11
+    id: 11
+    startEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 1f28563f49dd2da44b3211efa5670d08, type: 3}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
