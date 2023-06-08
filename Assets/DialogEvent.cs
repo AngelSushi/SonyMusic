@@ -52,7 +52,7 @@ public class DialogEvent : MonoBehaviour
     }
 
     private DEvent FindEventByID(int id) => _events.FirstOrDefault(d => d.id == id);
-    private void ControllerOnOnDialogStart(int id) =>FindEventByID(id)?.startEvent?.Invoke();
+    private void ControllerOnOnDialogStart(int id) => FindEventByID(id)?.startEvent?.Invoke();     
     private void ControllerOnOnDialogEnd(int id) => FindEventByID(id)?.endEvent?.Invoke();
 
 
