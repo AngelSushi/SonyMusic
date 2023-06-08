@@ -1672,7 +1672,7 @@ GameObject:
   - component: {fileID: 663331505}
   - component: {fileID: 663331504}
   - component: {fileID: 663331508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlateformBot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1784,7 +1784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663331503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.21614, y: -0.61, z: 22.853363}
+  m_LocalPosition: {x: -0.21614, y: -0.77, z: 22.853363}
   m_LocalScale: {x: 25.882502, y: 0.496875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4207,7 +4207,7 @@ GameObject:
   - component: {fileID: 1523417740}
   - component: {fileID: 1523417739}
   - component: {fileID: 1523417738}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlateformBot (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5245,8 +5245,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754378694}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.38, y: -2.722, z: 10}
-  m_LocalScale: {x: 0.7516832, y: 0.7516832, z: 0.7516832}
+  m_LocalPosition: {x: -6.42, y: -2.79, z: 8}
+  m_LocalScale: {x: 0.71358174, y: 0.71358174, z: 0.71358174}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
@@ -5268,8 +5268,8 @@ MonoBehaviour:
   isDashing: 0
   beginFromPlayer: 0
   playerDragAngle: 10
-  dashSpeed: 15
-  dashDistance: 4
+  dashSpeed: 10
+  dashDistance: 3
   minDistance: 1
   angleOffset: 7
   diagonalAngleOffset: 12
@@ -5278,7 +5278,7 @@ MonoBehaviour:
   maxDashPoint: 100
   dashSlider: {fileID: 1923066065}
   limit: {fileID: 973044816}
-  distanceCombo: {fileID: 0}
+  distanceCombo: {fileID: 1515516541}
   groundDetection: {fileID: 0}
   landingAnimation: {fileID: 0}
   playerAnimator: {fileID: 0}

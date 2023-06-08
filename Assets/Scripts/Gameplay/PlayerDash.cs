@@ -125,8 +125,10 @@ public class PlayerDash : MonoBehaviour
                 }
             }
         }
+    }
 
-
+    private void LateUpdate()
+    {
         if (Vector3.Distance(_playerPosition, transform.position) > dashDistance && isDashing)
         {
             _rb.velocity = Vector2.zero;
@@ -149,7 +151,7 @@ public class PlayerDash : MonoBehaviour
         {
             if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0)
             {
-            //    _rb.velocity = new Vector2(0, -1) * speed;
+                //    _rb.velocity = new Vector2(0, -1) * speed;
                 _rb.velocity = Vector2.left * speed;
             }
             else
@@ -157,7 +159,6 @@ public class PlayerDash : MonoBehaviour
                 _rb.velocity = Vector2.zero;
             }
         }
-        
     }
 
     private bool IsGrounded()
@@ -267,9 +268,11 @@ public class PlayerDash : MonoBehaviour
             float angle = Vector3.Angle(dashDirection,dir);
             Debug.Log("angle " + (int)angle + " " + targetAngle);
 
+            Debug.Log(dObj.dashDirection);
 
             if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
             {
+                Debug.Log("destroy");
                 SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
                 {
                     lineStart = _startObstaclePosition,
@@ -277,8 +280,8 @@ public class PlayerDash : MonoBehaviour
                     gameObject = col.gameObject,
                     gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
                 } );
-  
-                Debug.Log("output " + output + " second " + output.secondSideGameObject);
+                
+                Debug.Log("output " + output + "second " + output.secondSideGameObject);
                 
                 if ( output != null && output.secondSideGameObject != null ) 
                 { 
@@ -324,13 +327,11 @@ public class PlayerDash : MonoBehaviour
             _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
             dashSlider.value = _dashPoint / maxDashPoint;
         }
+  
+        /*
         Debug.Log("Les points totaux" + _dashPoint);
         Debug.Log("le combot point est de " + comboPoint);
-
+*/
+        
     }
-    //private bool IsGrounded()
-    //{
-    //    return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
-    //}
-    
 }
