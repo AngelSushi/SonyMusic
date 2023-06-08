@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 163138596}
   - component: {fileID: 163138595}
   - component: {fileID: 163138594}
+  - component: {fileID: 163138597}
   m_Layer: 6
   m_Name: floor
   m_TagString: Untagged
@@ -493,6 +494,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163138597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163138593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b1495346adb634f984eb858b171dcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  downMin: 0
+  passThrough: 0
 --- !u!1 &184561873
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +632,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203943822}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a283c3484b393f646afa0da8dca21b02, type: 3}
   m_Name: 
@@ -690,7 +705,6 @@ Transform:
   - {fileID: 1673173591}
   - {fileID: 1194914019}
   - {fileID: 716933179}
-  - {fileID: 973044816}
   - {fileID: 406506445}
   - {fileID: 663331507}
   - {fileID: 1523417742}
@@ -779,7 +793,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &494936600
 GameObject:
@@ -1072,7 +1086,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!251 &663331504
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -1179,11 +1193,11 @@ Transform:
   m_GameObject: {fileID: 663331503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.21614, y: -0.61, z: 22.853363}
-  m_LocalScale: {x: 25.882502, y: 0.25, z: 1}
+  m_LocalScale: {x: 25.882502, y: 0.496875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &663331508
 MonoBehaviour:
@@ -1198,6 +1212,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downMin: 0
+  passThrough: 0
 --- !u!1 &716933177
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,6 +1223,7 @@ GameObject:
   m_Component:
   - component: {fileID: 716933179}
   - component: {fileID: 716933178}
+  - component: {fileID: 716933180}
   m_Layer: 0
   m_Name: Lane4
   m_TagString: Untagged
@@ -1228,9 +1244,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 11
-  speed: 5
+  speed: 10
   lanePool: {fileID: 0}
-  usePool: 1
 --- !u!4 &716933179
 Transform:
   m_ObjectHideFlags: 0
@@ -1248,6 +1263,19 @@ Transform:
   m_Father: {fileID: 203943826}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &716933180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716933177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c69f76891074444c928aa033c51be77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyPrefab: {fileID: 5284593131069099802, guid: 33e82ae31b14c8b4f9ad379389a965e5, type: 3}
 --- !u!1 &730478802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1727,12 +1755,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973044814}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.46, y: 0.53999996, z: 10}
+  m_LocalPosition: {x: -6.5, y: 1.54, z: 0}
   m_LocalScale: {x: 0.33124337, y: 11.75, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 203943826}
-  m_RootOrder: 5
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1073389212
 GameObject:
@@ -1751,7 +1779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1073389213
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2149,6 +2177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1194914019}
   - component: {fileID: 1194914018}
+  - component: {fileID: 1194914020}
   m_Layer: 0
   m_Name: Lane3
   m_TagString: Untagged
@@ -2169,9 +2198,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 5
-  speed: 5
+  speed: 10
   lanePool: {fileID: 0}
-  usePool: 1
 --- !u!4 &1194914019
 Transform:
   m_ObjectHideFlags: 0
@@ -2189,6 +2217,19 @@ Transform:
   m_Father: {fileID: 203943826}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1194914020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1194914017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c69f76891074444c928aa033c51be77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyPrefab: {fileID: 5284593131069099802, guid: 33e82ae31b14c8b4f9ad379389a965e5, type: 3}
 --- !u!1 &1251160277
 GameObject:
   m_ObjectHideFlags: 0
@@ -2630,7 +2671,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1523417738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2644,6 +2685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downMin: 0
+  passThrough: 0
 --- !u!251 &1523417739
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -2750,11 +2792,11 @@ Transform:
   m_GameObject: {fileID: 1523417737}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.21614, y: 1.4100001, z: 22.853363}
-  m_LocalScale: {x: 25.882502, y: 0.25, z: 1}
+  m_LocalScale: {x: 25.882502, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 203943826}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1568586746
 GameObject:
@@ -2931,6 +2973,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1673173591}
   - component: {fileID: 1673173590}
+  - component: {fileID: 1673173592}
   m_Layer: 0
   m_Name: Lane2
   m_TagString: Untagged
@@ -2951,9 +2994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 0
-  speed: 5
+  speed: 10
   lanePool: {fileID: 0}
-  usePool: 1
 --- !u!4 &1673173591
 Transform:
   m_ObjectHideFlags: 0
@@ -2971,6 +3013,19 @@ Transform:
   m_Father: {fileID: 203943826}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1673173592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1673173589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c69f76891074444c928aa033c51be77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  emptyPrefab: {fileID: 5284593131069099802, guid: 33e82ae31b14c8b4f9ad379389a965e5, type: 3}
 --- !u!1 &1685079274
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,7 +3265,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 2027349924, guid: 041724a23714626499d10984bfac9b4f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -3246,18 +3301,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ee7cf28395a1147983cb4e3bca5b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  limit: {fileID: 973044814}
   isDashing: 0
   beginFromPlayer: 0
   playerDragAngle: 10
-  dashSpeed: 20
+  dashSpeed: 15
   dashDistance: 4
   minDistance: 1
   angleOffset: 7
   diagonalAngleOffset: 12
+  descentGravity: 15
   pointPerDash: 20
   maxDashPoint: 100
   dashSlider: {fileID: 0}
   debugDash: 0
+  smoothDash: 1
   dashDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &1765750110
 GameObject:

@@ -11,6 +11,8 @@ public class Plateform : MonoBehaviour
 
     public float downMin;
 
+    public bool passThrough;
+
     private void Start()
     {
         _collider2D = GetComponent<BoxCollider2D>();
@@ -18,7 +20,7 @@ public class Plateform : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && passThrough)
         {
             PlayerDash playerDash = col.gameObject.GetComponent<PlayerDash>();
             Physics2D.IgnoreCollision(_collider2D,col.collider,playerDash.dashDirection.y < downMin);
@@ -27,7 +29,7 @@ public class Plateform : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D col)
     {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
+        if (col.gameObject.layer == LayerMask.NameToLayer("Player") && passThrough)
         {
             StartCoroutine(EnableCollision(col));
         }
