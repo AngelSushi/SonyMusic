@@ -83,6 +83,10 @@ public class DialogController : MonoBehaviour
         return speakers.Where(speaker => speaker.id == speakerID).ToList()[0];
     }
 
+    public void ChangeScene()
+    {
+        GameManager.instance.ChangeScene("Gameplay");
+    }
 
     [ContextMenu("Load")]
     private void LoadFiles() 
