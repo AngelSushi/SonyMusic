@@ -28,6 +28,8 @@ public class DialogDisplay : MonoBehaviour {
         _dialogAuthor = dialogParent.transform.GetChild(2).GetComponent<Image>();
         _dialogBackground = dialogParent.GetComponent<Image>();
         StartDialog(1);
+        
+        Debug.Log("on start ");
     }
 
 
@@ -58,6 +60,7 @@ public class DialogDisplay : MonoBehaviour {
     {
         for (int i = 1; i < dialogContent.content.Length + 1; i++)
         {
+            Debug.Log("speeed " + dialogContent.speed);
             yield return new WaitForSeconds(dialogContent.speed / dialogContent.content.Length);
             _dialogText.text = dialogContent.content.Substring(0,i);
         }
@@ -87,9 +90,9 @@ public class DialogDisplay : MonoBehaviour {
             }
             else if (displayDialog && _originalSpeed == 0f)
             {
-                Debug.Log("set current speed");
                 _originalSpeed = _currentDialog.speed;
-                _currentDialog.speed = 1f;
+                _currentDialog.speed = 0.01f;
+                Debug.Log("new speed " + _currentDialog.speed);
             }
         }
     }
@@ -99,6 +102,5 @@ public class DialogDisplay : MonoBehaviour {
         dialogParent.SetActive(false);
         displayDialog = false;
         _isDisplayFinished = false;
-        
     }
 }
