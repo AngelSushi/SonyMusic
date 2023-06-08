@@ -35,6 +35,10 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private Transform distanceCombo;
     private float comboPoint = 0;
 
+    [Header("player")]
+    public GameObject groundDetection;
+    public GameObject landingAnimation;
+    public Animator playerAnimator;
     
     [Header("Debug")]
     [SerializeField] private bool debugDash;
@@ -62,8 +66,17 @@ public class PlayerDash : MonoBehaviour
         _gameManager = FindObjectOfType<GameManager>();
     }
     
-    void Update() {
-        if (Input.touchCount > 0) {
+    void Update() 
+    {
+
+        if (playerAnimator != null)
+        {
+            playerAnimator.SetBool("Dash", isDashing);    
+        }
+        
+
+        if (Input.touchCount > 0) 
+        {
             Touch touch = Input.GetTouch(0);
 
             if (touch.phase == TouchPhase.Began)
@@ -87,7 +100,7 @@ public class PlayerDash : MonoBehaviour
                             {
                                 dashDirection = (_endPosition - _startPosition).normalized;
                                 _rb.velocity = dashDirection * dashSpeed;
-
+                                //ici
                                 _playerPosition = transform.position;
                                 isDashing = true;
                             }
@@ -104,6 +117,7 @@ public class PlayerDash : MonoBehaviour
                     {
                         dashDirection = (_endPosition - _startPosition).normalized;
                         _rb.velocity = dashDirection * dashSpeed;
+                        //ici
 
                         _playerPosition = transform.position;
                         isDashing = true;
@@ -118,6 +132,8 @@ public class PlayerDash : MonoBehaviour
             _rb.velocity = Vector2.zero;
             dashDirection = Vector2.zero;
             isDashing = false;
+            //ici la 
+
         }
         else if (isDashing)
         {
@@ -160,6 +176,11 @@ public class PlayerDash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+        if(col.tag == "Ground")
+        {
+            Debug.Log("Le player touche le sol wesh");
+            StartCoroutine(StartAndDestroyAnim());
+        }
         if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
             if (debugDash)
@@ -279,12 +300,14 @@ public class PlayerDash : MonoBehaviour
             }
         }
     }
-    private void ResetDash()
+    public IEnumerator StartAndDestroyAnim()
     {
-        isDashing = false;
-        _rb.velocity = Vector2.zero;
-        dashDirection = Vector3.zero;
+        var myNewSmoke = Instantiate(landingAnimation, groundDetection.transform.position, Quaternion.identity);
+        myNewSmoke.transform.parent = gameObject.transform;
+        yield return new WaitForSeconds(0.389f);
     }
+
+    
     private void AddPoint() 
     {
         if (limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)
@@ -305,4 +328,9 @@ public class PlayerDash : MonoBehaviour
         Debug.Log("le combot point est de " + comboPoint);
 
     }
+    //private bool IsGrounded()
+    //{
+    //    return transform.Find("GroundCheck").GetComponent<GroundCheck>().isGrounded;
+    //}
+    
 }
