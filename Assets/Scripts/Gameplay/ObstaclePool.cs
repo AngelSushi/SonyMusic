@@ -32,8 +32,14 @@ public class ObstaclePool : MonoBehaviour
         return instancePrefab;
     }
 
-    private void OnTakeFromPool(GameObject go) => go.SetActive(true);
-    private void OnReturnToPool(GameObject go) =>go.SetActive(false);
+    private void OnTakeFromPool(GameObject go)
+    { 
+        go.SetActive(true);
+        
+        if(go.GetComponent<MeshFilter>() != null)
+            OnObjectDestroy(go);
+    }
+    private void OnReturnToPool(GameObject go) => go.SetActive(false);
     private void OnObjectDestroy(GameObject go) => Destroy(go);
     
 

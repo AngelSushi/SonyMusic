@@ -20,6 +20,13 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
 
+    private EventManager _eventManager;
+
+    public EventManager Event
+    {
+        get => _eventManager;
+    }
+
     private void Awake()
     {
         if(instance == null)
@@ -31,6 +38,8 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        _eventManager = GetComponent<EventManager>();
     }
 
 
