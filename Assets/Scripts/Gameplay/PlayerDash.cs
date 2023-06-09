@@ -115,7 +115,7 @@ public class PlayerDash : MonoBehaviour
 
                             float distance = Vector3.Distance(_startPosition, _endPosition);
                             
-                            if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0)
+                            if (distance >= minDistance /*&& (_endPosition - _startPosition).normalized.x > 0 */)
                             {
                                 dashDirection = (_endPosition - _startPosition).normalized;
                                 _rb.velocity = dashDirection * dashSpeed;
@@ -132,7 +132,7 @@ public class PlayerDash : MonoBehaviour
                     _endPosition = ConvertPoint(touch.position);
                     float distance = Vector3.Distance(_startPosition, _endPosition);
                             
-                    if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0)
+                    if (distance >= minDistance /*&& (_endPosition - _startPosition).normalized.x > 0 */)
                     {
                         dashDirection = (_endPosition - _startPosition).normalized;
                         _rb.velocity = dashDirection * dashSpeed;
@@ -180,7 +180,7 @@ public class PlayerDash : MonoBehaviour
             if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0)
             {
                 //    _rb.velocity = new Vector2(0, -1) * speed;
-                _rb.velocity = Vector2.left * speed;
+                //_rb.velocity = Vector2.left * speed;
             }
             else
             {
@@ -205,7 +205,7 @@ public class PlayerDash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.tag == "Ground")
+        if(col.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Debug.Log("Le player touche le sol wesh");
             StartCoroutine(StartAndDestroyAnim());

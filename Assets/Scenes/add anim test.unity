@@ -3571,9 +3571,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 973044816}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: dashSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: dashDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: distanceCombo
       value: 
       objectReference: {fileID: 1627224863}
+    - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7884514086507447092, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: m_RootOrder
       value: 9
