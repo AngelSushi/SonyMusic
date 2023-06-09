@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -919,6 +919,9 @@ MonoBehaviour:
   dashSlider: {fileID: 0}
   limit: {fileID: 0}
   distanceCombo: {fileID: 0}
+  groundDetection: {fileID: 0}
+  landingAnimation: {fileID: 0}
+  playerAnimator: {fileID: 0}
   debugDash: 0
   smoothDash: 0
   dashDirection: {x: 0, y: 0, z: 0}
@@ -1323,7 +1326,7 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -1252624538365384227, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
     value: {fileID: 1812855565}
-  - key: {fileID: -8480977054297590924, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
+  - key: {fileID: 0}
     value: {fileID: 1903884318}
   - key: {fileID: 4752369159402439218, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
     value: {fileID: 0}
@@ -2412,103 +2415,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &822010008
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 822010009}
-  - component: {fileID: 822010012}
-  - component: {fileID: 822010011}
-  - component: {fileID: 822010010}
-  m_Layer: 5
-  m_Name: YellowMask
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &822010009
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822010008}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1907980770}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -52369, y: 37.56}
-  m_SizeDelta: {x: -101732.445, y: 75.12091}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &822010010
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822010008}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &822010011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822010008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.8745098, b: 0.09019608, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &822010012
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822010008}
-  m_CullTransparentMesh: 1
 --- !u!1 &836950268
 GameObject:
   m_ObjectHideFlags: 0
@@ -2952,8 +2858,6 @@ PlayableDirector:
   m_SceneBindings:
   - key: {fileID: -1252624538365384227, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
     value: {fileID: 1907980771}
-  - key: {fileID: -8480977054297590924, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
-    value: {fileID: 822010010}
   - key: {fileID: 4752369159402439218, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
     value: {fileID: 1187071632}
   m_ExposedReferences:
@@ -5398,8 +5302,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.27027038, y: 0.27027038, z: 0.27027038}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 822010009}
+  m_Children: []
   m_Father: {fileID: 534906206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5492,35 +5395,36 @@ MonoBehaviour:
     les sentiments sont plus pures\r. Voil\xE0 pourquoi j'\xE9cris des chansons de
     rupture\r. J'essaye de prendre du recul, j'essaye d'avancer\r les gens murmurent,
     j'ai du mal \xE0 m'entendre penser\r, fils d'extraterrestre, \xE9toile c\xE9leste\r.
-    J'viens f\xE9conder une femelle de chaque esp\xE8ces\r\nJ'apprends \xE0 contr\xF4ler
-    mes sales r\xE9flexes,\nje me fais jouir avant d'\xE9crire\r\nJ'en ai marre de
-    parler de sexe\r\nJ'sais que ta petite copine n'aime pas mes textes\r, Mais\nsi
-    j'\xE9coutais toutes les juments je ferais du rap \xE9questre\r\n\xC7a m'\xE9nerve
-    pas je respecte\r J'fais\ncomme Rocky dans la r\xE9serve,\nje m'en bas les steaks\r\nJ'aimerais
-    faire parti des optimistes\nJ'aimerai apporter une sorte de message positif\nComme
-    l'h\xE9ro\xEFne dans un test d'urine\nComme le d\xE9pistage de Freddy Mercury\r\nJe
-    reviens faire du bruit, j'ai le son qui frappe\r\nSkread m'a ordonn\xE9 d'enfoncer
-    le clou comme Ponce Pilate\r\nComme d'hab Ablaye et Gringe font les bacs on est
-    quatre\r\nLes cavaliers de l'apocalypse on d\xE9barque\r\nEn l'an de gr\xE2ce
-    MJ plus un\r\nLa moiti\xE9 de ma jeunesse est morte le 25 juin\r\nJe continue
-    de faire du chemin pour devenir moi m\xEAme\r\nDans l'amour, dans la haine, dans
-    la moyenne\r\nJe resterais pas bloqu\xE9 dans une parodie de succ\xE8s\r\nDans
-    une version d'Entourage \xE0 petit budgets\r\nJe ferais que ce qui me pla\xEEt
-    jusqu'\xE0 ma derni\xE8re qu\xEAte\r\nJusqu'\xE0 retourner dans l'h\xF4tellerie
-    plier des serviette\r\nLa peur n'existe plus dans mon dojo, eh eh,\nj'ai retrouv\xE9
-    mon Mojo (baby)\r\nDites \xE0 la m\xE9nag\xE8re qu'on a ressuscit\xE9 CloClo\r\nDites
-    aux connards d'intermittents d'allumer les projos\r\nAppelez les Pow-wow, on
-    va d\xE9terrer la hache de guerre\r\nRamener la concurrence \xE0 l'\xE2ge de
-    pierre\r\nSi t'as la fureur de vaincre, moi, j'ai la rage de perdre\r\nJe prends
-    m\xEAme plus la peine de r\xE9pondre \xE0\nvos clashs de merde\r (nan)\nJe pr\xEAterais
-    ni mon buzz, ni mon temps (ni mon temps)\r\nJe verserais ni ma sueur, ni mon
-    sang (ni mon sang)\r\nTu parles de moi pour rien dans tes titres\r\nTu ferais
-    m\xEAme pas de buzz avec un album antis\xE9mite\r\nMerci quand m\xEAme pour le
-    coup de pub (merci)\r\nMerci les chiennes de garde pour le coup de pute (merci)\r\nMerci
-    \xE0 tout ceux qui m'ont soutenus\r\nJ'oublie trop souvent de\nremercier les
-    gens qui m'ont soutenu\r\nFaut qu'on s'offre une nouvelle vie, faut qu'on s'ouvre
-    l'esprit\r\nFaut que les pantins coupent les fils\r\nPrend la route et fuis,
-    j'ai une soucoupe en double file\r\nJe te ram\xE8ne avec oim, RaelSan"
+    J'viens f\xE9conder une femelle de chaque esp\xE8ces\r .J'apprends \xE0 contr\xF4ler
+    mes sales r\xE9flexes, je me fais jouir avant d'\xE9crire\r. J'en ai marre de
+    parler de sexe. J'sais que ta petite copine n'aime pas mes textes\r, mais si
+    j'\xE9coutais toutes les juments je ferais du rap \xE9questre. \xC7a m'\xE9nerve
+    pas je respecte\r J'fais comme Rocky dans la r\xE9serve, je m'en bas les steaks.
+    J'aimerais faire parti des optimistes, j'aimerai apporter une sorte de message
+    positif, comme l'h\xE9ro\xEFne dans un test d'urine, comme le d\xE9pistage de
+    Freddy Mercury\r. Je reviens faire du bruit, j'ai le son qui frappe\r, Skread
+    m'a ordonn\xE9 d'enfoncer le clou comme Ponce Pilate, comme d'hab Ablaye et Gringe
+    font les bacs on est quatre, les cavaliers de l'apocalypse on d\xE9barque\r.
+    En l'an de gr\xE2ce MJ plus un\r, la moiti\xE9 de ma jeunesse est morte le 25
+    juin. Je continue de faire du chemin pour devenir moi m\xEAme, dans l'amour,
+    dans la haine, dans la moyenne\r. Je resterais pas bloqu\xE9 dans une parodie
+    de succ\xE8s\r, dans une version d'Entourage \xE0 petit budgets\r. Je ferais
+    que ce qui me pla\xEEt jusqu'\xE0 ma derni\xE8re qu\xEAte\r, jusqu'\xE0 retourner
+    dans l'h\xF4tellerie plier des serviette\r. La peur n'existe plus dans mon dojo,
+    eh eh, j'ai retrouv\xE9 mon Mojo (baby)\r, dites \xE0 la m\xE9nag\xE8re qu'on
+    a ressuscit\xE9 CloClo\r, dites aux connards d'intermittents d'allumer les projos\r.
+    Appelez les Pow-wow, on va d\xE9terrer la hache de guerre\r, ramener la concurrence
+    \xE0 l'\xE2ge de pierre\r. Si t'as la fureur de vaincre, moi, j'ai la rage de
+    perdre\r. Je prends m\xEAme plus la peine de r\xE9pondre \xE0 vos clashs de merde\r
+    (nan) Je pr\xEAterais ni mon buzz, ni mon temps (ni mon temps) Je verserais ni
+    ma sueur, ni mon sang (ni mon sang)\r Tu parles de moi pour rien dans tes titres\r,
+    tu ferais m\xEAme pas de buzz avec un album antis\xE9mite\r. Merci quand m\xEAme
+    pour le coup de pub (merci)\r, merci les chiennes de garde pour le coup de pute
+    (merci)\r, merci \xE0 tout ceux qui m'ont soutenus\r. J'oublie trop souvent de
+    remercier les gens qui m'ont soutenu\r. Faut qu'on s'offre une nouvelle vie,
+    faut qu'on s'ouvre l'esprit, faut que les pantins coupent les fils\r. Prend la
+    route et fuis, j'ai une soucoupe en double file\r, je te ram\xE8ne avec oim,
+    RaelSan"
 --- !u!222 &1907980774
 CanvasRenderer:
   m_ObjectHideFlags: 0
