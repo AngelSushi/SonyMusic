@@ -149,7 +149,6 @@ namespace UnitySpriteCutter {
 				resultGameObject.BuildCollidersFrom( colliderRepresentations );
 			}
 			
-			Debug.Log("sprite " + spriteRenderer.name + " result " + resultGameObject.gameObject.name);
 		}
 		
 		static void PrepareResultGameObject( SpriteCutterGameObject resultGameObject, RendererParametersRepresentation tempParameters,

@@ -45,7 +45,7 @@ public class MusicLane : MonoBehaviour
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
             GameObject obstacle = lanePool.pool.Get();
-
+            
             obstacle.transform.parent = transform;
             obstacle.transform.position = positions[0].position;
             
