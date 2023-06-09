@@ -1,3 +1,4 @@
+using Spine.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -44,10 +45,17 @@ public class PlayerDash : MonoBehaviour
     [SerializeField] private bool debugDash;
 
     [SerializeField] private bool smoothDash;
-    
-    
-    
-    
+
+    public SkeletonAnimation skeletAnimRun;
+    public SkeletonAnimation skeletAnimationFall;
+    public GameObject skeletRunObj;
+    public GameObject skeletFallObj;
+    public GameObject skeletDashObj;
+    bool animDashDone = false;
+
+
+
+
     private Vector3 _startPosition;
     private Vector3 _endPosition;
     private Rigidbody2D _rb;
@@ -55,7 +63,6 @@ public class PlayerDash : MonoBehaviour
     private Vector3 _startObstaclePosition;
     [HideInInspector] public Vector3 dashDirection;
     private float _dashPoint;
-
     private List<Plateform> _plateforms;
     private GameManager _gameManager;
     
@@ -66,15 +73,14 @@ public class PlayerDash : MonoBehaviour
         _gameManager = FindObjectOfType<GameManager>();
     }
     
+
     void Update() 
     {
-
-        if (playerAnimator != null)
+        if(isDashing == true)
         {
-            playerAnimator.SetBool("Dash", isDashing);    
+            StartCoroutine(DashAnimation());
         }
         
-
         if (Input.touchCount > 0) 
         {
             Touch touch = Input.GetTouch(0);
@@ -131,8 +137,17 @@ public class PlayerDash : MonoBehaviour
         {
             _rb.velocity = Vector2.zero;
             dashDirection = Vector2.zero;
-            isDashing = false;
+            if (animDashDone == true)
+            {
+                skeletRunObj.SetActive(true);
+                skeletDashObj.SetActive(false);
+                skeletFallObj.SetActive(false);
+                animDashDone = false;
+            }
+            
             //ici la 
+            
+            
 
         }
         else if (isDashing)
@@ -303,11 +318,31 @@ public class PlayerDash : MonoBehaviour
     public IEnumerator StartAndDestroyAnim()
     {
         var myNewSmoke = Instantiate(landingAnimation, groundDetection.transform.position, Quaternion.identity);
+
         myNewSmoke.transform.parent = gameObject.transform;
-        yield return new WaitForSeconds(0.389f);
+        
+        skeletRunObj.SetActive(false);
+        skeletDashObj.SetActive(false);
+        skeletFallObj.SetActive(true);
+        skeletAnimationFall.AnimationName = "Atterissage";
+        yield return new WaitForSeconds(0.4f);
+        skeletRunObj.SetActive(true);
+        skeletDashObj.SetActive(false);
+        skeletFallObj.SetActive(false);
+        skeletAnimRun.AnimationName = "Run";
+
+    }
+    public IEnumerator DashAnimation()
+    {
+        skeletRunObj.SetActive(false);
+        skeletDashObj.SetActive(true);
+        skeletFallObj.SetActive(false);
+        yield return new WaitForSeconds(0.4f);
+        animDashDone = true;
+        isDashing = false;
     }
 
-    
+
     private void AddPoint() 
     {
         if (limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)
