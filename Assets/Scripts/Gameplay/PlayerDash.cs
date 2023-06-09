@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
@@ -29,11 +31,13 @@ public class PlayerDash : MonoBehaviour
 
     [Header("Score")]
     [SerializeField] private float pointPerDash;
-    [SerializeField] private float maxDashPoint;
+    [SerializeField] private float maxCombo;
     [SerializeField] private Slider dashSlider;
     [SerializeField] private Transform limit;
     [SerializeField] private Transform distanceCombo;
-    private float comboPoint = 0;
+    [SerializeField] private TextMeshProUGUI scoreText;
+    private float comboPoint;
+    
 
     [Header("player")]
     public GameObject groundDetection;
@@ -65,7 +69,17 @@ public class PlayerDash : MonoBehaviour
         _playerPosition = transform.localPosition;
         _gameManager = FindObjectOfType<GameManager>();
     }
-    
+
+    private void Start()
+    {
+        _gameManager.Event.OnReleaseObstacle += ReleaseObstacle;
+    }
+
+    private void OnDestroy()
+    {
+        _gameManager.Event.OnReleaseObstacle -= ReleaseObstacle;
+    }
+
     void Update() 
     {
 
@@ -272,7 +286,8 @@ public class PlayerDash : MonoBehaviour
 
             if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
             {
-                Debug.Log("destroy");
+                dObj.IsCut = true;
+                AddPoint();
                 SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
                 {
                     lineStart = _startObstaclePosition,
@@ -280,8 +295,6 @@ public class PlayerDash : MonoBehaviour
                     gameObject = col.gameObject,
                     gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
                 } );
-                
-                Debug.Log("output " + output + "second " + output.secondSideGameObject);
                 
                 if ( output != null && output.secondSideGameObject != null ) 
                 { 
@@ -298,7 +311,7 @@ public class PlayerDash : MonoBehaviour
                     newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
 
                    _startObstaclePosition = Vector3.zero;
-                    AddPoint();
+                    
                 }
             }
         }
@@ -317,15 +330,15 @@ public class PlayerDash : MonoBehaviour
         {
             comboPoint = comboPoint + 1;
             _dashPoint += pointPerDash * comboPoint;
-            _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
-            dashSlider.value = _dashPoint / maxDashPoint;
+            scoreText.text = _dashPoint.ToString();
+            dashSlider.value = comboPoint / maxCombo;
         }
         else
         {
             comboPoint = 1;
             _dashPoint += pointPerDash * comboPoint;
-            _dashPoint = Mathf.Clamp(_dashPoint, 0, maxDashPoint);
-            dashSlider.value = _dashPoint / maxDashPoint;
+            scoreText.text = _dashPoint.ToString();
+            dashSlider.value = comboPoint / maxCombo;
         }
   
         /*
@@ -333,5 +346,18 @@ public class PlayerDash : MonoBehaviour
         Debug.Log("le combot point est de " + comboPoint);
 */
         
+    }
+
+    private void ReleaseObstacle(object sender,EventManager.OnReleaseObstacleArgs e)
+    {
+        if (!e.isCut)
+        {
+            ResetCombo();
+        }
+    }
+    public void ResetCombo()
+    {
+        comboPoint = 1;
+        dashSlider.value = 0;
     }
 }
