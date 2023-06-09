@@ -64,7 +64,7 @@ public class MusicLane : MonoBehaviour
     {
         foreach (Note note in notes) 
         {
-            Debug.Log("restriction " + note.NoteName);
+          //  Debug.Log("restriction " + note.NoteName);
             
             if (note.NoteName == restriction) 
             {
