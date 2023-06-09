@@ -110,7 +110,7 @@ public class PlayerDash : MonoBehaviour
 
                             float distance = Vector3.Distance(_startPosition, _endPosition);
                             
-                            if (distance >= minDistance)
+                            if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0)
                             {
                                 dashDirection = (_endPosition - _startPosition).normalized;
                                 _rb.velocity = dashDirection * dashSpeed;
@@ -127,7 +127,7 @@ public class PlayerDash : MonoBehaviour
                     _endPosition = ConvertPoint(touch.position);
                     float distance = Vector3.Distance(_startPosition, _endPosition);
                             
-                    if (distance >= minDistance)
+                    if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0)
                     {
                         dashDirection = (_endPosition - _startPosition).normalized;
                         _rb.velocity = dashDirection * dashSpeed;
