@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 0
-  speed: 2.2
+  speed: 10
   positions: []
   lanePool: {fileID: 0}
 --- !u!4 &716933179
@@ -3737,7 +3737,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 5
-  speed: 2.2
+  speed: 10
   positions: []
   lanePool: {fileID: 0}
 --- !u!4 &1194914019
@@ -5317,7 +5317,7 @@ PlayableDirector:
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
-  m_InitialTime: -5
+  m_InitialTime: -4.25
   m_SceneBindings:
   - key: {fileID: -1252624538365384227, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
     value: {fileID: 1807216170}
@@ -5400,7 +5400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restriction: 11
-  speed: 2.2
+  speed: 10
   positions: []
   lanePool: {fileID: 0}
 --- !u!4 &1673173591
@@ -5803,10 +5803,11 @@ MonoBehaviour:
   diagonalAngleOffset: 12
   descentGravity: 15
   pointPerDash: 20
-  maxDashPoint: 100
+  maxCombo: 0
   dashSlider: {fileID: 1923066065}
   limit: {fileID: 973044816}
   distanceCombo: {fileID: 0}
+  scoreText: {fileID: 0}
   groundDetection: {fileID: 0}
   landingAnimation: {fileID: 0}
   playerAnimator: {fileID: 0}
