@@ -340,7 +340,7 @@ public class PlayerDash : MonoBehaviour
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(true);
         skeletAnimationFall.AnimationName = "Atterissage";
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.3f);
         skeletRunObj.SetActive(true);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
