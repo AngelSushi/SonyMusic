@@ -85,7 +85,7 @@ public class DialogController : MonoBehaviour
 
     public void ChangeScene()
     {
-        GameManager.instance.ChangeScene("Gameplay");
+        GameManager.instance.ChangeSceneWithAnim("Gameplay");
     }
 
     [ContextMenu("Load")]
