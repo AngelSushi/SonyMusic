@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.PlayerLoop;
@@ -86,7 +87,26 @@ public class GameManager : CoroutineSystem
         }
         
         SceneTransitionCanvas.transform.GetChild(0).gameObject.SetActive(true);
+
+        int chapterIndex = 0;
+
+        for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
+        {
+            string path = SceneUtility.GetScenePathByBuildIndex(i);
+            string sName = path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1);
+            
+            Debug.Log("path " + sName);
+            
+            if (sName.Equals(sceneName))
+            {
+                chapterIndex = i;
+                break;
+            }
+        }
         
+        SceneTransitionCanvas.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Chapitre " + chapterIndex;
+        SceneTransitionCanvas.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = sceneName;
+
         RunDelayed(1.5f, () =>
         {
             EnableChildren(true);
