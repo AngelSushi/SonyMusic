@@ -3,60 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/SpineSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/SpineSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/SpineSettings.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/SpineSettings.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dialog.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dialog.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainMenu.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/PlayerSelection.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/PlayerSelection.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DisplayText.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DisplayText.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon2.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon2.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon3.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon3.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon4.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon4.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon5.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon5.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon6.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Dragon/dragon_dragon6.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Eyes/eyes_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Eyes/eyes_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Eyes/eyes_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Eyes/eyes_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/FootSoldier/Equipment/Equipment_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/FootSoldier/Equipment/Equipment_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/FootSoldier/Equipment/Equipment_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/FootSoldier/Equipment/Equipment_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/FootSoldier/FS_White_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/FootSoldier/FS_White_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/FootSoldier/FS_White_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/FootSoldier/FS_White_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Gauge/Gauge_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Gauge/Gauge_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Gauge/Gauge_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Gauge/Gauge_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Goblins/goblins_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Goblins/goblins_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Goblins/goblins_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Goblins/goblins_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Hero/hero-pro_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Hero/hero-pro_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Hero/hero-pro_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Hero/hero-pro_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Raggedy Spineboy/Raggedy Spineboy_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Raggedy Spineboy/Raggedy Spineboy_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Raggedy Spineboy/Raggedy Spineboy_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Raggedy Spineboy/Raggedy Spineboy_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Raptor/raptor_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Raptor/raptor_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Raptor/raptor_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Raptor/raptor_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Spineunitygirl/Doi_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Spineunitygirl/Doi_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Spineunitygirl/Doi_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Spineunitygirl/Doi_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Stretchyman/stretchyman-diffuse-pma_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Stretchyman/stretchyman-diffuse-pma_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Stretchyman/stretchyman-diffuse-pma_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/Stretchyman/stretchyman-diffuse-pma_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/mix-and-match/mix-and-match-pma_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/mix-and-match/mix-and-match-pma_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/mix-and-match/mix-and-match-pma_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/mix-and-match/mix-and-match-pma_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/raptor-pro-and-mask/raptor-pma_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/raptor-pro-and-mask/raptor-pma_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/raptor-pro-and-mask/raptor-pma_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/raptor-pro-and-mask/raptor-pma_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/spineboy-pro/spineboy-pro_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/spineboy-pro/spineboy-pro_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/spineboy-pro/spineboy-pro_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/spineboy-pro/spineboy-pro_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/spineboy-unity/spineboy_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/spineboy-unity/spineboy_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/spineboy-unity/spineboy_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/spineboy-unity/spineboy_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/whirlyblendmodes/whirlyblendmodes_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/whirlyblendmodes/whirlyblendmodes_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/whirlyblendmodes/whirlyblendmodes_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/whirlyblendmodes/whirlyblendmodes_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/whirlyblendmodes/whirlyblendmodes_SkeletonData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Spine Examples/Spine Skeletons/whirlyblendmodes/whirlyblendmodes_SkeletonData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/animation/export/OtherAnimationPlayerOrelsan_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animation/export/OtherAnimationPlayerOrelsan_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/animation/export/OtherAnimationPlayerOrelsan_Controller.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animation/export/OtherAnimationPlayerOrelsan_Controller.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/animation/export/OtherAnimationPlayerOrelsan_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animation/export/OtherAnimationPlayerOrelsan_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/animation/export/OtherAnimationPlayerOrelsan_SkeletonData.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animation/export/OtherAnimationPlayerOrelsan_SkeletonData.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/animation/export/PréparationAnimationPlayerOrelsan_Atlas.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animation/export/PréparationAnimationPlayerOrelsan_Atlas.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/animation/export/PréparationAnimationPlayerOrelsan_Material.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/animation/export/PréparationAnimationPlayerOrelsan_Material.mat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +19,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/Editor/DialogControllerEditor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/Popups/DirectionPopup.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Editor/MusicSynchronizer/Popups/TypePopup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/Tools/GameManagerSetup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Editor/Tools/MaangeStartScene.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/CoroutineSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Dialog/DialogDisplay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Gameplay/ObstaclePool.cs" root0="FORCE_HIGHLIGHTING" />
@@ -156,7 +107,8 @@
       <workItem from="1686297404934" duration="3628000" />
       <workItem from="1686345341042" duration="3000" />
       <workItem from="1686346874166" duration="1873000" />
-      <workItem from="1686380279548" duration="6089000" />
+      <workItem from="1686380279548" duration="11142000" />
+      <workItem from="1686478643175" duration="1781000" />
     </task>
     <servers />
   </component>

@@ -7,6 +7,7 @@ using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(EventManager))]
 public class GameManager : CoroutineSystem
 {
     public bool isMen
