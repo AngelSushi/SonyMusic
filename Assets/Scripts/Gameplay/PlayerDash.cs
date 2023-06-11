@@ -150,29 +150,27 @@ public class PlayerDash : MonoBehaviour
     {
         if (Vector3.Distance(_playerPosition, transform.position) > dashDistance && isDashing)
         {
-            _rb.velocity = Vector2.zero;
+            _rb.velocity = Vector2.zero;    
             dashDirection = Vector2.zero;
-            if (animDashDone == true)
+            isDashing = false;
+            
+            if (animDashDone)
             {
                 skeletRunObj.SetActive(true);
                 skeletDashObj.SetActive(false);
                 skeletFallObj.SetActive(false);
                 animDashDone = false;
             }
-            
             //ici la 
-            
-            
-
         }
         else if (isDashing)
         {
-            _rb.velocity = dashDirection * dashSpeed;
+            //_rb.velocity = dashDirection * dashSpeed;
         }
 
         if (_rb.velocity.y < 0 && smoothDash)
         {
-            _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
+            //_rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
         }
 
         if (IsGrounded() && dashDirection == Vector3.zero)
@@ -184,7 +182,7 @@ public class PlayerDash : MonoBehaviour
             }
             else
             {
-                _rb.velocity = Vector2.zero;
+               // _rb.velocity = Vector2.zero;
             }
         }
     }
@@ -209,63 +207,69 @@ public class PlayerDash : MonoBehaviour
             StartCoroutine(StartAndDestroyAnim());
         }
         
-        
         if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
             Vector3 localEndPosition = Vector3.zero;
-            if (debugDash)
-            {
-                col.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                col.gameObject.transform.GetChild(0).position = transform.position;
-
-                Vector3 localPosition = col.gameObject.transform.GetChild(0).localPosition;
-                localEndPosition = new Vector3(-localPosition.x, -localPosition.y, localPosition.z);
-
-                col.gameObject.transform.GetChild(1).localPosition = localEndPosition;
-            }
+            DebugDash(col,localEndPosition);
             
             _startObstaclePosition = transform.position;
 
-           DestroyableObject dObj = col.gameObject.GetComponent<DestroyableObject>();
+            DestroyableObject dObj = col.gameObject.GetComponent<DestroyableObject>();
 
-           float targetAngle = angleOffset;
-           Vector3 dir = FindDirection(dObj,col,targetAngle);
-           float angle = Vector3.Angle(dashDirection,dir);
+            float targetAngle = angleOffset;
+            Vector3 dir = FindDirection(dObj,col,targetAngle);
+            float angle = Vector3.Angle(dashDirection,dir);
 
-           if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
+            if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
             {
                 dObj.IsCut = true;
                 AddPoint();
-                SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
-                {
-                    lineStart = _startObstaclePosition,
-                    lineEnd = col.transform.TransformPoint(localEndPosition),
-                    gameObject = col.gameObject,
-                    gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
-                } );
-                
-                if ( output != null && output.secondSideGameObject != null ) 
-                { 
-                    Rigidbody2D newRigidbody = output.firstSideGameObject.AddComponent<Rigidbody2D>();
-
-                    output.secondSideGameObject.GetComponent<MeshRenderer>().material.color = Color.black;
-                    
-                    if (output.secondSideGameObject.GetComponent<Rigidbody2D>() == null)
-                    {
-                        Rigidbody2D rb2D = output.secondSideGameObject.AddComponent<Rigidbody2D>();
-                        rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-                        
-                    }
-
-                    newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
-                    newRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
-                    
-                   _startObstaclePosition = Vector3.zero;
-                    
-                }
+                CutObject(col,localEndPosition);
             }
 
+        }
+    }
+
+    private void DebugDash(Collider2D col,Vector3 localEndPosition)
+    {
+        if (debugDash)
+        {
+            col.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            col.gameObject.transform.GetChild(0).position = transform.position;
+
+            Vector3 localPosition = col.gameObject.transform.GetChild(0).localPosition;
+            localEndPosition = new Vector3(-localPosition.x, -localPosition.y, localPosition.z);
+
+            col.gameObject.transform.GetChild(1).localPosition = localEndPosition;
+        }
+    }
+
+    private void CutObject(Collider2D col,Vector3 localEndPosition)
+    {
+        SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
+        {
+            lineStart = _startObstaclePosition,
+            lineEnd = col.transform.TransformPoint(localEndPosition),
+            gameObject = col.gameObject,
+            gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
+        } );
+                
+        if ( output != null && output.secondSideGameObject != null ) 
+        { 
+            Rigidbody2D newRigidbody = output.firstSideGameObject.AddComponent<Rigidbody2D>();
+            output.secondSideGameObject.GetComponent<MeshRenderer>().material.color = Color.black;
+                    
+            if (output.secondSideGameObject.GetComponent<Rigidbody2D>() == null)
+            {
+                Rigidbody2D rb2D = output.secondSideGameObject.AddComponent<Rigidbody2D>();
+                rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+
+            newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
+            newRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    
+            _startObstaclePosition = Vector3.zero;
         }
     }
 
