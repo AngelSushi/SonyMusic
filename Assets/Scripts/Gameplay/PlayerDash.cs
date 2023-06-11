@@ -202,110 +202,45 @@ public class PlayerDash : MonoBehaviour
     }
     
 
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            Debug.Log("Le player touche le sol wesh");
             StartCoroutine(StartAndDestroyAnim());
         }
+        
+        
         if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
+            Vector3 localEndPosition = Vector3.zero;
             if (debugDash)
             {
                 col.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                col.gameObject.transform.GetChild(0).position = transform.position;
-            }
-            
-            _startObstaclePosition = transform.position;
-
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing && _startObstaclePosition == Vector3.zero)
-        {
-            if (debugDash)
-            {
-                col.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                col.gameObject.transform.GetChild(0).position = transform.position;
-            }
-            
-            _startObstaclePosition = transform.position;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
-        {
-            if (debugDash)
-            {
                 col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                col.gameObject.transform.GetChild(1).position = transform.position;
-            }
+                col.gameObject.transform.GetChild(0).position = transform.position;
 
+                Vector3 localPosition = col.gameObject.transform.GetChild(0).localPosition;
+                localEndPosition = new Vector3(-localPosition.x, -localPosition.y, localPosition.z);
 
-            DestroyableObject dObj = col.GetComponent<DestroyableObject>();
-
-            Vector3 dir = Vector3.zero;
-            float targetAngle = angleOffset;
-            
-            switch (dObj.dashDirection)
-            {
-                case DashDirection.UP:
-                    dir = col.transform.up;
-                    break;
-                
-                case DashDirection.DOWN:
-                    dir = col.transform.up * -1;
-                    break;
-                
-                case DashDirection.LEFT:
-                    dir = col.transform.right;
-                    break;
-                
-                case DashDirection.RIGHT:
-                    dir = col.transform.right * -1;
-                    break;
-                
-                case DashDirection.DIAGONAL_LUP:
-                    dir = col.transform.right + col.transform.up * -1;
-                    targetAngle = diagonalAngleOffset;
-                    break;
-                
-                case DashDirection.DIAGONAL_RUP:
-                    dir = col.transform.right * -1 + col.transform.up * -1;
-                    targetAngle = diagonalAngleOffset;
-                    break;
-                
-                case DashDirection.DIAGONAL_LDOWN:
-                    dir = col.transform.right + col.transform.up;
-                    targetAngle = diagonalAngleOffset;
-                    break;
-                
-                case DashDirection.DIAGONAL_RDOWN:
-                    dir = col.transform.right * -1 + col.transform.up;
-                    targetAngle = diagonalAngleOffset;
-                    break;
+                col.gameObject.transform.GetChild(1).localPosition = localEndPosition;
             }
             
-            
-            float angle = Vector3.Angle(dashDirection,dir);
-            Debug.Log("angle " + (int)angle + " " + targetAngle);
+            _startObstaclePosition = transform.position;
 
-            Debug.Log(dObj.dashDirection);
+           DestroyableObject dObj = col.gameObject.GetComponent<DestroyableObject>();
 
-            if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
+           float targetAngle = angleOffset;
+           Vector3 dir = FindDirection(dObj,col,targetAngle);
+           float angle = Vector3.Angle(dashDirection,dir);
+
+           if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
             {
                 dObj.IsCut = true;
                 AddPoint();
                 SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
                 {
                     lineStart = _startObstaclePosition,
-                    lineEnd = transform.position,
+                    lineEnd = col.transform.TransformPoint(localEndPosition),
                     gameObject = col.gameObject,
                     gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
                 } );
@@ -318,18 +253,51 @@ public class PlayerDash : MonoBehaviour
                     
                     if (output.secondSideGameObject.GetComponent<Rigidbody2D>() == null)
                     {
-                        output.secondSideGameObject.AddComponent<Rigidbody2D>();
-                       // output.secondSideGameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+                        Rigidbody2D rb2D = output.secondSideGameObject.AddComponent<Rigidbody2D>();
+                        rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+                        
                     }
-                    
-                    newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
 
+                    newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
+                    newRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    
                    _startObstaclePosition = Vector3.zero;
                     
                 }
             }
+
         }
     }
+
+    private Vector3 FindDirection(DestroyableObject dObject,Collider2D col,float targetAngle)
+    {
+        switch (dObject.dashDirection)
+        {
+            case DashDirection.UP:
+                return col.transform.up;
+            case DashDirection.DOWN:
+                return col.transform.up * -1;
+            case DashDirection.LEFT:
+                return col.transform.right;
+            case DashDirection.RIGHT:
+                return col.transform.right * -1;
+            case DashDirection.DIAGONAL_LUP:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right + col.transform.up * -1;
+            case DashDirection.DIAGONAL_RUP:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right * -1 + col.transform.up * -1;
+            case DashDirection.DIAGONAL_LDOWN:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right + col.transform.up;
+            case DashDirection.DIAGONAL_RDOWN:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right * -1 + col.transform.up;
+            default:
+                return col.transform.up;
+        }
+    }
+
     public IEnumerator StartAndDestroyAnim()
     {
         var myNewSmoke = Instantiate(landingAnimation, groundDetection.transform.position, Quaternion.identity);
@@ -389,6 +357,8 @@ public class PlayerDash : MonoBehaviour
             ResetCombo();
         }
     }
+    
+    
     public void ResetCombo()
     {
         comboPoint = 1;
