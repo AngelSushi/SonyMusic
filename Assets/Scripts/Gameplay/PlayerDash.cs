@@ -115,11 +115,10 @@ public class PlayerDash : MonoBehaviour
 
                             float distance = Vector3.Distance(_startPosition, _endPosition);
                             
-                            if (distance >= minDistance /*&& (_endPosition - _startPosition).normalized.x > 0 */)
+                            if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
                             {
                                 dashDirection = (_endPosition - _startPosition).normalized;
                                 _rb.velocity = dashDirection * dashSpeed;
-                                //ici
                                 _playerPosition = transform.position;
                                 isDashing = true;
                             }
@@ -131,13 +130,11 @@ public class PlayerDash : MonoBehaviour
                 {
                     _endPosition = ConvertPoint(touch.position);
                     float distance = Vector3.Distance(_startPosition, _endPosition);
-                            
-                    if (distance >= minDistance /*&& (_endPosition - _startPosition).normalized.x > 0 */)
+                    
+                    if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
                     {
                         dashDirection = (_endPosition - _startPosition).normalized;
                         _rb.velocity = dashDirection * dashSpeed;
-                        //ici
-
                         _playerPosition = transform.position;
                         isDashing = true;
                     }
@@ -150,20 +147,19 @@ public class PlayerDash : MonoBehaviour
     {
         if (Vector3.Distance(_playerPosition, transform.position) > dashDistance && isDashing)
         {
-            _rb.velocity = Vector2.zero;
+            _rb.velocity = Vector2.zero;    
             dashDirection = Vector2.zero;
-            if (animDashDone == true)
+            isDashing = false;
+            
+           /* if (animDashDone)
             {
                 skeletRunObj.SetActive(true);
                 skeletDashObj.SetActive(false);
                 skeletFallObj.SetActive(false);
                 animDashDone = false;
             }
-            
+            */
             //ici la 
-            
-            
-
         }
         else if (isDashing)
         {
@@ -184,7 +180,7 @@ public class PlayerDash : MonoBehaviour
             }
             else
             {
-                _rb.velocity = Vector2.zero;
+               // _rb.velocity = Vector2.zero;
             }
         }
     }
@@ -202,134 +198,108 @@ public class PlayerDash : MonoBehaviour
     }
     
 
-
     private void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
-            Debug.Log("Le player touche le sol wesh");
             StartCoroutine(StartAndDestroyAnim());
         }
+        
         if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
-            if (debugDash)
-            {
-                col.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                col.gameObject.transform.GetChild(0).position = transform.position;
-            }
+            Vector3 localEndPosition = Vector3.zero;
+            DebugDash(col,localEndPosition);
             
             _startObstaclePosition = transform.position;
 
-        }
-    }
+            DestroyableObject dObj = col.gameObject.GetComponent<DestroyableObject>();
 
-    private void OnTriggerStay2D(Collider2D col)
-    {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing && _startObstaclePosition == Vector3.zero)
-        {
-            if (debugDash)
-            {
-                col.gameObject.transform.GetChild(0).gameObject.SetActive(true);
-                col.gameObject.transform.GetChild(0).position = transform.position;
-            }
-            
-            _startObstaclePosition = transform.position;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D col)
-    {
-        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
-        {
-            if (debugDash)
-            {
-                col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
-                col.gameObject.transform.GetChild(1).position = transform.position;
-            }
-
-
-            DestroyableObject dObj = col.GetComponent<DestroyableObject>();
-
-            Vector3 dir = Vector3.zero;
             float targetAngle = angleOffset;
-            
-            switch (dObj.dashDirection)
-            {
-                case DashDirection.UP:
-                    dir = col.transform.up;
-                    break;
-                
-                case DashDirection.DOWN:
-                    dir = col.transform.up * -1;
-                    break;
-                
-                case DashDirection.LEFT:
-                    dir = col.transform.right;
-                    break;
-                
-                case DashDirection.RIGHT:
-                    dir = col.transform.right * -1;
-                    break;
-                
-                case DashDirection.DIAGONAL_LUP:
-                    dir = col.transform.right + col.transform.up * -1;
-                    targetAngle = diagonalAngleOffset;
-                    break;
-                
-                case DashDirection.DIAGONAL_RUP:
-                    dir = col.transform.right * -1 + col.transform.up * -1;
-                    targetAngle = diagonalAngleOffset;
-                    break;
-                
-                case DashDirection.DIAGONAL_LDOWN:
-                    dir = col.transform.right + col.transform.up;
-                    targetAngle = diagonalAngleOffset;
-                    break;
-                
-                case DashDirection.DIAGONAL_RDOWN:
-                    dir = col.transform.right * -1 + col.transform.up;
-                    targetAngle = diagonalAngleOffset;
-                    break;
-            }
-            
-            
+            Vector3 dir = FindDirection(dObj,col,targetAngle);
             float angle = Vector3.Angle(dashDirection,dir);
-            Debug.Log("angle " + (int)angle + " " + targetAngle);
-
-            Debug.Log(dObj.dashDirection);
 
             if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
             {
                 dObj.IsCut = true;
                 AddPoint();
-                SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
-                {
-                    lineStart = _startObstaclePosition,
-                    lineEnd = transform.position,
-                    gameObject = col.gameObject,
-                    gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
-                } );
-                
-                if ( output != null && output.secondSideGameObject != null ) 
-                { 
-                    Rigidbody2D newRigidbody = output.firstSideGameObject.AddComponent<Rigidbody2D>();
-
-                    output.secondSideGameObject.GetComponent<MeshRenderer>().material.color = Color.black;
-                    
-                    if (output.secondSideGameObject.GetComponent<Rigidbody2D>() == null)
-                    {
-                        output.secondSideGameObject.AddComponent<Rigidbody2D>();
-                       // output.secondSideGameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
-                    }
-                    
-                    newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
-
-                   _startObstaclePosition = Vector3.zero;
-                    
-                }
+                CutObject(col,localEndPosition);
             }
+
         }
     }
+
+    private void DebugDash(Collider2D col,Vector3 localEndPosition)
+    {
+        if (debugDash)
+        {
+            col.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+            col.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            col.gameObject.transform.GetChild(0).position = transform.position;
+
+            Vector3 localPosition = col.gameObject.transform.GetChild(0).localPosition;
+            localEndPosition = new Vector3(-localPosition.x, -localPosition.y, localPosition.z);
+
+            col.gameObject.transform.GetChild(1).localPosition = localEndPosition;
+        }
+    }
+
+    private void CutObject(Collider2D col,Vector3 localEndPosition)
+    {
+        SpriteCutterOutput output = SpriteCutter.Cut( new SpriteCutterInput() 
+        {
+            lineStart = _startObstaclePosition,
+            lineEnd = col.transform.TransformPoint(localEndPosition),
+            gameObject = col.gameObject,
+            gameObjectCreationMode = SpriteCutterInput.GameObjectCreationMode.CUT_OFF_ONE,
+        } );
+                
+        if ( output != null && output.secondSideGameObject != null ) 
+        { 
+            Rigidbody2D newRigidbody = output.firstSideGameObject.AddComponent<Rigidbody2D>();
+            output.secondSideGameObject.GetComponent<MeshRenderer>().material.color = Color.black;
+                    
+            if (output.secondSideGameObject.GetComponent<Rigidbody2D>() == null)
+            {
+                Rigidbody2D rb2D = output.secondSideGameObject.AddComponent<Rigidbody2D>();
+                rb2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+            }
+
+            newRigidbody.velocity = output.secondSideGameObject.GetComponent<Rigidbody2D>().velocity;
+            newRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+                    
+            _startObstaclePosition = Vector3.zero;
+        }
+    }
+
+    private Vector3 FindDirection(DestroyableObject dObject,Collider2D col,float targetAngle)
+    {
+        switch (dObject.dashDirection)
+        {
+            case DashDirection.UP:
+                return col.transform.up;
+            case DashDirection.DOWN:
+                return col.transform.up * -1;
+            case DashDirection.LEFT:
+                return col.transform.right;
+            case DashDirection.RIGHT:
+                return col.transform.right * -1;
+            case DashDirection.DIAGONAL_LUP:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right + col.transform.up * -1;
+            case DashDirection.DIAGONAL_RUP:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right * -1 + col.transform.up * -1;
+            case DashDirection.DIAGONAL_LDOWN:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right + col.transform.up;
+            case DashDirection.DIAGONAL_RDOWN:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right * -1 + col.transform.up;
+            default:
+                return col.transform.up;
+        }
+    }
+
     public IEnumerator StartAndDestroyAnim()
     {
         var myNewSmoke = Instantiate(landingAnimation, groundDetection.transform.position, Quaternion.identity);
@@ -347,14 +317,15 @@ public class PlayerDash : MonoBehaviour
         skeletAnimRun.AnimationName = "Run";
 
     }
-    public IEnumerator DashAnimation()
+    
+    private IEnumerator DashAnimation()
     {
         skeletRunObj.SetActive(false);
+        skeletDashObj.SetActive(false);
         skeletDashObj.SetActive(true);
         skeletFallObj.SetActive(false);
         yield return new WaitForSeconds(0.4f);
         animDashDone = true;
-        isDashing = false;
     }
 
 
@@ -389,6 +360,8 @@ public class PlayerDash : MonoBehaviour
             ResetCombo();
         }
     }
+    
+    
     public void ResetCombo()
     {
         comboPoint = 1;

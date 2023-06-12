@@ -94,9 +94,7 @@ public class GameManager : CoroutineSystem
         {
             string path = SceneUtility.GetScenePathByBuildIndex(i);
             string sName = path.Substring(0, path.Length - 6).Substring(path.LastIndexOf('/') + 1);
-            
-            Debug.Log("path " + sName);
-            
+
             if (sName.Equals(sceneName))
             {
                 chapterIndex = i;
