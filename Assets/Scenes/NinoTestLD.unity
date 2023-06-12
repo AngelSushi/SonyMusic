@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -587,7 +587,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 5
   speed: 11
-  minLengthTime: 0.5
+  positions: []
+  lanePool: {fileID: 0}
 --- !u!4 &39481808
 Transform:
   m_ObjectHideFlags: 0
@@ -894,6 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4ee7cf28395a1147983cb4e3bca5b17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 0
   isDashing: 0
   beginFromPlayer: 0
   playerDragAngle: 0
@@ -902,10 +904,14 @@ MonoBehaviour:
   minDistance: 0
   angleOffset: 0
   diagonalAngleOffset: 0
+  descentGravity: 0
   pointPerDash: 10
   maxDashPoint: 5
   dashSlider: {fileID: 0}
+  limit: {fileID: 0}
+  distanceCombo: {fileID: 0}
   debugDash: 0
+  smoothDash: 0
   dashDirection: {x: 0, y: 0, z: 0}
 --- !u!1 &203691951
 GameObject:
@@ -1323,6 +1329,103 @@ Sprite:
   m_PhysicsShape: []
   m_Bones: []
   m_SpriteID: 
+--- !u!1 &594402699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594402703}
+  - component: {fileID: 594402702}
+  - component: {fileID: 594402701}
+  - component: {fileID: 594402700}
+  m_Layer: 5
+  m_Name: YellowMask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &594402700
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594402699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &594402701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594402699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.8745098, b: 0.09019608, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &594402702
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594402699}
+  m_CullTransparentMesh: 1
+--- !u!224 &594402703
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594402699}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1921242154}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -52369, y: 37.56}
+  m_SizeDelta: {x: -101732.445, y: 75.12091}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &599543159
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,6 +1474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downMin: 0
+  passThrough: 0
 --- !u!251 &599543162
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -1547,6 +1651,61 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &641712511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 641712513}
+  - component: {fileID: 641712512}
+  m_Layer: 0
+  m_Name: TimelineV2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!320 &641712512
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641712511}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -1252624538365384227, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
+    value: {fileID: 1921242158}
+  - key: {fileID: -8480977054297590924, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
+    value: {fileID: 594402700}
+  - key: {fileID: 4752369159402439218, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
+    value: {fileID: 0}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &641712513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641712511}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1221.2397, y: 303.11258, z: 13.827258}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &671223540
 GameObject:
   m_ObjectHideFlags: 0
@@ -2177,7 +2336,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 11
   speed: 11
-  minLengthTime: 0.5
+  positions: []
+  lanePool: {fileID: 0}
 --- !u!4 &1084151491
 Transform:
   m_ObjectHideFlags: 0
@@ -2257,7 +2417,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   restriction: 0
   speed: 11
-  minLengthTime: 0.5
+  positions: []
+  lanePool: {fileID: 0}
 --- !u!4 &1261593541
 Transform:
   m_ObjectHideFlags: 0
@@ -2519,6 +2680,7 @@ RectTransform:
   - {fileID: 634165875}
   - {fileID: 1832632018}
   - {fileID: 541734544}
+  - {fileID: 1715258202}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2785,6 +2947,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   downMin: 0
+  passThrough: 0
 --- !u!251 &1379283056
 PlatformEffector2D:
   m_ObjectHideFlags: 0
@@ -3000,6 +3163,97 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1715258201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1715258202}
+  - component: {fileID: 1715258205}
+  - component: {fileID: 1715258204}
+  - component: {fileID: 1715258203}
+  m_Layer: 5
+  m_Name: LyricsMask (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1715258202
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715258201}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.43297, y: 2.43297, z: 2.43297}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1921242154}
+  m_Father: {fileID: 1330657216}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -667.78296}
+  m_SizeDelta: {x: -1688.3469, y: -1399.9269}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1715258203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715258201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
+--- !u!114 &1715258204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715258201}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.9036184, b: 0.0141509175, a: 0.003921569}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1715258205
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1715258201}
+  m_CullTransparentMesh: 1
 --- !u!1 &1751099111
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,6 +4208,168 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1 &1921242153
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1921242154}
+  - component: {fileID: 1921242157}
+  - component: {fileID: 1921242156}
+  - component: {fileID: 1921242155}
+  - component: {fileID: 1921242158}
+  m_Layer: 5
+  m_Name: Lyrics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1921242154
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921242153}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27027038, y: 0.27027038, z: 0.27027038}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 594402703}
+  m_Father: {fileID: 1715258202}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 337.90723, y: -9}
+  m_SizeDelta: {x: 102828.21, y: 156.9939}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1921242155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921242153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
+--- !u!114 &1921242156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921242153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 108
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 140
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "L\xE8ve ton verre. L\xE8ve ton verre. L\xE8ve ton verre... Sant\xE9 !
+    Je porte un toast \xE0 la mort de l'industrie. Sortez les huit six on viens f\xEAter
+    la fin du disque\r. \xC9couter la radio c'est devenu un supplice\r. Sauf que
+    j'aime pas non plus les putains de puristes\r. Musique r\xE9tro futuriste, la
+    bande originale des aventures d'Ulysse\r. J'habiterais dans les abysses, j'aurais
+    pas plus de pression. Tout ce que je veux, foutre le feu dans ma ville, N\xE9ron\r.
+    Donner mon corps \xE0 la science inclus la dissection\r. Des jours entiers je
+    r\xE9cite mes le\xE7ons\r. Tourment\xE9s dans une pluie de questions. Rien qu'en
+    un an \xE7a m'a saoul\xE9 je voulais tout plaquer, quitter le son\r. J'ai presque
+    abandonn\xE9 sans faire ma deuxi\xE8me livraison. Han, mais bordel j'ai fais
+    le plus dur\r, Autant tenter un salto avant d'\xE9chouer au pied du mur\r. Je
+    suis de retour avec ma sous-culture\r, ouais, sauf que c'est nous le futur, hein
+    (c'est nous le futur)\r. J'viens retourner l'opinel entre les points de suture\r.
+    Ils sont la censure, plus tard on aura l'usure\r plus tard on ira danser sur
+    leur s\xE9pulture, le chant des succubes, au bord de la luxure\r. Sans concessions
+    les sentiments sont plus pures\r. Voil\xE0 pourquoi j'\xE9cris des chansons de
+    rupture\r. J'essaye de prendre du recul, j'essaye d'avancer\r les gens murmurent,
+    j'ai du mal \xE0 m'entendre penser\r, fils d'extraterrestre, \xE9toile c\xE9leste\r.
+    J'viens f\xE9conder une femelle de chaque esp\xE8ces\r\nJ'apprends \xE0 contr\xF4ler
+    mes sales r\xE9flexes,\nje me fais jouir avant d'\xE9crire\r\nJ'en ai marre de
+    parler de sexe\r\nJ'sais que ta petite copine n'aime pas mes textes\r, Mais\nsi
+    j'\xE9coutais toutes les juments je ferais du rap \xE9questre\r\n\xC7a m'\xE9nerve
+    pas je respecte\r J'fais\ncomme Rocky dans la r\xE9serve,\nje m'en bas les steaks\r\nJ'aimerais
+    faire parti des optimistes\nJ'aimerai apporter une sorte de message positif\nComme
+    l'h\xE9ro\xEFne dans un test d'urine\nComme le d\xE9pistage de Freddy Mercury\r\nJe
+    reviens faire du bruit, j'ai le son qui frappe\r\nSkread m'a ordonn\xE9 d'enfoncer
+    le clou comme Ponce Pilate\r\nComme d'hab Ablaye et Gringe font les bacs on est
+    quatre\r\nLes cavaliers de l'apocalypse on d\xE9barque\r\nEn l'an de gr\xE2ce
+    MJ plus un\r\nLa moiti\xE9 de ma jeunesse est morte le 25 juin\r\nJe continue
+    de faire du chemin pour devenir moi m\xEAme\r\nDans l'amour, dans la haine, dans
+    la moyenne\r\nJe resterais pas bloqu\xE9 dans une parodie de succ\xE8s\r\nDans
+    une version d'Entourage \xE0 petit budgets\r\nJe ferais que ce qui me pla\xEEt
+    jusqu'\xE0 ma derni\xE8re qu\xEAte\r\nJusqu'\xE0 retourner dans l'h\xF4tellerie
+    plier des serviette\r\nLa peur n'existe plus dans mon dojo, eh eh,\nj'ai retrouv\xE9
+    mon Mojo (baby)\r\nDites \xE0 la m\xE9nag\xE8re qu'on a ressuscit\xE9 CloClo\r\nDites
+    aux connards d'intermittents d'allumer les projos\r\nAppelez les Pow-wow, on
+    va d\xE9terrer la hache de guerre\r\nRamener la concurrence \xE0 l'\xE2ge de
+    pierre\r\nSi t'as la fureur de vaincre, moi, j'ai la rage de perdre\r\nJe prends
+    m\xEAme plus la peine de r\xE9pondre \xE0\nvos clashs de merde\r (nan)\nJe pr\xEAterais
+    ni mon buzz, ni mon temps (ni mon temps)\r\nJe verserais ni ma sueur, ni mon
+    sang (ni mon sang)\r\nTu parles de moi pour rien dans tes titres\r\nTu ferais
+    m\xEAme pas de buzz avec un album antis\xE9mite\r\nMerci quand m\xEAme pour le
+    coup de pub (merci)\r\nMerci les chiennes de garde pour le coup de pute (merci)\r\nMerci
+    \xE0 tout ceux qui m'ont soutenus\r\nJ'oublie trop souvent de\nremercier les
+    gens qui m'ont soutenu\r\nFaut qu'on s'offre une nouvelle vie, faut qu'on s'ouvre
+    l'esprit\r\nFaut que les pantins coupent les fils\r\nPrend la route et fuis,
+    j'ai une soucoupe en double file\r\nJe te ram\xE8ne avec oim, RaelSan"
+--- !u!222 &1921242157
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921242153}
+  m_CullTransparentMesh: 1
+--- !u!95 &1921242158
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921242153}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb6801251532aa34bbaeda56551a4cbc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

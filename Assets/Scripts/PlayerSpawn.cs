@@ -8,12 +8,12 @@ public class PlayerSpawn : MonoBehaviour
     public GameObject womenPlayer;
     void Start()
     {
-        if(GameManager.instance.isMen == true)
+        if(GameManager.instance.isMen)
         {
             menPlayer = Instantiate(menPlayer, gameObject.transform.position, Quaternion.identity) as GameObject;
             menPlayer.transform.parent = transform;
         }
-        if(GameManager.instance.isWomen == true)
+        if(GameManager.instance.isWomen)
         {
             womenPlayer = Instantiate(womenPlayer, gameObject.transform.position, Quaternion.identity) as GameObject;
             womenPlayer.transform.parent = transform;
