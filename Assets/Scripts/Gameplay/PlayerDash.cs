@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
@@ -69,6 +70,8 @@ public class PlayerDash : MonoBehaviour
     private float _dashPoint;
     private List<Plateform> _plateforms;
     private GameManager _gameManager;
+
+    private bool _return;
     
     void Awake() 
     {
@@ -121,6 +124,7 @@ public class PlayerDash : MonoBehaviour
                                 _rb.velocity = dashDirection * dashSpeed;
                                 _playerPosition = transform.position;
                                 isDashing = true;
+                                _return = false;
                             }
                             ;
                         }
@@ -137,6 +141,7 @@ public class PlayerDash : MonoBehaviour
                         _rb.velocity = dashDirection * dashSpeed;
                         _playerPosition = transform.position;
                         isDashing = true;
+                        _return = false;
                     }
                 }
             }
@@ -173,21 +178,33 @@ public class PlayerDash : MonoBehaviour
 
         if (IsGrounded() && dashDirection == Vector3.zero)
         {
-            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0)
+            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return)
             {
                 //    _rb.velocity = new Vector2(0, -1) * speed;
-                //_rb.velocity = Vector2.left * speed;
+                _rb.velocity = Vector2.left * speed;
             }
-            else
+            else if(_return)
             {
-               // _rb.velocity = Vector2.zero;
+                _rb.velocity = Vector2.zero;
             }
         }
     }
 
     private bool IsGrounded()
     {
-        return Physics2D.Raycast(transform.position, -Vector2.up, 1.25f, 1 << 6);
+
+        
+        var result = Physics2D.Raycast(transform.position, -Vector2.up, 1f, LayerMask.GetMask("Ground"));
+        if (result.collider != null)
+        {
+            Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.green);
+        }
+        else
+        {
+            Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.red);
+        }
+
+        return result;
     }
 
     private Vector3 ConvertPoint(Vector3 point) 
@@ -314,6 +331,7 @@ public class PlayerDash : MonoBehaviour
         skeletRunObj.SetActive(true);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
+        _return = true;
         skeletAnimRun.AnimationName = "Run";
 
     }
