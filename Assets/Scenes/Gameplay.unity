@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1168,6 +1168,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 203943826}
     m_Modifications:
+    - target: {fileID: 57464234029113569, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 57464234029113579, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 57464234050646213, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 57464234050646218, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1189,9 +1201,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1923066065}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: smoothDash
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: distanceCombo
       value: 
       objectReference: {fileID: 1515516541}
+    - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: descentGravity
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7884514086507447092, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -1214,15 +1234,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7884514086507447092, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7884514086507447092, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7884514086507447092, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7884514086507447092, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4579,7 +4599,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1030448119
 Transform:
   m_ObjectHideFlags: 0
@@ -4796,7 +4816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1166603441
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5325,7 +5345,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1319682226
 Transform:
   m_ObjectHideFlags: 0

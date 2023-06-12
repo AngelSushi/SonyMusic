@@ -115,11 +115,10 @@ public class PlayerDash : MonoBehaviour
 
                             float distance = Vector3.Distance(_startPosition, _endPosition);
                             
-                            if (distance >= minDistance /*&& (_endPosition - _startPosition).normalized.x > 0 */)
+                            if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
                             {
                                 dashDirection = (_endPosition - _startPosition).normalized;
                                 _rb.velocity = dashDirection * dashSpeed;
-                                //ici
                                 _playerPosition = transform.position;
                                 isDashing = true;
                             }
@@ -131,13 +130,11 @@ public class PlayerDash : MonoBehaviour
                 {
                     _endPosition = ConvertPoint(touch.position);
                     float distance = Vector3.Distance(_startPosition, _endPosition);
-                            
-                    if (distance >= minDistance /*&& (_endPosition - _startPosition).normalized.x > 0 */)
+                    
+                    if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
                     {
                         dashDirection = (_endPosition - _startPosition).normalized;
                         _rb.velocity = dashDirection * dashSpeed;
-                        //ici
-
                         _playerPosition = transform.position;
                         isDashing = true;
                     }
@@ -154,23 +151,24 @@ public class PlayerDash : MonoBehaviour
             dashDirection = Vector2.zero;
             isDashing = false;
             
-            if (animDashDone)
+           /* if (animDashDone)
             {
                 skeletRunObj.SetActive(true);
                 skeletDashObj.SetActive(false);
                 skeletFallObj.SetActive(false);
                 animDashDone = false;
             }
+            */
             //ici la 
         }
         else if (isDashing)
         {
-            //_rb.velocity = dashDirection * dashSpeed;
+            _rb.velocity = dashDirection * dashSpeed;
         }
 
         if (_rb.velocity.y < 0 && smoothDash)
         {
-            //_rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
+            _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
         }
 
         if (IsGrounded() && dashDirection == Vector3.zero)
@@ -319,14 +317,15 @@ public class PlayerDash : MonoBehaviour
         skeletAnimRun.AnimationName = "Run";
 
     }
-    public IEnumerator DashAnimation()
+    
+    private IEnumerator DashAnimation()
     {
         skeletRunObj.SetActive(false);
+        skeletDashObj.SetActive(false);
         skeletDashObj.SetActive(true);
         skeletFallObj.SetActive(false);
         yield return new WaitForSeconds(0.4f);
         animDashDone = true;
-        isDashing = false;
     }
 
 
