@@ -783,6 +783,97 @@ Transform:
   m_Father: {fileID: 1673173591}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &97749476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97749477}
+  - component: {fileID: 97749480}
+  - component: {fileID: 97749479}
+  - component: {fileID: 97749478}
+  m_Layer: 5
+  m_Name: LyricsMask (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &97749477
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97749476}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 599490872}
+  m_Father: {fileID: 829091594}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0.000061035156}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &97749478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97749476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
+--- !u!114 &97749479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97749476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.9036184, b: 0.0141509175, a: 0.003921569}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &97749480
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97749476}
+  m_CullTransparentMesh: 1
 --- !u!1 &124480028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1838,7 @@ PlayableDirector:
   m_InitialTime: -4.25
   m_SceneBindings:
   - key: {fileID: -1252624538365384227, guid: f43832472ccf3bc4a8ae5a5cbbed2da6, type: 2}
-    value: {fileID: 2036527312}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &272878261
@@ -2322,10 +2413,10 @@ RectTransform:
   m_Father: {fileID: 829091594}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -234, y: 152}
-  m_SizeDelta: {x: 287.485, y: 82.4541}
+  m_AnchorMin: {x: 0.02, y: 0.9}
+  m_AnchorMax: {x: 0.1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &499168989
 MonoBehaviour:
@@ -2347,7 +2438,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 000000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2374,15 +2465,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 35
+  m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 35
+  m_fontSizeMax: 35
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3074,6 +3165,168 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &599490871
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 599490872}
+  - component: {fileID: 599490876}
+  - component: {fileID: 599490875}
+  - component: {fileID: 599490874}
+  - component: {fileID: 599490873}
+  m_Layer: 5
+  m_Name: Lyrics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &599490872
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599490871}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.27027038, y: 0.27027038, z: 0.27027038}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 97749477}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 337.90723, y: -9}
+  m_SizeDelta: {x: 102828.21, y: 156.9939}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &599490873
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599490871}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: eb6801251532aa34bbaeda56551a4cbc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &599490874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599490871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 1
+--- !u!114 &599490875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599490871}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 108
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 140
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
+    m_LineSpacing: 1
+  m_Text: "L\xE8ve ton verre. L\xE8ve ton verre. L\xE8ve ton verre... Sant\xE9 !
+    Je porte un toast \xE0 la mort de l'industrie. Sortez les huit six on viens f\xEAter
+    la fin du disque\r. \xC9couter la radio c'est devenu un supplice\r. Sauf que
+    j'aime pas non plus les putains de puristes\r. Musique r\xE9tro futuriste, la
+    bande originale des aventures d'Ulysse\r. J'habiterais dans les abysses, j'aurais
+    pas plus de pression. Tout ce que je veux, foutre le feu dans ma ville, N\xE9ron\r.
+    Donner mon corps \xE0 la science inclus la dissection\r. Des jours entiers je
+    r\xE9cite mes le\xE7ons\r. Tourment\xE9s dans une pluie de questions. Rien qu'en
+    un an \xE7a m'a saoul\xE9 je voulais tout plaquer, quitter le son\r. J'ai presque
+    abandonn\xE9 sans faire ma deuxi\xE8me livraison. Han, mais bordel j'ai fais
+    le plus dur\r, Autant tenter un salto avant d'\xE9chouer au pied du mur\r. Je
+    suis de retour avec ma sous-culture\r, ouais, sauf que c'est nous le futur, hein
+    (c'est nous le futur)\r. J'viens retourner l'opinel entre les points de suture\r.
+    Ils sont la censure, plus tard on aura l'usure\r plus tard on ira danser sur
+    leur s\xE9pulture, le chant des succubes, au bord de la luxure\r. Sans concessions
+    les sentiments sont plus pures\r. Voil\xE0 pourquoi j'\xE9cris des chansons de
+    rupture\r. J'essaye de prendre du recul, j'essaye d'avancer\r les gens murmurent,
+    j'ai du mal \xE0 m'entendre penser\r, fils d'extraterrestre, \xE9toile c\xE9leste\r.
+    J'viens f\xE9conder une femelle de chaque esp\xE8ces\r .J'apprends \xE0 contr\xF4ler
+    mes sales r\xE9flexes, je me fais jouir avant d'\xE9crire\r. J'en ai marre de
+    parler de sexe. J'sais que ta petite copine n'aime pas mes textes\r, mais si
+    j'\xE9coutais toutes les juments je ferais du rap \xE9questre. \xC7a m'\xE9nerve
+    pas je respecte\r J'fais comme Rocky dans la r\xE9serve, je m'en bas les steaks.
+    J'aimerais faire parti des optimistes, j'aimerai apporter une sorte de message
+    positif, comme l'h\xE9ro\xEFne dans un test d'urine, comme le d\xE9pistage de
+    Freddy Mercury\r. Je reviens faire du bruit, j'ai le son qui frappe\r, Skread
+    m'a ordonn\xE9 d'enfoncer le clou comme Ponce Pilate, comme d'hab Ablaye et Gringe
+    font les bacs on est quatre, les cavaliers de l'apocalypse on d\xE9barque\r.
+    En l'an de gr\xE2ce MJ plus un\r, la moiti\xE9 de ma jeunesse est morte le 25
+    juin. Je continue de faire du chemin pour devenir moi m\xEAme, dans l'amour,
+    dans la haine, dans la moyenne\r. Je resterais pas bloqu\xE9 dans une parodie
+    de succ\xE8s\r, dans une version d'Entourage \xE0 petit budgets\r. Je ferais
+    que ce qui me pla\xEEt jusqu'\xE0 ma derni\xE8re qu\xEAte\r, jusqu'\xE0 retourner
+    dans l'h\xF4tellerie plier des serviette\r. La peur n'existe plus dans mon dojo,
+    eh eh, j'ai retrouv\xE9 mon Mojo (baby)\r, dites \xE0 la m\xE9nag\xE8re qu'on
+    a ressuscit\xE9 CloClo\r, dites aux connards d'intermittents d'allumer les projos\r.
+    Appelez les Pow-wow, on va d\xE9terrer la hache de guerre\r, ramener la concurrence
+    \xE0 l'\xE2ge de pierre\r. Si t'as la fureur de vaincre, moi, j'ai la rage de
+    perdre\r. Je prends m\xEAme plus la peine de r\xE9pondre \xE0 vos clashs de merde\r
+    (nan) Je pr\xEAterais ni mon buzz, ni mon temps (ni mon temps) Je verserais ni
+    ma sueur, ni mon sang (ni mon sang)\r Tu parles de moi pour rien dans tes titres\r,
+    tu ferais m\xEAme pas de buzz avec un album antis\xE9mite\r. Merci quand m\xEAme
+    pour le coup de pub (merci)\r, merci les chiennes de garde pour le coup de pute
+    (merci)\r, merci \xE0 tout ceux qui m'ont soutenus\r. J'oublie trop souvent de
+    remercier les gens qui m'ont soutenu\r. Faut qu'on s'offre une nouvelle vie,
+    faut qu'on s'ouvre l'esprit, faut que les pantins coupent les fils\r. Prend la
+    route et fuis, j'ai une soucoupe en double file\r, je te ram\xE8ne avec oim,
+    RaelSan"
+--- !u!222 &599490876
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 599490871}
+  m_CullTransparentMesh: 1
 --- !u!1 &663331503
 GameObject:
   m_ObjectHideFlags: 0
@@ -3947,7 +4200,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -3992,6 +4245,8 @@ RectTransform:
   - {fileID: 806939352}
   - {fileID: 1923066064}
   - {fileID: 499168988}
+  - {fileID: 97749477}
+  - {fileID: 2024486417}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5318,8 +5573,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 2.5, y: 0}
-  m_SizeDelta: {x: -4.9999, y: -90}
+  m_AnchoredPosition: {x: 20.243164, y: 1.1907959}
+  m_SizeDelta: {x: 54.7757, y: 11.9077}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1251160279
 CanvasRenderer:
@@ -5780,8 +6035,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 33.078888, y: 1.2250977}
-  m_SizeDelta: {x: 95.7601, y: -51.4561}
+  m_AnchoredPosition: {x: -0.0005493164, y: -0.00030517578}
+  m_SizeDelta: {x: 0.00085449, y: 0.0005188}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1453283582
 MonoBehaviour:
@@ -5805,10 +6060,10 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 9fadd6fe5409cd245b6656c98d423731, type: 3}
   m_Type: 3
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0
+  m_FillAmount: 0.373
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -5854,8 +6109,8 @@ RectTransform:
   m_Father: {fileID: 1923066064}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.25}
-  m_AnchorMax: {x: 1, y: 0.75}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5881,7 +6136,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 05cd64d65342b6146b98e3a2fa6be489, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -6207,97 +6462,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1568586746}
-  m_CullTransparentMesh: 1
---- !u!1 &1623663727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1623663728}
-  - component: {fileID: 1623663731}
-  - component: {fileID: 1623663730}
-  - component: {fileID: 1623663729}
-  m_Layer: 5
-  m_Name: LyricsMask (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1623663728
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623663727}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.43297, y: 2.43297, z: 2.43297}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2036527311}
-  m_Father: {fileID: 2145255021}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -667.78296}
-  m_SizeDelta: {x: -1688.3472, y: -1399.9269}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1623663729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623663727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
---- !u!114 &1623663730
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623663727}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9036184, b: 0.0141509175, a: 0.003921569}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1623663731
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623663727}
   m_CullTransparentMesh: 1
 --- !u!1 &1635179677
 GameObject:
@@ -7157,10 +7321,10 @@ RectTransform:
   m_Father: {fileID: 829091594}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9, y: 182.3}
-  m_SizeDelta: {x: 252.3312, y: 102.3745}
+  m_AnchorMin: {x: 0.3, y: 0.7}
+  m_AnchorMax: {x: 0.65, y: 0.85}
+  m_AnchoredPosition: {x: 0, y: 112.730194}
+  m_SizeDelta: {x: 0, y: 54.5396}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1923066065
 MonoBehaviour:
@@ -7209,7 +7373,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.373
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -7393,6 +7557,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975503547}
   m_CullTransparentMesh: 1
+--- !u!1 &2024486416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2024486417}
+  m_Layer: 5
+  m_Name: LyricsMask
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &2024486417
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024486416}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 829091594}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2026139053
 GameObject:
   m_ObjectHideFlags: 0
@@ -7477,168 +7677,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2036527310
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2036527311}
-  - component: {fileID: 2036527315}
-  - component: {fileID: 2036527314}
-  - component: {fileID: 2036527313}
-  - component: {fileID: 2036527312}
-  m_Layer: 5
-  m_Name: Lyrics
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2036527311
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036527310}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.27027038, y: 0.27027038, z: 0.27027038}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1623663728}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 337.90723, y: -9}
-  m_SizeDelta: {x: 102828.21, y: 156.9939}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!95 &2036527312
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036527310}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eb6801251532aa34bbaeda56551a4cbc, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2036527313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036527310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 1
---- !u!114 &2036527314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036527310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 108
-    m_FontStyle: 1
-    m_BestFit: 0
-    m_MinSize: 0
-    m_MaxSize: 140
-    m_Alignment: 0
-    m_AlignByGeometry: 0
-    m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
-    m_LineSpacing: 1
-  m_Text: "L\xE8ve ton verre. L\xE8ve ton verre. L\xE8ve ton verre... Sant\xE9 !
-    Je porte un toast \xE0 la mort de l'industrie. Sortez les huit six on viens f\xEAter
-    la fin du disque\r. \xC9couter la radio c'est devenu un supplice\r. Sauf que
-    j'aime pas non plus les putains de puristes\r. Musique r\xE9tro futuriste, la
-    bande originale des aventures d'Ulysse\r. J'habiterais dans les abysses, j'aurais
-    pas plus de pression. Tout ce que je veux, foutre le feu dans ma ville, N\xE9ron\r.
-    Donner mon corps \xE0 la science inclus la dissection\r. Des jours entiers je
-    r\xE9cite mes le\xE7ons\r. Tourment\xE9s dans une pluie de questions. Rien qu'en
-    un an \xE7a m'a saoul\xE9 je voulais tout plaquer, quitter le son\r. J'ai presque
-    abandonn\xE9 sans faire ma deuxi\xE8me livraison. Han, mais bordel j'ai fais
-    le plus dur\r, Autant tenter un salto avant d'\xE9chouer au pied du mur\r. Je
-    suis de retour avec ma sous-culture\r, ouais, sauf que c'est nous le futur, hein
-    (c'est nous le futur)\r. J'viens retourner l'opinel entre les points de suture\r.
-    Ils sont la censure, plus tard on aura l'usure\r plus tard on ira danser sur
-    leur s\xE9pulture, le chant des succubes, au bord de la luxure\r. Sans concessions
-    les sentiments sont plus pures\r. Voil\xE0 pourquoi j'\xE9cris des chansons de
-    rupture\r. J'essaye de prendre du recul, j'essaye d'avancer\r les gens murmurent,
-    j'ai du mal \xE0 m'entendre penser\r, fils d'extraterrestre, \xE9toile c\xE9leste\r.
-    J'viens f\xE9conder une femelle de chaque esp\xE8ces\r .J'apprends \xE0 contr\xF4ler
-    mes sales r\xE9flexes, je me fais jouir avant d'\xE9crire\r. J'en ai marre de
-    parler de sexe. J'sais que ta petite copine n'aime pas mes textes\r, mais si
-    j'\xE9coutais toutes les juments je ferais du rap \xE9questre. \xC7a m'\xE9nerve
-    pas je respecte\r J'fais comme Rocky dans la r\xE9serve, je m'en bas les steaks.
-    J'aimerais faire parti des optimistes, j'aimerai apporter une sorte de message
-    positif, comme l'h\xE9ro\xEFne dans un test d'urine, comme le d\xE9pistage de
-    Freddy Mercury\r. Je reviens faire du bruit, j'ai le son qui frappe\r, Skread
-    m'a ordonn\xE9 d'enfoncer le clou comme Ponce Pilate, comme d'hab Ablaye et Gringe
-    font les bacs on est quatre, les cavaliers de l'apocalypse on d\xE9barque\r.
-    En l'an de gr\xE2ce MJ plus un\r, la moiti\xE9 de ma jeunesse est morte le 25
-    juin. Je continue de faire du chemin pour devenir moi m\xEAme, dans l'amour,
-    dans la haine, dans la moyenne\r. Je resterais pas bloqu\xE9 dans une parodie
-    de succ\xE8s\r, dans une version d'Entourage \xE0 petit budgets\r. Je ferais
-    que ce qui me pla\xEEt jusqu'\xE0 ma derni\xE8re qu\xEAte\r, jusqu'\xE0 retourner
-    dans l'h\xF4tellerie plier des serviette\r. La peur n'existe plus dans mon dojo,
-    eh eh, j'ai retrouv\xE9 mon Mojo (baby)\r, dites \xE0 la m\xE9nag\xE8re qu'on
-    a ressuscit\xE9 CloClo\r, dites aux connards d'intermittents d'allumer les projos\r.
-    Appelez les Pow-wow, on va d\xE9terrer la hache de guerre\r, ramener la concurrence
-    \xE0 l'\xE2ge de pierre\r. Si t'as la fureur de vaincre, moi, j'ai la rage de
-    perdre\r. Je prends m\xEAme plus la peine de r\xE9pondre \xE0 vos clashs de merde\r
-    (nan) Je pr\xEAterais ni mon buzz, ni mon temps (ni mon temps) Je verserais ni
-    ma sueur, ni mon sang (ni mon sang)\r Tu parles de moi pour rien dans tes titres\r,
-    tu ferais m\xEAme pas de buzz avec un album antis\xE9mite\r. Merci quand m\xEAme
-    pour le coup de pub (merci)\r, merci les chiennes de garde pour le coup de pute
-    (merci)\r, merci \xE0 tout ceux qui m'ont soutenus\r. J'oublie trop souvent de
-    remercier les gens qui m'ont soutenu\r. Faut qu'on s'offre une nouvelle vie,
-    faut qu'on s'ouvre l'esprit, faut que les pantins coupent les fils\r. Prend la
-    route et fuis, j'ai une soucoupe en double file\r, je te ram\xE8ne avec oim,
-    RaelSan"
---- !u!222 &2036527315
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036527310}
-  m_CullTransparentMesh: 1
 --- !u!1 &2050048995
 GameObject:
   m_ObjectHideFlags: 0
@@ -7916,104 +7954,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2145255017
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2145255021}
-  - component: {fileID: 2145255020}
-  - component: {fileID: 2145255019}
-  - component: {fileID: 2145255018}
-  m_Layer: 5
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2145255018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145255017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &2145255019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145255017}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &2145255020
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145255017}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!224 &2145255021
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2145255017}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1623663728}
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
