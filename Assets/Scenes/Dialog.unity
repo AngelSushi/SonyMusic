@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -216,6 +216,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 256292550}
+  - {fileID: 1242298876}
+  - {fileID: 503701804}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -303,6 +305,174 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 256292549}
   m_CullTransparentMesh: 1
+--- !u!1 &476835349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 476835351}
+  - component: {fileID: 476835350}
+  m_Layer: 0
+  m_Name: Square
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &476835350
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476835349}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &476835351
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 476835349}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &503701802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 503701804}
+  - component: {fileID: 503701803}
+  m_Layer: 0
+  m_Name: background (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &503701803
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503701802}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: -1
+  m_Sprite: {fileID: 21300000, guid: aaeefa5d84fa3e5419784dfbe56ab702, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 9.52, y: 3.21}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &503701804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503701802}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -400.00003, y: -194.32735, z: 0}
+  m_LocalScale: {x: 0.24324325, y: 0.24324325, z: 0.24324325}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 179904843}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &562026465
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,6 +656,7 @@ GameObject:
   - component: {fileID: 797059504}
   - component: {fileID: 797059505}
   - component: {fileID: 797059506}
+  - component: {fileID: 797059507}
   m_Layer: 0
   m_Name: DialogController
   m_TagString: Untagged
@@ -544,164 +715,241 @@ MonoBehaviour:
     content: "Ici Magnitude \u03B1 pour Magnitude \u03B2. Cette mission repr\xE9sente
       notre derni\xE8re chance de pr\xE9venir la destruction de la soci\xE9t\xE9
       humaine."
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+    speed: 2
   - speakerID: 2
     dialogID: 2
     nextID: 3
-    content: "\"nom du joueur\" gr\xE2ce \xE0 vous nous avons modifi\xE9 le cours
-      de l'Histoire d\xE8s le moment o\xF9 vous avez battu Orel au rap battle Uncut
-      de Booba."
-    speed: 8
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+    content: "%name% gr\xE2ce \xE0 toi nous avons modifi\xE9 le cours de l'Histoire
+      d\xE8s le moment o\xF9 tu as battu Orel au rap battle Uncut de Booba."
+    speed: 2
   - speakerID: 2
     dialogID: 3
     nextID: 4
     content: "C'est ce a qui donn\xE9 l'occasion aux forces du mal de corrompre Orelsan,
-      victime de son succ\xE8s, mais vous ne les avez pas laiss\xE9 faire !"
-    speed: 8
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
-  - speakerID: 1
+      d\xE9pit\xE9 par sa d\xE9faite. Mais tu ne les as pas laiss\xE9 faire !"
+    speed: 2
+  - speakerID: 4
     dialogID: 4
     nextID: 5
-    content: "Quelques ann\xE9es plus tard, vous \xEAtes all\xE9s aider Orel en mettant
-      de l'ordre dans ses notes, ses id\xE9es..."
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+    content: "Et quelques ann\xE9es plus tard, on a gal\xE9r\xE9 quand il a voulu
+      faire son 3e album, il a fallu ranger ses notes et ses id\xE9es !"
+    speed: 2
   - speakerID: 1
     dialogID: 5
     nextID: 6
-    content: "Mais cette fois-ci c'est carr\xE9ment une autre version de lui-m\xEAme
-      qui vient directement d'un mauvais futur."
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+    content: "Mais cette fois-ci c'est carr\xE9ment la version mal\xE9fique de lui-m\xEAme,
+      celui venant de notre futur, qui cherche \xE0 nous contrer."
+    speed: 2
   - speakerID: 2
     dialogID: 6
     nextID: 7
-    content: "Realsan est devenu plus puissant et d\xE9truit tout ! L'heure est grave
-      Orelsan doit se rendre le plus vite possible \xE0 Bercy."
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+    content: "Realsan est devenu plus puissant et d\xE9truit tout ! L'heure est grave,
+      Orel doit se rendre le plus vite possible \xE0 Bercy."
+    speed: 2
   - speakerID: 3
     dialogID: 7
     nextID: 8
     content: "On peut pas laisser faire ce type, on peut pas laisser son d\xE9faitisme
-      l'emporter, on a le m\xEAme slip mais pas du tout les m\xEAmes id\xE9es....Jvais
-      lui montrer par a + b que tout va s'arranger."
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+      l'emporter. Jvais lui montrer par a + b que tout va s'arranger."
+    speed: 2
   - speakerID: 4
     dialogID: 8
     nextID: 9
     content: "Vazy Orel, pr\xE9pare toi, pose tes lignes et prend des forces avant
-      Bercy., nous on s'occupe du reste !"
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+      Bercy, on s'occupe du reste !"
+    speed: 2
   - speakerID: 2
     dialogID: 9
     nextID: 10
-    content: Malheureusement nous venons d'avoir l'information que Paris est en train
-      de glitcher sur le continium espace-temps !
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+    content: "Malheureusement nous venons d'avoir l'information que Paris est en
+      train de glitcher \xE0 travers le continuum espace-temps !"
+    speed: 2
   - speakerID: 2
     dialogID: 10
     nextID: 11
-    content: "Et commence donc \xE0 fusionner \xE0 le Paris de la mauvaise timeline
-      ! La route sera plein d'ennemis et d'obstacles !"
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+    content: "Et commence donc \xE0 fusionner avec le Paris du mauvais futur ! \xC7a
+      va \xEAtre gal\xE8re de rejoindre la sc\xE8ne avec tous ces nouveaux obstacles."
+    speed: 2
   - speakerID: 1
     dialogID: 11
     nextID: 12
-    content: "Ok \"nom du joueur\" ton r\xF4le va \xEAtre de nous frayer un chemin
-      \xE0 travers ce bourbier. Gringe [...], Abblaye et moi on reste aux aguets
-      et on te donne les infos qu'on peut trouver !"
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
+    content: "Ok %name% fraye-nous un chemin \xE0 travers ce bourbier. Nous, on reste
+      pr\xEAts et on te donne les infos qu'on peut trouver !"
+    speed: 2
   - speakerID: 3
     dialogID: 12
     nextID: 13
-    content: "Merci les gars, sans chaque personne de cette \xE9quipe on en serait
-      pas l\xE0 aujourd'hui, mais maintenant faut se battre pour proteger ce qu'on
-      a construit, pour notre Civilisation"
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
-      m_PersistentCalls:
-        m_Calls: []
-  - speakerID: 2
+    content: "Merci les gars, sans chacune des personnes de cette \xE9quipe on en
+      serait pas l\xE0 aujourd'hui,"
+    speed: 2
+  - speakerID: 4
     dialogID: 13
+    nextID: 14
+    content: "Maintenant faut se battre pour proteger ce qu'on a construit, pour
+      d\xE9fendre notre Civilisation"
+    speed: 2
+  - speakerID: 2
+    dialogID: 14
     nextID: -1
-    content: "Aller je crois en vous l'\xE9quipe... Attention danger en approche
+    content: "Allez je crois en vous l'\xE9quipe... Attention danger en approche
       !"
-    speed: 5
-    beginAction:
-      m_PersistentCalls:
-        m_Calls: []
-    endAction:
+    speed: 2
+--- !u!114 &797059507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797059502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43d7be752826a8743956d8a5ed0216f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _events:
+  - name: 3
+    id: 3
+    startEvent:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1035571623}
-          m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-          m_MethodName: StartGameplayScene
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 8e49db1c761dd5b46883c9d18b2f7f4a, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: 4
+    id: 4
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: 6
+    id: 6
+    startEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 9f7fb8b1059fb724b9caacb46aff7bb6, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: 9
+    id: 9
+    startEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: 1f28563f49dd2da44b3211efa5670d08, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: 11
+    id: 11
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 476835350}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 7482667652216324306, guid: 4c843c8969876064bbd4a4556603a696, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - name: 12
+    id: 12
+    startEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1242298875}
+          m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
+          m_MethodName: set_sprite
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 21300000, guid: aaeefa5d84fa3e5419784dfbe56ab702, type: 3}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    endEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: 13
+    id: 13
+    startEvent:
+      m_PersistentCalls:
+        m_Calls: []
+    endEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 797059506}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: ChangeScene
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -711,6 +959,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  _controller: {fileID: 797059505}
 --- !u!1 &923105381
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,52 +1155,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!1 &1035571622
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1035571624}
-  - component: {fileID: 1035571623}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1035571623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1035571622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90587d17b1a18b94885e4c05d0df3018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMen: 0
-  isWomen: 0
---- !u!4 &1035571624
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1035571622}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242298874
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1213,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: da64ad6c79ae2534da863c94c8fdcd2b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 627f2f562ae6817478e285d672d648d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1028,13 +1231,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1242298874}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1861, y: 0.9889, z: 0}
-  m_LocalScale: {x: 0.6625503, y: 0.97135323, z: 0.654}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -400.05035, y: -194.32735, z: 0}
+  m_LocalScale: {x: 0.24324325, y: 0.24324325, z: 0.24324325}
+  m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 179904843}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1685943764
 GameObject:
@@ -1211,7 +1414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 390a5962003b23b4690af57ad11f64a4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b16fd8bfd1e0b634a9f91f464c037ec5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

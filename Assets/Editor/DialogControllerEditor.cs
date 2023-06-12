@@ -230,12 +230,7 @@ public class DialogControllerEditor : Editor
             EditorGUILayout.LabelField("Speed");
             dialog.speed = EditorGUILayout.FloatField(dialog.speed);
             EditorGUILayout.EndHorizontal();
-            
-            EditorGUILayout.Space(10);
-            EditorGUILayout.PropertyField(dialogs.GetArrayElementAtIndex(i).FindPropertyRelative("beginAction"));
-            EditorGUILayout.Space(10);
-            EditorGUILayout.PropertyField(dialogs.GetArrayElementAtIndex(i).FindPropertyRelative("endAction"));
-            
+   
             
             EditorGUILayout.EndVertical();
         }
@@ -249,6 +244,9 @@ public class DialogControllerEditor : Editor
         {
             RegenerateFiles();
         }
+        
+        
+       // EditorUtility.SetDirty(classTarget);
     }
 
     private void RegenerateFiles()

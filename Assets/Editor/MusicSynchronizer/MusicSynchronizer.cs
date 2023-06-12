@@ -153,6 +153,8 @@ public class MusicSynchronizer : EditorWindow
                     }
                 }
             }
+            
+            EditorUtility.SetDirty(_musicController);
         }
         
         
@@ -160,7 +162,7 @@ public class MusicSynchronizer : EditorWindow
         GUI.EndScrollView();
 
         
-        EditorUtility.SetDirty(_musicController);
+        
         
 
     }
