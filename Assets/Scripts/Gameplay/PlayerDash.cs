@@ -12,7 +12,7 @@ using UnityEngine.UIElements;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
 
-public class PlayerDash : MonoBehaviour
+public class PlayerDash : CoroutineSystem
 {
 
 
@@ -22,6 +22,7 @@ public class PlayerDash : MonoBehaviour
     public bool isDashing;
     [SerializeField] private bool beginFromPlayer;
     [SerializeField] private int playerDragAngle;
+    [SerializeField] private GameObject slashAnim;
     
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
@@ -72,6 +73,8 @@ public class PlayerDash : MonoBehaviour
     private GameManager _gameManager;
 
     private bool _return;
+    private bool _lastGrounded;
+    private float _originalDistance;
     
     void Awake() 
     {
@@ -83,6 +86,7 @@ public class PlayerDash : MonoBehaviour
     private void Start()
     {
         _gameManager.Event.OnReleaseObstacle += ReleaseObstacle;
+        _originalDistance = dashDistance;
     }
 
     private void OnDestroy()
@@ -121,6 +125,19 @@ public class PlayerDash : MonoBehaviour
                             if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
                             {
                                 dashDirection = (_endPosition - _startPosition).normalized;
+
+                                if (dashDirection.y < 0.1f)
+                                {
+                                    if (IsGrounded())
+                                    {
+                                        return;
+                                    }
+                                    else
+                                    {
+                                
+                                    }
+                                }
+
                                 _rb.velocity = dashDirection * dashSpeed;
                                 _playerPosition = transform.position;
                                 isDashing = true;
@@ -138,6 +155,20 @@ public class PlayerDash : MonoBehaviour
                     if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
                     {
                         dashDirection = (_endPosition - _startPosition).normalized;
+                        
+                        if (dashDirection.y < 0.1f)
+                        {
+                            if (IsGrounded())
+                            {
+                                return;
+                            }
+                            else
+                            {
+                                
+                            }
+                        }
+
+                        
                         _rb.velocity = dashDirection * dashSpeed;
                         _playerPosition = transform.position;
                         isDashing = true;
@@ -156,15 +187,7 @@ public class PlayerDash : MonoBehaviour
             dashDirection = Vector2.zero;
             isDashing = false;
             
-           /* if (animDashDone)
-            {
-                skeletRunObj.SetActive(true);
-                skeletDashObj.SetActive(false);
-                skeletFallObj.SetActive(false);
-                animDashDone = false;
-            }
-            */
-            //ici la 
+            Debug.Log("zero velocity");
         }
         else if (isDashing)
         {
@@ -185,23 +208,34 @@ public class PlayerDash : MonoBehaviour
             }
             else if(_return)
             {
+                Debug.Log("zero velocity return");
                 _rb.velocity = Vector2.zero;
             }
+
+            if (!_lastGrounded)
+            {
+                StartCoroutine(StartAndDestroyAnim());
+            }
         }
+
+        
+
+        _lastGrounded = IsGrounded();
     }
 
     private bool IsGrounded()
     {
-
-        
         var result = Physics2D.Raycast(transform.position, -Vector2.up, 1f, LayerMask.GetMask("Ground"));
-        if (result.collider != null)
+        if (debugDash)
         {
-            Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.green);
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.red);
+            if (result.collider != null)
+            {
+                Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.green);
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.red);
+            }
         }
 
         return result;
@@ -217,11 +251,7 @@ public class PlayerDash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            StartCoroutine(StartAndDestroyAnim());
-        }
-        
+
         if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
             Vector3 localEndPosition = Vector3.zero;
@@ -231,15 +261,44 @@ public class PlayerDash : MonoBehaviour
 
             DestroyableObject dObj = col.gameObject.GetComponent<DestroyableObject>();
 
-            float targetAngle = angleOffset;
-            Vector3 dir = FindDirection(dObj,col,targetAngle);
-            float angle = Vector3.Angle(dashDirection,dir);
+            if (dObj == null || dObj.IsCut)
+            {
+                return;
+            }
 
+            Vector3 slashDirection = (localEndPosition - transform.localPosition).normalized;
+            
+            float targetAngle = angleOffset;
+            float angle = Vector3.Angle(dashDirection,FindDirection(dObj,col,targetAngle));
+
+            Vector3 slashPosition = col.transform.position;
+            slashPosition.z = -2f;
+            slashAnim.transform.position = slashPosition;
+            
+            Debug.DrawRay(col.transform.position, col.transform.up * 10,Color.yellow,10);
+            Debug.DrawRay(col.transform.position,slashDirection * 10,Color.magenta,10);
+            Debug.DrawRay(col.transform.position,dashDirection * 10,Color.green,10);
+            
+            
+            Debug.Log("dashDirection " + dashDirection + " slashDirection " + slashDirection);
+            float animAngle = Vector3.Angle(col.transform.up, slashDirection);
+            
+            slashAnim.transform.Rotate(0,0,-animAngle);
+            slashAnim.SetActive(true);
+            
+            Debug.Break();
+            RunDelayed(0.36f, () =>
+            {
+                slashAnim.SetActive(false);
+            });
+            
+            
             if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
             {
                 dObj.IsCut = true;
                 AddPoint();
                 CutObject(col,localEndPosition);
+                //Debug.Break();
             }
 
         }
@@ -319,7 +378,9 @@ public class PlayerDash : MonoBehaviour
 
     public IEnumerator StartAndDestroyAnim()
     {
-        var myNewSmoke = Instantiate(landingAnimation, groundDetection.transform.position, Quaternion.identity);
+        Vector3 smokePosition = transform.position;
+        smokePosition.y -= 0.5f;
+        var myNewSmoke = Instantiate(landingAnimation, smokePosition, Quaternion.identity);
 
         myNewSmoke.transform.parent = gameObject.transform;
         
@@ -327,7 +388,12 @@ public class PlayerDash : MonoBehaviour
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(true);
         skeletAnimationFall.AnimationName = "Atterissage";
+        
+        Debug.Log("atterir");
+        
         yield return new WaitForSeconds(0.3f);
+        
+        Debug.Log("run");
         skeletRunObj.SetActive(true);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
