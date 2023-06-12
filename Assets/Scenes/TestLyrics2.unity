@@ -353,8 +353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -225.91998}
-  m_SizeDelta: {x: -278.46, y: -568.5371}
+  m_AnchoredPosition: {x: 0, y: -228.6403}
+  m_SizeDelta: {x: -278.46, y: -573.9778}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &25068900
 MonoBehaviour:
@@ -976,6 +976,7 @@ GameObject:
   - component: {fileID: 641787652}
   - component: {fileID: 641787651}
   - component: {fileID: 641787653}
+  - component: {fileID: 641787654}
   m_Layer: 5
   m_Name: YellowMask
   m_TagString: Untagged
@@ -1000,8 +1001,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7847.688, y: 6304.4463}
-  m_SizeDelta: {x: 0, y: -597.4138}
+  m_AnchoredPosition: {x: -2159.3076, y: 2831.8682}
+  m_SizeDelta: {x: 63.384, y: -4238.779}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &641787651
 MonoBehaviour:
@@ -1061,6 +1062,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1818360608 &641787654
+PositionConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641787649}
+  m_Enabled: 1
+  m_Weight: 1
+  m_TranslationAtRest: {x: -2003.2823, y: 4712.218, z: 0}
+  m_TranslationOffset: {x: -2003.2922, y: -1.5805664, z: 0}
+  m_AffectTranslationX: 0
+  m_AffectTranslationY: 1
+  m_AffectTranslationZ: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 1
+  m_Sources:
+  - sourceTransform: {fileID: 25068899}
+    weight: 1
 --- !u!1 &647835698
 GameObject:
   m_ObjectHideFlags: 0
@@ -1880,7 +1900,7 @@ PlayableDirector:
   m_GameObject: {fileID: 1205002573}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: 28bd487ae9632b045a5974a284f2a617, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: fdd7bd4814d5fdf4a993ad7bc6728f6b, type: 2}
   m_InitialState: 1
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -1893,12 +1913,6 @@ PlayableDirector:
   - key: {fileID: 957006881859968080, guid: fdd7bd4814d5fdf4a993ad7bc6728f6b, type: 2}
     value: {fileID: 641787653}
   - key: {fileID: 8818582936337713409, guid: fdd7bd4814d5fdf4a993ad7bc6728f6b, type: 2}
-    value: {fileID: 0}
-  - key: {fileID: 749179903199073920, guid: 28bd487ae9632b045a5974a284f2a617, type: 2}
-    value: {fileID: 1947916453}
-  - key: {fileID: 957006881859968080, guid: 28bd487ae9632b045a5974a284f2a617, type: 2}
-    value: {fileID: 641787653}
-  - key: {fileID: 8818582936337713409, guid: 28bd487ae9632b045a5974a284f2a617, type: 2}
     value: {fileID: 0}
   m_ExposedReferences:
     m_References:
@@ -1916,7 +1930,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1261593539
 GameObject:
@@ -2198,7 +2212,7 @@ RectTransform:
   - {fileID: 634165875}
   - {fileID: 1832632018}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2730,7 +2744,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1832632015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3396,7 +3410,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0026245117, y: -1274}
+  m_AnchoredPosition: {x: -0.0026855469, y: -1274}
   m_SizeDelta: {x: 1408.2, y: 4308.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1947916450
@@ -3454,7 +3468,7 @@ MonoBehaviour:
     \xE0 pleurer\r\nIls disent que tout va s'effondrer\r\nQu'on va y passer dans
     trois degr\xE9s\r\nJ'pensais qu'la science allait nous sauver\r\nMais j'ai d'moins
     en moins confiance au progr\xE8s\r\nJ'sais m\xEAme pas pourquoi j'pense \xE0
-    \xE7a j'y connais rien\r\nQu'est c'que j'y connais?\r\nQue d'la data pour les
+    \xE7a\nj'y connais rien\r\nQu'est c'que j'y connais?\r\nQue d'la data pour les
     GAFA\r\nB\xE2tard t'es rien d'autre qu'une donn\xE9e\r\nJ'ai quelques \xE9clairs
     de g\xE9nie\r\nMais la plupart du temps j'suis teub\xE9\r\nJ'connais qu'les mauvais
     alcool qui donnent l'alcool mauvais\r\nJ'avais peur d'avoir rien compris maintenant\r\nJ'ai
@@ -3463,7 +3477,7 @@ MonoBehaviour:
     Coluche\r\nJ'viens d'la campagne normande\r\nIls aiment juste les bonnes affaires\r\nTout
     c'qu'ils veulent c'est voir l'\xE9mission d'la brocante\r\nMaman m'a dit si il
     y a des pauvres\r\nC'est qu'ils ont mal travaill\xE9 \xE0 l'\xE9cole\r\nC'est
-    pas d'sa faute sa m\xE8re racontait le m\xEAme genre de merde \xE0 ses gosses\r\nC'est
+    pas d'sa faute sa m\xE8re racontait \nle m\xEAme genre de merde \xE0 ses gosses\r\nC'est
     pas d'sa faute sa m\xE8re, bref\r\nFaut qu'on brise ce putain d'cercle\r\nIl
     est vicieux c'putain d'cercle\r\nJ'peux pas l'faire tout seul faut qu'tu m'aides\r\nAide
     moi, marche\r\nMarche avec moi, apprends moi\r\nM\xE9ga, m\xE9ga m\xE9ga m\xE9ga\r\nJ'peux
