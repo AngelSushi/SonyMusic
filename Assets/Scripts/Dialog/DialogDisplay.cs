@@ -61,7 +61,7 @@ public class DialogDisplay : MonoBehaviour {
         for (int i = 1; i < dialogContent.content.Length + 1; i++)
         {
             Debug.Log("speeed " + dialogContent.speed);
-            yield return new WaitForSeconds(dialogContent.speed / dialogContent.content.Length);
+            yield return new WaitForSecondsRealtime(dialogContent.speed / dialogContent.content.Length);
             _dialogText.text = dialogContent.content.Substring(0,i);
         }
 
