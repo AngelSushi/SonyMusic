@@ -382,7 +382,7 @@ public class PlayerDash : MonoBehaviour
     
     public void ResetCombo()
     {
-        comboPoint = 1;
+        comboPoint = 0;
         dashSlider.value = 0;
     }
 }
