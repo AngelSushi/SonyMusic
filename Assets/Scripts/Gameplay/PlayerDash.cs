@@ -2,6 +2,7 @@ using Spine.Unity;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.Collections;
 using Unity.VisualScripting;
@@ -12,7 +13,7 @@ using UnityEngine.UIElements;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
 
-public class PlayerDash : MonoBehaviour
+public class PlayerDash : CoroutineSystem
 {
 
 
@@ -22,6 +23,7 @@ public class PlayerDash : MonoBehaviour
     public bool isDashing;
     [SerializeField] private bool beginFromPlayer;
     [SerializeField] private int playerDragAngle;
+    [SerializeField] private GameObject slashAnim;
     
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
@@ -48,9 +50,16 @@ public class PlayerDash : MonoBehaviour
     
     [Header("Debug")]
     [SerializeField] private bool debugDash;
-
     [SerializeField] private bool smoothDash;
-
+    [SerializeField] private bool useButtons;
+    [SerializeField] private bool showSlashAreas;
+    [SerializeField] private List<GameObject> buttons;
+    [SerializeField] private List<GameObject> areas;
+    [Range(0,1)]
+    [SerializeField] private float slashAreaPercentage;
+    
+    
+    [Header("Animation")]
     public SkeletonAnimation skeletAnimRun;
     public SkeletonAnimation skeletAnimationFall;
     public GameObject skeletRunObj;
@@ -59,30 +68,57 @@ public class PlayerDash : MonoBehaviour
     bool animDashDone = false;
 
 
-
+    [HideInInspector] public GameObject lastHitPlateform;
 
     private Vector3 _startPosition;
+    private Vector3 _startTouchPosition;
     private Vector3 _endPosition;
     private Rigidbody2D _rb;
     private Vector3 _playerPosition;
     private Vector3 _startObstaclePosition;
     [HideInInspector] public Vector3 dashDirection;
     private float _dashPoint;
-    private List<Plateform> _plateforms;
     private GameManager _gameManager;
 
     private bool _return;
+    private bool _lastGrounded;
+    private float _originalDistance;
+    
+    
+    private List<Plateform> _plateforms;
+    private int _plateformIndex;
+    
+    
     
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
         _playerPosition = transform.localPosition;
         _gameManager = FindObjectOfType<GameManager>();
+        _plateforms = FindObjectsOfType<Plateform>().ToList();
+
+        
+        foreach (GameObject button in buttons)
+        {
+            button.SetActive(useButtons);
+        }
+
+        foreach (GameObject area in areas)
+        {
+            area.SetActive(showSlashAreas);
+        }
+
+        areas[0].GetComponent<RectTransform>().anchorMax = new Vector2(1 - slashAreaPercentage, 1f);
+        areas[1].GetComponent<RectTransform>().anchorMin = new Vector2(1 - slashAreaPercentage, 0f);
+
+
+
     }
 
     private void Start()
     {
         _gameManager.Event.OnReleaseObstacle += ReleaseObstacle;
+        _originalDistance = dashDistance;
     }
 
     private void OnDestroy()
@@ -104,44 +140,34 @@ public class PlayerDash : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 _startPosition = ConvertPoint(touch.position);
+                _startTouchPosition = touch.position;
             }
 
             if (touch.phase == TouchPhase.Ended)
             {
-                if (beginFromPlayer)
+                _endPosition = ConvertPoint(touch.position);
+                
+                if (_startTouchPosition.x <= Screen.width - Screen.width * slashAreaPercentage)
                 {
-                    foreach (Collider2D col2D in Physics2D.OverlapCircleAll(ConvertPoint(touch.position), playerDragAngle))
-                    {
-                        if (col2D.gameObject.layer == LayerMask.NameToLayer("Player"))
-                        {
-                            _endPosition = ConvertPoint(touch.position);
-
-                            float distance = Vector3.Distance(_startPosition, _endPosition);
-                            
-                            if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
-                            {
-                                dashDirection = (_endPosition - _startPosition).normalized;
-                                _rb.velocity = dashDirection * dashSpeed;
-                                _playerPosition = transform.position;
-                                isDashing = true;
-                                _return = false;
-                            }
-                            ;
-                        }
-                    }
+                    Vector2 _direction = (_endPosition - _startPosition).normalized;
+                    
+                    Dash(_direction.y > 0 ? Vector2.up : Vector2.down,true);
                 }
                 else
                 {
-                    _endPosition = ConvertPoint(touch.position);
-                    float distance = Vector3.Distance(_startPosition, _endPosition);
-                    
-                    if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
+                    if (beginFromPlayer)
                     {
-                        dashDirection = (_endPosition - _startPosition).normalized;
-                        _rb.velocity = dashDirection * dashSpeed;
-                        _playerPosition = transform.position;
-                        isDashing = true;
-                        _return = false;
+                        foreach (Collider2D col2D in Physics2D.OverlapCircleAll(ConvertPoint(touch.position), playerDragAngle))
+                        {
+                            if (col2D.gameObject.layer == LayerMask.NameToLayer("Player"))
+                            {
+                                Dash(false);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        Dash(false);
                     }
                 }
             }
@@ -155,16 +181,6 @@ public class PlayerDash : MonoBehaviour
             _rb.velocity = Vector2.zero;    
             dashDirection = Vector2.zero;
             isDashing = false;
-            
-           /* if (animDashDone)
-            {
-                skeletRunObj.SetActive(true);
-                skeletDashObj.SetActive(false);
-                skeletFallObj.SetActive(false);
-                animDashDone = false;
-            }
-            */
-            //ici la 
         }
         else if (isDashing)
         {
@@ -187,21 +203,31 @@ public class PlayerDash : MonoBehaviour
             {
                 _rb.velocity = Vector2.zero;
             }
+
+            if (!_lastGrounded)
+            {
+                StartCoroutine(StartAndDestroyAnim());
+            }
         }
+
+        
+        _lastGrounded = IsGrounded();
+         
     }
 
     private bool IsGrounded()
     {
-
-        
         var result = Physics2D.Raycast(transform.position, -Vector2.up, 1f, LayerMask.GetMask("Ground"));
-        if (result.collider != null)
+        if (debugDash)
         {
-            Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.green);
-        }
-        else
-        {
-            Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.red);
+            if (result.collider != null)
+            {
+                Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.green);
+            }
+            else
+            {
+                Debug.DrawRay(transform.position, -Vector2.up * 1f, Color.red);
+            }
         }
 
         return result;
@@ -217,11 +243,7 @@ public class PlayerDash : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            StartCoroutine(StartAndDestroyAnim());
-        }
-        
+
         if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
         {
             Vector3 localEndPosition = Vector3.zero;
@@ -231,15 +253,51 @@ public class PlayerDash : MonoBehaviour
 
             DestroyableObject dObj = col.gameObject.GetComponent<DestroyableObject>();
 
-            float targetAngle = angleOffset;
-            Vector3 dir = FindDirection(dObj,col,targetAngle);
-            float angle = Vector3.Angle(dashDirection,dir);
+            if (dObj == null || dObj.IsCut)
+            {
+                return;
+            }
 
+            Vector3 slashDirection = (localEndPosition - transform.localPosition).normalized;
+            
+            float targetAngle = angleOffset;
+            float angle = Vector3.Angle(dashDirection,FindDirection(dObj,col,targetAngle));
+
+            Vector3 slashPosition = col.transform.position;
+            slashPosition.z = -2f;
+            slashAnim.transform.position = slashPosition;
+            
+            Debug.DrawRay(col.transform.position, col.transform.up * 10,Color.yellow,10);
+            Debug.DrawRay(col.transform.position,slashDirection * 10,Color.magenta,10);
+            Debug.DrawRay(col.transform.position,dashDirection * 10,Color.green,10);
+            
+            
+            float animAngle = Vector2.Angle(col.transform.up, slashDirection);
+
+            Debug.Log("animAngle " + animAngle);
+            
+            Vector3 slashAngles = slashAnim.transform.eulerAngles;
+            slashAngles.z = animAngle;
+
+            slashAnim.transform.eulerAngles = slashAngles;
+
+
+
+            slashAnim.SetActive(true);
+            
+            Debug.Break();
+            RunDelayed(0.36f, () =>
+            {
+                slashAnim.SetActive(false);
+            });
+            
+            
             if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
             {
                 dObj.IsCut = true;
                 AddPoint();
                 CutObject(col,localEndPosition);
+                //Debug.Break();
             }
 
         }
@@ -288,6 +346,41 @@ public class PlayerDash : MonoBehaviour
         }
     }
 
+    private void Dash(Vector2 _dashDirection,bool switchingPlateform)
+    {
+        float distance = Vector3.Distance(_startPosition, _endPosition);
+                    
+        Debug.Log("distance " + distance + " minDistance " + minDistance);
+        if (distance >= minDistance /* && (_endPosition - _startPosition).normalized.x > 0 */)
+        {
+            dashDirection = _dashDirection;
+                        
+            if (dashDirection.y < 0.1f && !switchingPlateform)
+            {
+                if (IsGrounded())
+                {
+                    return;
+                }
+                else
+                {
+                                
+                }
+            }
+
+                        
+            _rb.velocity = dashDirection * dashSpeed;
+            _playerPosition = transform.position;
+            isDashing = true;
+            _return = false;
+            _gameManager.Event.OnDashLaunched?.Invoke(this,new EventManager.OnDashLaunchedArgs() { dashDirection = _dashDirection,switchingPlateform = switchingPlateform});
+        }
+    }
+    private void Dash(bool switchingPlateform)
+    {
+        Dash((_endPosition - _startPosition).normalized,switchingPlateform);
+    }
+    
+    
     private Vector3 FindDirection(DestroyableObject dObject,Collider2D col,float targetAngle)
     {
         switch (dObject.dashDirection)
@@ -319,7 +412,9 @@ public class PlayerDash : MonoBehaviour
 
     public IEnumerator StartAndDestroyAnim()
     {
-        var myNewSmoke = Instantiate(landingAnimation, groundDetection.transform.position, Quaternion.identity);
+        Vector3 smokePosition = transform.position;
+        smokePosition.y -= 0.5f;
+        var myNewSmoke = Instantiate(landingAnimation, smokePosition, Quaternion.identity);
 
         myNewSmoke.transform.parent = gameObject.transform;
         
@@ -327,7 +422,9 @@ public class PlayerDash : MonoBehaviour
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(true);
         skeletAnimationFall.AnimationName = "Atterissage";
+        
         yield return new WaitForSeconds(0.3f);
+        
         skeletRunObj.SetActive(true);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
@@ -384,5 +481,30 @@ public class PlayerDash : MonoBehaviour
     {
         comboPoint = 0;
         dashSlider.value = 0;
+    }
+
+    public void SwitchPlateform(bool up)
+    {
+        if (!useButtons)
+        {
+            return;
+        }
+        
+        if (up)
+        {
+            if (_plateformIndex < _plateforms.Count - 1)
+            {
+                _plateformIndex++;
+                Dash(Vector2.up,true);
+            }
+        }
+        else
+        {
+            if (_plateformIndex > 0)
+            {
+                _plateformIndex--;
+                Dash(Vector2.down,true);
+            }
+        }
     }
 }

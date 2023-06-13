@@ -14,4 +14,12 @@ public class EventManager : MonoBehaviour
         public PlayerDash player;
         public bool isCut;
     }
+
+    public EventHandler<OnDashLaunchedArgs> OnDashLaunched;
+
+    public class OnDashLaunchedArgs : EventArgs
+    {
+        public Vector3 dashDirection;
+        public bool switchingPlateform;
+    }
 }
