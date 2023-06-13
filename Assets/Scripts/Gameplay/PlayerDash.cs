@@ -429,7 +429,7 @@ public class PlayerDash : CoroutineSystem
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
         _return = true;
-        skeletAnimRun.AnimationName = "Run";
+        skeletAnimRun.AnimationName = "NarutoRun";
 
     }
     
@@ -479,7 +479,7 @@ public class PlayerDash : CoroutineSystem
     
     public void ResetCombo()
     {
-        comboPoint = 1;
+        comboPoint = 0;
         dashSlider.value = 0;
     }
 
