@@ -15,61 +15,46 @@ public class MusicLane : MonoBehaviour
     
     [SerializeField] private NoteName restriction; 
     public float speed;
-    private Transform[] _positions;
+    
+    [HideInInspector] public Transform[] positions;
     
     private int _index;
-    
-    [SerializeField] [Tooltip("The minimum length of an obstacle to be resize ")]private float minLengthTime;
 
     private MusicController _controller;
+    [HideInInspector] public ObstaclePool lanePool;
+
     private void Start()
     {
-        _positions = new Transform[transform.childCount];
+        positions = new Transform[transform.childCount];
         
         for (int i = 0; i < transform.childCount; i++)
         {
-            _positions[i] = transform.GetChild(i);
+            positions[i] = transform.GetChild(i);
         }
         
         _controller = MusicController.instance;
+        lanePool = GetComponent<ObstaclePool>();
     }
 
     private void Update()
     {
-        float distance = Vector2.Distance(_positions[0].position, _positions[1].position);
+        float distance = Vector2.Distance(positions[0].position, positions[1].position);
         float time = distance / speed;
-        
-        Debug.Log("length " + _controller.allNotes.Count + " length2 " + _timeNotes.Count);
         
 
         if (_index < _timeNotes.Count && MusicController.GetAudioSourceTime() >= _timeNotes[_index] - time)
         {
+            GameObject obstacle = lanePool.pool.Get();
             
-            Debug.Log("time " + _timeNotes[_index] + "lane on " + transform.name);
-            
-            Debug.Log("spawn obstacle");
-            
-
-            GameObject obstacle = Instantiate(_controller.emptyObstacle, _positions[0].position, Quaternion.identity);
+            obstacle.transform.parent = transform;
+            obstacle.transform.position = positions[0].position;
             
             obstacle.GetComponent<SpriteRenderer>().sprite = _controller.obstacles[_controller.currentAllIndex].sprite;
             obstacle.GetComponent<SpriteRenderer>().color = _controller.obstacles[_controller.currentAllIndex].color;
-            obstacle.GetComponent<MusicObstacle>().dashDirection = _controller.obstacles[_controller.currentAllIndex].direction;
-
-            if (_endNotes[_index] > minLengthTime)
-            {
-                // ON sait que l'objet doit spawn a x secondes
-                // on sait que l'objet a une vitesse de y 
-                
-                
-                // v = d/t 
-                // d = v * t
-                
-                float distanceToReach = (float)_endNotes[_index] * speed;
-                obstacle.transform.localScale = new Vector3(distanceToReach, obstacle.transform.localScale.y, obstacle.transform.localScale.z);
-            }
             
+            obstacle.GetComponent<MusicObstacle>().dashDirection = _controller.obstacles[_controller.currentAllIndex].direction;
             obstacle.GetComponent<MusicObstacle>().currentLane = this;
+            
             _index++;
             _controller.currentAllIndex++;
         }
@@ -77,8 +62,6 @@ public class MusicLane : MonoBehaviour
 
     public void SetTimeStamps(List<Note> notes) 
     {
-        Debug.Log("notes " + notes.Count);
-        
         foreach (Note note in notes) 
         {
             Debug.Log("restriction " + note.NoteName);
