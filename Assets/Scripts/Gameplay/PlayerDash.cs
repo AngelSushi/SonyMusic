@@ -3,13 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
 
 public class PlayerDash : CoroutineSystem
