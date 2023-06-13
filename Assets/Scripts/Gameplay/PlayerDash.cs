@@ -108,8 +108,8 @@ public class PlayerDash : CoroutineSystem
             area.SetActive(showSlashAreas);
         }
 
-        areas[0].GetComponent<RectTransform>().anchorMax = new Vector2(1 - slashAreaPercentage, 1f);
-        areas[1].GetComponent<RectTransform>().anchorMin = new Vector2(1 - slashAreaPercentage, 0f);
+        //areas[0].GetComponent<RectTransform>().anchorMax = new Vector2(1 - slashAreaPercentage, 1f);
+        //areas[1].GetComponent<RectTransform>().anchorMin = new Vector2(1 - slashAreaPercentage, 0f);
 
 
 
@@ -268,24 +268,24 @@ public class PlayerDash : CoroutineSystem
             slashAnim.transform.position = slashPosition;
             
             Debug.DrawRay(col.transform.position, col.transform.up * 10,Color.yellow,10);
-            Debug.DrawRay(col.transform.position,slashDirection * 10,Color.magenta,10);
+            Debug.DrawRay(col.transform.position,slashDirection * 10,Color.red,10);
             Debug.DrawRay(col.transform.position,dashDirection * 10,Color.green,10);
             
             
-            float animAngle = Vector2.Angle(col.transform.up, slashDirection);
+            float animAngle = Vector2.Angle(col.transform.up, dashDirection);
 
             Debug.Log("animAngle " + animAngle);
             
-            Vector3 slashAngles = slashAnim.transform.eulerAngles;
-            slashAngles.z = animAngle;
+           //Vector3 slashAngles = slashAnim.transform.eulerAngles;
+           //slashAngles.z = animAngle;
 
-            slashAnim.transform.eulerAngles = slashAngles;
+            slashAnim.transform.eulerAngles = new Vector3(0, 0, -animAngle);
 
 
 
             slashAnim.SetActive(true);
             
-            Debug.Break();
+            //Debug.Break();
             RunDelayed(0.36f, () =>
             {
                 slashAnim.SetActive(false);
