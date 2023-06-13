@@ -1159,8 +1159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b1495346adb634f984eb858b171dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downMin: 0
-  passThrough: 0
+  disableCollision: 0
+  _isPassingThrough: 0
+  _playerCollider: {fileID: 0}
+  _actualCollider: {fileID: 0}
 --- !u!1001 &201000877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3476,8 +3478,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b1495346adb634f984eb858b171dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downMin: 0
-  passThrough: 0
+  disableCollision: 0
+  _isPassingThrough: 0
+  _playerCollider: {fileID: 0}
+  _actualCollider: {fileID: 0}
 --- !u!1 &712895307
 GameObject:
   m_ObjectHideFlags: 0
@@ -6496,8 +6500,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0b1495346adb634f984eb858b171dcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downMin: 0
-  passThrough: 0
+  disableCollision: 0
+  _isPassingThrough: 0
+  _playerCollider: {fileID: 0}
+  _actualCollider: {fileID: 0}
 --- !u!251 &1523417739
 PlatformEffector2D:
   m_ObjectHideFlags: 0

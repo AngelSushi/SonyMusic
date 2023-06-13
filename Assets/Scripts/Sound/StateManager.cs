@@ -10,6 +10,7 @@ public enum SoundState
     GameTheme,
     Slash,
     PauseSong,
+    Caillou,
 }
 
 
