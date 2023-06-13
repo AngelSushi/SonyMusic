@@ -332,7 +332,7 @@ public class PlayerDash : MonoBehaviour
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
         _return = true;
-        skeletAnimRun.AnimationName = "Run";
+        skeletAnimRun.AnimationName = "NarutoRun";
 
     }
     
