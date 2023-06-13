@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/J-M/PlayerAnimated/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/J-M/PlayerAnimated/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Obstacles/Empty.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Obstacles/Empty.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Obstacles/Empty.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Obstacles/Empty.prefab.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/Destruction.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Destruction.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +111,7 @@
       <workItem from="1686499099681" duration="5173000" />
       <workItem from="1686554440046" duration="3000000" />
       <workItem from="1686563959106" duration="14092000" />
+      <workItem from="1686640682564" duration="1155000" />
     </task>
     <servers />
   </component>

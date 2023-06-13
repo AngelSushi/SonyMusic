@@ -122,7 +122,7 @@ public class PlayerDash : CoroutineSystem
 
                             float distance = Vector3.Distance(_startPosition, _endPosition);
                             
-                            if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
+                            if (distance >= minDistance /*&& (_endPosition - _startPosition).normalized.x > 0 */ )
                             {
                                 dashDirection = (_endPosition - _startPosition).normalized;
 
@@ -152,7 +152,7 @@ public class PlayerDash : CoroutineSystem
                     _endPosition = ConvertPoint(touch.position);
                     float distance = Vector3.Distance(_startPosition, _endPosition);
                     
-                    if (distance >= minDistance && (_endPosition - _startPosition).normalized.x > 0 )
+                    if (distance >= minDistance /* && (_endPosition - _startPosition).normalized.x > 0 */)
                     {
                         dashDirection = (_endPosition - _startPosition).normalized;
                         
@@ -280,10 +280,17 @@ public class PlayerDash : CoroutineSystem
             Debug.DrawRay(col.transform.position,dashDirection * 10,Color.green,10);
             
             
-            Debug.Log("dashDirection " + dashDirection + " slashDirection " + slashDirection);
-            float animAngle = Vector3.Angle(col.transform.up, slashDirection);
+            float animAngle = Vector2.Angle(col.transform.up, slashDirection);
+
+            Debug.Log("animAngle " + animAngle);
             
-            slashAnim.transform.Rotate(0,0,-animAngle);
+            Vector3 slashAngles = slashAnim.transform.eulerAngles;
+            slashAngles.z = animAngle;
+
+            slashAnim.transform.eulerAngles = slashAngles;
+
+
+
             slashAnim.SetActive(true);
             
             Debug.Break();
