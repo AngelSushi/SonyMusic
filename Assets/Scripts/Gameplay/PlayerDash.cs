@@ -106,8 +106,11 @@ public class PlayerDash : CoroutineSystem
             area.SetActive(showSlashAreas);
         }
 
-        //areas[0].GetComponent<RectTransform>().anchorMax = new Vector2(1 - slashAreaPercentage, 1f);
-        //areas[1].GetComponent<RectTransform>().anchorMin = new Vector2(1 - slashAreaPercentage, 0f);
+        if (areas.Count == 2)
+        {
+            areas[0].GetComponent<RectTransform>().anchorMax = new Vector2(1 - slashAreaPercentage, 1f);
+            areas[1].GetComponent<RectTransform>().anchorMin = new Vector2(1 - slashAreaPercentage, 0f);
+        }
 
 
 
@@ -148,7 +151,7 @@ public class PlayerDash : CoroutineSystem
                 }
                 else
                 {
-                    Dash(false);
+                    Dash(true);
                 }
             }
         }
@@ -161,11 +164,6 @@ public class PlayerDash : CoroutineSystem
             _rb.velocity = Vector2.zero;    
             dashDirection = Vector2.zero;
             isDashing = false;
-
-            if (animDashDone)
-            {   
-                animDashDone = false;
-            }
         }
         else if (isDashing)
         {
@@ -177,22 +175,28 @@ public class PlayerDash : CoroutineSystem
             _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
         }
 
-        if (IsGrounded() && dashDirection == Vector3.zero)
+        if (IsGrounded())
         {
-            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return)
+            if (dashDirection == Vector3.zero)
             {
-                //    _rb.velocity = new Vector2(0, -1) * speed;
-                _rb.velocity = Vector2.left * speed;
-            }
-            else if(_return)
-            {
-                _rb.velocity = Vector2.zero;
+                if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return)
+                {
+                    //    _rb.velocity = new Vector2(0, -1) * speed;
+                    _rb.velocity = Vector2.left * speed;
+                }
+                else if(_return)
+                {
+                    _rb.velocity = Vector2.zero;
+                }
             }
 
-            if (!_lastGrounded)
+            Debug.Log("dashDirection " + dashDirection);
+            
+            if (animDashDone )
             {
-                Debug.Log("enter atterissage anim");
                 StartCoroutine(StartAndDestroyAnim());
+                animDashDone = false;
+                //StartCoroutine(StartAndDestroyAnim());
             }
         }
 
@@ -392,10 +396,12 @@ public class PlayerDash : CoroutineSystem
         skeletRunObj.SetActive(false);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(true);
+        Debug.Log("atterir");
         skeletAnimationFall.AnimationName = "Atterissage";
         
         yield return new WaitForSeconds(0.3f);
         
+        Debug.Log("run");
         skeletRunObj.SetActive(true);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
