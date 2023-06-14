@@ -453,6 +453,7 @@ MonoBehaviour:
   isDashing: 0
   beginFromPlayer: 0
   playerDragAngle: 10
+  slashAnim: {fileID: 0}
   dashSpeed: 20
   dashDistance: 4
   minDistance: 1
@@ -468,11 +469,18 @@ MonoBehaviour:
   groundDetection: {fileID: 0}
   landingAnimation: {fileID: 2064995694614519674, guid: c1f4f717aac59d547b6ee53415de4ad5, type: 3}
   playerAnimator: {fileID: 0}
+  SuperSayenDuration: 5
   debugDash: 0
   smoothDash: 0
+  useButtons: 0
+  showSlashAreas: 0
+  buttons: []
+  areas: []
+  slashAreaPercentage: 0
   skeletAnimRun: {fileID: 57464234050646212}
   skeletAnimationFall: {fileID: 57464234029113573}
   skeletRunObj: {fileID: 57464234050646213}
   skeletFallObj: {fileID: 57464234029113569}
   skeletDashObj: {fileID: 57464234678401040}
+  lastHitPlateform: {fileID: 0}
   dashDirection: {x: 0, y: 0, z: 0}

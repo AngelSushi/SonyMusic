@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Spine.Unity;
 using System;
 using System.Collections;
@@ -6,6 +7,7 @@ using System.Linq;
 using TMPro;
 using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor.U2D.Path;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
@@ -45,7 +47,9 @@ public class PlayerDash : CoroutineSystem
     public GameObject groundDetection;
     public GameObject landingAnimation;
     public Animator playerAnimator;
-    
+    public float SuperSayenDuration;
+    public float decrementTime = 1f;
+
     [Header("Debug")]
     [SerializeField] private bool debugDash;
     [SerializeField] private bool smoothDash;
@@ -77,6 +81,11 @@ public class PlayerDash : CoroutineSystem
     [HideInInspector] public Vector3 dashDirection;
     private float _dashPoint;
     private GameManager _gameManager;
+
+
+    private float _deltaX, _deltaY;
+    private bool _isSuperSayen = false;
+    
 
     private bool _return;
     private bool _lastGrounded;
@@ -120,6 +129,7 @@ public class PlayerDash : CoroutineSystem
     {
         _gameManager.Event.OnReleaseObstacle += ReleaseObstacle;
         _originalDistance = dashDistance;
+        SuperSayenDuration = decrementTime;
     }
 
     private void OnDestroy()
@@ -129,32 +139,75 @@ public class PlayerDash : CoroutineSystem
 
     void Update() 
     {
-        if (Input.touchCount > 0) 
+        if (Input.touchCount > 0 && _isSuperSayen == false) 
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
+            if (Input.touchCount > 0)
             {
-                _startPosition = ConvertPoint(touch.position);
-                _startTouchPosition = touch.position;
+                Touch touch = Input.GetTouch(0);
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    _startPosition = ConvertPoint(touch.position);
+                    _startTouchPosition = touch.position;
+                }
+
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    _endPosition = ConvertPoint(touch.position);
+
+                    if (_startTouchPosition.x <= Screen.width - Screen.width * slashAreaPercentage)
+                    {
+                        Vector2 _direction = (_endPosition - _startPosition).normalized;
+
+                        Dash(_direction.y > 0 ? Vector2.up : Vector2.down, true);
+                    }
+                    else
+                    {                        
+                        Dash(true);                        
+                    }
+                }
             }
 
-            if (touch.phase == TouchPhase.Ended)
+        }
+        if(_isSuperSayen == true)
+        {
+            if (Input.touchCount > 0)
             {
-                _endPosition = ConvertPoint(touch.position);
-                
-                if (_startTouchPosition.x <= Screen.width - Screen.width * slashAreaPercentage)
+                Touch touch = Input.GetTouch(0);
+
+                Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+
+                switch (touch.phase)
                 {
-                    Vector2 _direction = (_endPosition - _startPosition).normalized;
-                    
-                    Dash(_direction.y > 0 ? Vector2.up : Vector2.down,true);
+                    case TouchPhase.Began:
+                        _deltaX = touchPos.x - transform.position.x;
+                        _deltaY = touchPos.y - transform.position.y;
+                        break;
+
+                    case TouchPhase.Moved:
+                        _rb.MovePosition(new Vector2(touchPos.x - _deltaX, touchPos.y - _deltaY));
+                        break;
+
+                    case TouchPhase.Ended:
+                        _rb.velocity = Vector2.zero;
+                        break;
                 }
-                else
-                {
-                    Dash(true);
-                }
+            }
+            SuperSayenDuration -= Time.deltaTime;
+
+            // V�rifier si le timer est �coul�
+            if (SuperSayenDuration <= 0f)
+            {
+                // D�cr�menter la valeur du slider
+                dashSlider.value -= 1f;
+
+                // R�initialiser le timer
+                SuperSayenDuration = decrementTime;
             }
         }
+
+        
+
     }
 
     private void LateUpdate()
@@ -420,6 +473,13 @@ public class PlayerDash : CoroutineSystem
         animDashDone = true;
     }
 
+    private IEnumerator SuperSayenMod()
+    {
+        _isSuperSayen = true;
+        yield return new WaitForSeconds(SuperSayenDuration);
+        _isSuperSayen = false;
+    }
+
 
     private void AddPoint() 
     {
@@ -429,6 +489,11 @@ public class PlayerDash : CoroutineSystem
             _dashPoint += pointPerDash * comboPoint;
             scoreText.text = _dashPoint.ToString();
             dashSlider.value = comboPoint / maxCombo;
+
+            if(comboPoint == maxCombo)
+            {
+                StartCoroutine(SuperSayenMod());
+            }
         }
         else
         {
