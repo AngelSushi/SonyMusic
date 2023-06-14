@@ -1377,10 +1377,10 @@ MonoBehaviour:
     source: {fileID: 0}
     actualSound: 6
   - name: Voiture
-    clip: {fileID: 8300000, guid: d294322c0698a3348a1e177b8a99fe2a, type: 3}
-    volume: 0.232
+    clip: {fileID: 8300000, guid: 53d6502fec589d5468ee05129a144eba, type: 3}
+    volume: 0.111
     pitch: 0
-    loop: 0
+    loop: 1
     audioMixer: {fileID: 3225899018466793120, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
     source: {fileID: 0}
     actualSound: 7
