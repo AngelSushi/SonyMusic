@@ -23,8 +23,6 @@ public class PlayerDash : CoroutineSystem
     
     [Header("Dash")]
     public bool isDashing;
-    [SerializeField] private bool beginFromPlayer;
-    [SerializeField] private int playerDragAngle;
     [SerializeField] private GameObject slashAnim;
     
     [Header("Dash Values")]
@@ -117,8 +115,11 @@ public class PlayerDash : CoroutineSystem
             area.SetActive(showSlashAreas);
         }
 
-        areas[0].GetComponent<RectTransform>().anchorMax = new Vector2(1 - slashAreaPercentage, 1f);
-        areas[1].GetComponent<RectTransform>().anchorMin = new Vector2(1 - slashAreaPercentage, 0f);
+        if (areas.Count == 2)
+        {
+            areas[0].GetComponent<RectTransform>().anchorMax = new Vector2(1 - slashAreaPercentage, 1f);
+            areas[1].GetComponent<RectTransform>().anchorMin = new Vector2(1 - slashAreaPercentage, 0f);
+        }
 
 
 
@@ -138,13 +139,7 @@ public class PlayerDash : CoroutineSystem
 
     void Update() 
     {
-        if(isDashing == true)
-        {
-            StartCoroutine(DashAnimation());
-        }
-        
-
-        if (_isSuperSayen == false)
+        if (Input.touchCount > 0 && _isSuperSayen == false) 
         {
             if (Input.touchCount > 0)
             {
@@ -167,21 +162,8 @@ public class PlayerDash : CoroutineSystem
                         Dash(_direction.y > 0 ? Vector2.up : Vector2.down, true);
                     }
                     else
-                    {
-                        if (beginFromPlayer)
-                        {
-                            foreach (Collider2D col2D in Physics2D.OverlapCircleAll(ConvertPoint(touch.position), playerDragAngle))
-                            {
-                                if (col2D.gameObject.layer == LayerMask.NameToLayer("Player"))
-                                {
-                                    Dash(false);
-                                }
-                            }
-                        }
-                        else
-                        {
-                            Dash(false);
-                        }
+                    {                        
+                        Dash(true);                        
                     }
                 }
             }
@@ -213,13 +195,13 @@ public class PlayerDash : CoroutineSystem
             }
             SuperSayenDuration -= Time.deltaTime;
 
-            // Vérifier si le timer est écoulé
+            // Vï¿½rifier si le timer est ï¿½coulï¿½
             if (SuperSayenDuration <= 0f)
             {
-                // Décrémenter la valeur du slider
+                // Dï¿½crï¿½menter la valeur du slider
                 dashSlider.value -= 1f;
 
-                // Réinitialiser le timer
+                // Rï¿½initialiser le timer
                 SuperSayenDuration = decrementTime;
             }
         }
@@ -246,21 +228,28 @@ public class PlayerDash : CoroutineSystem
             _rb.velocity += Vector2.down * descentGravity * Time.deltaTime;
         }
 
-        if (IsGrounded() && dashDirection == Vector3.zero)
+        if (IsGrounded())
         {
-            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return)
+            if (dashDirection == Vector3.zero)
             {
-                //    _rb.velocity = new Vector2(0, -1) * speed;
-                _rb.velocity = Vector2.left * speed;
-            }
-            else if(_return)
-            {
-                _rb.velocity = Vector2.zero;
+                if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return)
+                {
+                    //    _rb.velocity = new Vector2(0, -1) * speed;
+                    _rb.velocity = Vector2.left * speed;
+                }
+                else if(_return)
+                {
+                    _rb.velocity = Vector2.zero;
+                }
             }
 
-            if (!_lastGrounded)
+            Debug.Log("dashDirection " + dashDirection);
+            
+            if (animDashDone )
             {
                 StartCoroutine(StartAndDestroyAnim());
+                animDashDone = false;
+                //StartCoroutine(StartAndDestroyAnim());
             }
         }
 
@@ -320,26 +309,12 @@ public class PlayerDash : CoroutineSystem
             Vector3 slashPosition = col.transform.position;
             slashPosition.z = -2f;
             slashAnim.transform.position = slashPosition;
+
+            float animAngle = Vector2.Angle(col.transform.up, dashDirection);
             
-            Debug.DrawRay(col.transform.position, col.transform.up * 10,Color.yellow,10);
-            Debug.DrawRay(col.transform.position,slashDirection * 10,Color.magenta,10);
-            Debug.DrawRay(col.transform.position,dashDirection * 10,Color.green,10);
-            
-            
-            float animAngle = Vector2.Angle(col.transform.up, slashDirection);
-
-            Debug.Log("animAngle " + animAngle);
-            
-            Vector3 slashAngles = slashAnim.transform.eulerAngles;
-            slashAngles.z = animAngle;
-
-            slashAnim.transform.eulerAngles = slashAngles;
-
-
-
+            slashAnim.transform.eulerAngles = new Vector3(0, 0, -animAngle);
             slashAnim.SetActive(true);
             
-            Debug.Break();
             RunDelayed(0.36f, () =>
             {
                 slashAnim.SetActive(false);
@@ -351,7 +326,6 @@ public class PlayerDash : CoroutineSystem
                 dObj.IsCut = true;
                 AddPoint();
                 CutObject(col,localEndPosition);
-                //Debug.Break();
             }
 
         }
@@ -404,7 +378,6 @@ public class PlayerDash : CoroutineSystem
     {
         float distance = Vector3.Distance(_startPosition, _endPosition);
                     
-        Debug.Log("distance " + distance + " minDistance " + minDistance);
         if (distance >= minDistance /* && (_endPosition - _startPosition).normalized.x > 0 */)
         {
             dashDirection = _dashDirection;
@@ -426,6 +399,7 @@ public class PlayerDash : CoroutineSystem
             _playerPosition = transform.position;
             isDashing = true;
             _return = false;
+            StartCoroutine(DashAnimation());
             _gameManager.Event.OnDashLaunched?.Invoke(this,new EventManager.OnDashLaunchedArgs() { dashDirection = _dashDirection,switchingPlateform = switchingPlateform});
         }
     }
@@ -475,10 +449,12 @@ public class PlayerDash : CoroutineSystem
         skeletRunObj.SetActive(false);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(true);
+        Debug.Log("atterir");
         skeletAnimationFall.AnimationName = "Atterissage";
         
         yield return new WaitForSeconds(0.3f);
         
+        Debug.Log("run");
         skeletRunObj.SetActive(true);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
