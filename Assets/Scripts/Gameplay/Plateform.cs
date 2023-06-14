@@ -29,7 +29,11 @@ public class Plateform : MonoBehaviour
 
     private void OnDestroy()
     {
-        _gameManager.Event.OnDashLaunched -= OnDashLaunched;
+        if (_gameManager != null && _gameManager.Event != null)
+        {
+            _gameManager.Event.OnDashLaunched -= OnDashLaunched;    
+        }
+        
     }
 
 
@@ -62,6 +66,12 @@ public class Plateform : MonoBehaviour
     
     private void OnCollisionEnter2D(Collision2D col)
     {
+
+        if (_gameManager.IsTransitioning)
+        {
+            return;
+        }
+
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
            
@@ -78,6 +88,11 @@ public class Plateform : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D col)
     {
+        if (_gameManager.IsTransitioning)
+        {
+            return;
+        }
+        
         if (col.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             col.gameObject.GetComponent<PlayerDash>().lastHitPlateform = transform.gameObject;

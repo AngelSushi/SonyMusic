@@ -17,8 +17,7 @@ using Slider = UnityEngine.UI.Slider;
 
 public class PlayerDash : CoroutineSystem
 {
-
-
+    
     [Header("Movement")] [SerializeField] private float speed;
     
     [Header("Dash")]
@@ -43,13 +42,24 @@ public class PlayerDash : CoroutineSystem
     private float comboPoint;
     
 
-    [Header("player")]
-    public GameObject groundDetection;
+    [Header("Player")]
     public GameObject landingAnimation;
-    public Animator playerAnimator;
     public float SuperSayenDuration;
     public float decrementTime = 1f;
 
+    [Header("Animation")]
+    public SkeletonAnimation skeletAnimRun;
+    public SkeletonAnimation skeletAnimationFall;
+    public GameObject skeletRunObj;
+    public GameObject skeletFallObj;
+    public GameObject skeletDashObj;
+    bool animDashDone = false;
+
+    [Header("Win")] 
+    [SerializeField] private GameObject endDetector;
+    
+    
+    
     [Header("Debug")]
     [SerializeField] private bool debugDash;
     [SerializeField] private bool smoothDash;
@@ -61,13 +71,7 @@ public class PlayerDash : CoroutineSystem
     [SerializeField] private float slashAreaPercentage;
     
     
-    [Header("Animation")]
-    public SkeletonAnimation skeletAnimRun;
-    public SkeletonAnimation skeletAnimationFall;
-    public GameObject skeletRunObj;
-    public GameObject skeletFallObj;
-    public GameObject skeletDashObj;
-    bool animDashDone = false;
+   
 
 
     [HideInInspector] public GameObject lastHitPlateform;
@@ -94,7 +98,9 @@ public class PlayerDash : CoroutineSystem
     
     private List<Plateform> _plateforms;
     private int _plateformIndex;
-    
+
+
+    private bool _hasReachBercy;
     
     
     void Awake() 
@@ -206,6 +212,20 @@ public class PlayerDash : CoroutineSystem
             }
         }
 
+
+
+        if (endDetector != null)
+        {
+            Debug.DrawLine(endDetector.transform.position,endDetector.transform.position + endDetector.transform.forward * 20,Color.yellow);
+            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, endDetector.transform.position, endDetector.transform.forward) < 0 && !_hasReachBercy) 
+            {
+                Debug.Log("wiin");
+                _rb.velocity = Vector2.zero;
+                _gameManager.Win();
+                _hasReachBercy = true;
+            }
+          //  if(_gameManager.GetSideValueBetweenTwoPoints(transform.position))
+        }
         
 
     }

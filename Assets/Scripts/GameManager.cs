@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.UI;
 using UnityEngine.PlayerLoop;
@@ -36,11 +37,18 @@ public class GameManager : CoroutineSystem
         get;
         set;
     }
-
+    
 
     [SerializeField] private float minLoadDuration;
 
     private bool _isTransitioning;
+
+    public bool IsTransitioning
+    {
+        get => _isTransitioning;
+        set => _isTransitioning = value;
+    }
+
     private Vector3 _startPoint, _endPoint;
     private GameObject _player;
     private float _transitionStartTime;
@@ -71,6 +79,12 @@ public class GameManager : CoroutineSystem
         }
     }
 
+    public void Win()
+    {
+        ChangeSceneWithAnim("Bercy");
+    }
+    
+    
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadSceneAsync(sceneName);
@@ -87,7 +101,8 @@ public class GameManager : CoroutineSystem
         }
         
         SceneTransitionCanvas.transform.GetChild(0).gameObject.SetActive(true);
-
+        SceneTransitionCanvas.transform.GetChild(1).gameObject.SetActive(true);
+        
         int chapterIndex = 0;
 
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -102,8 +117,8 @@ public class GameManager : CoroutineSystem
             }
         }
         
-        SceneTransitionCanvas.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Chapitre " + chapterIndex;
-        SceneTransitionCanvas.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = sceneName;
+        SceneTransitionCanvas.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Chapitre " + chapterIndex;
+        SceneTransitionCanvas.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = sceneName;
 
         RunDelayed(1.5f, () =>
         {
@@ -126,17 +141,23 @@ public class GameManager : CoroutineSystem
 
     private IEnumerator StartLoadAnim(string sceneName)
     {
+        Debug.Log("sceneName " + sceneName);
         AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(sceneName);
         _isTransitioning = true;
         sceneLoading.allowSceneActivation = false;
         _transitionStartTime = Time.time;
         
+        
+        Debug.Log("isDone " + sceneLoading.isDone);
+        
         while (!sceneLoading.isDone)
         {
             _sceneProgress = sceneLoading.progress;
 
+            Debug.Log("scene progress " + _sceneProgress);
             if (_sceneProgress >= 0.9f && Time.time - _transitionStartTime >= minLoadDuration && Vector2.Distance(_player.transform.position,_endPoint) < 0.2f)
             {
+                Debug.Log("allowScene");
                 sceneLoading.allowSceneActivation = true;
             } 
             
@@ -144,6 +165,7 @@ public class GameManager : CoroutineSystem
         }
 
         _isTransitioning = false;
+        _player.transform.position = _startPoint;
         EnableChildren(false);
     }
 
