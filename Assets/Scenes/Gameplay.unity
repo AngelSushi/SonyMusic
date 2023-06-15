@@ -1826,7 +1826,7 @@ PrefabInstance:
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: slashAnim
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 413517607248760951, guid: 05c51050834ac794b8cea111fa94e6ef, type: 3}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: dashSlider
       value: 
