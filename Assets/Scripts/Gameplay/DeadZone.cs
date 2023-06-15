@@ -9,9 +9,13 @@ public class DeadZone : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent<PlayerDash>(out PlayerDash playerDash))
         {
-            playerDash.isDashing = false;
-            Destroy(playerDash.gameObject);
-            SceneManager.LoadScene("Gameplay");
+            if (!playerDash.HasReachBercy)
+            {
+                Debug.Log("je suis mort ");
+                playerDash.isDashing = false;
+                Destroy(playerDash.gameObject);
+                SceneManager.LoadScene("Gameplay");   
+            }
         }
     }
 }

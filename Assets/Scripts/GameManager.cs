@@ -120,6 +120,8 @@ public class GameManager : CoroutineSystem
             }
         }
         
+        
+        EnableChildren(true);
         SceneTransitionCanvas.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
         SceneTransitionCanvas.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
         SceneTransitionCanvas.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Chapitre " + chapterIndex;
@@ -127,7 +129,6 @@ public class GameManager : CoroutineSystem
 
         RunDelayed(1.5f, () =>
         {
-            EnableChildren(true);
             Transform parent = SceneTransitionCanvas.transform.parent;
             _player = parent.GetChild(1).gameObject;
             
@@ -146,24 +147,16 @@ public class GameManager : CoroutineSystem
 
     private IEnumerator StartLoadAnim(string sceneName)
     {
-        Debug.Log("sceneName " + sceneName);
         AsyncOperation sceneLoading = SceneManager.LoadSceneAsync(sceneName);
         _isTransitioning = true;
         sceneLoading.allowSceneActivation = false;
         _transitionStartTime = Time.time;
         
-        
-        Debug.Log("isDone " + sceneLoading.isDone);
-        Debug.Log("allowScene " + sceneLoading.allowSceneActivation);
-        
         while (!sceneLoading.isDone)
         {
             _sceneProgress = sceneLoading.progress;
-
-            Debug.Log("scene progress " + _sceneProgress);
             if (_sceneProgress >= 0.9f && Time.time - _transitionStartTime >= minLoadDuration && Vector2.Distance(_player.transform.position,_endPoint) < 0.2f)
             {
-                Debug.Log("allowScene");
                 sceneLoading.allowSceneActivation = true;
             } 
             
@@ -171,10 +164,9 @@ public class GameManager : CoroutineSystem
         }
 
         _isTransitioning = false;
-        _player.transform.position = _startPoint;
+        _player.transform.position = _startPoint - Vector3.left * 50;
         
         SceneTransitionCanvas.transform.parent.gameObject.SetActive(false);
-        Debug.Log("end ");
         EnableChildren(false);
     }
 
