@@ -324,24 +324,24 @@ public class PlayerDash : CoroutineSystem
             {
                 return;
             }
-
-            Vector3 slashDirection = (localEndPosition - transform.localPosition).normalized;
             
             float targetAngle = angleOffset;
             float angle = Vector3.Angle(dashDirection,FindDirection(dObj,col,targetAngle));
 
             Vector3 slashPosition = col.transform.position;
             slashPosition.z = -2f;
-            slashAnim.transform.position = slashPosition;
+
+            GameObject slash = Instantiate(slashAnim, slashPosition,Quaternion.identity);
+            slash.SetActive(true);
+            slash.transform.position = slashPosition;
 
             float animAngle = Vector2.Angle(col.transform.up, dashDirection);
             
-            slashAnim.transform.eulerAngles = new Vector3(0, 0, -animAngle);
-            slashAnim.SetActive(true);
-            
+            slash.transform.eulerAngles = new Vector3(0, 0, -animAngle);
+           
             RunDelayed(0.36f, () =>
             {
-                slashAnim.SetActive(false);
+                Destroy(slash);
             });
             
             
