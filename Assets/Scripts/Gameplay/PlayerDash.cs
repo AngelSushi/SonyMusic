@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Spine.Unity;
 using System;
 using System.Collections;
@@ -6,6 +7,7 @@ using System.Linq;
 using TMPro;
 using Unity.Collections;
 using Unity.VisualScripting;
+using UnityEditor.U2D.Path;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
@@ -15,8 +17,7 @@ using Slider = UnityEngine.UI.Slider;
 
 public class PlayerDash : CoroutineSystem
 {
-
-
+    
     [Header("Movement")] [SerializeField] private float speed;
     
     [Header("Dash")]
@@ -41,10 +42,23 @@ public class PlayerDash : CoroutineSystem
     private float comboPoint;
     
 
-    [Header("player")]
-    public GameObject groundDetection;
+    [Header("Player")]
     public GameObject landingAnimation;
-    public Animator playerAnimator;
+    public float SuperSayenDuration;
+    public float decrementTime = 1f;
+
+    [Header("Animation")]
+    public SkeletonAnimation skeletAnimRun;
+    public SkeletonAnimation skeletAnimationFall;
+    public GameObject skeletRunObj;
+    public GameObject skeletFallObj;
+    public GameObject skeletDashObj;
+    bool animDashDone = false;
+
+    [Header("Win")] 
+    [SerializeField] private GameObject endDetector;
+    
+    
     
     [Header("Debug")]
     [SerializeField] private bool debugDash;
@@ -57,13 +71,7 @@ public class PlayerDash : CoroutineSystem
     [SerializeField] private float slashAreaPercentage;
     
     
-    [Header("Animation")]
-    public SkeletonAnimation skeletAnimRun;
-    public SkeletonAnimation skeletAnimationFall;
-    public GameObject skeletRunObj;
-    public GameObject skeletFallObj;
-    public GameObject skeletDashObj;
-    bool animDashDone = false;
+   
 
 
     [HideInInspector] public GameObject lastHitPlateform;
@@ -78,6 +86,11 @@ public class PlayerDash : CoroutineSystem
     private float _dashPoint;
     private GameManager _gameManager;
 
+
+    private float _deltaX, _deltaY;
+    private bool _isSuperSayen = false;
+    
+
     private bool _return;
     private bool _lastGrounded;
     private float _originalDistance;
@@ -85,9 +98,17 @@ public class PlayerDash : CoroutineSystem
     
     private List<Plateform> _plateforms;
     private int _plateformIndex;
-    
-    
-    
+
+
+    private bool _hasReachBercy;
+
+    public bool HasReachBercy
+    {
+        get => _hasReachBercy;
+        set => _hasReachBercy = value;
+    }
+
+
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -120,6 +141,7 @@ public class PlayerDash : CoroutineSystem
     {
         _gameManager.Event.OnReleaseObstacle += ReleaseObstacle;
         _originalDistance = dashDistance;
+        SuperSayenDuration = decrementTime;
     }
 
     private void OnDestroy()
@@ -129,32 +151,87 @@ public class PlayerDash : CoroutineSystem
 
     void Update() 
     {
-        if (Input.touchCount > 0) 
+        if (Input.touchCount > 0 && _isSuperSayen == false) 
         {
-            Touch touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
+            if (Input.touchCount > 0)
             {
-                _startPosition = ConvertPoint(touch.position);
-                _startTouchPosition = touch.position;
+                Touch touch = Input.GetTouch(0);
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    _startPosition = ConvertPoint(touch.position);
+                    _startTouchPosition = touch.position;
+                }
+
+                if (touch.phase == TouchPhase.Ended)
+                {
+                    _endPosition = ConvertPoint(touch.position);
+
+                    if (_startTouchPosition.x <= Screen.width - Screen.width * slashAreaPercentage)
+                    {
+                        Vector2 _direction = (_endPosition - _startPosition).normalized;
+
+                        Dash(_direction.y > 0 ? Vector2.up : Vector2.down, true);
+                    }
+                    else
+                    {                        
+                        Dash(true);                        
+                    }
+                }
             }
 
-            if (touch.phase == TouchPhase.Ended)
+        }
+        if(_isSuperSayen == true)
+        {
+            if (Input.touchCount > 0)
             {
-                _endPosition = ConvertPoint(touch.position);
-                
-                if (_startTouchPosition.x <= Screen.width - Screen.width * slashAreaPercentage)
+                Touch touch = Input.GetTouch(0);
+
+                Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+
+                switch (touch.phase)
                 {
-                    Vector2 _direction = (_endPosition - _startPosition).normalized;
-                    
-                    Dash(_direction.y > 0 ? Vector2.up : Vector2.down,true);
+                    case TouchPhase.Began:
+                        _deltaX = touchPos.x - transform.position.x;
+                        _deltaY = touchPos.y - transform.position.y;
+                        break;
+
+                    case TouchPhase.Moved:
+                        _rb.MovePosition(new Vector2(touchPos.x - _deltaX, touchPos.y - _deltaY));
+                        break;
+
+                    case TouchPhase.Ended:
+                        _rb.velocity = Vector2.zero;
+                        break;
                 }
-                else
-                {
-                    Dash(true);
-                }
+            }
+            SuperSayenDuration -= Time.deltaTime;
+
+            // V�rifier si le timer est �coul�
+            if (SuperSayenDuration <= 0f)
+            {
+                // D�cr�menter la valeur du slider
+                dashSlider.value -= 1f;
+
+                // R�initialiser le timer
+                SuperSayenDuration = decrementTime;
             }
         }
+
+
+
+        if (endDetector != null)
+        {
+            Debug.DrawLine(endDetector.transform.position,endDetector.transform.position + endDetector.transform.forward * 20,Color.yellow);
+            if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, endDetector.transform.position, endDetector.transform.forward) < 0 && !_hasReachBercy) 
+            {
+                _rb.velocity = Vector2.zero;
+                _hasReachBercy = true;
+                _gameManager.Win();
+            }
+        }
+        
+
     }
 
     private void LateUpdate()
@@ -420,6 +497,13 @@ public class PlayerDash : CoroutineSystem
         animDashDone = true;
     }
 
+    private IEnumerator SuperSayenMod()
+    {
+        _isSuperSayen = true;
+        yield return new WaitForSeconds(SuperSayenDuration);
+        _isSuperSayen = false;
+    }
+
 
     private void AddPoint() 
     {
@@ -429,6 +513,11 @@ public class PlayerDash : CoroutineSystem
             _dashPoint += pointPerDash * comboPoint;
             scoreText.text = _dashPoint.ToString();
             dashSlider.value = comboPoint / maxCombo;
+
+            if(comboPoint == maxCombo)
+            {
+                StartCoroutine(SuperSayenMod());
+            }
         }
         else
         {

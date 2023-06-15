@@ -11,6 +11,10 @@ public enum SoundState
     Slash,
     PauseSong,
     Caillou,
+    Vitre,
+    Click,
+    Voiture,
+
 }
 
 
