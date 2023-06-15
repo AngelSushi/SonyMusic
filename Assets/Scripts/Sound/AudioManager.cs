@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
     private void Start()
     {
 
-        Play("MusicMenu");
+        //FindObjectOfType<AudioManager>().Play("Raelsan");
 
 
         foreach (Sound sound in sounds)

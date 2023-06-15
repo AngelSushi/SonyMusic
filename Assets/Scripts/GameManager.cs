@@ -12,6 +12,7 @@ using UnityEngine.UI;
 [RequireComponent(typeof(EventManager))]
 public class GameManager : CoroutineSystem
 {
+    private bool isGameplay = false;
     public bool isMen
     {
         get;
@@ -77,6 +78,7 @@ public class GameManager : CoroutineSystem
             float progress = Mathf.Clamp01((Time.time - _transitionStartTime) / (minLoadDuration / _sceneProgress));
             _player.transform.position = Vector3.Lerp(_startPoint, _endPoint,progress);
         }
+
     }
 
     public void Win()
