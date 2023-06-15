@@ -100,8 +100,11 @@ public class GameManager : CoroutineSystem
             }
         }
         
+        
+        SceneTransitionCanvas.transform.parent.gameObject.SetActive(true);
+        
         SceneTransitionCanvas.transform.GetChild(0).gameObject.SetActive(true);
-        SceneTransitionCanvas.transform.GetChild(1).gameObject.SetActive(true);
+        SceneTransitionCanvas.transform.parent.GetChild(6).gameObject.SetActive(true);
         
         int chapterIndex = 0;
 
@@ -117,17 +120,19 @@ public class GameManager : CoroutineSystem
             }
         }
         
-        SceneTransitionCanvas.transform.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Chapitre " + chapterIndex;
-        SceneTransitionCanvas.transform.GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>().text = sceneName;
+        SceneTransitionCanvas.transform.GetChild(0).GetChild(0).gameObject.SetActive(true);
+        SceneTransitionCanvas.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+        SceneTransitionCanvas.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>().text = "Chapitre " + chapterIndex;
+        SceneTransitionCanvas.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>().text = sceneName;
 
         RunDelayed(1.5f, () =>
         {
             EnableChildren(true);
             Transform parent = SceneTransitionCanvas.transform.parent;
-            _player = parent.GetChild(2).gameObject;
+            _player = parent.GetChild(1).gameObject;
             
-            _startPoint = parent.GetChild(4).gameObject.transform.position;
-            _endPoint = parent.GetChild(5).gameObject.transform.position;
+            _startPoint = parent.GetChild(3).gameObject.transform.position;
+            _endPoint = parent.GetChild(4).gameObject.transform.position;
 
             if ((int)_startPoint.y != (int)_endPoint.y)
             {
@@ -149,6 +154,7 @@ public class GameManager : CoroutineSystem
         
         
         Debug.Log("isDone " + sceneLoading.isDone);
+        Debug.Log("allowScene " + sceneLoading.allowSceneActivation);
         
         while (!sceneLoading.isDone)
         {
@@ -166,6 +172,9 @@ public class GameManager : CoroutineSystem
 
         _isTransitioning = false;
         _player.transform.position = _startPoint;
+        
+        SceneTransitionCanvas.transform.parent.gameObject.SetActive(false);
+        Debug.Log("end ");
         EnableChildren(false);
     }
 
