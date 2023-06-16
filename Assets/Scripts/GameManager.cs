@@ -167,7 +167,7 @@ public class GameManager : CoroutineSystem
         _isTransitioning = false;
         _player.transform.position = _startPoint - Vector3.left * 50;
         
-        SceneTransitionCanvas.transform.parent.gameObject.SetActive(false);
+      //  SceneTransitionCanvas.transform.parent.gameObject.SetActive(false);
         EnableChildren(false);
     }
 
