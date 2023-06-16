@@ -37,6 +37,7 @@ public class DialogDisplay : MonoBehaviour {
         
         _currentDialog = DialogController.instance.GetDialogById(id);
         displayDialog = true;
+        _currentDialog.speed = 5f;
         
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
 
@@ -87,7 +88,9 @@ public class DialogDisplay : MonoBehaviour {
             else if (displayDialog && _originalSpeed == 0f)
             {
                 _originalSpeed = _currentDialog.speed;
-                _currentDialog.speed = 0.01f;
+                Debug.Log("originalSpeed " + _originalSpeed);
+                _currentDialog.speed /= 2;
+                Debug.Log("newDialog " + _currentDialog.speed);
             }
         }
     }
