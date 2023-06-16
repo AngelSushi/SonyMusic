@@ -81,7 +81,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a5bbed73c03409e4b956aa81bdf45961, type: 3}
     volume: 0.515
     pitch: 1
-    loop: 1
+    loop: 0
     audioMixer: {fileID: 3225899018466793120, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
     source: {fileID: 0}
     actualSound: 8
