@@ -43,7 +43,6 @@ public class PlayerDash : CoroutineSystem
     [Header("Player")]
     public GameObject landingAnimation;
     public float SuperSayenDuration;
-    public float decrementTime = 1f;
 
     [Header("Animation")]
     public SkeletonAnimation skeletAnimRun;
@@ -51,6 +50,7 @@ public class PlayerDash : CoroutineSystem
     public GameObject skeletRunObj;
     public GameObject skeletFallObj;
     public GameObject skeletDashObj;
+    public GameObject skeletSuperSayen;
     bool animDashDone = false;
 
     [Header("Win")] 
@@ -78,6 +78,7 @@ public class PlayerDash : CoroutineSystem
     private Vector3 _startTouchPosition;
     private Vector3 _endPosition;
     private Rigidbody2D _rb;
+    private BoxCollider2D _bc;
     private Vector3 _playerPosition;
     private Vector3 _startObstaclePosition;
     [HideInInspector] public Vector3 dashDirection;
@@ -100,6 +101,13 @@ public class PlayerDash : CoroutineSystem
 
     private bool _hasReachBercy;
 
+
+
+
+    private Vector3 touchPosition;
+    private Vector3 direction;
+    private float moveSpeed = 10f;
+
     public bool HasReachBercy
     {
         get => _hasReachBercy;
@@ -110,6 +118,7 @@ public class PlayerDash : CoroutineSystem
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
+        _bc = GetComponent<BoxCollider2D>();
         _playerPosition = transform.localPosition;
         _gameManager = FindObjectOfType<GameManager>();
         _plateforms = FindObjectsOfType<Plateform>().ToList();
@@ -139,7 +148,6 @@ public class PlayerDash : CoroutineSystem
     {
         _gameManager.Event.OnReleaseObstacle += ReleaseObstacle;
         _originalDistance = dashDistance;
-        SuperSayenDuration = decrementTime;
     }
 
     private void OnDestroy()
@@ -149,8 +157,10 @@ public class PlayerDash : CoroutineSystem
 
     void Update() 
     {
-        if (Input.touchCount > 0 && _isSuperSayen == false) 
+        if (_isSuperSayen == false)
         {
+            _rb.gravityScale = 1f;
+            _bc.isTrigger = false;
             if (Input.touchCount > 0)
             {
                 Touch touch = Input.GetTouch(0);
@@ -172,48 +182,36 @@ public class PlayerDash : CoroutineSystem
                         Dash(_direction.y > 0 ? Vector2.up : Vector2.down, true);
                     }
                     else
-                    {                        
-                        Dash(true);                        
+                    {
+                        Dash(true);
                     }
                 }
-            }
 
+
+
+            }
         }
-        if(_isSuperSayen == true)
+        if (_isSuperSayen == true)
         {
+            _rb.gravityScale = 0f;
+            _bc.isTrigger = true;
             if (Input.touchCount > 0)
             {
-                Touch touch = Input.GetTouch(0);
+            Touch touch = Input.GetTouch(0);
 
-                Vector2 touchPos = Camera.main.ScreenToWorldPoint(touch.position);
+            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+            touchPosition.z = 0f;
+            direction = (touchPosition - transform.position);
+            _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
 
-                switch (touch.phase)
+                if(touch.phase == TouchPhase.Ended)
                 {
-                    case TouchPhase.Began:
-                        _deltaX = touchPos.x - transform.position.x;
-                        _deltaY = touchPos.y - transform.position.y;
-                        break;
+                    _rb.velocity = Vector2.zero;
 
-                    case TouchPhase.Moved:
-                        _rb.MovePosition(new Vector2(touchPos.x - _deltaX, touchPos.y - _deltaY));
-                        break;
-
-                    case TouchPhase.Ended:
-                        _rb.velocity = Vector2.zero;
-                        break;
                 }
+                        
             }
-            SuperSayenDuration -= Time.deltaTime;
-
-            // V�rifier si le timer est �coul�
-            if (SuperSayenDuration <= 0f)
-            {
-                // D�cr�menter la valeur du slider
-                dashSlider.value -= 1f;
-
-                // R�initialiser le timer
-                SuperSayenDuration = decrementTime;
-            }
+            
         }
 
 
@@ -267,7 +265,7 @@ public class PlayerDash : CoroutineSystem
 
             Debug.Log("dashDirection " + dashDirection);
             
-            if (animDashDone )
+            if (animDashDone)
             {
                 StartCoroutine(StartAndDestroyAnim());
                 animDashDone = false;
@@ -468,21 +466,25 @@ public class PlayerDash : CoroutineSystem
         var myNewSmoke = Instantiate(landingAnimation, smokePosition, Quaternion.identity);
 
         myNewSmoke.transform.parent = gameObject.transform;
+        if(_isSuperSayen == false)
+        {
+            skeletRunObj.SetActive(false);
+            skeletDashObj.SetActive(false);
+            skeletFallObj.SetActive(true);
+            Debug.Log("atterir");
+            skeletAnimationFall.AnimationName = "Atterissage";
+
+            yield return new WaitForSeconds(0.3f);
+
+            Debug.Log("run");
+            skeletRunObj.SetActive(true);
+            skeletDashObj.SetActive(false);
+            skeletFallObj.SetActive(false);
+            _return = true;
+            skeletAnimRun.AnimationName = "NarutoRun";
+
+        }
         
-        skeletRunObj.SetActive(false);
-        skeletDashObj.SetActive(false);
-        skeletFallObj.SetActive(true);
-        Debug.Log("atterir");
-        skeletAnimationFall.AnimationName = "Atterissage";
-        
-        yield return new WaitForSeconds(0.3f);
-        
-        Debug.Log("run");
-        skeletRunObj.SetActive(true);
-        skeletDashObj.SetActive(false);
-        skeletFallObj.SetActive(false);
-        _return = true;
-        skeletAnimRun.AnimationName = "NarutoRun";
 
     }
     
@@ -499,8 +501,19 @@ public class PlayerDash : CoroutineSystem
     private IEnumerator SuperSayenMod()
     {
         _isSuperSayen = true;
+        
+        skeletRunObj.SetActive(false);
+        skeletDashObj.SetActive(false);
+        skeletFallObj.SetActive(false);
+        skeletSuperSayen.SetActive(true);
         yield return new WaitForSeconds(SuperSayenDuration);
         _isSuperSayen = false;
+        
+        skeletRunObj.SetActive(true);
+        skeletDashObj.SetActive(false);
+        skeletFallObj.SetActive(false);
+        skeletSuperSayen.SetActive(false);
+        comboPoint = 1;
     }
 
 

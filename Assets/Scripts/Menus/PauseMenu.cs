@@ -16,7 +16,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(false);
         buttonPause.SetActive(true);
-        AudioManager.instance.PlayRandom(SoundState.GameTheme);
+        //AudioManager.instance.PlayRandom(SoundState.GameTheme);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
@@ -25,7 +25,7 @@ public class PauseMenu : MonoBehaviour
     {
         pauseMenuUI.SetActive(true);
         buttonPause.SetActive(false);
-        AudioManager.instance.PauseSound(SoundState.GameTheme);
+        //AudioManager.instance.PauseSound(SoundState.GameTheme);
         Time.timeScale = 0f;
         gameIsPaused = true;
         

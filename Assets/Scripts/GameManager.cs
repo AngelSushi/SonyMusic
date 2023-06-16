@@ -77,6 +77,12 @@ public class GameManager : CoroutineSystem
             float progress = Mathf.Clamp01((Time.time - _transitionStartTime) / (minLoadDuration / _sceneProgress));
             _player.transform.position = Vector3.Lerp(_startPoint, _endPoint,progress);
         }
+        if (SceneManager.GetActiveScene().name == "Gameplay")
+        {
+            AudioManager.instance.Stop(SoundState.Voiture);
+            AudioManager.instance.Stop(SoundState.GameTheme);
+        }
+        
 
     }
 
