@@ -161,17 +161,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1620.6819, y: 732.7312}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &81041627 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3353972580175087505, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-  m_PrefabInstance: {fileID: 3353972580236664650}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90587d17b1a18b94885e4c05d0df3018, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &742184901
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +244,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 81041627}
+      - m_Target: {fileID: 3353972580175087505, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
@@ -267,7 +256,7 @@ MonoBehaviour:
           m_StringArgument: NameSelection
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 81041627}
+      - m_Target: {fileID: 3353972580175087505, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: set_isMen
         m_Mode: 6
@@ -279,7 +268,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 81041627}
+      - m_Target: {fileID: 3353972580175087505, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: set_isWomen
         m_Mode: 6
@@ -1044,7 +1033,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 81041627}
+      - m_Target: {fileID: 3353972580175087505, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: ChangeScene
         m_Mode: 5
@@ -1056,7 +1045,7 @@ MonoBehaviour:
           m_StringArgument: NameSelection
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 81041627}
+      - m_Target: {fileID: 3353972580175087505, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: set_isMen
         m_Mode: 6
@@ -1068,7 +1057,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 81041627}
+      - m_Target: {fileID: 3353972580175087505, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
         m_MethodName: set_isWomen
         m_Mode: 6
