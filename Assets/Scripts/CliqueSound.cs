@@ -13,4 +13,5 @@ public class CliqueSound : MonoBehaviour
         AudioManager.instance.Stop(SoundState.MainMenuTheme);
         AudioManager.instance.PlayRandom(SoundState.Click);
     }
+    
 }
