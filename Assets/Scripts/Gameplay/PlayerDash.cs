@@ -1,17 +1,9 @@
-using DG.Tweening;
 using Spine.Unity;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
-using Unity.Collections;
-using Unity.VisualScripting;
-using UnityEditor.U2D.Path;
 using UnityEngine;
-using UnityEngine.TextCore.Text;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
 
@@ -37,6 +29,12 @@ public class PlayerDash : CoroutineSystem
     [SerializeField] private float maxCombo;
     [SerializeField] private Slider dashSlider;
     [SerializeField] private Transform limit;
+    public Transform Limit
+    {
+        get => limit;
+        private set => limit = value;
+    }
+    
     [SerializeField] private Transform distanceCombo;
     [SerializeField] private TextMeshProUGUI scoreText;
     private float comboPoint;
@@ -281,6 +279,7 @@ public class PlayerDash : CoroutineSystem
         _lastGrounded = IsGrounded();
          
     }
+    
 
     private bool IsGrounded()
     {
@@ -324,24 +323,24 @@ public class PlayerDash : CoroutineSystem
             {
                 return;
             }
-
-            Vector3 slashDirection = (localEndPosition - transform.localPosition).normalized;
             
             float targetAngle = angleOffset;
             float angle = Vector3.Angle(dashDirection,FindDirection(dObj,col,targetAngle));
 
             Vector3 slashPosition = col.transform.position;
             slashPosition.z = -2f;
-            slashAnim.transform.position = slashPosition;
+
+            GameObject slash = Instantiate(slashAnim, slashPosition,Quaternion.identity);
+            slash.SetActive(true);
+            slash.transform.position = slashPosition;
 
             float animAngle = Vector2.Angle(col.transform.up, dashDirection);
             
-            slashAnim.transform.eulerAngles = new Vector3(0, 0, -animAngle);
-            slashAnim.SetActive(true);
-            
+            slash.transform.eulerAngles = new Vector3(0, 0, -animAngle);
+           
             RunDelayed(0.36f, () =>
             {
-                slashAnim.SetActive(false);
+                Destroy(slash);
             });
             
             

@@ -54,7 +54,7 @@ public class Plateform : MonoBehaviour
             return;
         }
         
-        if (e.dashDirection.y < 0 && e.switchingPlateform && _actualCollider != null)
+        if (e.dashDirection.y < 0.2f && e.switchingPlateform && _actualCollider != null)
         {
             disableCollision = true;
             _isPassingThrough = true;
