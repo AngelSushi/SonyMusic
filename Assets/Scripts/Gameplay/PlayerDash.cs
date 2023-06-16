@@ -101,8 +101,14 @@ public class PlayerDash : CoroutineSystem
 
 
     private bool _hasReachBercy;
-    
-    
+
+    public bool HasReachBercy
+    {
+        get => _hasReachBercy;
+        set => _hasReachBercy = value;
+    }
+
+
     void Awake() 
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -219,12 +225,10 @@ public class PlayerDash : CoroutineSystem
             Debug.DrawLine(endDetector.transform.position,endDetector.transform.position + endDetector.transform.forward * 20,Color.yellow);
             if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, endDetector.transform.position, endDetector.transform.forward) < 0 && !_hasReachBercy) 
             {
-                Debug.Log("wiin");
                 _rb.velocity = Vector2.zero;
-                _gameManager.Win();
                 _hasReachBercy = true;
+                _gameManager.Win();
             }
-          //  if(_gameManager.GetSideValueBetweenTwoPoints(transform.position))
         }
         
 
