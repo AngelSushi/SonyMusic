@@ -12,7 +12,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(EventManager))]
 public class GameManager : CoroutineSystem
 {
-    private bool isGameplay = false;
     public bool isMen
     {
         get;
