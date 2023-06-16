@@ -62,7 +62,6 @@ public class MusicController : MonoBehaviour
         {
             fullPath = Path.Combine("file://" + Application.streamingAssetsPath, fileLocation);
         }
-
         StartCoroutine(LoadMidiFile(fullPath));
     }
 
