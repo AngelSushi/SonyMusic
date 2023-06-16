@@ -77,14 +77,6 @@ MonoBehaviour:
     audioMixer: {fileID: 1688584925685981135, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
     source: {fileID: 0}
     actualSound: 0
-  - name: Click
-    clip: {fileID: 8300000, guid: 989e7d71971ded2478903833d607462f, type: 3}
-    volume: 0.515
-    pitch: 1
-    loop: 1
-    audioMixer: {fileID: 1688584925685981135, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
-    source: {fileID: 0}
-    actualSound: 0
   - name: Slash
     clip: {fileID: 8300000, guid: a5bbed73c03409e4b956aa81bdf45961, type: 3}
     volume: 0.515
