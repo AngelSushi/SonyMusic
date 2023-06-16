@@ -307,49 +307,62 @@ public class PlayerDash : CoroutineSystem
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-
-        if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
+        if(_isSuperSayen == false)
         {
-            Vector3 localEndPosition = Vector3.zero;
-            DebugDash(col,localEndPosition);
-            
-            _startObstaclePosition = transform.position;
-
-            DestroyableObject dObj = col.gameObject.GetComponent<DestroyableObject>();
-
-            if (dObj == null || dObj.IsCut)
+            if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
             {
-                return;
-            }
-            
-            float targetAngle = angleOffset;
-            float angle = Vector3.Angle(dashDirection,FindDirection(dObj,col,targetAngle));
+                Vector3 localEndPosition = Vector3.zero;
+                DebugDash(col, localEndPosition);
 
-            Vector3 slashPosition = col.transform.position;
-            slashPosition.z = -2f;
+                _startObstaclePosition = transform.position;
 
-            GameObject slash = Instantiate(slashAnim, slashPosition,Quaternion.identity);
-            slash.SetActive(true);
-            slash.transform.position = slashPosition;
+                DestroyableObject dObj = col.gameObject.GetComponent<DestroyableObject>();
 
-            float animAngle = Vector2.Angle(col.transform.up, dashDirection);
-            
-            slash.transform.eulerAngles = new Vector3(0, 0, -animAngle);
-           
-            RunDelayed(0.36f, () =>
-            {
-                Destroy(slash);
-            });
-            
-            
-            if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
-            {
-                dObj.IsCut = true;
-                AddPoint();
-                CutObject(col,localEndPosition);
+                if (dObj == null || dObj.IsCut)
+                {
+                    return;
+                }
+
+                float targetAngle = angleOffset;
+                float angle = Vector3.Angle(dashDirection, FindDirection(dObj, col, targetAngle));
+
+                Vector3 slashPosition = col.transform.position;
+                slashPosition.z = -2f;
+
+                GameObject slash = Instantiate(slashAnim, slashPosition, Quaternion.identity);
+                slash.SetActive(true);
+                slash.transform.position = slashPosition;
+
+                float animAngle = Vector2.Angle(col.transform.up, dashDirection);
+
+                slash.transform.eulerAngles = new Vector3(0, 0, -animAngle);
+
+                RunDelayed(0.36f, () =>
+                {
+                    Destroy(slash);
+                });
+
+
+                if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
+                {
+                    dObj.IsCut = true;
+                    AddPoint();
+                    CutObject(col, localEndPosition);
+                }
+
             }
 
         }
+        if(_isSuperSayen == true)
+        {
+            if (col.gameObject.layer == LayerMask.NameToLayer("Destructible"))
+            { 
+                Destroy(col.gameObject);
+                AddPoint();
+
+            }
+        }
+        
     }
 
     private void DebugDash(Collider2D col,Vector3 localEndPosition)
@@ -513,7 +526,9 @@ public class PlayerDash : CoroutineSystem
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
         skeletSuperSayen.SetActive(false);
-        comboPoint = 1;
+        comboPoint = 0;
+        dashSlider.value = 0;
+
     }
 
 

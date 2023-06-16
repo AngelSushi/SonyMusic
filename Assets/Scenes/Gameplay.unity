@@ -1784,6 +1784,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 973044816}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: maxCombo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 499168989}
