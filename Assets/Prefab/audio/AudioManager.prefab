@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Click 2
-    clip: {fileID: 8300000, guid: d294322c0698a3348a1e177b8a99fe2a, type: 3}
+    clip: {fileID: 8300000, guid: 8e700a3c74fcef84cafd8a34c7b757ad, type: 3}
     volume: 0.232
     pitch: 1
     loop: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     source: {fileID: 0}
     actualSound: 0
   - name: Slash
-    clip: {fileID: 8300000, guid: a5bbed73c03409e4b956aa81bdf45961, type: 3}
+    clip: {fileID: 8300000, guid: a2357ed74800e9c4a9dede9ec015514f, type: 3}
     volume: 0.515
     pitch: 1
     loop: 0
