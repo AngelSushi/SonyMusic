@@ -55,7 +55,7 @@ MonoBehaviour:
     actualSound: 6
   - name: Voiture
     clip: {fileID: 8300000, guid: 53d6502fec589d5468ee05129a144eba, type: 3}
-    volume: 0.515
+    volume: 0.1
     pitch: 1
     loop: 1
     audioMixer: {fileID: 3225899018466793120, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
@@ -63,7 +63,7 @@ MonoBehaviour:
     actualSound: 7
   - name: Raelsan
     clip: {fileID: 8300000, guid: c87eb2cb383703547a827d0077109551, type: 3}
-    volume: 0.515
+    volume: 0
     pitch: 1
     loop: 1
     audioMixer: {fileID: 1688584925685981135, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
@@ -79,7 +79,7 @@ MonoBehaviour:
     actualSound: 0
   - name: Slash
     clip: {fileID: 8300000, guid: a2357ed74800e9c4a9dede9ec015514f, type: 3}
-    volume: 0.515
+    volume: 0.4
     pitch: 1
     loop: 0
     audioMixer: {fileID: 3225899018466793120, guid: 679086d4202a3a1459f9dea776f91ba5, type: 2}
