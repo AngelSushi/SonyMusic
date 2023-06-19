@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogDisplay : MonoBehaviour {
@@ -27,7 +28,13 @@ public class DialogDisplay : MonoBehaviour {
         _dialogText = dialogParent.transform.GetChild(1).GetComponent<Text>();
         _dialogAuthor = dialogParent.transform.GetChild(2).GetComponent<Image>();
         _dialogBackground = dialogParent.GetComponent<Image>();
-        StartDialog(1);
+
+        Debug.Log("dialogAuthor " + _dialogAuthor);
+
+        if (SceneManager.GetActiveScene().name == "Dialog")
+        {
+            StartDialog(1);
+        }
     }
 
 
@@ -79,6 +86,8 @@ public class DialogDisplay : MonoBehaviour {
                 _currentDialog.speed = _originalSpeed;
                 _originalSpeed = 0f;
                 
+                Debug.Log("nextID " + _currentDialog.nextID);
+                
                 if (_currentDialog.nextID >= 0) 
                     StartDialog(_currentDialog.nextID);
                 else 
@@ -88,9 +97,7 @@ public class DialogDisplay : MonoBehaviour {
             else if (displayDialog && _originalSpeed == 0f)
             {
                 _originalSpeed = _currentDialog.speed;
-                Debug.Log("originalSpeed " + _originalSpeed);
                 _currentDialog.speed /= 2;
-                Debug.Log("newDialog " + _currentDialog.speed);
             }
         }
     }
