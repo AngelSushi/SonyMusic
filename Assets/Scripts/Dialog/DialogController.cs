@@ -83,9 +83,9 @@ public class DialogController : MonoBehaviour
         return speakers.Where(speaker => speaker.id == speakerID).ToList()[0];
     }
 
-    public void ChangeScene()
+    public void ChangeScene(string sceneName)
     {
-        GameManager.instance.ChangeSceneWithAnim("Gameplay");
+        GameManager.instance.ChangeSceneWithAnim(sceneName);
     }
 
     [ContextMenu("Load")]
