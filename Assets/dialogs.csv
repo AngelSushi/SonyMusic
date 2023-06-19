@@ -18,12 +18,12 @@
 4;17;-1;Déplaces-toi jusqu'au point indiqué. ;2
 4;18;19;Si tu te déplaces trop loin, tu reviens tout seul vers la gauche. ;2
 4;19;-1;Tu vois l'obstacle en plein milieu de ton écran ? Ton but est de le détruire dans la direction indiqué. Essayes de le détruire. ;2
-4;20;17;Bravo, tu as réussi à détruire l'obstacle. Chaque obstacle te permet de gagner des points.;2
-4;21;18;Si tu enchaînes les obstacles sans te rater, ta barre de combo se charge. Attention si tu en rates un, elle revient à zéro. ;2
-4;22;19;Essaye donc de charger ta barre de combo.;2
-4;23;20;Je savais que je ne m'étais pas tromper en te choississant. Maintenant essayes de charger au maximum ta barre de combo. ;2
-4;24;21;Quand ta barre est chargé au maximum, tu peux te transformer en double cliquant sur ton téléphone.;2
-4;25;22;Elle te permet de te déplacer plus facilement, en glissant simplement ton doigt sur l'écran;2
+4;20;21;Bravo, tu as réussi à détruire l'obstacle. Chaque obstacle te permet de gagner des points.;2
+4;21;22;Si tu enchaînes les obstacles sans te rater, ta barre de combo se charge. Attention si tu en rates un, elle revient à zéro. ;2
+4;22;-1;Essaye donc de charger ta barre de combo.;2
+4;23;-1;Je savais que je ne m'étais pas tromper en te choississant. Maintenant essayes de charger au maximum ta barre de combo. ;2
+4;24;25;Quand ta barre est chargé au maximum, tu peux te transformer en cliquant sur la barre;2
+4;25;26;Elle te permet de te déplacer plus facilement, en restant appuyer et en glissant. ;2
 4;26;-1;Transforme-toi ! ;2
-4;27;24;Dernier petit point. La zone rouge que tu vois sur ton écran te permet de te déplacer plus facilement entre les étages.;2
+4;27;28;Dernier petit point. La zone rouge que tu vois sur ton écran te permet de te déplacer plus facilement entre les étages.;2
 4;28;-1;Te voilà fin prêt. Bonne chance à toi, on se retrouve à Bercy ! ;2

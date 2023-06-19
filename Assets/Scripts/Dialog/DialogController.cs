@@ -123,13 +123,10 @@ public class DialogController : MonoBehaviour
         
         for (int i = 1; i < content.Length; i++) 
         {
-            
             int.TryParse(content[i][0],out speakerID);
             int.TryParse(content[i][1], out dialogID);
             int.TryParse(content[i][2], out nextID);
             float.TryParse(content[i][4],out speed);
-            
-            Debug.Log("speakerID " + speakerID);
             
             loadList.Add(new DialogContent(speakerID,dialogID,nextID,content[i][3],speed));
         }

@@ -20,6 +20,7 @@ public class DialogDisplay : MonoBehaviour {
     private float _originalSpeed;
 
     public event UnityAction<int> OnDialogStart;
+    public event UnityAction<int,string> OnWordAction;
     public event UnityAction<int> OnDialogEnd;
     
     private void Start() 
@@ -66,8 +67,11 @@ public class DialogDisplay : MonoBehaviour {
     {
         for (int i = 1; i < dialogContent.content.Length + 1; i++)
         {
+            _currentDialog.speed = 1;
             yield return new WaitForSecondsRealtime(dialogContent.speed / dialogContent.content.Length);
             _dialogText.text = dialogContent.content.Substring(0,i);
+            
+            OnWordAction?.Invoke(_currentDialog.dialogID,_dialogText.text);
         }
 
         _isDisplayFinished = true;
@@ -85,8 +89,6 @@ public class DialogDisplay : MonoBehaviour {
                 
                 _currentDialog.speed = _originalSpeed;
                 _originalSpeed = 0f;
-                
-                Debug.Log("nextID " + _currentDialog.nextID);
                 
                 if (_currentDialog.nextID >= 0) 
                     StartDialog(_currentDialog.nextID);

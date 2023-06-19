@@ -28,6 +28,13 @@ public class PlayerDash : CoroutineSystem
     [SerializeField] private float pointPerDash;
     [SerializeField] private float maxCombo;
     [SerializeField] private Slider dashSlider;
+
+    public Slider DashSlider
+    {
+        get => dashSlider;
+    }
+    
+    
     [SerializeField] private Transform limit;
     public Transform Limit
     {
@@ -38,7 +45,12 @@ public class PlayerDash : CoroutineSystem
     [SerializeField] private Transform distanceCombo;
     [SerializeField] private TextMeshProUGUI scoreText;
     private float comboPoint;
-    
+
+    public float ComboPoint
+    {
+        get => comboPoint;
+        set => comboPoint = value;
+    }
 
     [Header("Player")]
     public GameObject landingAnimation;
@@ -82,12 +94,26 @@ public class PlayerDash : CoroutineSystem
     private Vector3 _playerPosition;
     private Vector3 _startObstaclePosition;
     [HideInInspector] public Vector3 dashDirection;
+    
     private float _dashPoint;
+
+    public float DashPoint
+    {
+        get => _dashPoint;
+        set => _dashPoint = value;
+    }
+
     private GameManager _gameManager;
 
 
     private float _deltaX, _deltaY;
     private bool _isSuperSayen = false;
+
+    public bool IsSuperSayen
+    {
+        get => _isSuperSayen;
+        set => _isSuperSayen = value;
+    }
     
 
     private bool _return;
@@ -148,6 +174,8 @@ public class PlayerDash : CoroutineSystem
     {
         _gameManager.Event.OnReleaseObstacle += ReleaseObstacle;
         _originalDistance = dashDistance;
+
+        comboPoint = 0;
     }
 
     private void OnDestroy()
@@ -262,8 +290,6 @@ public class PlayerDash : CoroutineSystem
                     _rb.velocity = Vector2.zero;
                 }
             }
-
-            Debug.Log("dashDirection " + dashDirection);
             
             if (animDashDone)
             {
@@ -348,6 +374,7 @@ public class PlayerDash : CoroutineSystem
                     dObj.IsCut = true;
                     AddPoint();
                     CutObject(col, localEndPosition);
+                    _gameManager.Event.OnDestroyObstacle?.Invoke(this,new EventManager.OnDestroyedObstacleArgs() {});
                 }
 
             }
@@ -484,12 +511,10 @@ public class PlayerDash : CoroutineSystem
             skeletRunObj.SetActive(false);
             skeletDashObj.SetActive(false);
             skeletFallObj.SetActive(true);
-            Debug.Log("atterir");
             skeletAnimationFall.AnimationName = "Atterissage";
 
             yield return new WaitForSeconds(0.3f);
 
-            Debug.Log("run");
             skeletRunObj.SetActive(true);
             skeletDashObj.SetActive(false);
             skeletFallObj.SetActive(false);
@@ -536,9 +561,13 @@ public class PlayerDash : CoroutineSystem
     {
         if (limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)
         {
+            Debug.Log("comboPoint " + comboPoint);
             comboPoint = comboPoint + 1;
             _dashPoint += pointPerDash * comboPoint;
             scoreText.text = _dashPoint.ToString();
+            
+            Debug.Log("combo " + comboPoint);
+            Debug.Log("value " + (comboPoint / maxCombo));
             dashSlider.value = comboPoint / maxCombo;
 
             if(comboPoint == maxCombo)
@@ -548,10 +577,11 @@ public class PlayerDash : CoroutineSystem
         }
         else
         {
-            comboPoint = 1;
+            comboPoint = 0;
             _dashPoint += pointPerDash * comboPoint;
             scoreText.text = _dashPoint.ToString();
             dashSlider.value = comboPoint / maxCombo;
+            
         }
   
         /*
