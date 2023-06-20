@@ -15,6 +15,7 @@ public class PlayerDash : CoroutineSystem
     [Header("Dash")]
     public bool isDashing;
     [SerializeField] private GameObject slashAnim;
+    [SerializeField] private GameObject sayenSlashAnim;
     
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
@@ -79,9 +80,11 @@ public class PlayerDash : CoroutineSystem
     [SerializeField] private List<GameObject> areas;
     [Range(0,1)]
     [SerializeField] private float slashAreaPercentage;
-    
-    
-   
+
+
+    public GameObject barreChargement;
+    public GameObject barreChargementFull;
+    bool canSayen = false;
 
 
     [HideInInspector] public GameObject lastHitPlateform;
@@ -342,12 +345,13 @@ public class PlayerDash : CoroutineSystem
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+
+        Vector3 localEndPosition = Vector3.zero;
+        DebugDash(col, localEndPosition);
         if(_isSuperSayen == false)
         {
             if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
             {
-                Vector3 localEndPosition = Vector3.zero;
-                DebugDash(col, localEndPosition);
 
                 _startObstaclePosition = transform.position;
 
@@ -392,8 +396,14 @@ public class PlayerDash : CoroutineSystem
         if(_isSuperSayen == true)
         {
             if (col.gameObject.layer == LayerMask.NameToLayer("Destructible"))
-            { 
-                Destroy(col.gameObject);
+            {
+                Vector3 slashPosition = col.transform.position;
+                slashPosition.z = -2f;
+
+                GameObject slash = Instantiate(sayenSlashAnim, slashPosition, Quaternion.identity);
+                slash.SetActive(true);
+                slash.transform.position = slashPosition;
+                CutObject(col, localEndPosition);
                 AddPoint();
 
             }
@@ -553,19 +563,20 @@ public class PlayerDash : CoroutineSystem
 
     private IEnumerator SuperSayenMod()
     {
-        _isSuperSayen = true;
-        
+        _isSuperSayen = true;        
         skeletRunObj.SetActive(false);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
         skeletSuperSayen.SetActive(true);
         yield return new WaitForSeconds(SuperSayenDuration);
         _isSuperSayen = false;
-        
+        barreChargement.SetActive(true);
+        barreChargementFull.SetActive(false);
         skeletRunObj.SetActive(true);
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
         skeletSuperSayen.SetActive(false);
+        canSayen = false; 
         comboPoint = 0;
         dashSlider.value = 0;
 
@@ -587,7 +598,9 @@ public class PlayerDash : CoroutineSystem
 
             if(comboPoint == maxCombo)
             {
-                StartCoroutine(SuperSayenMod());
+                barreChargement.SetActive(false);
+                barreChargementFull.SetActive(true);
+                canSayen = true;
             }
         }
         else
@@ -604,6 +617,13 @@ public class PlayerDash : CoroutineSystem
         Debug.Log("le combot point est de " + comboPoint);
 */
         
+    }
+    public void StartSuperSayen()
+    {
+        if(canSayen == true)
+        {
+            StartCoroutine(SuperSayenMod());
+        }
     }
 
     private void ReleaseObstacle(object sender,EventManager.OnReleaseObstacleArgs e)
