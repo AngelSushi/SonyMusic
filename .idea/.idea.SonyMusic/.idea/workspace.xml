@@ -3,11 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/J-M/PlayerAnimated/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/J-M/PlayerAnimated/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dialog.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dialog.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tutorial/score_mask.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites/Tutorial/score_mask.png.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +125,7 @@
       <workItem from="1686813814009" duration="44000" />
       <workItem from="1686813915308" duration="200000" />
       <workItem from="1686814140945" duration="7955000" />
-      <workItem from="1687248570058" duration="8531000" />
+      <workItem from="1687248570058" duration="10360000" />
     </task>
     <servers />
   </component>

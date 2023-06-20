@@ -159,6 +159,7 @@ public class PlayerDash : CoroutineSystem
         set => _hasReachBercy = value;
     }
 
+    private float _dashCurrentTime;
 
     void Awake() 
     {
@@ -246,6 +247,9 @@ public class PlayerDash : CoroutineSystem
             {
                 return;
             }
+
+            dashSlider.value = _dashCurrentTime / SuperSayenDuration;
+            _dashCurrentTime -= Time.deltaTime;
             
             _rb.gravityScale = 0f;
             _bc.isTrigger = true;
@@ -583,6 +587,11 @@ public class PlayerDash : CoroutineSystem
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
         skeletSuperSayen.SetActive(true);
+        _dashCurrentTime = SuperSayenDuration;
+        
+        barreChargementFull.SetActive(false);
+        barreChargement.SetActive(true);
+        
         yield return new WaitForSeconds(SuperSayenDuration);
         _isSuperSayen = false;
         barreChargement.SetActive(true);

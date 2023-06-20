@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [ExecuteAlways]
 public class DialogController : MonoBehaviour 
@@ -82,6 +83,25 @@ public class DialogController : MonoBehaviour
     {
         return speakers.Where(speaker => speaker.id == speakerID).ToList()[0];
     }
+    
+    public void LoadSceneAdditive(string sceneName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+
+        while (!operation.isDone)
+        {
+            
+        }
+
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+
+        foreach (GameObject go in scene.GetRootGameObjects())
+        {
+            go.SetActive(false);
+        }
+
+    }
+    
 
     public void ChangeScene(string sceneName)
     {
