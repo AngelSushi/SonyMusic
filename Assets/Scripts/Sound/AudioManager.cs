@@ -39,15 +39,12 @@ public class AudioManager : MonoBehaviour
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = s.audioMixer;
 
-            //MusicController.instance.mainAudio = s.source;
         }
     }
 
     private void Start()
     {
 
-        //FindObjectOfType<AudioManager>().Play("Raelsan");
-        
 
         foreach (Sound sound in sounds)
         {

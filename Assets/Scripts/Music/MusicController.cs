@@ -53,7 +53,6 @@ public class MusicController : MonoBehaviour
     private void Start()
     {
         string fullPath;
-        AudioManager.instance.PlayRandom(SoundState.GameplayMusic);
         if (Application.platform == RuntimePlatform.Android)
         {
             fullPath = Path.Combine(Application.streamingAssetsPath, fileLocation);
@@ -91,7 +90,14 @@ public class MusicController : MonoBehaviour
     }
 
 
-
+    public void PauseSound()
+    {
+        mainAudio.Pause();
+    }
+    public void ResumeSound()
+    {
+        mainAudio.Play();
+    }
     public void LoadWindows()
     {
         midiFile = MidiFile.Read(Application.streamingAssetsPath + "/" + fileLocation);
