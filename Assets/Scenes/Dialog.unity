@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44402242, g: 0.49316543, b: 0.5722324, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -293,7 +293,7 @@ RectTransform:
   - {fileID: 256292550}
   - {fileID: 2082484882}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -537,7 +537,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &562026465
 GameObject:
@@ -585,7 +585,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &562026469
 MonoBehaviour:
@@ -710,7 +710,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &705507996
 MonoBehaviour:
@@ -764,7 +764,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &797059505
 MonoBehaviour:
@@ -780,7 +780,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogParent: {fileID: 256292549}
   inputAsset: {fileID: -944628639613478452, guid: d5eadfb55053f194dadeda8a21f7757c, type: 3}
-  displayDialog: 0
 --- !u!114 &797059506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -881,6 +880,85 @@ MonoBehaviour:
     content: "Allez je crois en vous l'\xE9quipe... Attention danger en approche
       !"
     speed: 2
+  - speakerID: 4
+    dialogID: 15
+    nextID: 16
+    content: "Bravo, te voil\xE0 enfin arriv\xE9 dans les rues de Paris. "
+    speed: 2
+  - speakerID: 4
+    dialogID: 16
+    nextID: 17
+    content: "Pour te d\xE9placer entre les immeubles, tu peux slasher vers la direction
+      ou tu veux aller."
+    speed: 2
+  - speakerID: 4
+    dialogID: 17
+    nextID: -1
+    content: "D\xE9places-toi jusqu'au point indiqu\xE9. "
+    speed: 2
+  - speakerID: 4
+    dialogID: 18
+    nextID: 19
+    content: "Si tu te d\xE9places trop loin, tu reviens tout seul vers la gauche. "
+    speed: 2
+  - speakerID: 4
+    dialogID: 19
+    nextID: -1
+    content: "Tu vois l'obstacle en plein milieu de ton \xE9cran ? Ton but est de
+      le d\xE9truire dans la direction indiqu\xE9. Essayes de le d\xE9truire. "
+    speed: 2
+  - speakerID: 4
+    dialogID: 20
+    nextID: 21
+    content: "Bravo, tu as r\xE9ussi \xE0 d\xE9truire l'obstacle. Chaque obstacle
+      te permet de gagner des points."
+    speed: 2
+  - speakerID: 4
+    dialogID: 21
+    nextID: 22
+    content: "Si tu encha\xEEnes les obstacles sans te rater, ta barre de combo se
+      charge. Attention si tu en rates un, elle revient \xE0 z\xE9ro. "
+    speed: 2
+  - speakerID: 4
+    dialogID: 22
+    nextID: -1
+    content: Essaye donc de charger ta barre de combo.
+    speed: 2
+  - speakerID: 4
+    dialogID: 23
+    nextID: -1
+    content: "Je savais que je ne m'\xE9tais pas tromper en te choississant. Maintenant
+      essayes de charger au maximum ta barre de combo. "
+    speed: 2
+  - speakerID: 4
+    dialogID: 24
+    nextID: 25
+    content: "Quand ta barre est charg\xE9 au maximum, tu peux te transformer en
+      cliquant sur la barre"
+    speed: 2
+  - speakerID: 4
+    dialogID: 25
+    nextID: 26
+    content: "Elle te permet de te d\xE9placer plus facilement, en restant appuyer
+      et en glissant. "
+    speed: 2
+  - speakerID: 4
+    dialogID: 26
+    nextID: -1
+    content: 'Transforme-toi ! '
+    speed: 2
+  - speakerID: 4
+    dialogID: 27
+    nextID: 28
+    content: "Dernier petit point. La zone rouge que tu vois sur ton \xE9cran te
+      permet de te d\xE9placer plus facilement entre les \xE9tages."
+    speed: 2
+  - speakerID: 4
+    dialogID: 28
+    nextID: -1
+    content: "Te voil\xE0 fin pr\xEAt. Bonne chance \xE0 toi, on se retrouve \xE0
+      Bercy ! "
+    speed: 2
 --- !u!114 &797059507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,6 +992,7 @@ MonoBehaviour:
     endEvent:
       m_PersistentCalls:
         m_Calls: []
+    wordsAction: []
   - name: 4
     id: 4
     startEvent:
@@ -934,6 +1013,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    wordsAction: []
   - name: 6
     id: 6
     startEvent:
@@ -966,6 +1046,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    wordsAction: []
   - name: 9
     id: 9
     startEvent:
@@ -986,6 +1067,7 @@ MonoBehaviour:
     endEvent:
       m_PersistentCalls:
         m_Calls: []
+    wordsAction: []
   - name: 11
     id: 11
     startEvent:
@@ -1006,6 +1088,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    wordsAction: []
   - name: 12
     id: 12
     startEvent:
@@ -1014,6 +1097,7 @@ MonoBehaviour:
     endEvent:
       m_PersistentCalls:
         m_Calls: []
+    wordsAction: []
   - name: 13
     id: 13
     startEvent:
@@ -1031,9 +1115,22 @@ MonoBehaviour:
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
+            m_StringArgument: Tutorial
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 797059506}
+          m_TargetAssemblyTypeName: DialogController, Assembly-CSharp
+          m_MethodName: LoadSceneAdditive
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
             m_StringArgument: Gameplay
             m_BoolArgument: 0
           m_CallState: 2
+    wordsAction: []
   - name: 14
     id: 14
     startEvent:
@@ -1066,6 +1163,7 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+    wordsAction: []
   _controller: {fileID: 797059505}
 --- !u!1 &923105381
 GameObject:
@@ -1143,67 +1241,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 923105381}
   m_CullTransparentMesh: 1
---- !u!1001 &931754082
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994997, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3761098142299994998, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_Name
-      value: SceneLoader
-      objectReference: {fileID: 0}
-    - target: {fileID: 3818557428026235131, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0c5c63c3b9c212944ae45a05ec0e576e, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,7 +1788,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1836105904
 MonoBehaviour:
@@ -1976,60 +2013,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082484881}
   m_CullTransparentMesh: 1
---- !u!1001 &2108224204
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3353972580175087504, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_Name
-      value: GameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1351.6667
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 677.8403
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 45.646896
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3353972580175087510, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 12b214262d5dc5745a9b7bdd49082bdc, type: 3}

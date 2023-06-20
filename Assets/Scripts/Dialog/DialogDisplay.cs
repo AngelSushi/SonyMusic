@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class DialogDisplay : MonoBehaviour {
@@ -14,11 +15,19 @@ public class DialogDisplay : MonoBehaviour {
     public InputActionAsset inputAsset;
     private DialogController.DialogContent _currentDialog;
 
-    public bool displayDialog;
+    private bool _isInDialog;
+
+    public bool IsInDialog
+    {
+        get => _isInDialog;
+        private set => _isInDialog = value;
+    }
+    
     private bool _isDisplayFinished;
     private float _originalSpeed;
 
     public event UnityAction<int> OnDialogStart;
+    public event UnityAction<int,string> OnWordAction;
     public event UnityAction<int> OnDialogEnd;
     
     private void Start() 
@@ -27,7 +36,13 @@ public class DialogDisplay : MonoBehaviour {
         _dialogText = dialogParent.transform.GetChild(1).GetComponent<Text>();
         _dialogAuthor = dialogParent.transform.GetChild(2).GetComponent<Image>();
         _dialogBackground = dialogParent.GetComponent<Image>();
-        StartDialog(1);
+
+        Debug.Log("dialogAuthor " + _dialogAuthor);
+
+        if (SceneManager.GetActiveScene().name == "Dialog")
+        {
+            StartDialog(1);
+        }
     }
 
 
@@ -36,7 +51,7 @@ public class DialogDisplay : MonoBehaviour {
         dialogParent.SetActive(true);
         
         _currentDialog = DialogController.instance.GetDialogById(id);
-        displayDialog = true;
+        _isInDialog = true;
         _currentDialog.speed = 5f;
         
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
@@ -59,8 +74,11 @@ public class DialogDisplay : MonoBehaviour {
     {
         for (int i = 1; i < dialogContent.content.Length + 1; i++)
         {
+            _currentDialog.speed = 1;
             yield return new WaitForSecondsRealtime(dialogContent.speed / dialogContent.content.Length);
             _dialogText.text = dialogContent.content.Substring(0,i);
+            
+            OnWordAction?.Invoke(_currentDialog.dialogID,_dialogText.text);
         }
 
         _isDisplayFinished = true;
@@ -72,7 +90,7 @@ public class DialogDisplay : MonoBehaviour {
     {
         if (e.started) 
         {
-            if (displayDialog && _isDisplayFinished) 
+            if (_isInDialog && _isDisplayFinished) 
             {
                 OnDialogEnd?.Invoke(_currentDialog.dialogID);
                 
@@ -85,12 +103,10 @@ public class DialogDisplay : MonoBehaviour {
                     EndDialog();
                 
             }
-            else if (displayDialog && _originalSpeed == 0f)
+            else if (_isInDialog && _originalSpeed == 0f)
             {
                 _originalSpeed = _currentDialog.speed;
-                Debug.Log("originalSpeed " + _originalSpeed);
                 _currentDialog.speed /= 2;
-                Debug.Log("newDialog " + _currentDialog.speed);
             }
         }
     }
@@ -98,7 +114,7 @@ public class DialogDisplay : MonoBehaviour {
     private void EndDialog()
     {
         dialogParent.SetActive(false);
-        displayDialog = false;
+        _isInDialog = false;
         _isDisplayFinished = false;
     }
 }

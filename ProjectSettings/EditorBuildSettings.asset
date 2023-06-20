@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bercy.unity
     guid: 90374e077c8edfd4da8a626136e1e021
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 1c345919109e74a42a5cf3a92d44cd21
   m_configObjects: {}

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using JetBrains.Annotations;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,6 +16,22 @@ public class DialogEvent : MonoBehaviour
         public int id;
         public UnityEvent startEvent;
         public UnityEvent endEvent;
+
+        [Serializable]
+        public class WEvent
+        {
+            public string word;
+            public UnityEvent action;
+            private bool hasBeenCalled;
+
+            public bool HasBeenCalled
+            {
+                get => hasBeenCalled;
+                set => hasBeenCalled = true;
+            }
+        }
+
+        public List<WEvent> wordsAction;
     }
 
     [SerializeField] List<DEvent> _events;
@@ -42,12 +59,14 @@ public class DialogEvent : MonoBehaviour
     private void Start()
     {
         _controller.OnDialogStart += ControllerOnOnDialogStart;
+        _controller.OnWordAction += ControllerOnWordAction;
         _controller.OnDialogEnd += ControllerOnOnDialogEnd;
     }
 
     private void OnDestroy()
     {
         _controller.OnDialogStart -= ControllerOnOnDialogStart;
+        _controller.OnWordAction -= ControllerOnWordAction;
         _controller.OnDialogEnd -= ControllerOnOnDialogEnd;
     }
 
@@ -55,6 +74,21 @@ public class DialogEvent : MonoBehaviour
     private void ControllerOnOnDialogStart(int id) => FindEventByID(id)?.startEvent?.Invoke();     
     private void ControllerOnOnDialogEnd(int id) => FindEventByID(id)?.endEvent?.Invoke();
 
-
+    private void ControllerOnWordAction(int id,string text)
+    {
+        if (FindEventByID(id) == null)
+        {
+            return;
+        }
+        
+        foreach (DEvent.WEvent wEvent in FindEventByID(id).wordsAction)
+        {
+            if (text.Contains(wEvent.word) && !wEvent.HasBeenCalled)
+            {
+                wEvent.action?.Invoke();
+                wEvent.HasBeenCalled = true;
+            }
+        }
+    }
     
 }

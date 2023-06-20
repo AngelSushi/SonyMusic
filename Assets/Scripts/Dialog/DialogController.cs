@@ -6,6 +6,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 [ExecuteAlways]
 public class DialogController : MonoBehaviour 
@@ -82,6 +83,22 @@ public class DialogController : MonoBehaviour
     {
         return speakers.Where(speaker => speaker.id == speakerID).ToList()[0];
     }
+    
+    public void LoadSceneAdditive(string sceneName)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+        
+        Debug.Log("operation");
+
+        Scene scene = SceneManager.GetSceneByName(sceneName);
+
+        foreach (GameObject go in scene.GetRootGameObjects())
+        {
+            go.SetActive(false);
+        }
+
+    }
+    
 
     public void ChangeScene(string sceneName)
     {
@@ -115,10 +132,20 @@ public class DialogController : MonoBehaviour
     {
         loadList.Clear();
         string[][] content = CsvParser.Parse(file.text);
+
+        int speakerID = -1;
+        int dialogID = -1;
+        int nextID = -1;
+        float speed = 0f;
         
         for (int i = 1; i < content.Length; i++) 
         {
-            loadList.Add(new DialogContent(int.Parse(content[i][0]),int.Parse(content[i][1]),int.Parse(content[i][2]),content[i][3],float.Parse(content[i][4])));
+            int.TryParse(content[i][0],out speakerID);
+            int.TryParse(content[i][1], out dialogID);
+            int.TryParse(content[i][2], out nextID);
+            float.TryParse(content[i][4],out speed);
+            
+            loadList.Add(new DialogContent(speakerID,dialogID,nextID,content[i][3],speed));
         }
     }
     
