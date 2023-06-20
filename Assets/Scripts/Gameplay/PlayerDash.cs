@@ -309,12 +309,13 @@ public class PlayerDash : CoroutineSystem
 
     private void OnTriggerEnter2D(Collider2D col)
     {
+
+                Vector3 localEndPosition = Vector3.zero;
+                DebugDash(col, localEndPosition);
         if(_isSuperSayen == false)
         {
             if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
             {
-                Vector3 localEndPosition = Vector3.zero;
-                DebugDash(col, localEndPosition);
 
                 _startObstaclePosition = transform.position;
 
@@ -359,7 +360,7 @@ public class PlayerDash : CoroutineSystem
         {
             if (col.gameObject.layer == LayerMask.NameToLayer("Destructible"))
             { 
-                Destroy(col.gameObject);
+                CutObject(col, localEndPosition);
                 AddPoint();
 
             }
