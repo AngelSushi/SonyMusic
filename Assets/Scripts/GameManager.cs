@@ -97,6 +97,8 @@ public class GameManager : CoroutineSystem
         SceneManager.LoadSceneAsync(sceneName);
     }
 
+   
+
     public void ChangeSceneWithAnim(string sceneName)
     {
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())

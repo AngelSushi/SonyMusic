@@ -22,4 +22,12 @@ public class EventManager : MonoBehaviour
         public Vector3 dashDirection;
         public bool switchingPlateform;
     }
+
+
+    public EventHandler<OnDestroyedObstacleArgs> OnDestroyObstacle;
+
+    public class OnDestroyedObstacleArgs : EventArgs
+    {
+        
+    }
 }

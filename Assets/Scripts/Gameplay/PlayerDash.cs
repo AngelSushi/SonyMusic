@@ -27,8 +27,15 @@ public class PlayerDash : CoroutineSystem
 
     [Header("Score")]
     [SerializeField] private float pointPerDash;
-    [SerializeField] private float maxCombo;
+    [SerializeField] private int maxCombo;
     [SerializeField] private Slider dashSlider;
+
+    public Slider DashSlider
+    {
+        get => dashSlider;
+    }
+    
+    
     [SerializeField] private Transform limit;
     public Transform Limit
     {
@@ -39,7 +46,12 @@ public class PlayerDash : CoroutineSystem
     [SerializeField] private Transform distanceCombo;
     [SerializeField] private TextMeshProUGUI scoreText;
     private float comboPoint;
-    
+
+    public float ComboPoint
+    {
+        get => comboPoint;
+        set => comboPoint = value;
+    }
 
     [Header("Player")]
     public GameObject landingAnimation;
@@ -72,8 +84,22 @@ public class PlayerDash : CoroutineSystem
 
     public GameObject barreChargement;
     public GameObject barreChargementFull;
-    bool canSayen = false;
+    private bool canSayen = false;
 
+    public bool CanSayen
+    {
+        get => canSayen;
+        private set => canSayen = value;
+    }
+
+    private bool _hasBeenSayen;
+
+    public bool HasBeenSayen
+    {
+        get => _hasBeenSayen;
+        private set => _hasBeenSayen = value;
+    }
+    
 
     [HideInInspector] public GameObject lastHitPlateform;
 
@@ -85,12 +111,26 @@ public class PlayerDash : CoroutineSystem
     private Vector3 _playerPosition;
     private Vector3 _startObstaclePosition;
     [HideInInspector] public Vector3 dashDirection;
+    
     private float _dashPoint;
+
+    public float DashPoint
+    {
+        get => _dashPoint;
+        set => _dashPoint = value;
+    }
+
     private GameManager _gameManager;
 
 
     private float _deltaX, _deltaY;
     private bool _isSuperSayen = false;
+
+    public bool IsSuperSayen
+    {
+        get => _isSuperSayen;
+        set => _isSuperSayen = value;
+    }
     
 
     private bool _return;
@@ -110,6 +150,8 @@ public class PlayerDash : CoroutineSystem
     private Vector3 touchPosition;
     private Vector3 direction;
     private float moveSpeed = 10f;
+    
+    private DialogDisplay _dialogDisplay;
 
     public bool HasReachBercy
     {
@@ -117,6 +159,7 @@ public class PlayerDash : CoroutineSystem
         set => _hasReachBercy = value;
     }
 
+    private float _dashCurrentTime;
 
     void Awake() 
     {
@@ -126,6 +169,8 @@ public class PlayerDash : CoroutineSystem
         _gameManager = FindObjectOfType<GameManager>();
         _plateforms = FindObjectsOfType<Plateform>().ToList();
 
+        _dialogDisplay = FindObjectOfType<DialogDisplay>();
+        
         
         foreach (GameObject button in buttons)
         {
@@ -151,6 +196,8 @@ public class PlayerDash : CoroutineSystem
     {
         _gameManager.Event.OnReleaseObstacle += ReleaseObstacle;
         _originalDistance = dashDistance;
+
+        comboPoint = 0;
     }
 
     private void OnDestroy()
@@ -196,16 +243,25 @@ public class PlayerDash : CoroutineSystem
         }
         if (_isSuperSayen == true)
         {
+            if (_dialogDisplay != null && _dialogDisplay.IsInDialog)
+            {
+                return;
+            }
+
+            dashSlider.value = _dashCurrentTime / SuperSayenDuration;
+            _dashCurrentTime -= Time.deltaTime;
+            
             _rb.gravityScale = 0f;
             _bc.isTrigger = true;
+            
             if (Input.touchCount > 0)
             {
-            Touch touch = Input.GetTouch(0);
+                Touch touch = Input.GetTouch(0);
 
-            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPosition.z = 0f;
-            direction = (touchPosition - transform.position);
-            _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
+                touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                touchPosition.z = 0f;
+                direction = (touchPosition - transform.position);
+                _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
 
                 if(touch.phase == TouchPhase.Ended)
                 {
@@ -255,7 +311,7 @@ public class PlayerDash : CoroutineSystem
         {
             if (dashDirection == Vector3.zero)
             {
-                if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return)
+                if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return && IsSuperSayen)
                 {
                     //    _rb.velocity = new Vector2(0, -1) * speed;
                     _rb.velocity = Vector2.left * speed;
@@ -265,8 +321,6 @@ public class PlayerDash : CoroutineSystem
                     _rb.velocity = Vector2.zero;
                 }
             }
-
-            Debug.Log("dashDirection " + dashDirection);
             
             if (animDashDone)
             {
@@ -352,6 +406,7 @@ public class PlayerDash : CoroutineSystem
                     dObj.IsCut = true;
                     AddPoint();
                     CutObject(col, localEndPosition);
+                    _gameManager.Event.OnDestroyObstacle?.Invoke(this,new EventManager.OnDestroyedObstacleArgs() {});
                 }
 
             }
@@ -449,6 +504,12 @@ public class PlayerDash : CoroutineSystem
     }
     private void Dash(bool switchingPlateform)
     {
+        if (_dialogDisplay != null && _dialogDisplay.IsInDialog && IsSuperSayen)
+        {
+            return;
+        }
+        
+        
         Dash((_endPosition - _startPosition).normalized,switchingPlateform);
     }
     
@@ -494,12 +555,10 @@ public class PlayerDash : CoroutineSystem
             skeletRunObj.SetActive(false);
             skeletDashObj.SetActive(false);
             skeletFallObj.SetActive(true);
-            Debug.Log("atterir");
             skeletAnimationFall.AnimationName = "Atterissage";
 
             yield return new WaitForSeconds(0.3f);
 
-            Debug.Log("run");
             skeletRunObj.SetActive(true);
             skeletDashObj.SetActive(false);
             skeletFallObj.SetActive(false);
@@ -528,6 +587,11 @@ public class PlayerDash : CoroutineSystem
         skeletDashObj.SetActive(false);
         skeletFallObj.SetActive(false);
         skeletSuperSayen.SetActive(true);
+        _dashCurrentTime = SuperSayenDuration;
+        
+        barreChargementFull.SetActive(false);
+        barreChargement.SetActive(true);
+        
         yield return new WaitForSeconds(SuperSayenDuration);
         _isSuperSayen = false;
         barreChargement.SetActive(true);
@@ -550,6 +614,7 @@ public class PlayerDash : CoroutineSystem
             comboPoint = comboPoint + 1;
             _dashPoint += pointPerDash * comboPoint;
             scoreText.text = _dashPoint.ToString();
+            
             dashSlider.value = comboPoint / maxCombo;
 
             if(comboPoint == maxCombo)
@@ -561,10 +626,11 @@ public class PlayerDash : CoroutineSystem
         }
         else
         {
-            comboPoint = 1;
+            comboPoint = 0;
             _dashPoint += pointPerDash * comboPoint;
             scoreText.text = _dashPoint.ToString();
             dashSlider.value = comboPoint / maxCombo;
+            
         }
   
         /*
@@ -575,8 +641,10 @@ public class PlayerDash : CoroutineSystem
     }
     public void StartSuperSayen()
     {
+        Debug.Log("start " + canSayen);
         if(canSayen == true)
         {
+            _hasBeenSayen = true;
             StartCoroutine(SuperSayenMod());
         }
     }
