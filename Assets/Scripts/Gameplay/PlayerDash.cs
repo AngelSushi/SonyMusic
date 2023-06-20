@@ -133,6 +133,8 @@ public class PlayerDash : CoroutineSystem
     private Vector3 touchPosition;
     private Vector3 direction;
     private float moveSpeed = 10f;
+    
+    private DialogDisplay _dialogDisplay;
 
     public bool HasReachBercy
     {
@@ -149,6 +151,8 @@ public class PlayerDash : CoroutineSystem
         _gameManager = FindObjectOfType<GameManager>();
         _plateforms = FindObjectsOfType<Plateform>().ToList();
 
+        _dialogDisplay = FindObjectOfType<DialogDisplay>();
+        
         
         foreach (GameObject button in buttons)
         {
@@ -221,6 +225,11 @@ public class PlayerDash : CoroutineSystem
         }
         if (_isSuperSayen == true)
         {
+            if (_dialogDisplay != null && _dialogDisplay.IsInDialog)
+            {
+                return;
+            }
+            
             _rb.gravityScale = 0f;
             _bc.isTrigger = true;
             if (Input.touchCount > 0)
@@ -466,6 +475,12 @@ public class PlayerDash : CoroutineSystem
     }
     private void Dash(bool switchingPlateform)
     {
+        if (_dialogDisplay != null && _dialogDisplay.IsInDialog)
+        {
+            return;
+        }
+        
+        
         Dash((_endPosition - _startPosition).normalized,switchingPlateform);
     }
     

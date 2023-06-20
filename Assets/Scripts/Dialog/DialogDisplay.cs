@@ -15,7 +15,14 @@ public class DialogDisplay : MonoBehaviour {
     public InputActionAsset inputAsset;
     private DialogController.DialogContent _currentDialog;
 
-    public bool displayDialog;
+    private bool _isInDialog;
+
+    public bool IsInDialog
+    {
+        get => _isInDialog;
+        private set => _isInDialog = value;
+    }
+    
     private bool _isDisplayFinished;
     private float _originalSpeed;
 
@@ -44,7 +51,7 @@ public class DialogDisplay : MonoBehaviour {
         dialogParent.SetActive(true);
         
         _currentDialog = DialogController.instance.GetDialogById(id);
-        displayDialog = true;
+        _isInDialog = true;
         _currentDialog.speed = 5f;
         
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
@@ -83,7 +90,7 @@ public class DialogDisplay : MonoBehaviour {
     {
         if (e.started) 
         {
-            if (displayDialog && _isDisplayFinished) 
+            if (_isInDialog && _isDisplayFinished) 
             {
                 OnDialogEnd?.Invoke(_currentDialog.dialogID);
                 
@@ -96,7 +103,7 @@ public class DialogDisplay : MonoBehaviour {
                     EndDialog();
                 
             }
-            else if (displayDialog && _originalSpeed == 0f)
+            else if (_isInDialog && _originalSpeed == 0f)
             {
                 _originalSpeed = _currentDialog.speed;
                 _currentDialog.speed /= 2;
@@ -107,7 +114,7 @@ public class DialogDisplay : MonoBehaviour {
     private void EndDialog()
     {
         dialogParent.SetActive(false);
-        displayDialog = false;
+        _isInDialog = false;
         _isDisplayFinished = false;
     }
 }

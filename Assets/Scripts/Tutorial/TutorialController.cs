@@ -6,6 +6,7 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Rendering.Universal;
 
 public class TutorialController : MonoBehaviour
 {
@@ -54,8 +55,10 @@ public class TutorialController : MonoBehaviour
     private DialogDisplay _dialogDisplay;
 
 
-    [Header("Movement State")] [SerializeField]
-    private GameObject goTo;
+    [Header("Movement State")] 
+    [SerializeField] private Light2D growLight;
+
+    [SerializeField] private Light2D generatorLight;
 
     private PlayerDash _player;
 
@@ -87,6 +90,8 @@ public class TutorialController : MonoBehaviour
                 {
                     if (hit.collider != null)
                     {
+                        generatorLight.gameObject.SetActive(false);
+                        growLight.gameObject.SetActive(true);
                         SwitchState(TState.OBSTACLE);
                     }
                 }

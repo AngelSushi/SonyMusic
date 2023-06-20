@@ -83,8 +83,6 @@ public class DialogEvent : MonoBehaviour
         
         foreach (DEvent.WEvent wEvent in FindEventByID(id).wordsAction)
         {
-            Debug.Log("text " + text);
-            Debug.Log("word " + wEvent.word);
             if (text.Contains(wEvent.word) && !wEvent.HasBeenCalled)
             {
                 wEvent.action?.Invoke();
