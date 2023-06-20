@@ -15,6 +15,7 @@ public class PlayerDash : CoroutineSystem
     [Header("Dash")]
     public bool isDashing;
     [SerializeField] private GameObject slashAnim;
+    [SerializeField] private GameObject sayenSlashAnim;
     
     [Header("Dash Values")]
     [SerializeField] private float dashSpeed;
@@ -310,8 +311,8 @@ public class PlayerDash : CoroutineSystem
     private void OnTriggerEnter2D(Collider2D col)
     {
 
-                Vector3 localEndPosition = Vector3.zero;
-                DebugDash(col, localEndPosition);
+        Vector3 localEndPosition = Vector3.zero;
+        DebugDash(col, localEndPosition);
         if(_isSuperSayen == false)
         {
             if (col.gameObject.layer == LayerMask.NameToLayer("Destructible") && isDashing)
@@ -359,7 +360,13 @@ public class PlayerDash : CoroutineSystem
         if(_isSuperSayen == true)
         {
             if (col.gameObject.layer == LayerMask.NameToLayer("Destructible"))
-            { 
+            {
+                Vector3 slashPosition = col.transform.position;
+                slashPosition.z = -2f;
+
+                GameObject slash = Instantiate(sayenSlashAnim, slashPosition, Quaternion.identity);
+                slash.SetActive(true);
+                slash.transform.position = slashPosition;
                 CutObject(col, localEndPosition);
                 AddPoint();
 

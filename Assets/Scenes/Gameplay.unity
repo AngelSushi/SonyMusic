@@ -1804,6 +1804,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1515516541}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
+      propertyPath: sayenSlashAnim
+      value: 
+      objectReference: {fileID: 3994103160680012299, guid: 75ae80c017af08346b55cf466840f45a, type: 3}
+    - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: barreChargement
       value: 
       objectReference: {fileID: 1310645752}
