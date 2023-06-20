@@ -99,7 +99,7 @@ public class TutorialController : MonoBehaviour
                 break;
             
             case TState.TRANSFORMATION:
-                if (!_player.IsSuperSayen)
+                if (!_player.IsSuperSayen && _player.HasBeenSayen)
                 {
                     SwitchState(TState.END);
                 }
@@ -138,7 +138,8 @@ public class TutorialController : MonoBehaviour
         
         if (actualState == TState.MAX_COMBO)
         {
-            if (_player.IsSuperSayen)
+
+            if (_player.CanSayen)
             {
                 SwitchState(TState.TRANSFORMATION);
                 return;

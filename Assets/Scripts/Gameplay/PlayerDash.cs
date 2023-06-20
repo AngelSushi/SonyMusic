@@ -27,7 +27,7 @@ public class PlayerDash : CoroutineSystem
 
     [Header("Score")]
     [SerializeField] private float pointPerDash;
-    [SerializeField] private float maxCombo;
+    [SerializeField] private int maxCombo;
     [SerializeField] private Slider dashSlider;
 
     public Slider DashSlider
@@ -84,8 +84,22 @@ public class PlayerDash : CoroutineSystem
 
     public GameObject barreChargement;
     public GameObject barreChargementFull;
-    bool canSayen = false;
+    private bool canSayen = false;
 
+    public bool CanSayen
+    {
+        get => canSayen;
+        private set => canSayen = value;
+    }
+
+    private bool _hasBeenSayen;
+
+    public bool HasBeenSayen
+    {
+        get => _hasBeenSayen;
+        private set => _hasBeenSayen = value;
+    }
+    
 
     [HideInInspector] public GameObject lastHitPlateform;
 
@@ -235,14 +249,15 @@ public class PlayerDash : CoroutineSystem
             
             _rb.gravityScale = 0f;
             _bc.isTrigger = true;
+            
             if (Input.touchCount > 0)
             {
-            Touch touch = Input.GetTouch(0);
+                Touch touch = Input.GetTouch(0);
 
-            touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            touchPosition.z = 0f;
-            direction = (touchPosition - transform.position);
-            _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
+                touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+                touchPosition.z = 0f;
+                direction = (touchPosition - transform.position);
+                _rb.velocity = new Vector2(direction.x, direction.y) * moveSpeed;
 
                 if(touch.phase == TouchPhase.Ended)
                 {
@@ -292,7 +307,7 @@ public class PlayerDash : CoroutineSystem
         {
             if (dashDirection == Vector3.zero)
             {
-                if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return)
+                if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return && IsSuperSayen)
                 {
                     //    _rb.velocity = new Vector2(0, -1) * speed;
                     _rb.velocity = Vector2.left * speed;
@@ -485,7 +500,7 @@ public class PlayerDash : CoroutineSystem
     }
     private void Dash(bool switchingPlateform)
     {
-        if (_dialogDisplay != null && _dialogDisplay.IsInDialog)
+        if (_dialogDisplay != null && _dialogDisplay.IsInDialog && IsSuperSayen)
         {
             return;
         }
@@ -587,13 +602,10 @@ public class PlayerDash : CoroutineSystem
     {
         if (limit.position.x < gameObject.transform.position.x && gameObject.transform.position.x < distanceCombo.position.x)
         {
-            Debug.Log("comboPoint " + comboPoint);
             comboPoint = comboPoint + 1;
             _dashPoint += pointPerDash * comboPoint;
             scoreText.text = _dashPoint.ToString();
             
-            Debug.Log("combo " + comboPoint);
-            Debug.Log("value " + (comboPoint / maxCombo));
             dashSlider.value = comboPoint / maxCombo;
 
             if(comboPoint == maxCombo)
@@ -620,8 +632,10 @@ public class PlayerDash : CoroutineSystem
     }
     public void StartSuperSayen()
     {
+        Debug.Log("start " + canSayen);
         if(canSayen == true)
         {
+            _hasBeenSayen = true;
             StartCoroutine(SuperSayenMod());
         }
     }
