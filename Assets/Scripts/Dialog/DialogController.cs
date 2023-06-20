@@ -87,11 +87,8 @@ public class DialogController : MonoBehaviour
     public void LoadSceneAdditive(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-
-        while (!operation.isDone)
-        {
-            
-        }
+        
+        Debug.Log("operation");
 
         Scene scene = SceneManager.GetSceneByName(sceneName);
 
