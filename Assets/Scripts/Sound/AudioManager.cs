@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Audio;
 using Random = UnityEngine.Random;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
 
 public class AudioManager : MonoBehaviour
 {
@@ -37,6 +38,8 @@ public class AudioManager : MonoBehaviour
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
             s.source.outputAudioMixerGroup = s.audioMixer;
+
+            //MusicController.instance.mainAudio = s.source;
         }
     }
 
@@ -44,7 +47,7 @@ public class AudioManager : MonoBehaviour
     {
 
         //FindObjectOfType<AudioManager>().Play("Raelsan");
-
+        
 
         foreach (Sound sound in sounds)
         {
@@ -54,7 +57,6 @@ public class AudioManager : MonoBehaviour
             }
             DicoActualSound[sound.ActualSound].Add(sound);
         }
-
 
     }
 

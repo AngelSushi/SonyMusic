@@ -53,7 +53,7 @@ public class MusicController : MonoBehaviour
     private void Start()
     {
         string fullPath;
-
+        AudioManager.instance.PlayRandom(SoundState.GameplayMusic);
         if (Application.platform == RuntimePlatform.Android)
         {
             fullPath = Path.Combine(Application.streamingAssetsPath, fileLocation);
