@@ -1310,7 +1310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 97512046}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.01, y: 2.54, z: 0}
+  m_LocalPosition: {x: 41.81, y: 2.06, z: 0}
   m_LocalScale: {x: 1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7033,7 +7033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.0135, y: -419.35022}
+  m_AnchoredPosition: {x: 14.8, y: -419.35022}
   m_SizeDelta: {x: 1300.8009, y: 43.6594}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &633814104
@@ -10948,7 +10948,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908074588}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 41.43, y: 5.17, z: 0}
+  m_LocalPosition: {x: 42.65, y: 4.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12773,10 +12773,10 @@ MonoBehaviour:
     direction: 0
   - sprite: {fileID: 21300000, guid: d3da5a38ab962e24bb293ee5991cdaed, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    direction: 7
-  - sprite: {fileID: 21300000, guid: f9455874a66bbbf4295e60d6850f2823, type: 3}
-    color: {r: 1, g: 1, b: 1, a: 1}
     direction: 5
+  - sprite: {fileID: 21300000, guid: f75d7cfd4557d2748993d15c217660a1, type: 3}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    direction: 7
   - sprite: {fileID: 21300000, guid: 6fc1f5a9ee761fa4b843cb6e24a863c7, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     direction: 2
@@ -12786,9 +12786,9 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 6fc1f5a9ee761fa4b843cb6e24a863c7, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     direction: 2
-  - sprite: {fileID: 21300000, guid: f9455874a66bbbf4295e60d6850f2823, type: 3}
+  - sprite: {fileID: 21300000, guid: d3da5a38ab962e24bb293ee5991cdaed, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    direction: 4
+    direction: 5
   - sprite: {fileID: 21300000, guid: 6fc1f5a9ee761fa4b843cb6e24a863c7, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     direction: 1
@@ -12875,7 +12875,7 @@ MonoBehaviour:
     direction: 5
   - sprite: {fileID: 21300000, guid: f75d7cfd4557d2748993d15c217660a1, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
-    direction: 7
+    direction: 0
   - sprite: {fileID: 21300000, guid: f9455874a66bbbf4295e60d6850f2823, type: 3}
     color: {r: 1, g: 1, b: 1, a: 1}
     direction: 4
