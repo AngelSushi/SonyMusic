@@ -44,9 +44,6 @@ public class GameManagerSetup
         }
         else if (EditorApplication.isPlaying)
         {
-            
-            Debug.Log("isPlaying " + GameObject.FindObjectsOfType<SceneLoader>().Length);
-            
             if (GameObject.FindObjectsOfType<SceneLoader>().Length >= 2)
             {
                 Debug.Log("There are 2 scene loader in the scene. Please ensure there is always exactly one audio listener in the scene.");

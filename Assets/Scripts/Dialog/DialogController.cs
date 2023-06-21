@@ -87,18 +87,20 @@ public class DialogController : MonoBehaviour
     public void LoadSceneAdditive(string sceneName)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
-        
-        Debug.Log("operation");
+        operation.completed += OnSceneLoaded;
 
-        Scene scene = SceneManager.GetSceneByName(sceneName);
+
+    }
+
+    private void OnSceneLoaded(AsyncOperation operation)
+    {
+        Scene scene = SceneManager.GetSceneByName("Gameplay");
 
         foreach (GameObject go in scene.GetRootGameObjects())
         {
             go.SetActive(false);
         }
-
     }
-    
 
     public void ChangeScene(string sceneName)
     {

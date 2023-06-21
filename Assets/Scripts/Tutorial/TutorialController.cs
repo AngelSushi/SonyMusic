@@ -7,6 +7,8 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+using Debug = UnityEngine.Debug;
 
 public class TutorialController : MonoBehaviour
 {
@@ -53,6 +55,7 @@ public class TutorialController : MonoBehaviour
     [SerializeField] private TState actualState;
 
     private DialogDisplay _dialogDisplay;
+    private DialogController _dialogController;
 
 
     [Header("Movement State")] 
@@ -69,6 +72,11 @@ public class TutorialController : MonoBehaviour
         _instance.Event.OnDestroyObstacle += DestroyObstacle;
         
         _dialogDisplay = FindObjectOfType<DialogDisplay>();
+        
+        Debug.Log("tutorial start");
+        FindObjectOfType<DialogController>().LoadSceneAdditive("Gameplay");
+
+        _dialogDisplay.OnDialogEnd += EndDialog;
         _player = FindObjectOfType<PlayerDash>();
         
         _dialogDisplay.StartDialog(15);
@@ -76,6 +84,7 @@ public class TutorialController : MonoBehaviour
 
     private void OnDestroy()
     {
+        _dialogDisplay.OnDialogEnd -= EndDialog;
         _instance.Event.OnDestroyObstacle -= DestroyObstacle;
     }
 
@@ -118,6 +127,26 @@ public class TutorialController : MonoBehaviour
         actualState = newState;
         
 
+    }
+
+    private void EndDialog(int id)
+    {
+        if (id == 28)
+        {
+            Scene scene = SceneManager.GetSceneByName("Gameplay");
+            Scene sceneTuto = SceneManager.GetSceneByName("Tutorial");
+            
+
+            foreach (GameObject go in scene.GetRootGameObjects())
+            {
+                go.SetActive(true);
+            }
+            
+            foreach (GameObject go in sceneTuto.GetRootGameObjects())
+            {
+                go.SetActive(false);
+            }
+        }
     }
 
     private void DestroyObstacle(object sender,EventManager.OnDestroyedObstacleArgs e)

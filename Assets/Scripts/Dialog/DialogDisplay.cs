@@ -113,7 +113,11 @@ public class DialogDisplay : MonoBehaviour {
 
     private void EndDialog()
     {
-        dialogParent.SetActive(false);
+        if (dialogParent != null)
+        {
+            dialogParent.SetActive(false);
+        }
+        
         _isInDialog = false;
         _isDisplayFinished = false;
     }
