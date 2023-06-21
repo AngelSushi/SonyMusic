@@ -12306,7 +12306,7 @@ PrefabInstance:
       objectReference: {fileID: 1585570060}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: angleOffset
-      value: 30
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: endDetector
@@ -12346,7 +12346,7 @@ PrefabInstance:
       objectReference: {fileID: 2067827009}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: diagonalAngleOffset
-      value: 30
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 7884514086507447091, guid: a98017baefac09e4a8752377995ad83a, type: 3}
       propertyPath: buttons.Array.data[0]
