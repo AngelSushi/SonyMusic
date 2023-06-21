@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Editor/Tools/GameManagerSetup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Editor/Tools/GameManagerSetup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dialog.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dialog.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Dialog/DialogController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +123,7 @@
       <workItem from="1686813915308" duration="200000" />
       <workItem from="1686814140945" duration="7955000" />
       <workItem from="1687248570058" duration="11338000" />
-      <workItem from="1687335503010" duration="4294000" />
+      <workItem from="1687335503010" duration="5005000" />
     </task>
     <servers />
   </component>

@@ -311,7 +311,7 @@ public class PlayerDash : CoroutineSystem
         {
             if (dashDirection == Vector3.zero)
             {
-                if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return && IsSuperSayen)
+                if (_gameManager.GetSideValueBetweenTwoPoints(transform.position, limit.transform.position, limit.transform.forward) < 0 && _return && !IsSuperSayen)
                 {
                     //    _rb.velocity = new Vector2(0, -1) * speed;
                     _rb.velocity = Vector2.left * speed;
