@@ -106,7 +106,6 @@ public class GameManager : CoroutineSystem
 
     public void ChangeSceneWithAnim(string sceneName)
     {
-        Debug.Log("sync scene");
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas != null && canvas != SceneTransitionCanvas.GetComponent<Canvas>())
