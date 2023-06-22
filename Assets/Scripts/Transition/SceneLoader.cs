@@ -12,7 +12,11 @@ public class SceneLoader : MonoBehaviour
     {
         DontDestroyOnLoad(transform.parent.gameObject);
         _gameManager = GameManager.instance;
-        _gameManager.SceneTransitionCanvas = transform.gameObject;
+        
+        if(_gameManager.SceneTransitionCanvas == null)
+        {
+            _gameManager.SceneTransitionCanvas = transform.gameObject;
+        }
 
         if (_sceneLoader == null)
         {

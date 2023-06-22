@@ -77,12 +77,17 @@ public class GameManager : CoroutineSystem
             float progress = Mathf.Clamp01((Time.time - _transitionStartTime) / (minLoadDuration / _sceneProgress));
             _player.transform.position = Vector3.Lerp(_startPoint, _endPoint,progress);
         }
+        if (SceneManager.GetActiveScene().name == "Tutorial")
+        {
+            AudioManager.instance.Stop(SoundState.Voiture);
+            AudioManager.instance.Stop(SoundState.GameTheme);
+        }
         if (SceneManager.GetActiveScene().name == "Gameplay")
         {
             AudioManager.instance.Stop(SoundState.Voiture);
             AudioManager.instance.Stop(SoundState.GameTheme);
         }
-        
+
 
     }
 
@@ -101,7 +106,6 @@ public class GameManager : CoroutineSystem
 
     public void ChangeSceneWithAnim(string sceneName)
     {
-        Debug.Log("sync scene");
         foreach (Canvas canvas in FindObjectsOfType<Canvas>())
         {
             if (canvas != null && canvas != SceneTransitionCanvas.GetComponent<Canvas>())

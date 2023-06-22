@@ -29,7 +29,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/LightGrowing.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Tutorial/TutorialController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/UnitySpriteCutterExample/LinecastCutter.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Utilities/DelegateHelpers.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.4.4/InputSystem/Utilities/DelegateHelpers.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -122,7 +122,8 @@
       <workItem from="1686814140945" duration="7955000" />
       <workItem from="1687248570058" duration="11338000" />
       <workItem from="1687335503010" duration="5600000" />
-      <workItem from="1687419358467" duration="2293000" />
+      <workItem from="1687419358467" duration="4668000" />
+      <workItem from="1687441641526" duration="792000" />
     </task>
     <servers />
   </component>
