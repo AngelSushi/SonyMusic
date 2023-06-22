@@ -532,9 +532,9 @@ public class PlayerDash : CoroutineSystem
             case DashDirection.DOWN:
                 return col.transform.up * -1;
             case DashDirection.LEFT:
-                return col.transform.right;
-            case DashDirection.RIGHT:
                 return col.transform.right * -1;
+            case DashDirection.RIGHT:
+                return col.transform.right;
             case DashDirection.DIAGONAL_LDOWN:
                 targetAngle = diagonalAngleOffset;
                 return col.transform.right + col.transform.up * -1;
