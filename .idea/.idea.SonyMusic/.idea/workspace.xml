@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0ba92c51-5496-4deb-8830-d6f120eb835f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.SonyMusic/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dialog.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dialog.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Tutorial.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Plateform.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/Plateform.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Obstacles/02.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Obstacles/02.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Obstacles/03.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Obstacles/03.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Obstacles/04.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Obstacles/04.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Obstacles/obstacle.png" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Obstacles/obstacle.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Destruction.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Destruction.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Gameplay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Gameplay/PlayerDash.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +131,7 @@
       <workItem from="1686814140945" duration="7955000" />
       <workItem from="1687248570058" duration="11338000" />
       <workItem from="1687335503010" duration="5600000" />
-      <workItem from="1687419358467" duration="395000" />
+      <workItem from="1687419358467" duration="1665000" />
     </task>
     <servers />
   </component>

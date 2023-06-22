@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnitySpriteCutter;
 using Slider = UnityEngine.UI.Slider;
@@ -383,26 +384,13 @@ public class PlayerDash : CoroutineSystem
 
                 float targetAngle = angleOffset;
                 float angle = Vector3.Angle(dashDirection, FindDirection(dObj, col, targetAngle));
-
-                Vector3 slashPosition = col.transform.position;
-                slashPosition.z = -2f;
-
-                GameObject slash = Instantiate(slashAnim, slashPosition, Quaternion.identity);
-                slash.SetActive(true);
-                slash.transform.position = slashPosition;
-
-                float animAngle = Vector2.Angle(col.transform.up, dashDirection);
-
-                slash.transform.eulerAngles = new Vector3(0, 0, -animAngle);
-
-                RunDelayed(0.36f, () =>
-                {
-                    Destroy(slash);
-                });
-
-
+                
+                
+                Debug.Log("model angle " + angle + " targetAngle " + targetAngle);
+                
                 if ((int)angle <= targetAngle || dObj.dashDirection == DashDirection.ALL)
                 {
+                    SlashAnim(col);
                     dObj.IsCut = true;
                     AddPoint();
                     CutObject(col, localEndPosition);
@@ -430,6 +418,27 @@ public class PlayerDash : CoroutineSystem
         
     }
 
+    private void SlashAnim(Collider2D col)
+    {
+        Vector3 slashPosition = col.transform.position;
+        slashPosition.z = -2f;
+
+        GameObject slash = Instantiate(slashAnim, slashPosition, Quaternion.identity);
+        slash.SetActive(true);
+        slash.transform.position = slashPosition;
+
+        float animAngle = Vector2.Angle(col.transform.up, dashDirection);
+
+        slash.transform.eulerAngles = new Vector3(0, 0, -animAngle);
+
+        RunDelayed(0.36f, () =>
+        {
+            Destroy(slash);
+        });
+        
+    }
+    
+    
     private void DebugDash(Collider2D col,Vector3 localEndPosition)
     {
         if (debugDash)
@@ -526,16 +535,16 @@ public class PlayerDash : CoroutineSystem
                 return col.transform.right;
             case DashDirection.RIGHT:
                 return col.transform.right * -1;
-            case DashDirection.DIAGONAL_LUP:
-                targetAngle = diagonalAngleOffset;
-                return col.transform.right + col.transform.up * -1;
-            case DashDirection.DIAGONAL_RUP:
-                targetAngle = diagonalAngleOffset;
-                return col.transform.right * -1 + col.transform.up * -1;
             case DashDirection.DIAGONAL_LDOWN:
                 targetAngle = diagonalAngleOffset;
-                return col.transform.right + col.transform.up;
+                return col.transform.right + col.transform.up * -1;
             case DashDirection.DIAGONAL_RDOWN:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right * -1 + col.transform.up * -1;
+            case DashDirection.DIAGONAL_LUP:
+                targetAngle = diagonalAngleOffset;
+                return col.transform.right + col.transform.up;
+            case DashDirection.DIAGONAL_RUP:
                 targetAngle = diagonalAngleOffset;
                 return col.transform.right * -1 + col.transform.up;
             default:
