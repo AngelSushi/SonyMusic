@@ -116,6 +116,23 @@ public class TutorialController : MonoBehaviour
         }
     }
 
+    public void SkipTuto()
+    {
+        Scene tutoScene = SceneManager.GetSceneByName("Tutorial");
+
+        foreach (GameObject obj in tutoScene.GetRootGameObjects())
+        {
+            obj.SetActive(false);
+        }
+
+        Scene gameplayScene = SceneManager.GetSceneByName("Gameplay");
+
+        foreach (GameObject obj in gameplayScene.GetRootGameObjects())
+        {
+            obj.SetActive(true);
+        }
+    }
+
     private void SwitchState(TState newState)
     {
         TutorialState lastTState = tutorialStates.Where(state => state.State == actualState).ToList()[0];
