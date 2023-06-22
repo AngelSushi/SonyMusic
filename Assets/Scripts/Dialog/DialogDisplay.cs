@@ -52,7 +52,6 @@ public class DialogDisplay : MonoBehaviour {
         
         _currentDialog = DialogController.instance.GetDialogById(id);
         _isInDialog = true;
-        _currentDialog.speed = 5f;
         
         DialogController.Speaker dialogSpeaker = DialogController.instance.GetSpeakerById(_currentDialog.speakerID);
 
