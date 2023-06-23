@@ -502,7 +502,7 @@ public class PlayerDash : CoroutineSystem
                 }
             }
 
-                        
+            AudioManager.instance.PlayRandom(SoundState.Slash);           
             _rb.velocity = dashDirection * dashSpeed;
             _playerPosition = transform.position;
             isDashing = true;
