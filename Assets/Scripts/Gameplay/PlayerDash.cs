@@ -86,9 +86,9 @@ public class PlayerDash : CoroutineSystem
     public GameObject barreChargement;
     public GameObject barreChargementFull;
     private bool canSayen = false;
+    public Animator fadeAnimator;
 
-
-    public GameObject fadeScreen;
+    //public GameObject fadeScreen;
     public bool CanSayen
     {
         get => canSayen;
@@ -286,7 +286,8 @@ public class PlayerDash : CoroutineSystem
                 _rb.velocity = Vector2.zero;
                 _hasReachBercy = true;
                 //_gameManager.Win();
-                fadeScreen.SetActive(true);
+                //fadeScreen.SetActive(true);
+                fadeAnimator.SetBool("fade", true);
             }
         }
         
