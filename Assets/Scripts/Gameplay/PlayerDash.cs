@@ -287,6 +287,7 @@ public class PlayerDash : CoroutineSystem
                 _hasReachBercy = true;
                 //_gameManager.Win();
                 //fadeScreen.SetActive(true);
+                fadeAnimator.gameObject.SetActive(true);
                 fadeAnimator.SetBool("fade", true);
             }
         }
